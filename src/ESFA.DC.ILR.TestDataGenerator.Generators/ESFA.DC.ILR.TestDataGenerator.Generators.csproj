@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CodeAnalysisRuleSet>ESFA.DC.ILR.TestDataGenerator.Generators.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <CodeAnalysisRuleSet>ESFA.DC.ILR.TestDataGenerator.Generators.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ESFA.DC.ILR.1718.Model\ESFA.DC.ILR.1718.Model.csproj" />
+    <ProjectReference Include="..\ESFA.DC.ILR.TestDataGenerator.Functors\ESFA.DC.ILR.TestDataGenerator.Functors.csproj" />
+  </ItemGroup>
+
+</Project>
