@@ -17,7 +17,7 @@
 
         public string RuleName()
         {
-            return "PRILLDD_04";
+            return "PLLDD_04";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)

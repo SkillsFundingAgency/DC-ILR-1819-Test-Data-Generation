@@ -17,7 +17,7 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
-            return "PMUKPRN_01";
+            return "PMPRN_01";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
