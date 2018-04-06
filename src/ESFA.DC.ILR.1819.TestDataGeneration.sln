@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.1718.Model", "ESFA.DC.ILR.1718.Model\ESFA.DC.ILR.1718.Model.csproj", "{F0DE507F-0984-451E-AD6B-38E1FF67235E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.TestDataGenerator.Functors", "ESFA.DC.ILR.TestDataGenerator.Functors\ESFA.DC.ILR.TestDataGenerator.Functors.csproj", "{AD94C862-9DDD-4F65-B3ED-93DCAE72789A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.TestDataGenerator.Generators", "ESFA.DC.ILR.TestDataGenerator.Generators\ESFA.DC.ILR.TestDataGenerator.Generators.csproj", "{A3D9C567-16FF-4248-ACE7-F46AF6F02B87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.TestDataGenerator.UI", "ESFA.DC.ILR.TestDataGenerator.UI\ESFA.DC.ILR.TestDataGenerator.UI.csproj", "{D5FCC315-914D-442C-A54E-F219114CB464}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.TestDataGenerator.Console", "ESFA.DC.ILR.TestDataGenerator.Console\ESFA.DC.ILR.TestDataGenerator.Console.csproj", "{0BC7258A-0FF5-429E-A6BC-ADDC7FE74072}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0DE507F-0984-451E-AD6B-38E1FF67235E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0DE507F-0984-451E-AD6B-38E1FF67235E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0DE507F-0984-451E-AD6B-38E1FF67235E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0DE507F-0984-451E-AD6B-38E1FF67235E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD94C862-9DDD-4F65-B3ED-93DCAE72789A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD94C862-9DDD-4F65-B3ED-93DCAE72789A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD94C862-9DDD-4F65-B3ED-93DCAE72789A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD94C862-9DDD-4F65-B3ED-93DCAE72789A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3D9C567-16FF-4248-ACE7-F46AF6F02B87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D9C567-16FF-4248-ACE7-F46AF6F02B87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D9C567-16FF-4248-ACE7-F46AF6F02B87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D9C567-16FF-4248-ACE7-F46AF6F02B87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5FCC315-914D-442C-A54E-F219114CB464}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5FCC315-914D-442C-A54E-F219114CB464}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5FCC315-914D-442C-A54E-F219114CB464}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5FCC315-914D-442C-A54E-F219114CB464}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BC7258A-0FF5-429E-A6BC-ADDC7FE74072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BC7258A-0FF5-429E-A6BC-ADDC7FE74072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BC7258A-0FF5-429E-A6BC-ADDC7FE74072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BC7258A-0FF5-429E-A6BC-ADDC7FE74072}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {428363AE-569C-40A3-AB22-6BD32DA7820F}
+	EndGlobalSection
+EndGlobal
