@@ -35,7 +35,7 @@ namespace DCT.TestDataGenerator
 
         public Message File { get; set; }
 
-        public static void CreateAllFiles(RuleToFunctorParser rfp, List<ActiveRuleValidity> arv, int UKPRN, string folder, uint scale, string ns)
+        public static string CreateAllFiles(RuleToFunctorParser rfp, List<ActiveRuleValidity> arv, int UKPRN, string folder, uint scale, string ns)
         {
             int ukprn = UKPRN;
             List<FileRuleLearner> allLearners = new List<FileRuleLearner>(1000);
@@ -66,7 +66,7 @@ namespace DCT.TestDataGenerator
                 XmlGenerator.CreateXMLFile(FilePreparationDateRequired.January, arv, rfp, ukprn, folder, scale, allLearners, ns);
             }
 
-            OutputControlFile(folder, allLearners);
+            return OutputControlFile(folder, allLearners);
         }
 
         public static void CreateXMLFile(FilePreparationDateRequired dateRequired, IEnumerable<ActiveRuleValidity> ruleNames, RuleToFunctorParser rfp, int UKPRN, string folder, uint scale, List<FileRuleLearner> allLearners, string ns)
@@ -132,7 +132,7 @@ namespace DCT.TestDataGenerator
             return result;
         }
 
-        private static void OutputControlFile(string folder, List<FileRuleLearner> allLearners)
+        private static string OutputControlFile(string folder, List<FileRuleLearner> allLearners)
         {
             string filename = $"{folder}control-{DateTime.Now.ToString("yyyyMMdd-HHmmss")}.csv";
             using (TextWriter sw = new StreamWriter(filename))
@@ -155,6 +155,8 @@ namespace DCT.TestDataGenerator
                     sw.WriteLine(string.Empty);
                 }
             }
+
+            return filename;
         }
 
         private MessageLearningProvider CreateLearningProvider(int ukprn)

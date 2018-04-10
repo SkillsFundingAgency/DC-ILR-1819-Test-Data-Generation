@@ -70,7 +70,7 @@ namespace ESFA.DC.ILR.TestDataGenerator.Console
 
             if (rules.Count > 0)
             {
-                XmlGenerator.CreateAllFiles(rfp, rules, UKPRN, folder, scale, ns);
+                System.Console.WriteLine($"{XmlGenerator.CreateAllFiles(rfp, rules, UKPRN, folder, scale, ns)}");
             }
             else
             {
@@ -115,7 +115,7 @@ namespace ESFA.DC.ILR.TestDataGenerator.Console
         {
             for (int i = 0; i < args.Length - 1; ++i)
             {
-                if (args[i].ToLower() == v)
+                if (args[i].ToLower().TrimEnd() == v)
                 {
                     s = args[i + 1];
                     break;
