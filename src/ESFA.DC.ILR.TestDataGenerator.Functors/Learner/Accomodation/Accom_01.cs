@@ -32,7 +32,7 @@ namespace DCT.TestDataGenerator.Functor
             _accomodation.RemoveAt(0);
             if (!valid)
             {
-                learner.Accom += 9;
+                learner.Accom += 1;
             }
         }
 

@@ -79,10 +79,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ESFA.DC.ILR.1718.Model\ESFA.DC.ILR.1718.Model.csproj">
-      <Project>{f0de507f-0984-451e-ad6b-38e1ff67235e}</Project>
-      <Name>ESFA.DC.ILR.1718.Model</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ESFA.DC.ILR.TestDataGenerator.Functors\ESFA.DC.ILR.TestDataGenerator.Functors.csproj">
       <Project>{ad94c862-9ddd-4f65-b3ed-93dcae72789a}</Project>
       <Name>ESFA.DC.ILR.TestDataGenerator.Functors</Name>

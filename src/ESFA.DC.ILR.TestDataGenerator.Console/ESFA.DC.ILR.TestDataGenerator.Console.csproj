@@ -57,9 +57,9 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ESFA.DC.ILR.1718.Model\ESFA.DC.ILR.1718.Model.csproj">
-      <Project>{f0de507f-0984-451e-ad6b-38e1ff67235e}</Project>
-      <Name>ESFA.DC.ILR.1718.Model</Name>
+    <ProjectReference Include="..\ESFA.DC.ILR.1819.LooseModel\ESFA.DC.ILR.1819.LooseModel.csproj">
+      <Project>{e8a8321a-35d9-4778-94b2-5abd7177b7dd}</Project>
+      <Name>ESFA.DC.ILR.1819.LooseModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\ESFA.DC.ILR.TestDataGenerator.Functors\ESFA.DC.ILR.TestDataGenerator.Functors.csproj">
       <Project>{ad94c862-9ddd-4f65-b3ed-93dcae72789a}</Project>

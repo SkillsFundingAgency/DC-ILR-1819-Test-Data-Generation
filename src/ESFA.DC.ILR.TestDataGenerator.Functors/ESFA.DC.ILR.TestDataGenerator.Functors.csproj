@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ESFA.DC.ILR.1718.Model\ESFA.DC.ILR.1718.Model.csproj" />
+    <ProjectReference Include="..\ESFA.DC.ILR.1819.LooseModel\ESFA.DC.ILR.1819.LooseModel.csproj" />
   </ItemGroup>
 
 </Project>

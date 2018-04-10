@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.1718.Model", "ESFA.DC.ILR.1718.Model\ESFA.DC.ILR.1718.Model.csproj", "{F0DE507F-0984-451E-AD6B-38E1FF67235E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.ILR.1718.Model", "ESFA.DC.ILR.1718.Model\ESFA.DC.ILR.1718.Model.csproj", "{F0DE507F-0984-451E-AD6B-38E1FF67235E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.TestDataGenerator.Functors", "ESFA.DC.ILR.TestDataGenerator.Functors\ESFA.DC.ILR.TestDataGenerator.Functors.csproj", "{AD94C862-9DDD-4F65-B3ED-93DCAE72789A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.ILR.TestDataGenerator.Functors", "ESFA.DC.ILR.TestDataGenerator.Functors\ESFA.DC.ILR.TestDataGenerator.Functors.csproj", "{AD94C862-9DDD-4F65-B3ED-93DCAE72789A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.TestDataGenerator.Generators", "ESFA.DC.ILR.TestDataGenerator.Generators\ESFA.DC.ILR.TestDataGenerator.Generators.csproj", "{A3D9C567-16FF-4248-ACE7-F46AF6F02B87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.ILR.TestDataGenerator.Generators", "ESFA.DC.ILR.TestDataGenerator.Generators\ESFA.DC.ILR.TestDataGenerator.Generators.csproj", "{A3D9C567-16FF-4248-ACE7-F46AF6F02B87}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.TestDataGenerator.UI", "ESFA.DC.ILR.TestDataGenerator.UI\ESFA.DC.ILR.TestDataGenerator.UI.csproj", "{D5FCC315-914D-442C-A54E-F219114CB464}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.TestDataGenerator.Console", "ESFA.DC.ILR.TestDataGenerator.Console\ESFA.DC.ILR.TestDataGenerator.Console.csproj", "{0BC7258A-0FF5-429E-A6BC-ADDC7FE74072}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.1819.LooseModel", "ESFA.DC.ILR.1819.LooseModel\ESFA.DC.ILR.1819.LooseModel.csproj", "{E8A8321A-35D9-4778-94B2-5ABD7177B7DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{0BC7258A-0FF5-429E-A6BC-ADDC7FE74072}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BC7258A-0FF5-429E-A6BC-ADDC7FE74072}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BC7258A-0FF5-429E-A6BC-ADDC7FE74072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8A8321A-35D9-4778-94B2-5ABD7177B7DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8A8321A-35D9-4778-94B2-5ABD7177B7DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8A8321A-35D9-4778-94B2-5ABD7177B7DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8A8321A-35D9-4778-94B2-5ABD7177B7DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

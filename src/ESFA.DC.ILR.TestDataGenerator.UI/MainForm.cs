@@ -46,13 +46,15 @@ namespace ILRTestDataGenerator
 
 
             int UKPRN = int.Parse(uiUKPRN.Text);
-            XmlGenerator.CreateAllFiles(_rfp,arv,UKPRN,@"D:\\", scale);
+            string ns = fileNamespace.Text;
+            XmlGenerator.CreateAllFiles(_rfp,arv,UKPRN,@"D:\\", scale, ns);
         }
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
             SetUpFunctorDataGrid();
+            fileNamespace.SelectedIndex = 0;
         }
         public void AddFunctor(ILearnerMultiMutator i)
         {

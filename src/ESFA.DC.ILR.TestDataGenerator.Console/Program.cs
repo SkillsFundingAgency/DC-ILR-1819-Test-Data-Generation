@@ -16,6 +16,8 @@ namespace ESFA.DC.ILR.TestDataGenerator.Console
         private const string pathKeyword = "-path";
         private const string scaleKeyword = "-scale";
         private const string rulesKeyword = "-rules";
+        private const string namespaceKeyword = "-ns";
+        private const string defaultNamespace = "ESFA/ILR/2018-19";
 
         private static int UKPRN = 90000064;
 
@@ -29,6 +31,8 @@ namespace ESFA.DC.ILR.TestDataGenerator.Console
 
             string folder = @".\";
             CheckForCommandLine(args, pathKeyword, ref folder);
+            string ns = defaultNamespace;
+            CheckForCommandLine(args, namespaceKeyword, ref ns);
             uint scale = 1;
             CheckForCommandLine(args, scaleKeyword, ref scale);
             CheckForCommandLine(args, supportedKeyword);
@@ -66,7 +70,7 @@ namespace ESFA.DC.ILR.TestDataGenerator.Console
 
             if (rules.Count > 0)
             {
-                XmlGenerator.CreateAllFiles(rfp, rules, UKPRN, folder, scale);
+                XmlGenerator.CreateAllFiles(rfp, rules, UKPRN, folder, scale, ns);
             }
             else
             {
@@ -83,6 +87,8 @@ namespace ESFA.DC.ILR.TestDataGenerator.Console
             System.Console.WriteLine("       Does it generate data that passes the rule (true) or data that will cause the rule to fail");
             System.Console.WriteLine("       and generate output when run through a validation engine (false)");
             System.Console.WriteLine("       Spelling is important but is case insensitive.");
+            System.Console.WriteLine($"  [{namespaceKeyword} <argument>]");
+            System.Console.WriteLine($"    - Optional parameter. Defaults to {defaultNamespace}");
             System.Console.WriteLine($"  [{supportedKeyword}]");
             System.Console.WriteLine($"    - Optional parameter. Lists all of the rule names that are supported");
             System.Console.WriteLine($"      (and for easy formatting also prints the word 'false')");

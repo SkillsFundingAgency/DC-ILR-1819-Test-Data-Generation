@@ -41,6 +41,8 @@
             this.uiRuleData = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.uiMultiplication = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.fileNamespace = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.uiParameters)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +58,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(172, 10);
+            this.label2.Location = new System.Drawing.Point(208, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 1;
@@ -64,7 +66,7 @@
             // 
             // uiUKPRN
             // 
-            this.uiUKPRN.Location = new System.Drawing.Point(64, 10);
+            this.uiUKPRN.Location = new System.Drawing.Point(102, 10);
             this.uiUKPRN.Name = "uiUKPRN";
             this.uiUKPRN.Size = new System.Drawing.Size(100, 20);
             this.uiUKPRN.TabIndex = 2;
@@ -73,7 +75,7 @@
             // 
             // uiYear
             // 
-            this.uiYear.Location = new System.Drawing.Point(213, 10);
+            this.uiYear.Location = new System.Drawing.Point(249, 10);
             this.uiYear.Name = "uiYear";
             this.uiYear.Size = new System.Drawing.Size(100, 20);
             this.uiYear.TabIndex = 3;
@@ -81,7 +83,7 @@
             // 
             // uiOuputFile
             // 
-            this.uiOuputFile.Location = new System.Drawing.Point(458, 8);
+            this.uiOuputFile.Location = new System.Drawing.Point(494, 8);
             this.uiOuputFile.Name = "uiOuputFile";
             this.uiOuputFile.Size = new System.Drawing.Size(75, 23);
             this.uiOuputFile.TabIndex = 4;
@@ -99,9 +101,9 @@
             this.Valid,
             this.Active,
             this.BaseLearner});
-            this.uiParameters.Location = new System.Drawing.Point(1, 45);
+            this.uiParameters.Location = new System.Drawing.Point(1, 67);
             this.uiParameters.Name = "uiParameters";
-            this.uiParameters.Size = new System.Drawing.Size(959, 578);
+            this.uiParameters.Size = new System.Drawing.Size(959, 556);
             this.uiParameters.TabIndex = 5;
             // 
             // RuleName
@@ -133,7 +135,7 @@
             // uiRuleData
             // 
             this.uiRuleData.AutoSize = true;
-            this.uiRuleData.Location = new System.Drawing.Point(550, 10);
+            this.uiRuleData.Location = new System.Drawing.Point(586, 10);
             this.uiRuleData.Name = "uiRuleData";
             this.uiRuleData.Size = new System.Drawing.Size(35, 13);
             this.uiRuleData.TabIndex = 6;
@@ -142,7 +144,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(316, 10);
+            this.label3.Location = new System.Drawing.Point(352, 10);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 13);
@@ -151,18 +153,40 @@
             // 
             // uiMultiplication
             // 
-            this.uiMultiplication.Location = new System.Drawing.Point(394, 9);
-            this.uiMultiplication.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uiMultiplication.Location = new System.Drawing.Point(430, 9);
+            this.uiMultiplication.Margin = new System.Windows.Forms.Padding(2);
             this.uiMultiplication.Name = "uiMultiplication";
             this.uiMultiplication.Size = new System.Drawing.Size(52, 20);
             this.uiMultiplication.TabIndex = 8;
             this.uiMultiplication.Text = "1";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "namespace";
+            // 
+            // fileNamespace
+            // 
+            this.fileNamespace.FormattingEnabled = true;
+            this.fileNamespace.Items.AddRange(new object[] {
+            "ESFA/ILR/2018-19",
+            "SFA/ILR/2017-18"});
+            this.fileNamespace.Location = new System.Drawing.Point(81, 36);
+            this.fileNamespace.Name = "fileNamespace";
+            this.fileNamespace.Size = new System.Drawing.Size(121, 21);
+            this.fileNamespace.TabIndex = 10;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 593);
+            this.Controls.Add(this.fileNamespace);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.uiMultiplication);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.uiRuleData);
@@ -196,6 +220,8 @@
         private System.Windows.Forms.Label uiRuleData;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox uiMultiplication;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox fileNamespace;
     }
 }
 
