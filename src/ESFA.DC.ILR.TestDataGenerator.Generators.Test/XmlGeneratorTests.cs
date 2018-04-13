@@ -15,8 +15,7 @@ namespace DCT.TestDataGenerator.Test
         public void CreateAllXml_NullArgumentToException()
         {
             int UKPRN = 8;
-            RuleToFunctorParser rfp = new RuleToFunctorParser(new DataCache());
-            XmlGenerator generator = new XmlGenerator(rfp, UKPRN);
+            XmlGenerator generator = new XmlGenerator(null, UKPRN);
             Action call = () => { generator.CreateAllXml(null, 1, XmlGenerator.ESFA201819Namespace); };
             call.Should().Throw<NullReferenceException>();
         }
