@@ -77,6 +77,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ESFA.DC.ILR.1819.LooseModel\ESFA.DC.ILR.1819.LooseModel.csproj">
+      <Project>{e8a8321a-35d9-4778-94b2-5abd7177b7dd}</Project>
+      <Name>ESFA.DC.ILR.1819.LooseModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ESFA.DC.ILR.TestDataGenerator.Functors\ESFA.DC.ILR.TestDataGenerator.Functors.csproj">
       <Project>{ad94c862-9ddd-4f65-b3ed-93dcae72789a}</Project>
       <Name>ESFA.DC.ILR.TestDataGenerator.Functors</Name>

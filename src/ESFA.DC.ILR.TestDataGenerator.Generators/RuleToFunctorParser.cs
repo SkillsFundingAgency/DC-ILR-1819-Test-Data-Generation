@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using DCT.ILR.Model;
 using DCT.TestDataGenerator.Functor;
 
@@ -56,16 +57,28 @@ namespace DCT.TestDataGenerator
         public void CreateFunctors(Action<ILearnerMultiMutator> addFunctor)
         {
             var type = typeof(DCT.TestDataGenerator.Functor.ILearnerMultiMutator);
-            var types = AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(s => s.GetTypes())
-                .Where(p => type.IsAssignableFrom(p) && p.IsClass);
+            var typesCore = AppDomain.CurrentDomain.GetAssemblies().Where(s => s.FullName.Contains("Functors"));
 
+            IEnumerable<Type> types = typesCore.SelectMany(s => s.GetTypes())
+                    .Where(p => type.IsAssignableFrom(p) && p.IsClass);
+
+            //try
+            //{
             foreach (var t in types)
             {
                 var i = (ILearnerMultiMutator)Activator.CreateInstance(t);
                 AddRuleToFunctor(i.RuleName(), i);
-                addFunctor(i);
+                addFunctor?.Invoke(i);
             }
+
+            //}
+            //catch (ReflectionTypeLoadException ex)
+            //{
+            //    foreach (var exception in ex.LoaderExceptions)
+            //    {
+            //        Console.WriteLine(exception);
+            //    }
+            //}
         }
 
         internal IEnumerable<string> RuleNames()
