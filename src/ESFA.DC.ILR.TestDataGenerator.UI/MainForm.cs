@@ -47,7 +47,11 @@ namespace ILRTestDataGenerator
 
             int UKPRN = int.Parse(uiUKPRN.Text);
             string ns = fileNamespace.Text;
-            XmlGenerator.CreateAllFiles(_rfp,arv,UKPRN,@"D:\\", scale, ns);
+            XmlGenerator generator = new XmlGenerator(_rfp, UKPRN);
+            var result = generator.CreateAllXml(arv, scale, ns);
+            string folder = @"d:\";
+            FileWriter.WriteXmlFiles(folder, generator.FileContent(), ns);
+            FileWriter.OutputControlFile(folder, result);
         }
 
 

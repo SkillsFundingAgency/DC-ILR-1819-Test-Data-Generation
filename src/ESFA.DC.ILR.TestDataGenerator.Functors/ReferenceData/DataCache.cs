@@ -301,7 +301,7 @@ namespace DCT.TestDataGenerator
 
             foreach (var i2 in invalid2)
             {
-                result.Add("AA1A " + i2);
+                result.Add("AA1A 1" + i2);
             }
 
             return result;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -88,7 +89,10 @@ namespace ESFA.DC.ILR.TestDataGenerator.Console
 
             if (rules.Count > 0)
             {
-                System.Console.WriteLine($"{XmlGenerator.CreateAllFiles(rfp, rules, UKPRN, folder, scale, ns)}");
+                XmlGenerator generator = new XmlGenerator(rfp, UKPRN);
+                var result = generator.CreateAllXml(rules, scale, ns);
+                FileWriter.WriteXmlFiles(folder, generator.FileContent(), ns);
+                System.Console.WriteLine($"{FileWriter.OutputControlFile(folder, result)}");
             }
             else
             {

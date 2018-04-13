@@ -164,7 +164,7 @@ namespace DCT.TestDataGenerator
 
         internal List<MessageLearner> Generate(string ruleName, LearnerTypeRequired requiresLearner, int currentLearnerIndex, ref long ULNIndex)
         {
-            ULNIndex = currentLearnerIndex;
+//            ULNIndex = currentLearnerIndex;
             long uln = 0;
             bool ok = false;
             while (!ok)
@@ -176,8 +176,9 @@ namespace DCT.TestDataGenerator
                 }
                 catch (ArgumentOutOfRangeException)
                 {
-                    ++ULNIndex;
                 }
+
+                ++ULNIndex;
             }
 
             List<MessageLearner> result = new List<MessageLearner>();
