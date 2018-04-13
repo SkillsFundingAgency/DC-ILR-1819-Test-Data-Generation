@@ -25,36 +25,49 @@ namespace ESFA.DC.ILR.TestDataGenerator.Console
 
         public static void Main(string[] args)
         {
+            List<string> command = new List<string>(args.Length * 2);
+
+            //System.Console.WriteLine($"args:{args.Length}");
+            for (int i = 0; i != args.Length; ++i)
+            {
+                //System.Console.WriteLine($"args[{i}]:'{args[i].ToLower()}'");
+                command.AddRange(args[i].ToLower().Split(' '));
+            }
+
             var cache = new DataCache();
             var rfp = new RuleToFunctorParser(cache);
             rfp.CreateFunctors(AddFunctor);
 
             string folder = @".\";
-            CheckForCommandLine(args, pathKeyword, ref folder);
+            CheckForCommandLine(command, pathKeyword, ref folder);
             string ns = defaultNamespace;
-            CheckForCommandLine(args, namespaceKeyword, ref ns);
+            CheckForCommandLine(command, namespaceKeyword, ref ns);
             uint scale = 1;
-            CheckForCommandLine(args, scaleKeyword, ref scale);
-            CheckForCommandLine(args, supportedKeyword);
-            CheckForCommandLine(args, helpKeyword);
+            CheckForCommandLine(command, scaleKeyword, ref scale);
+            CheckForCommandLine(command, supportedKeyword);
+            CheckForCommandLine(command, helpKeyword);
 
             List<ActiveRuleValidity> rules = new List<ActiveRuleValidity>(100);
-            for (int i = 0; i != args.Length; ++i)
+            for (int i = 0; i != command.Count; ++i)
             {
-                if (args[i].ToLower() == rulesKeyword)
+                //System.Console.WriteLine($"args[{i}]:'{command[i]}'");
+                if (command[i] == rulesKeyword)
                 {
-                    for (int j = i + 1; j < args.Length - 1; j += 2)
+                    //System.Console.WriteLine($"Rules keyword detected. looking for rules {i + 1} {args.Length - 1}");
+                    for (int j = i + 1; j < command.Count - 1; j += 2)
                     {
-                        string name = args[j].ToLower();
+                        string name = command[j];
+                        //System.Console.WriteLine($"'{name}' checking to see if a rule");
                         var ienum = _functors.Where(s => s.RuleName().ToLower() == name);
                         bool found = ienum.Count() > 0;
                         if (!found)
                         {
+                            //System.Console.WriteLine($"'{name}' is NOT a rule name, stopping rule interpretation");
                             break;
                         }
 
                         bool valid = false;
-                        if (bool.TryParse(args[j + 1], out valid))
+                        if (bool.TryParse(command[j + 1], out valid))
                         {
                             rules.Add(new ActiveRuleValidity()
                             {
@@ -62,6 +75,11 @@ namespace ESFA.DC.ILR.TestDataGenerator.Console
                                 Valid = valid
                             });
                         }
+
+                        //else
+                        //{
+                        //    //System.Console.WriteLine($"'{command[j + 1]}' has not been interpreted as a boolean value correctly");
+                        //}
                     }
 
                     break;
@@ -111,9 +129,9 @@ namespace ESFA.DC.ILR.TestDataGenerator.Console
             _functors.Add(i);
         }
 
-        private static void CheckForCommandLine(string[] args, string v, ref string s)
+        private static void CheckForCommandLine(List<string> args, string v, ref string s)
         {
-            for (int i = 0; i < args.Length - 1; ++i)
+            for (int i = 0; i < args.Count - 1; ++i)
             {
                 if (args[i].ToLower().TrimEnd() == v)
                 {
@@ -123,9 +141,9 @@ namespace ESFA.DC.ILR.TestDataGenerator.Console
             }
         }
 
-        private static void CheckForCommandLine(string[] args, string v)
+        private static void CheckForCommandLine(List<string> args, string v)
         {
-            for (int i = 0; i < args.Length; ++i)
+            for (int i = 0; i < args.Count; ++i)
             {
                 if (args[i].ToLower() == v)
                 {
@@ -153,10 +171,10 @@ namespace ESFA.DC.ILR.TestDataGenerator.Console
             }
         }
 
-        private static bool CheckForCommandLine(string[] args, string flag, ref uint value)
+        private static bool CheckForCommandLine(List<string> args, string flag, ref uint value)
         {
             string t = string.Empty;
-            for (int i = 0; i < args.Length - 1; ++i)
+            for (int i = 0; i < args.Count - 1; ++i)
             {
                 if (args[i].ToLower() == flag)
                 {

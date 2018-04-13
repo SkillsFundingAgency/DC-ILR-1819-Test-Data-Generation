@@ -110,7 +110,7 @@ namespace DCT.TestDataGenerator
             }
 
             // ooo. This is a bit stinky.
-            if (ns != ESFA201819Namespace)
+            if (ns.ToLower() != ESFA201819Namespace.ToLower())
             {
                 var xmlContent = System.IO.File.ReadAllText(filename);
                 xmlContent = xmlContent.Replace(ESFA201819Namespace, SFA201718Namespace);
