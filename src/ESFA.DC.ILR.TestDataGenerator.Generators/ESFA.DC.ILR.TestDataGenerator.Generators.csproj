@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/SkillsFundingAgency/DC-ILR-1819-Test-Data-Generation</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/SkillsFundingAgency/DC-ILR-1819-Test-Data-Generation/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
