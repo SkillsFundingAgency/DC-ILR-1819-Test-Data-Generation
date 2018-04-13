@@ -13,7 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.TestDataGenerat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.TestDataGenerator.Console", "ESFA.DC.ILR.TestDataGenerator.Console\ESFA.DC.ILR.TestDataGenerator.Console.csproj", "{0BC7258A-0FF5-429E-A6BC-ADDC7FE74072}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.1819.LooseModel", "ESFA.DC.ILR.1819.LooseModel\ESFA.DC.ILR.1819.LooseModel.csproj", "{E8A8321A-35D9-4778-94B2-5ABD7177B7DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.ILR.1819.LooseModel", "ESFA.DC.ILR.1819.LooseModel\ESFA.DC.ILR.1819.LooseModel.csproj", "{E8A8321A-35D9-4778-94B2-5ABD7177B7DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.TestDataGenerator.Generators.Test", "ESFA.DC.ILR.TestDataGenerator.Generators.Test\ESFA.DC.ILR.TestDataGenerator.Generators.Test.csproj", "{712EBAB5-2F3B-4C18-B223-252EEE4D5E8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{E8A8321A-35D9-4778-94B2-5ABD7177B7DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8A8321A-35D9-4778-94B2-5ABD7177B7DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8A8321A-35D9-4778-94B2-5ABD7177B7DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{712EBAB5-2F3B-4C18-B223-252EEE4D5E8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{712EBAB5-2F3B-4C18-B223-252EEE4D5E8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{712EBAB5-2F3B-4C18-B223-252EEE4D5E8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{712EBAB5-2F3B-4C18-B223-252EEE4D5E8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
