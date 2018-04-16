@@ -16,8 +16,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ESFA.DC.ILR.1819.LooseModel\ESFA.DC.ILR.1819.LooseModel.csproj" />
-    <ProjectReference Include="..\ESFA.DC.ILR.TestDataGenerator.Functors\ESFA.DC.ILR.TestDataGenerator.Functors.csproj" />
+    <ProjectReference Include="..\ESFA.DC.ILR.1819.LooseModel\ESFA.DC.ILR.1819.LooseModel.csproj"  PrivateAssets="All" />
+    <ProjectReference Include="..\ESFA.DC.ILR.TestDataGenerator.Functors\ESFA.DC.ILR.TestDataGenerator.Functors.csproj"  PrivateAssets="All" />
   </ItemGroup>
   
   <ItemGroup>
