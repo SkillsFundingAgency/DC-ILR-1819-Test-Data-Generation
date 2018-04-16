@@ -19,5 +19,19 @@
     <ProjectReference Include="..\ESFA.DC.ILR.1819.LooseModel\ESFA.DC.ILR.1819.LooseModel.csproj" />
     <ProjectReference Include="..\ESFA.DC.ILR.TestDataGenerator.Functors\ESFA.DC.ILR.TestDataGenerator.Functors.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Content Include="$(OutputPath)\ESFA.DC.ILR.1819.LooseModel.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\$(TargetFramework)</PackagePath>
+    </Content>
+  </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="$(OutputPath)\ESFA.DC.ILR.TestDataGenerator.Functors.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\$(TargetFramework)</PackagePath>
+    </Content>
+  </ItemGroup>
+  
 </Project>
