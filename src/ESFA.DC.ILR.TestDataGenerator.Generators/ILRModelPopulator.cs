@@ -14,8 +14,8 @@ namespace DCT.TestDataGenerator
 {
     public class ILRModelPopulator
     {
-        private const string ESFA201819Namespace = "ESFA/ILR/2018-19";
-        private const string SFA201718Namespace = "SFA/ILR/2017-18";
+        public const string ESFA201819Namespace = "ESFA/ILR/2018-19";
+        public const string SFA201718Namespace = "SFA/ILR/2017-18";
         private const string ESFA1819Year = "<Year>1819</Year>";
         private const string SFA1718Year = "<Year>1718</Year>";
 
