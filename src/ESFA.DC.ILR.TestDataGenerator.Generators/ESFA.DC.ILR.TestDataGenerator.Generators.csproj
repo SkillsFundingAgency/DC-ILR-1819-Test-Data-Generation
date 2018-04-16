@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/SkillsFundingAgency/DC-ILR-1819-Test-Data-Generation</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/SkillsFundingAgency/DC-ILR-1819-Test-Data-Generation/blob/master/LICENSE</PackageLicenseUrl>
@@ -16,8 +17,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ESFA.DC.ILR.1819.LooseModel\ESFA.DC.ILR.1819.LooseModel.csproj" />
-    <ProjectReference Include="..\ESFA.DC.ILR.TestDataGenerator.Functors\ESFA.DC.ILR.TestDataGenerator.Functors.csproj" />
+    <ProjectReference Include="..\ESFA.DC.ILR.1819.LooseModel\ESFA.DC.ILR.1819.LooseModel.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\ESFA.DC.ILR.TestDataGenerator.Functors\ESFA.DC.ILR.TestDataGenerator.Functors.csproj" PrivateAssets="All" />
   </ItemGroup>
 
+  <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
+    <ItemGroup>
+      <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+    </ItemGroup>
+  </Target>
+  
 </Project>
