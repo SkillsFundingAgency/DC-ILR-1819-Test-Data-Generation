@@ -15,6 +15,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "DateOfBirth_26";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "DOB_26";
         }
 

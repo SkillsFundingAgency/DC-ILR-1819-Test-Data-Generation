@@ -18,25 +18,19 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "DateOfBirth_38";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "DOB_38";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
         {
             _dataCache = cache;
-        //    AdvancedLevelApprenticeship = 2,
-        //IntermediateLevelApprenticeship = 3,
-        //HigherApprenticeshipLevel4 = 20,
-        //HigherApprenticeshipLevel5 = 21,
-        //HigherApprenticeshipLevel6 = 22,
-        //HigherApprenticeshipLevel7 = 23,
-        //Traineeship = 24,
-        //ApprenticeshipStandard = 25
             return new List<LearnerTypeMutator>()
             {
-                //new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19FM81, DoMutateOptions = MutateGenerationOptions },
-                //new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19IntermediateLevelApprenticeshipFM81, DoMutateOptions = MutateGenerationOptions },
-                //new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19HigherLevelApprenticeship4FM81, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19HigherLevelApprenticeship5, DoMutateOptions = MutateGenerationOptionsHE, InvalidLines = 6 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19HigherLevelApprenticeship6, DoMutateOptions = MutateGenerationOptionsHE, InvalidLines = 6 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19HigherLevelApprenticeship6Restart, DoMutateOptions = MutateGenerationOptionsHE, ExclusionRecord = true, InvalidLines = 4 }
@@ -78,7 +72,7 @@ namespace DCT.TestDataGenerator.Functor
         private void Mutate19HigherLevelApprenticeship6Restart(MessageLearner learner, bool valid)
         {
             Mutate19HigherLevelApprenticeship6(learner, valid);
-            Helpers.AddRestartFAMToLearningDelivery(learner);
+            Helpers.AddLearningDeliveryRestartFAM(learner);
         }
 
         private void Mutate19FM81(MessageLearner learner, bool valid)
@@ -97,12 +91,12 @@ namespace DCT.TestDataGenerator.Functor
         {
             Helpers.MutateApprenticeshipToOlderFullyFunded(learner);
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Less19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
-            Helpers.SetEndDates(learner.LearningDelivery[0], learner.LearningDelivery[0].LearnStartDate.AddYears(1), Helpers.SetAchDate.DoNotSetAchDate);
-            Helpers.SetEndDates(learner.LearningDelivery[1], learner.LearningDelivery[0].LearnStartDate.AddYears(1), Helpers.SetAchDate.DoNotSetAchDate);
+            Helpers.SetLearningDeliveryEndDates(learner.LearningDelivery[0], learner.LearningDelivery[0].LearnStartDate.AddYears(1), Helpers.SetAchDate.DoNotSetAchDate);
+            Helpers.SetLearningDeliveryEndDates(learner.LearningDelivery[1], learner.LearningDelivery[0].LearnStartDate.AddYears(1), Helpers.SetAchDate.DoNotSetAchDate);
 
             if (!valid)
             {
-                Helpers.SetEndDates(learner.LearningDelivery[0], learner.LearningDelivery[0].LearnStartDate.AddDays(364), Helpers.SetAchDate.SetAchDate);
+                Helpers.SetLearningDeliveryEndDates(learner.LearningDelivery[0], learner.LearningDelivery[0].LearnStartDate.AddDays(364), Helpers.SetAchDate.SetAchDate);
             }
         }
 

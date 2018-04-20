@@ -16,6 +16,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "PriorAttain_02";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "PAtt_02";
         }
 

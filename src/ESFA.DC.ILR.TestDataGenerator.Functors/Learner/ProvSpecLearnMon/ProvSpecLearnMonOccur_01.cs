@@ -14,6 +14,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "ProvSpecLearnMonOccur_01";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "PSLMO_01";
         }
 

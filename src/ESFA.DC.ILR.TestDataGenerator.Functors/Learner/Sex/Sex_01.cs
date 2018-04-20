@@ -19,6 +19,11 @@ namespace DCT.TestDataGenerator.Functor
             return "Sex_01";
         }
 
+        public string LearnerReferenceNumberStub()
+        {
+            return "Sex_01";
+        }
+
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
         {
             _sex = new List<Sex>(30);

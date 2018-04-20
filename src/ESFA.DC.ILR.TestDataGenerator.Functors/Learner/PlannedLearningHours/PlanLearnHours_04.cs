@@ -15,6 +15,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "PlanLearnHours_04";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "PLH_04";
         }
 

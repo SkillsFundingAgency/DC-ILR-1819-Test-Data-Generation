@@ -16,7 +16,12 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
-            return "LFAM_16";
+            return "LearnFAMType_16";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
+            return "LFam_16";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)

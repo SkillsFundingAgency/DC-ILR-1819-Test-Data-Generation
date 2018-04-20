@@ -17,20 +17,17 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "DateOfBirth_52";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "DOB_52";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
         {
             _dataCache = cache;
-        //    AdvancedLevelApprenticeship = 2,
-        //IntermediateLevelApprenticeship = 3,
-        //HigherApprenticeshipLevel4 = 20,
-        //HigherApprenticeshipLevel5 = 21,
-        //HigherApprenticeshipLevel6 = 22,
-        //HigherApprenticeshipLevel7 = 23,
-        //Traineeship = 24,
-        //ApprenticeshipStandard = 25
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions },
@@ -53,12 +50,12 @@ namespace DCT.TestDataGenerator.Functor
 //            learner.LearningDelivery[0].LearnStartDate = _options.LD.OverrideLearnStartDate.Value;
             Helpers.MutateApprenticeshipToStandard(learner);
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
-            Helpers.SetEndDates(learner.LearningDelivery[0], learner.LearningDelivery[0].LearnStartDate.AddDays(372), Helpers.SetAchDate.SetAchDate);
-            Helpers.SetEndDates(learner.LearningDelivery[1], learner.LearningDelivery[0].LearnActEndDate, Helpers.SetAchDate.DoNotSetAchDate);
+            Helpers.SetLearningDeliveryEndDates(learner.LearningDelivery[0], learner.LearningDelivery[0].LearnStartDate.AddDays(372), Helpers.SetAchDate.SetAchDate);
+            Helpers.SetLearningDeliveryEndDates(learner.LearningDelivery[1], learner.LearningDelivery[0].LearnActEndDate, Helpers.SetAchDate.DoNotSetAchDate);
 
             if (!valid)
             {
-                Helpers.SetEndDates(learner.LearningDelivery[0], learner.LearningDelivery[0].LearnStartDate.AddDays(364), Helpers.SetAchDate.SetAchDate);
+                Helpers.SetLearningDeliveryEndDates(learner.LearningDelivery[0], learner.LearningDelivery[0].LearnStartDate.AddDays(364), Helpers.SetAchDate.SetAchDate);
             }
 
             Helpers.SetApprenticeshipAims(learner, pta);

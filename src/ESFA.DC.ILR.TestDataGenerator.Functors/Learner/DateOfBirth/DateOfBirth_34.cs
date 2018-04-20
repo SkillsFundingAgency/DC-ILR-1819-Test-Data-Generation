@@ -14,6 +14,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "DateOfBirth_34";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "DOB_34";
         }
 
@@ -57,7 +62,7 @@ namespace DCT.TestDataGenerator.Functor
             Helpers.MutateDOB(learner, valid, age, Helpers.BasedOn.SchoolAYStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
             foreach (var ld in learner.LearningDelivery)
             {
-                Helpers.AddOrChangeSourceOfFunding(ld, LearnDelFAMCode.SOF_ESFA_1619);
+                Helpers.AddOrChangeLearningDeliverySourceOfFunding(ld, LearnDelFAMCode.SOF_ESFA_1619);
             }
 
             if (!valid)

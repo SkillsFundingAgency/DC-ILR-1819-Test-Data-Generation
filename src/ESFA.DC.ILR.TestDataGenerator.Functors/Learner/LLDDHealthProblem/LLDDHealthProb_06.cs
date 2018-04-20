@@ -15,6 +15,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "LLDDHealthProb_06";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "LLDDHP_06";
         }
 
@@ -37,7 +42,7 @@ namespace DCT.TestDataGenerator.Functor
             learner.PlanLearnHours = 9;
             if (learner.LearningDelivery[0].FundModel == (int)FundModel.NonFunded)
             {
-                Helpers.AddOrChangeSourceOfFunding(learner.LearningDelivery[0], LearnDelFAMCode.SOF_LA);
+                Helpers.AddOrChangeLearningDeliverySourceOfFunding(learner.LearningDelivery[0], LearnDelFAMCode.SOF_LA);
             }
 
             if (!valid)

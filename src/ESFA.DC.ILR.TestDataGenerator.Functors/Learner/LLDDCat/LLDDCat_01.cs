@@ -16,6 +16,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "LLDDCat_01";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "LLDDC_01";
         }
 

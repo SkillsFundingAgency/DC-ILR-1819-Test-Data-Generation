@@ -15,6 +15,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "DateOfBirth_25";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "DOB_25";
         }
 
@@ -36,7 +41,7 @@ namespace DCT.TestDataGenerator.Functor
         private void MutateLearningAim(MessageLearner learner)
         {
             learner.LearningDelivery[0].LearnAimRef = _dataCache.LearnAimFundingWithValidity(FundModel.Adult, LearnDelFAMCode.SOF_ESFA_Adult, learner.LearningDelivery[0].LearnStartDate).LearnAimRef;
-            Helpers.AddOrChangeSourceOfFunding(learner.LearningDelivery[0], LearnDelFAMCode.SOF_ESFA_1619);
+            Helpers.AddOrChangeLearningDeliverySourceOfFunding(learner.LearningDelivery[0], LearnDelFAMCode.SOF_ESFA_1619);
         }
 
         private void MutateGenerationOptions(GenerationOptions options)

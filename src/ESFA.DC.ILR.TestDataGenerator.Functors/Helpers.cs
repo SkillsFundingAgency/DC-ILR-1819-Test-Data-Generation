@@ -689,7 +689,7 @@
             learner.LearningDelivery[1].LearningDeliveryFAM = ld1Fams.ToArray();
         }
 
-        public static void AddRestartFAMToLearningDelivery(MessageLearner learner)
+        public static void AddLearningDeliveryRestartFAM(MessageLearner learner)
         {
             var ld0Fams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
             ld0Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
@@ -700,7 +700,7 @@
             learner.LearningDelivery[0].LearningDeliveryFAM = ld0Fams.ToArray();
         }
 
-        public static void SetEndDates(MessageLearnerLearningDelivery ld, DateTime endDate, SetAchDate modifyAch)
+        public static void SetLearningDeliveryEndDates(MessageLearnerLearningDelivery ld, DateTime endDate, SetAchDate modifyAch)
         {
             ld.LearnPlanEndDate = endDate;
             ld.LearnActEndDate = endDate;
@@ -719,7 +719,7 @@
             }
         }
 
-        public static void MutateApprenticeLearningDeliveryToTrainee(MessageLearner learner, ILearnerCreatorDataCache dataCache)
+        public static void MutateApprenticeToTrainee(MessageLearner learner, ILearnerCreatorDataCache dataCache)
         {
             foreach (var ld in learner.LearningDelivery)
             {
@@ -862,7 +862,7 @@
             }
         }
 
-        internal static void AddOrChangeSourceOfFunding(MessageLearnerLearningDelivery ld, LearnDelFAMCode sof)
+        internal static void AddOrChangeLearningDeliverySourceOfFunding(MessageLearnerLearningDelivery ld, LearnDelFAMCode sof)
         {
             var ifam = ld.LearningDeliveryFAM.Where(s => s.LearnDelFAMType == LearnDelFAMType.SOF.ToString());
             if (ifam.Count() > 0)
@@ -903,11 +903,20 @@
             learner.LearningDelivery[1].LearnAimRef = pta.LearnAimRef;
         }
 
-        internal static void RemoveFFIFromLearningDelivery(MessageLearner learner)
+        internal static void RemoveLearningDeliveryFFIFAM(MessageLearner learner)
         {
             foreach (MessageLearnerLearningDelivery ld in learner.LearningDelivery)
             {
                 var ld0Fams = ld.LearningDeliveryFAM.Where(s => s.LearnDelFAMType != LearnDelFAMType.FFI.ToString());
+                ld.LearningDeliveryFAM = ld0Fams.ToArray();
+            }
+        }
+
+        internal static void RemoveLearningDeliveryFAM(MessageLearner learner, LearnDelFAMType type)
+        {
+            foreach (MessageLearnerLearningDelivery ld in learner.LearningDelivery)
+            {
+                var ld0Fams = ld.LearningDeliveryFAM.Where(s => s.LearnDelFAMType != type.ToString());
                 ld.LearningDeliveryFAM = ld0Fams.ToArray();
             }
         }

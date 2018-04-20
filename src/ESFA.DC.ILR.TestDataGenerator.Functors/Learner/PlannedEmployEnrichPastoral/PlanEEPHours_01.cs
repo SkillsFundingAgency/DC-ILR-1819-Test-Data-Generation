@@ -15,7 +15,12 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
-            return "EEPH_01";
+            return "PlanEEPHours_01";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
+            return "PEEPH_01";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
@@ -45,7 +50,7 @@ namespace DCT.TestDataGenerator.Functor
         {
             foreach (MessageLearnerLearningDelivery ld in learner.LearningDelivery)
             {
-                Helpers.SetEndDates(ld, ld.LearnStartDate.AddDays(25), Helpers.SetAchDate.DoNotSetAchDate);
+                Helpers.SetLearningDeliveryEndDates(ld, ld.LearnStartDate.AddDays(25), Helpers.SetAchDate.DoNotSetAchDate);
                 if (ld.AimSeqNumber != 1)
                 {
                     ld.AimType = (int)AimType.StandAlone;

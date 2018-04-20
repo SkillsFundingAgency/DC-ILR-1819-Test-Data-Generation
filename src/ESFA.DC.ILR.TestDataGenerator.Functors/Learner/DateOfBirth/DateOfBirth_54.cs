@@ -19,14 +19,6 @@ namespace DCT.TestDataGenerator.Functor
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
         {
             _dataCache = cache;
-        //    AdvancedLevelApprenticeship = 2,
-        //IntermediateLevelApprenticeship = 3,
-        //HigherApprenticeshipLevel4 = 20,
-        //HigherApprenticeshipLevel5 = 21,
-        //HigherApprenticeshipLevel6 = 22,
-        //HigherApprenticeshipLevel7 = 23,
-        //Traineeship = 24,
-        //ApprenticeshipStandard = 25
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate16Standard, DoMutateOptions = MutateGenerationOptionsStandards, InvalidLines = 5 },
@@ -34,6 +26,11 @@ namespace DCT.TestDataGenerator.Functor
         }
 
         public string RuleName()
+        {
+            return "DateOfBirth_54";
+        }
+
+        public string LearnerReferenceNumberStub()
         {
             return "DOB_54";
         }
@@ -44,8 +41,8 @@ namespace DCT.TestDataGenerator.Functor
             learner.LearningDelivery[0].LearnStartDate = _options.LD.OverrideLearnStartDate.Value;
             Helpers.MutateApprenticeshipToStandard(learner);
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Less16And30Days, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.YoungerLots);
-            Helpers.SetEndDates(learner.LearningDelivery[0], learner.LearningDelivery[0].LearnStartDate.AddDays(372), Helpers.SetAchDate.SetAchDate);
-            Helpers.SetEndDates(learner.LearningDelivery[1], learner.LearningDelivery[0].LearnActEndDate, Helpers.SetAchDate.DoNotSetAchDate);
+            Helpers.SetLearningDeliveryEndDates(learner.LearningDelivery[0], learner.LearningDelivery[0].LearnStartDate.AddDays(372), Helpers.SetAchDate.SetAchDate);
+            Helpers.SetLearningDeliveryEndDates(learner.LearningDelivery[1], learner.LearningDelivery[0].LearnActEndDate, Helpers.SetAchDate.DoNotSetAchDate);
 
             Helpers.SetApprenticeshipAims(learner, pta);
         }

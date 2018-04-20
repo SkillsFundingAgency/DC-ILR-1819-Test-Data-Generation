@@ -125,7 +125,7 @@ namespace DCT.TestDataGenerator
                     }
 
                     lg.Options = options;
-                    List<MessageLearner> generated = lg.Generate(ruleName, funcy.LearnerType, currentLearnerIndex, ref ULNIndex);
+                    List<MessageLearner> generated = lg.Generate(functor.LearnerReferenceNumberStub(), funcy.LearnerType, currentLearnerIndex, ref ULNIndex);
                     generated.ForEach(s =>
                     {
                         triplet.FileRuleLearners.Add(new FileRuleLearner()

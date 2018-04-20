@@ -25,7 +25,7 @@ namespace DCT.TestDataGenerator
                     ProgType = ProgType.Traineeship,
                     FworkCode = 0,
                     PwayCode = 0,
-                    LearnAimRef = "60158864"
+                    LearnAimRef = "60061649"
                 });
             _apprenticeShipAims.Add(
                 ProgType.AdvancedLevelApprenticeship,
@@ -119,7 +119,7 @@ namespace DCT.TestDataGenerator
 
         public IEnumerable<ApprenticeshipProgrammeTypeAim> ApprenticeshipAims(ProgType pt)
         {
-            return _apprenticeShipAims.Values.Where(s => s.ProgType == pt); ;
+            return _apprenticeShipAims.Values.Where(s => s.ProgType == pt);
         }
 
         public string ESFContractNumber()

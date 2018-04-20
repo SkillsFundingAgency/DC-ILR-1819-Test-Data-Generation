@@ -15,6 +15,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "LLDDHealthProb_07";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "LLDDHP_07";
         }
 
@@ -39,7 +44,7 @@ namespace DCT.TestDataGenerator.Functor
             {
                 foreach (var ld in learner.LearningDelivery)
                 {
-                    Helpers.AddOrChangeSourceOfFunding(ld, LearnDelFAMCode.SOF_LA);
+                    Helpers.AddOrChangeLearningDeliverySourceOfFunding(ld, LearnDelFAMCode.SOF_LA);
                 }
             }
 

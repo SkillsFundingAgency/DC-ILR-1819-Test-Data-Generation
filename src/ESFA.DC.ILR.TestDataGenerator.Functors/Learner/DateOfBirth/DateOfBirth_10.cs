@@ -18,14 +18,6 @@ namespace DCT.TestDataGenerator.Functor
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
         {
             _dataCache = cache;
-        //    AdvancedLevelApprenticeship = 2,
-        //IntermediateLevelApprenticeship = 3,
-        //HigherApprenticeshipLevel4 = 20,
-        //HigherApprenticeshipLevel5 = 21,
-        //HigherApprenticeshipLevel6 = 22,
-        //HigherApprenticeshipLevel7 = 23,
-        //Traineeship = 24,
-        //ApprenticeshipStandard = 25
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate16, DoMutateOptions = MutateGenerationOptions, InvalidLines = 2 },
@@ -33,8 +25,6 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate16HigherLevelApprenticeship4, DoMutateOptions = MutateGenerationOptions, InvalidLines = 2 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate16HigherLevelApprenticeship5, DoMutateOptions = MutateGenerationOptionsHE, InvalidLines = 2 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate16HigherLevelApprenticeship6, DoMutateOptions = MutateGenerationOptionsHE, InvalidLines = 2 },
-////                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate16HigherLevelApprenticeship7, DoMutateOptions = MutateGenerationOptions,InvalidLines=2 },
-////                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate16ApprenticeshipStandard, DoMutateOptions = MutateGenerationOptions,InvalidLines=2 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate16Trainee, DoMutateOptions = MutateGenerationOptionsHE, ExclusionRecord = true }
             };
         }
@@ -50,6 +40,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "DateOfBirth_10";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "DOB_10";
         }
 
@@ -61,7 +56,7 @@ namespace DCT.TestDataGenerator.Functor
                 ld.ProgType = (int)ProgType.Traineeship;
                 ld.FworkCodeSpecified = false;
                 ld.PwayCodeSpecified = false;
-                Helpers.SetEndDates(ld, DateTime.Parse("2013-NOV-30"), Helpers.SetAchDate.SetAchDate);
+                Helpers.SetLearningDeliveryEndDates(ld, DateTime.Parse("2013-NOV-30"), Helpers.SetAchDate.SetAchDate);
             }
         }
 

@@ -16,6 +16,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "Postcode_15";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "PCode_15";
         }
 

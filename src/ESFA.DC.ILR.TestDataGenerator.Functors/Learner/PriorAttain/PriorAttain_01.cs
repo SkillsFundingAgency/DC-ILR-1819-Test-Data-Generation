@@ -13,6 +13,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "PriorAttain_01";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "PAtt_01";
         }
 
@@ -40,7 +45,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateSOF108(MessageLearner learner, bool valid)
         {
-            Helpers.AddOrChangeSourceOfFunding(learner.LearningDelivery[0], LearnDelFAMCode.SOF_LA);
+            Helpers.AddOrChangeLearningDeliverySourceOfFunding(learner.LearningDelivery[0], LearnDelFAMCode.SOF_LA);
             Mutate(learner, valid);
         }
 

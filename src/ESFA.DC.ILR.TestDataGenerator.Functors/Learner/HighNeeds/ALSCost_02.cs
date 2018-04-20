@@ -37,7 +37,12 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
-            return "ALSCst_02";
+            return "ALSCost_02";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
+            return "ALSC_02";
         }
     }
 }

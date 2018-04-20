@@ -16,6 +16,11 @@ namespace DCT.TestDataGenerator.Functor
             return "ULN_09";
         }
 
+        public string LearnerReferenceNumberStub()
+        {
+            return "ULN_09";
+        }
+
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
         {
             return new List<LearnerTypeMutator>()

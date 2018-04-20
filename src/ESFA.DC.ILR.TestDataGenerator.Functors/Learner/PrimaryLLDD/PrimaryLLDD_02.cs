@@ -15,6 +15,11 @@
 
         public string RuleName()
         {
+            return "PrimaryLLDD_02";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "PLLDD_02";
         }
 

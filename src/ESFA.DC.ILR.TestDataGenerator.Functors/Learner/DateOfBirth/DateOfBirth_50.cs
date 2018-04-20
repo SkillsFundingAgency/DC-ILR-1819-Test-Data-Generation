@@ -16,20 +16,17 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "DateOfBirth_50";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "DOB_50";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
         {
             _dataCache = cache;
-        //    AdvancedLevelApprenticeship = 2,
-        //IntermediateLevelApprenticeship = 3,
-        //HigherApprenticeshipLevel4 = 20,
-        //HigherApprenticeshipLevel5 = 21,
-        //HigherApprenticeshipLevel6 = 22,
-        //HigherApprenticeshipLevel7 = 23,
-        //Traineeship = 24,
-        //ApprenticeshipStandard = 25
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate16Trainee, DoMutateOptions = MutateGenerationOptionsHE, ExclusionRecord = true }
@@ -51,7 +48,7 @@ namespace DCT.TestDataGenerator.Functor
         private void Mutate16(MessageLearner learner, bool valid)
         {
             learner.LearningDelivery[0].LearnStartDate = DateTime.Parse(Helpers.ValueOrFunction("[AY|AUG|01]"));
-            Helpers.MutateApprenticeLearningDeliveryToTrainee(learner, _dataCache);
+            Helpers.MutateApprenticeToTrainee(learner, _dataCache);
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Less16And30Days, Helpers.BasedOn.SchoolAYStart, Helpers.MakeOlderOrYoungerWhenInvalid.YoungerLots);
             foreach (var ld in learner.LearningDelivery)
             {
@@ -60,7 +57,7 @@ namespace DCT.TestDataGenerator.Functor
             }
 
             learner.LearningDelivery[1].AimType = (int)AimType.CoreAim1619;
-            Helpers.RemoveFFIFromLearningDelivery(learner);
+            Helpers.RemoveLearningDeliveryFFIFAM(learner);
         }
 
         private void MutateGenerationOptions(GenerationOptions options)

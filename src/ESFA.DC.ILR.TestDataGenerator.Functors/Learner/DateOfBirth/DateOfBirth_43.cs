@@ -13,6 +13,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "DateOfBirth_43";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "DOB_43";
         }
 
@@ -27,7 +32,7 @@ namespace DCT.TestDataGenerator.Functor
         private void Mutate(MessageLearner learner, bool valid)
         {
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact15, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.Younger);
-            Helpers.SetEndDates(learner.LearningDelivery[0], learner.LearningDelivery[0].LearnStartDate.AddDays(30), Helpers.SetAchDate.DoNotSetAchDate);
+            Helpers.SetLearningDeliveryEndDates(learner.LearningDelivery[0], learner.LearningDelivery[0].LearnStartDate.AddDays(30), Helpers.SetAchDate.DoNotSetAchDate);
         }
 
         private void MutateGenerationOptions(GenerationOptions options)

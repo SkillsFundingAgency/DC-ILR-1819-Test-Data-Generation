@@ -17,6 +17,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "PMUKPRN_01";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "PMPRN_01";
         }
 

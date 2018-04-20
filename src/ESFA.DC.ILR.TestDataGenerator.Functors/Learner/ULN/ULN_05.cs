@@ -33,5 +33,10 @@ namespace DCT.TestDataGenerator.Functor
         {
             return "ULN_05";
         }
+
+        public string LearnerReferenceNumberStub()
+        {
+            return "ULN_05";
+        }
     }
 }

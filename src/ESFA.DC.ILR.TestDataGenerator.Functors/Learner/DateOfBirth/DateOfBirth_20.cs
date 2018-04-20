@@ -16,6 +16,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "DateOfBirth_20";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "DOB_20";
         }
 
@@ -41,7 +46,7 @@ namespace DCT.TestDataGenerator.Functor
             lastld.AimSeqNumber++;
             learner.LearningDelivery = lds.ToArray();
 
-            Helpers.AddOrChangeSourceOfFunding(learner.LearningDelivery[0], LearnDelFAMCode.SOF_ESFA_Adult);
+            Helpers.AddOrChangeLearningDeliverySourceOfFunding(learner.LearningDelivery[0], LearnDelFAMCode.SOF_ESFA_Adult);
             learner.LearningDelivery[0].AimType = (int)AimType.StandAlone;
 
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.SchoolAYStart, Helpers.MakeOlderOrYoungerWhenInvalid.Younger);
@@ -50,7 +55,7 @@ namespace DCT.TestDataGenerator.Functor
         private void Mutate19Trainee(MessageLearner learner, bool valid)
         {
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.SchoolAYStart, Helpers.MakeOlderOrYoungerWhenInvalid.Younger);
-            Helpers.MutateApprenticeLearningDeliveryToTrainee(learner, _dataCache);
+            Helpers.MutateApprenticeToTrainee(learner, _dataCache);
         }
 
         private void MutateGenerationOptions(GenerationOptions options)

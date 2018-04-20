@@ -61,7 +61,12 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
-            return "LFAM_01";
+            return "LearnFAMType_01";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
+            return "LFam_01";
         }
 
         private void Mutate(MessageLearner learner, bool valid)

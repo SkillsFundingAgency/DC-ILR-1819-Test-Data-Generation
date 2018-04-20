@@ -125,6 +125,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "ContPrefType_01";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "ContPr_01";
         }
     }

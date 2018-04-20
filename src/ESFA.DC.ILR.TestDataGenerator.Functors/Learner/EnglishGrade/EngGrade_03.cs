@@ -31,6 +31,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "EngGrade_03";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "Eng_03";
         }
 

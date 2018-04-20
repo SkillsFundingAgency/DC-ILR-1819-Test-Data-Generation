@@ -14,7 +14,12 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
-            return "FAMNAM_04";
+            return "FamilyName_04";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
+            return "FamNam_04";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
@@ -59,7 +64,7 @@ namespace DCT.TestDataGenerator.Functor
         {
             foreach (var v in learner.LearningDelivery)
             {
-                Helpers.AddOrChangeSourceOfFunding(v, LearnDelFAMCode.SOF_LA);
+                Helpers.AddOrChangeLearningDeliverySourceOfFunding(v, LearnDelFAMCode.SOF_LA);
             }
 
             Mutate(learner, valid);
@@ -86,7 +91,7 @@ namespace DCT.TestDataGenerator.Functor
             {
                 if (v.FundModel == (int)FundModel.NonFunded)
                 {
-                    Helpers.AddOrChangeSourceOfFunding(v, LearnDelFAMCode.SOF_LA);
+                    Helpers.AddOrChangeLearningDeliverySourceOfFunding(v, LearnDelFAMCode.SOF_LA);
                 }
             }
         }

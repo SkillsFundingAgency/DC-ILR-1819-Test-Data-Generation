@@ -15,6 +15,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "PlanLearnHours_01";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "PLH_01";
         }
 
@@ -46,7 +51,7 @@ namespace DCT.TestDataGenerator.Functor
         {
             foreach (MessageLearnerLearningDelivery ld in learner.LearningDelivery)
             {
-                Helpers.SetEndDates(ld, ld.LearnStartDate.AddDays(25), Helpers.SetAchDate.DoNotSetAchDate);
+                Helpers.SetLearningDeliveryEndDates(ld, ld.LearnStartDate.AddDays(25), Helpers.SetAchDate.DoNotSetAchDate);
             }
 
             if (!valid)

@@ -21,6 +21,13 @@ namespace DCT.TestDataGenerator.Functor
         string RuleName();
 
         /// <summary>
+        /// The stub is used in the ILR file learner reference number. The stub is Typically much shorter than
+        /// the rulename (which is expressed "in full")
+        /// </summary>
+        /// <returns></returns>
+        string LearnerReferenceNumberStub();
+
+        /// <summary>
         /// Certain rules require a very specific "time of year" for the file preparation time. Many rules simply don't care.
         /// </summary>
         /// <returns></returns>

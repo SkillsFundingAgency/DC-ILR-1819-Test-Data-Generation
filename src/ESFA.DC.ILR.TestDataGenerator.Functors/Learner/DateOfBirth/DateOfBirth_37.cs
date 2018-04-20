@@ -18,14 +18,6 @@ namespace DCT.TestDataGenerator.Functor
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
         {
             _dataCache = cache;
-        //    AdvancedLevelApprenticeship = 2,
-        //IntermediateLevelApprenticeship = 3,
-        //HigherApprenticeshipLevel4 = 20,
-        //HigherApprenticeshipLevel5 = 21,
-        //HigherApprenticeshipLevel6 = 22,
-        //HigherApprenticeshipLevel7 = 23,
-        //Traineeship = 24,
-        //ApprenticeshipStandard = 25
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19Standard, DoMutateOptions = MutateGenerationOptionsStandards }
@@ -46,6 +38,11 @@ namespace DCT.TestDataGenerator.Functor
         }
 
         public string RuleName()
+        {
+            return "DateOfBirth_37";
+        }
+
+        public string LearnerReferenceNumberStub()
         {
             return "DOB_37";
         }
@@ -84,7 +81,7 @@ namespace DCT.TestDataGenerator.Functor
         private void Mutate19HigherLevelApprenticeship6Restart(MessageLearner learner, bool valid)
         {
             Mutate19HigherLevelApprenticeship6(learner, valid);
-            Helpers.AddRestartFAMToLearningDelivery(learner);
+            Helpers.AddLearningDeliveryRestartFAM(learner);
         }
 
         private void Mutate19Standard(MessageLearner learner, bool valid)

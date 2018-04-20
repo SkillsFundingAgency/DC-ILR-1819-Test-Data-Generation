@@ -18,6 +18,11 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
+            return "PriorAttain_07";
+        }
+
+        public string LearnerReferenceNumberStub()
+        {
             return "PAtt_07";
         }
 
@@ -48,11 +53,11 @@ namespace DCT.TestDataGenerator.Functor
         private void Mutate(MessageLearner learner, bool valid)
         {
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
-            Helpers.MutateApprenticeLearningDeliveryToTrainee(learner, _cache);
+            Helpers.MutateApprenticeToTrainee(learner, _cache);
             Helpers.SetApprenticeshipAims(learner, _attain[0].PTA);
             foreach (var ld in learner.LearningDelivery)
             {
-                Helpers.SetEndDates(ld, ld.LearnStartDate.AddDays(25), ld.AimSeqNumber == 1 ? Helpers.SetAchDate.SetAchDate : Helpers.SetAchDate.DoNotSetAchDate);
+                Helpers.SetLearningDeliveryEndDates(ld, ld.LearnStartDate.AddDays(25), ld.AimSeqNumber == 1 ? Helpers.SetAchDate.SetAchDate : Helpers.SetAchDate.DoNotSetAchDate);
             }
 
             if (!valid)
