@@ -20,23 +20,10 @@ namespace DCT.TestDataGenerator.Functor
         }
 
         [Fact]
-        public void LearnerGenerationOptions_IncludeADL()
-        {
-            var func = CreateFundModel();
-            var lms = func.LearnerMutators(null).ToList();
-            lms.ForEach(s =>
-            {
-                GenerationOptions options = new GenerationOptions();
-                s.DoMutateOptions(options);
-                options.LD.IncludeADL.Should().BeTrue();
-            });
-        }
-
-        [Fact]
         public void Rulename()
         {
             var func = CreateFundModel();
-            func.RuleName().Should().Be("FM_04");
+            func.RuleName().Should().Be("FundModel_04");
         }
 
         private FundModel_04 CreateFundModel()

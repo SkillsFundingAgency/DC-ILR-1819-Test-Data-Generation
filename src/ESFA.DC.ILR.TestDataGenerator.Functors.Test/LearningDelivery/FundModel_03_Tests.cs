@@ -36,7 +36,7 @@ namespace DCT.TestDataGenerator.Functor
         public void Rulename()
         {
             var func = CreateFundModel();
-            func.RuleName().Should().Be("FM_03");
+            func.RuleName().Should().Be("FundModel_03");
         }
 
         private FundModel_03 CreateFundModel()
