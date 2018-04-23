@@ -63,6 +63,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LearningDelivery\FundModel_09_Tests.cs" />
+    <Compile Include="LearningDelivery\FundModel_08_Tests.cs" />
+    <Compile Include="LearningDelivery\FundModel_07_Tests.cs" />
+    <Compile Include="LearningDelivery\FundModel_06_Tests.cs" />
+    <Compile Include="LearningDelivery\FundModel_05_Tests.cs" />
     <Compile Include="LearningDelivery\FundModel_04_Tests.cs" />
     <Compile Include="LearningDelivery\FundModel_03_Tests.cs" />
     <Compile Include="LearningDelivery\FundModel_01_Tests.cs" />

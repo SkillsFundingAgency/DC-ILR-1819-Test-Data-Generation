@@ -5,7 +5,7 @@ using DCT.ILR.Model;
 
 namespace DCT.TestDataGenerator.Functor
 {
-    public class FundModel_04
+    public class FundModel_06
         : ILearnerMultiMutator
     {
         private ILearnerCreatorDataCache _dataCache;
@@ -27,50 +27,53 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19HigherLevelApprenticeship5, DoMutateOptions = MutateGenerationOptionsHE, InvalidLines = 2 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19HigherLevelApprenticeship6, DoMutateOptions = MutateGenerationOptionsHE, InvalidLines = 2 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19Standard, DoMutateOptions = MutateGenerationOptionsStandards, InvalidLines = 2 },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19Trainee, DoMutateOptions = MutateGenerationOptionsHE, InvalidLines = 2, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19Trainee, DoMutateOptions = MutateGenerationOptionsHE, InvalidLines = 0, ExclusionRecord = true },
             };
         }
 
         public string RuleName()
         {
-            return "FundModel_04";
+            return "FundModel_06";
         }
 
         public string LearnerReferenceNumberStub()
         {
-            return "FM_04";
+            return "FM_06";
         }
 
         private void Mutate19Trainee(MessageLearner learner, bool valid)
         {
-            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
+            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.SchoolAYStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
             Helpers.MutateApprenticeToTrainee(learner, _dataCache);
-            //Mutate19(learner, valid);
-            foreach (var ld in learner.LearningDelivery)
-            {
-                ld.LearnStartDate = DateTime.Parse("2018-SEP-01");
-                ld.LearnPlanEndDate = ld.LearnStartDate.AddDays(45);
-            }
+            //foreach (var ld in learner.LearningDelivery)
+            //{
+            //    ld.LearnStartDate = DateTime.Parse("2018-SEP-01");
+            //    ld.LearnPlanEndDate = ld.LearnStartDate.AddDays(45);
+            //}
+
+            MutateValid(learner, valid);
         }
 
         private void Mutate19Standard(MessageLearner learner, bool valid)
         {
             ApprenticeshipProgrammeTypeAim pta = _dataCache.ApprenticeshipAims(ProgType.ApprenticeshipStandard).First();
-            learner.LearningDelivery[0].LearnStartDate = _options.LD.OverrideLearnStartDate.Value;
-            Helpers.MutateApprenticeshipToStandard(learner, FundModel.OtherAdult);
+            Helpers.MutateApprenticeshipToStandard(learner, FundModel.Apprenticeships);
+            learner.LearningDelivery[0].FundModel = (int)FundModel.Apprenticeships;
+            learner.LearningDelivery[1].FundModel = (int)FundModel.Apprenticeships;
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
-            Helpers.SetLearningDeliveryEndDates(learner.LearningDelivery[0], learner.LearningDelivery[0].LearnStartDate.AddDays(372), Helpers.SetAchDate.SetAchDate);
-            Helpers.SetLearningDeliveryEndDates(learner.LearningDelivery[1], learner.LearningDelivery[0].LearnActEndDate, Helpers.SetAchDate.DoNotSetAchDate);
+            Helpers.SetApprenticeshipAims(learner, pta);
+            MutateValid(learner, valid);
+        }
 
+        private void MutateValid(MessageLearner learner, bool valid)
+        {
             if (!valid)
             {
                 foreach (MessageLearnerLearningDelivery ld in learner.LearningDelivery)
                 {
-                    ld.FundModel = (int)FundModel.YP1619;
+                    ld.ProgType += 7;
                 }
             }
-
-            Helpers.SetApprenticeshipAims(learner, pta);
         }
 
         private void Mutate19IntermediateLevelApprenticeship(MessageLearner learner, bool valid)
@@ -78,51 +81,49 @@ namespace DCT.TestDataGenerator.Functor
             Mutate19(learner, valid);
             ApprenticeshipProgrammeTypeAim pta = _dataCache.ApprenticeshipAims(ProgType.IntermediateLevelApprenticeship).First();
             Helpers.SetApprenticeshipAims(learner, pta);
+            MutateValid(learner, valid);
         }
 
         private void Mutate19HigherLevelApprenticeship4(MessageLearner learner, bool valid)
         {
             ApprenticeshipProgrammeTypeAim pta = _dataCache.ApprenticeshipAims(ProgType.HigherApprenticeshipLevel4).First();
-            learner.LearningDelivery[0].LearnStartDate = _options.LD.OverrideLearnStartDate.Value;
             MutateCommon(learner, valid);
             Helpers.SetApprenticeshipAims(learner, pta);
+            MutateValid(learner, valid);
         }
 
         private void Mutate19HigherLevelApprenticeship5(MessageLearner learner, bool valid)
         {
             ApprenticeshipProgrammeTypeAim pta = _dataCache.ApprenticeshipAims(ProgType.HigherApprenticeshipLevel5).First();
-            learner.LearningDelivery[0].LearnStartDate = (DateTime)pta.Validity[0].From;
             MutateCommon(learner, valid);
             Helpers.SetApprenticeshipAims(learner, pta);
+            MutateValid(learner, valid);
         }
 
         private void Mutate19HigherLevelApprenticeship6(MessageLearner learner, bool valid)
         {
             ApprenticeshipProgrammeTypeAim pta = _dataCache.ApprenticeshipAims(ProgType.HigherApprenticeshipLevel6).First();
-            learner.LearningDelivery[0].LearnStartDate = (DateTime)pta.Validity[0].From;
+//            learner.LearningDelivery[0].LearnStartDate = (DateTime)pta.Validity[0].From;
             MutateCommon(learner, valid);
             Helpers.SetApprenticeshipAims(learner, pta);
+            MutateValid(learner, valid);
         }
 
         private void Mutate19(MessageLearner learner, bool valid)
         {
-//            learner.LearningDelivery[0].LearnStartDate = _options.LD.OverrideLearnStartDate.Value;
             MutateCommon(learner, valid);
+            MutateValid(learner, valid);
         }
 
         private void MutateCommon(MessageLearner learner, bool valid)
         {
-            Helpers.MutateApprenticeshipToOlderFullyFunded(learner);
+//            Helpers.MutateApprenticeshipToOlderFullyFunded(learner);
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
-            foreach (MessageLearnerLearningDelivery ld in learner.LearningDelivery)
-            {
-                ld.FundModel = (int)FundModel.YP1619;
-            }
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
         {
-            options.LD.OverrideLearnStartDate = DateTime.Parse("2016-AUG-01");
+//            options.LD.OverrideLearnStartDate = DateTime.Parse("2016-AUG-01");
             options.LD.IncludeHHS = true;
             _options = options;
         }

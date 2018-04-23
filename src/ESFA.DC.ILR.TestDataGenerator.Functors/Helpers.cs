@@ -653,11 +653,11 @@
         /// Learner should have been created with LearnerTypeRequired.Apprenticeships to ensure that the programme and app fin records and similar have been created properly
         /// </summary>
         /// <param name="learner">Learner to mutate to a standards based apprenticeship</param>
-        public static void MutateApprenticeshipToStandard(MessageLearner learner)
+        public static void MutateApprenticeshipToStandard(MessageLearner learner, FundModel newFundingModel)
         {
             learner.LearningDelivery[1].LearnStartDate = learner.LearningDelivery[0].LearnStartDate;
-            learner.LearningDelivery[0].FundModel = (int)FundModel.OtherAdult;
-            learner.LearningDelivery[1].FundModel = (int)FundModel.OtherAdult;
+            learner.LearningDelivery[0].FundModel = (int)newFundingModel;
+            learner.LearningDelivery[1].FundModel = (int)newFundingModel;
             MoveEmploymentBeforeLearnStart(learner);
             learner.LearningDelivery[0].AppFinRecord[0].AFinDate = learner.LearningDelivery[0].LearnStartDate;
             var appfins = learner.LearningDelivery[0].AppFinRecord.ToList();
@@ -675,18 +675,21 @@
             learner.LearningDelivery[0].AppFinRecord = appfins.ToArray();
             learner.LearningDelivery[0].EPAOrgID = "EPA0032";
 
-            var fam = learner.LearningDelivery[0].LearningDeliveryFAM.Where(s => s.LearnDelFAMType == LearnDelFAMType.ACT.ToString()).First();
-            fam.LearnDelFAMType = LearnDelFAMType.FFI.ToString();
-            fam.LearnDelFAMDateFromSpecified = false;
-            fam.LearnDelFAMCode = ((int)LearnDelFAMCode.FFI_Fully).ToString();
-
-            var ld1Fams = learner.LearningDelivery[1].LearningDeliveryFAM.ToList();
-            ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+            // older Standards had different rules (pre 01-May-2017) and no ACT record (for example)
+            if (newFundingModel == FundModel.OtherAdult)
             {
-                LearnDelFAMType = fam.LearnDelFAMType,
-                LearnDelFAMCode = fam.LearnDelFAMCode
-            });
-            learner.LearningDelivery[1].LearningDeliveryFAM = ld1Fams.ToArray();
+                var fam = learner.LearningDelivery[0].LearningDeliveryFAM.Where(s => s.LearnDelFAMType == LearnDelFAMType.ACT.ToString()).First();
+                fam.LearnDelFAMType = LearnDelFAMType.FFI.ToString();
+                fam.LearnDelFAMDateFromSpecified = false;
+                fam.LearnDelFAMCode = ((int)LearnDelFAMCode.FFI_Fully).ToString();
+                var ld1Fams = learner.LearningDelivery[1].LearningDeliveryFAM.ToList();
+                ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+                {
+                    LearnDelFAMType = fam.LearnDelFAMType,
+                    LearnDelFAMCode = fam.LearnDelFAMCode
+                });
+                learner.LearningDelivery[1].LearningDeliveryFAM = ld1Fams.ToArray();
+            }
         }
 
         public static void AddLearningDeliveryRestartFAM(MessageLearner learner)

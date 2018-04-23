@@ -60,7 +60,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateCommon(MessageLearner learner, bool valid)
         {
-            Helpers.MutateApprenticeshipToStandard(learner);
+            Helpers.MutateApprenticeshipToStandard(learner, FundModel.OtherAdult);
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
             Helpers.SetLearningDeliveryEndDates(learner.LearningDelivery[0], learner.LearningDelivery[0].LearnStartDate.AddDays(372), Helpers.SetAchDate.SetAchDate);
             Helpers.SetLearningDeliveryEndDates(learner.LearningDelivery[1], learner.LearningDelivery[0].LearnActEndDate, Helpers.SetAchDate.DoNotSetAchDate);

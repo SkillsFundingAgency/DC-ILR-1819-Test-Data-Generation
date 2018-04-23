@@ -39,7 +39,7 @@ namespace DCT.TestDataGenerator.Functor
         {
             ApprenticeshipProgrammeTypeAim pta = _dataCache.ApprenticeshipAims(ProgType.ApprenticeshipStandard).First();
             learner.LearningDelivery[0].LearnStartDate = _options.LD.OverrideLearnStartDate.Value;
-            Helpers.MutateApprenticeshipToStandard(learner);
+            Helpers.MutateApprenticeshipToStandard(learner, FundModel.OtherAdult);
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Less16And30Days, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.YoungerLots);
             Helpers.SetLearningDeliveryEndDates(learner.LearningDelivery[0], learner.LearningDelivery[0].LearnStartDate.AddDays(372), Helpers.SetAchDate.SetAchDate);
             Helpers.SetLearningDeliveryEndDates(learner.LearningDelivery[1], learner.LearningDelivery[0].LearnActEndDate, Helpers.SetAchDate.DoNotSetAchDate);

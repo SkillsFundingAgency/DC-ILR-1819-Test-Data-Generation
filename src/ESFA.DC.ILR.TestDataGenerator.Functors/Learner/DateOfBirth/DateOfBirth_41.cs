@@ -72,7 +72,7 @@ namespace DCT.TestDataGenerator.Functor
         {
             ApprenticeshipProgrammeTypeAim pta = _dataCache.ApprenticeshipAims(ProgType.ApprenticeshipStandard).First();
             //learner.LearningDelivery[0].LearnStartDate = _options.LD.OverrideLearnStartDate.Value;
-            Helpers.MutateApprenticeshipToStandard(learner);
+            Helpers.MutateApprenticeshipToStandard(learner, FundModel.OtherAdult);
             Mutate19(learner, valid);
             Helpers.SetApprenticeshipAims(learner, pta);
         }
