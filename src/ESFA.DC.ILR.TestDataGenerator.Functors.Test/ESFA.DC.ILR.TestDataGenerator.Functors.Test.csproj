@@ -63,14 +63,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LearningDelivery\FundModel_09_Tests.cs" />
-    <Compile Include="LearningDelivery\FundModel_08_Tests.cs" />
-    <Compile Include="LearningDelivery\FundModel_07_Tests.cs" />
-    <Compile Include="LearningDelivery\FundModel_06_Tests.cs" />
-    <Compile Include="LearningDelivery\FundModel_05_Tests.cs" />
-    <Compile Include="LearningDelivery\FundModel_04_Tests.cs" />
-    <Compile Include="LearningDelivery\FundModel_03_Tests.cs" />
-    <Compile Include="LearningDelivery\FundModel_01_Tests.cs" />
+    <Compile Include="LearningDelivery\FrameworkCode\FworkCode_05_Tests.cs" />
+    <Compile Include="LearningDelivery\FrameworkCode\FworkCode_02_Tests.cs" />
+    <Compile Include="LearningDelivery\FrameworkCode\FworkCode_01_Tests.cs" />
+    <Compile Include="LearningDelivery\FundModel\FundModel_09_Tests.cs" />
+    <Compile Include="LearningDelivery\FundModel\FundModel_08_Tests.cs" />
+    <Compile Include="LearningDelivery\FundModel\FundModel_07_Tests.cs" />
+    <Compile Include="LearningDelivery\FundModel\FundModel_06_Tests.cs" />
+    <Compile Include="LearningDelivery\FundModel\FundModel_05_Tests.cs" />
+    <Compile Include="LearningDelivery\FundModel\FundModel_04_Tests.cs" />
+    <Compile Include="LearningDelivery\FundModel\FundModel_03_Tests.cs" />
+    <Compile Include="LearningDelivery\FundModel\FundModel_01_Tests.cs" />
+    <Compile Include="NewFunctorHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

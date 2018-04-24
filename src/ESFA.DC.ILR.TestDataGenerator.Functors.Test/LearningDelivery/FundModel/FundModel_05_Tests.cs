@@ -13,24 +13,18 @@ namespace DCT.TestDataGenerator.Functor
         [Fact]
         public void Rulename()
         {
-            var func = CreateFundModel();
+            var func = TestHelpers.CreateFunctor<FundModel_05>();
             func.RuleName().Should().Be("FundModel_05");
         }
 
         [Fact]
         public void OverrideStartDate()
         {
-            var func = CreateFundModel();
+            var func = TestHelpers.CreateFunctor<FundModel_05>();
             var funcy = func.LearnerMutators(null).ToList();
             GenerationOptions options = new GenerationOptions();
             funcy[0].DoMutateOptions(options);
             options.LD.OverrideLearnStartDate.Should().BeOnOrAfter(DateTime.Parse("2017-MAY-01"));
         }
-
-        private FundModel_05 CreateFundModel()
-        {
-            return new FundModel_05();
-        }
-
     }
 }

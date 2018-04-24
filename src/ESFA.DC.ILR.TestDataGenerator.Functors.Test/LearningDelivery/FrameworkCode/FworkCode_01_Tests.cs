@@ -8,12 +8,12 @@ using FluentAssertions;
 
 namespace DCT.TestDataGenerator.Functor
 {
-    public class FundModel_04_Tests
+    public class FworkCode_01_Tests
     {
         [Fact]
         public void LearnerCount_ProgrammeTypeCount()
         {
-            var func = CreateFundModel();
+            var func = TestHelpers.CreateFunctor<FworkCode_01>();
             var lms = func.LearnerMutators(null).ToList();
             var fms = Enum.GetValues(typeof(ProgType));
             lms.Should().HaveCount(fms.Length - 1, "all progtypes except the higher level 7 (there aren't any)");
@@ -22,14 +22,8 @@ namespace DCT.TestDataGenerator.Functor
         [Fact]
         public void Rulename()
         {
-            var func = CreateFundModel();
-            func.RuleName().Should().Be("FundModel_04");
+            var func = TestHelpers.CreateFunctor<FworkCode_01>();
+            func.RuleName().Should().Be("FworkCode_01");
         }
-
-        private FundModel_04 CreateFundModel()
-        {
-            return new FundModel_04();
-        }
-
     }
 }

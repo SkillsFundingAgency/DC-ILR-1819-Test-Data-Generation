@@ -13,23 +13,17 @@ namespace DCT.TestDataGenerator.Functor
         [Fact]
         public void Rulename()
         {
-            var func = CreateFundModel();
+            var func = TestHelpers.CreateFunctor<FundModel_06>();
             func.RuleName().Should().Be("FundModel_06");
         }
 
         [Fact]
         public void LearnerMutatorCount_ProgTypeCoutnWithoutlevel7Degree()
         {
-            var func = CreateFundModel();
+            var func = TestHelpers.CreateFunctor<FundModel_06>();
             var lms = func.LearnerMutators(null).ToList();
             var fms = Enum.GetValues(typeof(ProgType));
             lms.Should().HaveCount(fms.Length-1);
         }
-
-        private FundModel_06 CreateFundModel()
-        {
-            return new FundModel_06();
-        }
-
     }
 }
