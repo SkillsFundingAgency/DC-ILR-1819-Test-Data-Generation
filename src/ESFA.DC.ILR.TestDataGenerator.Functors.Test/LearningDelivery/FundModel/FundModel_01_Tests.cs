@@ -13,7 +13,7 @@ namespace DCT.TestDataGenerator.Functor
         [Fact]
         public void LearnerCount_FundModelCount()
         {
-            var func = CreateFundModel();
+            var func = TestHelpers.CreateFunctor<FundModel_01>();
             var lms = func.LearnerMutators(null).ToList();
             var fms = Enum.GetValues(typeof(FundModel));
             lms.Should().HaveCount(fms.Length);
@@ -22,13 +22,8 @@ namespace DCT.TestDataGenerator.Functor
         [Fact]
         public void Rulename()
         {
-            var func = CreateFundModel();
+            var func = TestHelpers.CreateFunctor<FundModel_01>();
             func.RuleName().Should().Be("FundModel_01");
-        }
-
-        private FundModel_01 CreateFundModel()
-        {
-            return new FundModel_01();
         }
     }
 }
