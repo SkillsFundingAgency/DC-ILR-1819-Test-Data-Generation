@@ -34,7 +34,7 @@ namespace DCT.TestDataGenerator
                     ProgType = ProgType.AdvancedLevelApprenticeship,
                     FworkCode = 420,
                     PwayCode = 1,
-                    LearnAimRef = "50104767"
+                    LearnAimRef = "60009044" // "50104767"
                 });
             _apprenticeShipAims.Add(
                 ProgType.IntermediateLevelApprenticeship,
