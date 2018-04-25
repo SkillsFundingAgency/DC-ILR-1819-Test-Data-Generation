@@ -4,12 +4,6 @@ using System.Linq;
 
 namespace DCT.TestDataGenerator
 {
-    public enum FullLevel
-    {
-        Level2,
-        Level3
-    }
-
     public class DataCache : ILearnerCreatorDataCache
     {
         private Dictionary<ProgType, ApprenticeshipProgrammeTypeAim> _apprenticeShipAims;
