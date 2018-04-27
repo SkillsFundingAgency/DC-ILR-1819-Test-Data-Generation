@@ -72,6 +72,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SerializableDataCacheTests.cs" />
     <Compile Include="DataCacheTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
