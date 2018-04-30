@@ -9,8 +9,12 @@ namespace DCT.TestDataGenerator
         public ProgType ProgType;
         public int FworkCode;
         public int PwayCode;
-        public string LearnAimRef;
         public List<Validity> Validity;
         public int StdCode; // for apprenticeship standards
+        public LearningDelivery LearningDelivery;
+        public DateTime EffectiveFrom;
+        public DateTime? EffectiveTo;
+        public List<FrameworkCommonComponent> FrameworkCommonComponents;
+        public List<StandardCommonComponent> StandardCommonComponents;
     }
 }

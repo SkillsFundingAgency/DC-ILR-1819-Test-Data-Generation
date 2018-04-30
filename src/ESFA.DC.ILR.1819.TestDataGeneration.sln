@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.TestDataGenerat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.TestDataGenerator.Functors.Test", "ESFA.DC.ILR.TestDataGenerator.Functors.Test\ESFA.DC.ILR.TestDataGenerator.Functors.Test.csproj", "{0F9A2A8C-0F28-4978-9F9F-E492D3096879}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.TestDataGenerator.Data", "ESFA.DC.ILR.TestDataGenerator.Data\ESFA.DC.ILR.TestDataGenerator.Data.csproj", "{9E3B3F52-4A16-43AA-9B64-5AA054C35BA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR.TestDataGenerator.Data.Tests", "ESFA.DC.ILR.TestDataGenerator.Data.Tests\ESFA.DC.ILR.TestDataGenerator.Data.Tests.csproj", "{A9DC0815-3F7C-40D8-9FA9-C79E218E79BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{0F9A2A8C-0F28-4978-9F9F-E492D3096879}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F9A2A8C-0F28-4978-9F9F-E492D3096879}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F9A2A8C-0F28-4978-9F9F-E492D3096879}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E3B3F52-4A16-43AA-9B64-5AA054C35BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E3B3F52-4A16-43AA-9B64-5AA054C35BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E3B3F52-4A16-43AA-9B64-5AA054C35BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E3B3F52-4A16-43AA-9B64-5AA054C35BA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9DC0815-3F7C-40D8-9FA9-C79E218E79BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9DC0815-3F7C-40D8-9FA9-C79E218E79BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9DC0815-3F7C-40D8-9FA9-C79E218E79BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9DC0815-3F7C-40D8-9FA9-C79E218E79BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

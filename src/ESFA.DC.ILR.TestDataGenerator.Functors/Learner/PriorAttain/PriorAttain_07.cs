@@ -86,7 +86,7 @@ namespace DCT.TestDataGenerator.Functor
                 }
             }
 
-            learner.LearningDelivery[1].LearnAimRef = pta.LearnAimRef;
+            learner.LearningDelivery[1].LearnAimRef = pta.LearningDelivery.LearnAimRef;
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
