@@ -277,7 +277,7 @@
             learner.LearningDelivery[1].LearningDeliveryFAM = ld1Fams.ToArray();
             ApprenticeshipProgrammeTypeAim pta = dataCache.ApprenticeshipAims(ProgType.Traineeship).First();
 
-            learner.LearningDelivery[1].LearnAimRef = pta.LearnAimRef;
+            learner.LearningDelivery[1].LearnAimRef = pta.LearningDelivery.LearnAimRef;
 
             MoveEmploymentBeforeLearnStart(learner);
             learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring[0].ESMCode = (int)EmploymentStatusMonitoringCode.EmploymentIntensity16Less;
@@ -431,7 +431,7 @@
                 }
             }
 
-            learner.LearningDelivery[1].LearnAimRef = pta.LearnAimRef;
+            learner.LearningDelivery[1].LearnAimRef = pta.LearningDelivery.LearnAimRef;
         }
 
         internal static void RemoveLearningDeliveryFFIFAM(MessageLearner learner)

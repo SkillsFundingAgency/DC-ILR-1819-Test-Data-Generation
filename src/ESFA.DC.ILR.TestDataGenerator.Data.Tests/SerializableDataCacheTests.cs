@@ -56,7 +56,9 @@ namespace DCT.TestDataGenerator
 
             dynamic rhs = JObject.Parse(result);
             string intermediateAim = rhs["_apprenticeShipAims"][ProgType.IntermediateLevelApprenticeship.ToString()]["LearningDelivery"]["LearnAimRef"];
+            string ia2 = rhs._apprenticeShipAims.IntermediateLevelApprenticeship.LearningDelivery.LearnAimRef;
             intermediateAim.Should().Be(lhs._apprenticeShipAims[ProgType.IntermediateLevelApprenticeship].LearningDelivery.LearnAimRef);
+            intermediateAim.Should().Be(ia2);
         }
     }
 }
