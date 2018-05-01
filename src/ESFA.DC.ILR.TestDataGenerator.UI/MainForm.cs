@@ -10,6 +10,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Xsl;
+using System.Xml;
+using System.IO;
 
 namespace ILRTestDataGenerator
 {
@@ -106,6 +109,38 @@ namespace ILRTestDataGenerator
         private void uiUKPRN_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Generate XDS input from OPA with XSLT.
+            string xmlInput = @"d:\xds_case.xml";
+            string xsltInput = @"C:\FISDownloads\ComponentSets17181718ILRFISDCSSILR17182018030762964\rulebases\val\ilr validation learner - input_xslt.xsl";
+            GenerateXdsInput(xsltInput, xmlInput, true);
+        }
+
+        public string GenerateXdsInput(string xsltPath, string xmlPath, bool _xDSLogging)
+        {
+            XslCompiledTransform xsltProcessor = new XslCompiledTransform();
+            xsltProcessor.Load(xsltPath);
+
+            string content = File.ReadAllText(xmlPath);
+
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.LoadXml(content);
+            string xdsInput;
+            using (System.IO.StringWriter stringWriter = new System.IO.StringWriter())
+            {
+                xsltProcessor.Transform(xmlDocument.CreateNavigator(), (XsltArgumentList)null, (TextWriter)stringWriter);
+                xdsInput = stringWriter.ToString();
+                //Switch to "Dump" XDS
+                if (_xDSLogging)
+                {
+                    System.IO.File.WriteAllText(@"d:\xds_output.xml", xdsInput);
+                }
+            }
+
+            return xdsInput;
         }
     }
 }

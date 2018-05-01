@@ -21,7 +21,7 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19, DoMutateOptions = MutateGenerationOptions, InvalidLines = 1 },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19AdvancedLevelApprenticeship, DoMutateOptions = MutateGenerationOptions, InvalidLines = 1 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19IntermediateLevelApprenticeship, DoMutateOptions = MutateGenerationOptions, InvalidLines = 1 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19HigherLevelApprenticeship4, DoMutateOptions = MutateGenerationOptions, InvalidLines = 1 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19HigherLevelApprenticeship5, DoMutateOptions = MutateGenerationOptionsHE, InvalidLines = 1 },
@@ -75,6 +75,17 @@ namespace DCT.TestDataGenerator.Functor
                     ld.FworkCodeSpecified = true;
                     ld.FworkCode = 12;
                 }
+            }
+        }
+
+        private void Mutate19AdvancedLevelApprenticeship(MessageLearner learner, bool valid)
+        {
+            Mutate19(learner, valid);
+            ApprenticeshipProgrammeTypeAim pta = _dataCache.ApprenticeshipAims(ProgType.AdvancedLevelApprenticeship).First();
+            Helpers.SetApprenticeshipAims(learner, pta);
+            if (!valid)
+            {
+                learner.LearningDelivery[1].LearnAimRef = _dataCache.LearningDeliveryWithCommonComponent(CommonComponent.SteppingStoneEnglish).LearnAimRef;
             }
         }
 

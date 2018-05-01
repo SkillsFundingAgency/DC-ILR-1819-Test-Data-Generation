@@ -30,6 +30,8 @@ namespace DCT.TestDataGenerator
 
         IEnumerable<string> GCSEDOrBelow();
 
+        LearningDelivery LearningDeliveryWithCommonComponent(CommonComponent cc);
+
         IEnumerable<string> InvalidPostcode();
 
         IEnumerable<LLDDCatValidity> LLDDCatValidity();

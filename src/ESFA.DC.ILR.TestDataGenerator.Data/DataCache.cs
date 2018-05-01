@@ -68,6 +68,11 @@ namespace DCT.TestDataGenerator
             return _serializable._organisations[type];
         }
 
+        public LearningDelivery LearningDeliveryWithCommonComponent( CommonComponent cc )
+        {
+            return _serializable._learningDelivery.Where(s => s.FrameworkCommonComponent == (int)cc).First();
+        }
+
         public IEnumerable<string> InvalidPostcode()
         {
             List<string> invalid0 = new List<string> { "XXX", "x", "xx" };

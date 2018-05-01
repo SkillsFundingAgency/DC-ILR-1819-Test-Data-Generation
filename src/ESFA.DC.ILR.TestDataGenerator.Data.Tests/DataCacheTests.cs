@@ -125,6 +125,30 @@ namespace DCT.TestDataGenerator
             cache.LLDDCatValidity().Should().HaveCount(3);
         }
 
+        [Fact]
+        public void LearningDelivery_SteppingStoneEnglish_NotNull()
+        {
+            var cache = CreatorDataCache();
+            LearningDelivery ld = cache.LearningDeliveryWithCommonComponent(CommonComponent.SteppingStoneEnglish);
+            ld.Should().NotBeNull();
+        }
+
+        [Fact]
+        public void LearningDelivery_NotSteppingStoneEnglish_InvalidOperationException()
+        {
+            var cache = CreatorDataCache();
+            var types = Enum.GetValues(typeof(CommonComponent));
+            foreach (var type in types)
+            {
+                var t = (CommonComponent)type;
+                if (t != CommonComponent.SteppingStoneEnglish)
+                {
+                    Action call = () => { cache.LearningDeliveryWithCommonComponent(t); };
+                    call.Should().Throw<InvalidOperationException>();
+                }
+            }
+        }
+
         private ILearnerCreatorDataCache CreatorDataCache()
         {
             return new DataCache();

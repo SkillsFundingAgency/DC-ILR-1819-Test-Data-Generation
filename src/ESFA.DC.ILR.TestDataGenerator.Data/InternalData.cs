@@ -477,4 +477,30 @@
 
         // others go here
     }
+
+    public enum CommonComponent
+    {
+        //        CommonComponent CommonComponentDesc
+        NotApplicable = -2,
+        Unknown = -1,
+        KeySkillsinCommunication = 1,
+        KeySkillsinApplicationofNumber = 2,
+        KeySkillsinInformationandCommunicationTechnology = 3,
+        KeySkillsinWorkingwithOthers = 4,
+        KeySkillsinImprovingOwnLearningandPerformance = 5,
+        KeySkillsinProblemSolving = 6,
+        FunctionalSkillsMathematics = 10,
+        FunctionalSkillsEnglish = 11,
+        FunctionalSkillsInformationandCommunicationTechnology = 12,
+        BritishSignLanguage = 20,
+        ProjectExtendedProject = 21,
+        GCSEMathematics = 30,
+        GCSEEnglish = 31,
+        GCSEInformationCommunicationTechnology = 32,
+        InternationalGCSEMathematics = 33,
+        InternationalGCSEEnglish = 34,
+        SteppingStoneEnglish = 35,
+        SteppingStoneMaths = 36,
+        AdditionalUnitsforMicroBusiness = 40
+    }
 }
