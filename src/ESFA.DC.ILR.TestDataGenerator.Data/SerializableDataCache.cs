@@ -21,6 +21,7 @@ namespace DCT.TestDataGenerator
         public Dictionary<LearnDelCategory, LearnAimFunding> _learnAimWithCategory;
         public Dictionary<LearnAimType, LearnAimFunding> _learnAimWithLearnAimType;
         public Dictionary<LegalOrgType, Organisation> _organisations;
+        public List<LearningDelivery> _learningDelivery;
 
         public SerializableDataCache()
         {
@@ -33,6 +34,7 @@ namespace DCT.TestDataGenerator
             _learnAimWithCategory = new Dictionary<LearnDelCategory, LearnAimFunding>();
             _learnAimWithLearnAimType = new Dictionary<LearnAimType, LearnAimFunding>();
             _organisations = new Dictionary<LegalOrgType, Organisation>();
+            _learningDelivery = new List<LearningDelivery>();
         }
 
         public void CreateFromStaticData()
@@ -45,6 +47,7 @@ namespace DCT.TestDataGenerator
             PopulateLearnAimWithLearnAimType();
             PopulateLearnAimFundingModelFulls();
             PopulateOrganisations();
+            PopulateLearningDelivery();
         }
 
         public void WriteToFile(string path)
@@ -78,6 +81,7 @@ namespace DCT.TestDataGenerator
             this._learnAimWithLearnAimType = rhs._learnAimWithLearnAimType;
             this._llddCatValidity = rhs._llddCatValidity;
             this._organisations = rhs._organisations;
+            this._learningDelivery = rhs._learningDelivery;
         }
 
         public void ReadFromStream(Stream stream)
@@ -114,7 +118,7 @@ namespace DCT.TestDataGenerator
                         PwayCode = 1,
                         LearningDelivery = new LearningDelivery()
                         {
-                            LearnAimRef = "60009044", // "50104767",
+                            LearnAimRef = "60094837", 
                             FrameworkCommonComponent = 10
                         },
                     }
@@ -440,6 +444,15 @@ namespace DCT.TestDataGenerator
                     }
                 }
             };
+        }
+
+        private void PopulateLearningDelivery()
+        {
+            _learningDelivery.Add(new LearningDelivery()
+            {
+                LearnAimRef = "60171145",
+                FrameworkCommonComponent = (int)CommonComponent.SteppingStoneEnglish
+            });
         }
 
         private void PopulateOrganisations()
