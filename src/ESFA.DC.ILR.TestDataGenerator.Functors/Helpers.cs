@@ -155,7 +155,7 @@
         /// Learner should have been created with LearnerTypeRequired.Apprenticeships to ensure that the programme and app fin records and similar have been created properly
         /// </summary>
         /// <param name="learner">Learner to mutate to FM35 from FM36</param>
-        public static void MutateApprenticeshipToOlderFullyFunded(MessageLearner learner)
+        public static void MutateApprenticeshipToOlderWithFundingFlag(MessageLearner learner, LearnDelFAMCode ffi)
         {
             learner.LearningDelivery[1].LearnStartDate = learner.LearningDelivery[0].LearnStartDate;
             learner.LearningDelivery[0].FundModel = (int)FundModel.Adult;
@@ -166,7 +166,7 @@
             var fam = learner.LearningDelivery[0].LearningDeliveryFAM.Where(s => s.LearnDelFAMType == LearnDelFAMType.ACT.ToString()).First();
             fam.LearnDelFAMType = LearnDelFAMType.FFI.ToString();
             fam.LearnDelFAMDateFromSpecified = false;
-            fam.LearnDelFAMCode = ((int)LearnDelFAMCode.FFI_Fully).ToString();
+            fam.LearnDelFAMCode = ((int)ffi).ToString();
 
             var ld1Fams = learner.LearningDelivery[1].LearningDeliveryFAM.ToList();
             ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()

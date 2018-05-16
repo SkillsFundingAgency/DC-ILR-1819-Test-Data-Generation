@@ -116,7 +116,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateCommon(MessageLearner learner, bool valid)
         {
-            Helpers.MutateApprenticeshipToOlderFullyFunded(learner);
+            Helpers.MutateApprenticeshipToOlderWithFundingFlag(learner, LearnDelFAMCode.FFI_Fully);
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
             if (!valid)
             {

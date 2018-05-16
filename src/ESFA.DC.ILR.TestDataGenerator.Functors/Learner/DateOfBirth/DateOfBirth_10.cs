@@ -99,7 +99,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateCommon(MessageLearner learner, bool valid)
         {
-            Helpers.MutateApprenticeshipToOlderFullyFunded(learner);
+            Helpers.MutateApprenticeshipToOlderWithFundingFlag(learner, LearnDelFAMCode.FFI_Fully);
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Less16And30Days, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.YoungerLots);
         }
     }

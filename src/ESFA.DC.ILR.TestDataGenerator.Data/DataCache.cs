@@ -102,5 +102,9 @@ namespace DCT.TestDataGenerator
         {
             return _serializable._llddCatValidity;
         }
+
+        public string PostcodeWithAreaCostFactor() => "AL1 1AA";
+
+        public string PostcodeDisadvantagedArea() => "B10 0BL";
     }
 }

@@ -56,7 +56,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void Mutate(MessageLearner learner, bool valid)
         {
-            Helpers.MutateApprenticeshipToOlderFullyFunded(learner);
+            Helpers.MutateApprenticeshipToOlderWithFundingFlag(learner, LearnDelFAMCode.FFI_Fully);
             Helpers.SetApprenticeshipAims(learner, _attain[0].PTA);
             if (!valid)
             {

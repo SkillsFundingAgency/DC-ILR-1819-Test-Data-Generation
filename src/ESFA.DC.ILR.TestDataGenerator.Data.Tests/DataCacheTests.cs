@@ -149,6 +149,20 @@ namespace DCT.TestDataGenerator
             }
         }
 
+        [Fact]
+        public void PostcodeWithAreaCostFactor_Not_Default()
+        {
+            var cache = CreatorDataCache();
+            cache.PostcodeWithAreaCostFactor().Should().NotBe("ZZ99 9ZZ");
+        }
+
+        [Fact]
+        public void PostcodeDisadvantaged_Not_Default()
+        {
+            var cache = CreatorDataCache();
+            cache.PostcodeDisadvantagedArea().Should().NotBe("ZZ99 9ZZ");
+        }
+
         private ILearnerCreatorDataCache CreatorDataCache()
         {
             return new DataCache();
