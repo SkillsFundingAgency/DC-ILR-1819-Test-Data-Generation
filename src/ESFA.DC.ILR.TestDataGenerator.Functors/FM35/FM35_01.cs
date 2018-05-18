@@ -5,6 +5,11 @@ using DCT.ILR.Model;
 
 namespace DCT.TestDataGenerator.Functor
 {
+    /// <summary>
+    /// The FM35 test data generator helps create a range of high quality test data specifically to test the FM35 funding model
+    /// It starts with simple learners but becomes more and more complex in what the earning calculation has to do and areas where in the past there have been specific
+    /// issues and bugs
+    /// </summary>
     public class FM35_01
         : ILearnerMultiMutator
     {
@@ -32,6 +37,16 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate16ApprenticeshipCoFundedLDPostcodeAreaCost, DoMutateOptions = MutateGenerationOptionsOlderApprenticeship },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19ApprenticeshipCoFundedLDPostcodeAreaCost, DoMutateOptions = MutateGenerationOptionsOlderApprenticeship },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19ApprenticeshipCoFundedLDPostcodeAreaCostLDMATA, DoMutateOptions = MutateGenerationOptionsOlderApprenticeship },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate16ApprenticeshipSimpleRestart, DoMutateOptions = MutateGenerationOptionsOlderApprenticeshipLD2 },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate19LD2Restarts, DoMutateOptions = MutateGenerationOptionsLD2 },
+//4)	Restarts.
+//a.  Simple model
+//i.  A-S-O….comp=6 with end date
+//ii. J-F restart, prior learning %
+//b.  Complex apprenticeship model
+//i.  Break in ZPROG01
+//ii. Two components, first finishes before end of zprog aim (so no achievement payment)
+//iii.    The zprog + second then complete. The achievement payment for the 1st component should then appear when the zprog is achieved
             };
         }
 
@@ -128,27 +143,70 @@ namespace DCT.TestDataGenerator.Functor
 
             var ld1Fams = learner.LearningDelivery[1].LearningDeliveryFAM.ToList();
 
-            //ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
-            //{
-            //    LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
-            //    LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_PrincesTrustTeamProgramme).ToString()
-            //});
-            //ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
-            //{
-            //    LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
-            //    LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_SteelRedundancy).ToString()
-            //});
-            //ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
-            //{
-            //    LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
-            //    LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_HESA_GeneratedILRfile).ToString()
-            //});
+            // create lots of LDM based LD FAMS
+            ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+            {
+                LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
+                LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_PrincesTrustTeamProgramme).ToString()
+            });
+            ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+            {
+                LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
+                LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_SteelRedundancy).ToString()
+            });
+            ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+            {
+                LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
+                LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_HESA_GeneratedILRfile).ToString()
+            });
             ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
             {
                 LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
                 LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_ApprenticeshipTrainingAgency).ToString()
             });
             learner.LearningDelivery[1].LearningDeliveryFAM = ld1Fams.ToArray();
+        }
+
+        private void Mutate16ApprenticeshipSimpleRestart(MessageLearner learner, bool valid)
+        {
+            Mutate19(learner, valid);
+            Helpers.MutateApprenticeshipToOlderWithFundingFlag(learner, LearnDelFAMCode.FFI_Co);
+            var lds = learner.LearningDelivery.ToList();
+            lds[0].LearnPlanEndDate = lds[0].LearnStartDate + TimeSpan.FromDays(365);
+            lds[1].LearnActEndDate = lds[1].LearnStartDate + TimeSpan.FromDays(45);
+            lds[1].LearnPlanEndDate = lds[0].LearnPlanEndDate;
+            lds[1].LearnActEndDateSpecified = true;
+
+            lds[1].CompStatus = (int)CompStatus.BreakInLearning;
+            lds[1].Outcome = (int)Outcome.NoAchievement;
+            lds[1].OutcomeSpecified = true;
+
+            lds[2].LearnStartDate = lds[1].LearnActEndDate + TimeSpan.FromDays(30);
+            Helpers.AddLearningDeliveryRestartFAM(lds[2]);
+            lds[2].PriorLearnFundAdj = 80;
+            lds[2].PriorLearnFundAdjSpecified = true;
+            lds[2].LearnPlanEndDate = lds[0].LearnPlanEndDate;
+//            Helpers.SetLearningDeliveryEndDates(lds[2], lds[0].LearnPlanEndDate, Helpers.SetAchDate.DoNotSetAchDate);
+        }
+
+        private void Mutate19LD2Restarts(MessageLearner learner, bool valid)
+        {
+            Mutate19(learner, valid);
+            var lds = learner.LearningDelivery.ToList();
+            lds[0].LearnActEndDate = lds[0].LearnStartDate + TimeSpan.FromDays(45);
+            lds[0].LearnPlanEndDate = lds[0].LearnStartDate + TimeSpan.FromDays(75);
+            lds[0].LearnActEndDateSpecified = true;
+
+            lds[0].CompStatus = (int)CompStatus.BreakInLearning;
+            lds[0].Outcome = (int)Outcome.NoAchievement;
+            lds[0].OutcomeSpecified = true;
+
+            lds[1].LearnStartDate = lds[0].LearnActEndDate + TimeSpan.FromDays(30);
+            Helpers.AddLearningDeliveryRestartFAM(lds[1]);
+            lds[1].PriorLearnFundAdj = 80;
+            lds[1].PriorLearnFundAdjSpecified = true;
+            lds[1].LearnPlanEndDate = lds[0].LearnPlanEndDate;
+            Helpers.SetLearningDeliveryEndDates(lds[1], lds[1].LearnPlanEndDate, Helpers.SetAchDate.DoNotSetAchDate);
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
@@ -162,11 +220,26 @@ namespace DCT.TestDataGenerator.Functor
             _options = options;
         }
 
+        private void MutateGenerationOptionsLD2(GenerationOptions options)
+        {
+            options.LD.GenerateMultipleLDs = 2;
+            options.LD.OverrideLearnStartDate = DateTime.Parse("2018-AUG-11");
+            _options = options;
+        }
+
         private void MutateGenerationOptionsOlderApprenticeship(GenerationOptions options)
         {
             _options = options;
             options.LD.OverrideLearnStartDate = DateTime.Parse("2017-APR-01");
             options.LD.IncludeHHS = true;
+        }
+
+        private void MutateGenerationOptionsOlderApprenticeshipLD2(GenerationOptions options)
+        {
+            _options = options;
+            options.LD.OverrideLearnStartDate = DateTime.Parse("2017-APR-01");
+            options.LD.IncludeHHS = true;
+            options.LD.GenerateMultipleLDs = 2;
         }
     }
 }

@@ -628,7 +628,7 @@ namespace DCT.TestDataGenerator
                 ld.LearnAimRef = "50104767";
                 ld.AimType = (long)AimType.ComponentAim;
 
-                ld.AimSeqNumber = 2;
+                ld.AimSeqNumber = i + 2;
                 ld.AimSeqNumberSpecified = true;
                 ld.LearnStartDate = DateTime.Parse(DCT.TestDataGenerator.Helpers.ValueOrFunction("[AY|OCT|14]"));
                 if (Options.LD.OverrideLearnStartDate.HasValue)

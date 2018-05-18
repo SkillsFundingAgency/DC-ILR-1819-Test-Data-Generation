@@ -157,9 +157,7 @@
         /// <param name="learner">Learner to mutate to FM35 from FM36</param>
         public static void MutateApprenticeshipToOlderWithFundingFlag(MessageLearner learner, LearnDelFAMCode ffi)
         {
-            learner.LearningDelivery[1].LearnStartDate = learner.LearningDelivery[0].LearnStartDate;
             learner.LearningDelivery[0].FundModel = (int)FundModel.Adult;
-            learner.LearningDelivery[1].FundModel = (int)FundModel.Adult;
             MoveEmploymentBeforeLearnStart(learner);
             learner.LearningDelivery[0].AppFinRecord = null;
 
@@ -168,13 +166,18 @@
             fam.LearnDelFAMDateFromSpecified = false;
             fam.LearnDelFAMCode = ((int)ffi).ToString();
 
-            var ld1Fams = learner.LearningDelivery[1].LearningDeliveryFAM.ToList();
-            ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+            for (int i = 1; i != learner.LearningDelivery.Length; ++i)
             {
-                LearnDelFAMType = fam.LearnDelFAMType,
-                LearnDelFAMCode = fam.LearnDelFAMCode
-            });
-            learner.LearningDelivery[1].LearningDeliveryFAM = ld1Fams.ToArray();
+                learner.LearningDelivery[i].LearnStartDate = learner.LearningDelivery[0].LearnStartDate;
+                learner.LearningDelivery[i].FundModel = (int)FundModel.Adult;
+                var ld1Fams = learner.LearningDelivery[i].LearningDeliveryFAM.ToList();
+                ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+                {
+                    LearnDelFAMType = fam.LearnDelFAMType,
+                    LearnDelFAMCode = fam.LearnDelFAMCode
+                });
+                learner.LearningDelivery[i].LearningDeliveryFAM = ld1Fams.ToArray();
+            }
         }
 
         /// <summary>
@@ -222,13 +225,18 @@
 
         public static void AddLearningDeliveryRestartFAM(MessageLearner learner)
         {
-            var ld0Fams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
+            AddLearningDeliveryRestartFAM(learner.LearningDelivery[0]);
+        }
+
+        public static void AddLearningDeliveryRestartFAM(MessageLearnerLearningDelivery ld)
+        {
+            var ld0Fams = ld.LearningDeliveryFAM.ToList();
             ld0Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
             {
                 LearnDelFAMType = LearnDelFAMType.RES.ToString(),
                 LearnDelFAMCode = ((int)LearnDelFAMCode.RES).ToString()
             });
-            learner.LearningDelivery[0].LearningDeliveryFAM = ld0Fams.ToArray();
+            ld.LearningDeliveryFAM = ld0Fams.ToArray();
         }
 
         public static void SetLearningDeliveryEndDates(MessageLearnerLearningDelivery ld, DateTime endDate, SetAchDate modifyAch)
