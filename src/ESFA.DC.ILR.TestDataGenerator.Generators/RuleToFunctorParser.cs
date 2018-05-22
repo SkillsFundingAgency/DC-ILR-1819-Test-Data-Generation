@@ -112,7 +112,7 @@ namespace DCT.TestDataGenerator
                         var ftrip = triplets.Where(s => s.UKPRN == options.OverrideUKPRN.Value);
                         if (ftrip.Count() == 0)
                         {
-                            triplet = new XmlTriplet()
+                            triplet = new XmlTriplet(1)
                             {
                                 UKPRN = options.OverrideUKPRN.Value
                             };

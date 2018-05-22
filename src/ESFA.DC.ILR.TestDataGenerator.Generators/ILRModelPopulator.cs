@@ -38,7 +38,7 @@ namespace DCT.TestDataGenerator
             Dictionary<string, string> result = new Dictionary<string, string>(4);
 
             _triplets = new List<XmlTriplet>(100);
-            _triplets.Add(new XmlTriplet() { UKPRN = DefaultUKPRN });
+            _triplets.Add(new XmlTriplet((int)scale) { UKPRN = DefaultUKPRN });
 
             int learnerIndex = 0;
             long ULNIndex = 0;

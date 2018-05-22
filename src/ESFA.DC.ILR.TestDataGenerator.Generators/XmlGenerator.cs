@@ -38,31 +38,37 @@ namespace DCT.TestDataGenerator
             List<FileRuleLearner> allLearners = new List<FileRuleLearner>(1000);
             var filePrepsrequired = _rfp.FilePreparationDateRequiredToRules(arv);
 
-            if (filePrepsrequired[FilePreparationDateRequired.December].Count > 0 &&
-                filePrepsrequired[FilePreparationDateRequired.January].Count > 0)
-            {
-                List<string> fpdrRules = new List<string>(filePrepsrequired[FilePreparationDateRequired.December].Count + filePrepsrequired[FilePreparationDateRequired.None].Count);
-                fpdrRules.AddRange(filePrepsrequired[FilePreparationDateRequired.December]);
-                fpdrRules.AddRange(filePrepsrequired[FilePreparationDateRequired.None]);
-                CreateModelAndPopulateForRules(FilePreparationDateRequired.December, arv.Where(s => fpdrRules.Contains(s.RuleName)), scale, ns, allLearners);
+            bool noSpecificDateProcessed = filePrepsrequired[FilePreparationDateRequired.None].Count == 0;
 
-                fpdrRules.Clear();
-                fpdrRules.AddRange(filePrepsrequired[FilePreparationDateRequired.January]);
-                CreateModelAndPopulateForRules(FilePreparationDateRequired.January, arv.Where(s => fpdrRules.Contains(s.RuleName)), scale, ns, allLearners);
-            }
-            else if (filePrepsrequired[FilePreparationDateRequired.December].Count > 0)
+            List<FilePreparationDateRequired> filesByDate = new List<FilePreparationDateRequired>()
             {
-                List<string> fpdrRules = new List<string>(filePrepsrequired[FilePreparationDateRequired.December].Count + filePrepsrequired[FilePreparationDateRequired.None].Count);
-                fpdrRules.AddRange(filePrepsrequired[FilePreparationDateRequired.December]);
-                fpdrRules.AddRange(filePrepsrequired[FilePreparationDateRequired.None]);
-                CreateModelAndPopulateForRules(FilePreparationDateRequired.December, arv, scale, ns, allLearners);
-            }
-            else
+                FilePreparationDateRequired.January,
+                FilePreparationDateRequired.December,
+                FilePreparationDateRequired.July
+            };
+
+            foreach (var fbd in filesByDate)
             {
-                List<string> fpdrRules = new List<string>(filePrepsrequired[FilePreparationDateRequired.January].Count + filePrepsrequired[FilePreparationDateRequired.None].Count);
-                fpdrRules.AddRange(filePrepsrequired[FilePreparationDateRequired.January]);
-                fpdrRules.AddRange(filePrepsrequired[FilePreparationDateRequired.None]);
-                CreateModelAndPopulateForRules(FilePreparationDateRequired.January, arv, scale, ns, allLearners);
+                if (filePrepsrequired[fbd].Count > 0)
+                {
+                    List<string> fpdrRules = new List<string>(filePrepsrequired[fbd].Count + filePrepsrequired[FilePreparationDateRequired.None].Count);
+                    fpdrRules.AddRange(filePrepsrequired[fbd]);
+                    if (!noSpecificDateProcessed)
+                    {
+                        noSpecificDateProcessed = true;
+                        fpdrRules.AddRange(filePrepsrequired[FilePreparationDateRequired.None]);
+                    }
+
+                    CreateModelAndPopulateForRules(fbd, arv.Where(s => fpdrRules.Contains(s.RuleName)), scale, ns, allLearners);
+                }
+            }
+
+            if (!noSpecificDateProcessed)
+            {
+                var fbd = FilePreparationDateRequired.None;
+                List<string> fpdrRules = new List<string>(filePrepsrequired[fbd].Count);
+                fpdrRules.AddRange(filePrepsrequired[fbd]);
+                CreateModelAndPopulateForRules(fbd, arv.Where(s => fpdrRules.Contains(s.RuleName)), scale, ns, allLearners);
             }
 
             return allLearners;

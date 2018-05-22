@@ -15,10 +15,11 @@ namespace DCT.TestDataGenerator.Functor
     {
         private ILearnerCreatorDataCache _dataCache;
         private GenerationOptions _options;
+        private DateTime _outcomeDate;
 
         public FilePreparationDateRequired FilePreparationDate()
         {
-            return FilePreparationDateRequired.None;
+            return FilePreparationDateRequired.July;
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
@@ -38,7 +39,7 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19ApprenticeshipCoFundedLDPostcodeAreaCost, DoMutateOptions = MutateGenerationOptionsOlderApprenticeship },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19ApprenticeshipCoFundedLDPostcodeAreaCostLDMATA, DoMutateOptions = MutateGenerationOptionsOlderApprenticeship },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate16ApprenticeshipSimpleRestart, DoMutateOptions = MutateGenerationOptionsOlderApprenticeshipLD2 },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate19LD2Restarts, DoMutateOptions = MutateGenerationOptionsLD2 },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate19LD2Restarts, DoMutateOptions = MutateGenerationOptionsLD2, DoMutateProgression = Mutate19LD2RestartsDestAndProg },
 //4)	Restarts.
 //a.  Simple model
 //i.  A-S-O….comp=6 with end date
@@ -203,10 +204,18 @@ namespace DCT.TestDataGenerator.Functor
 
             lds[1].LearnStartDate = lds[0].LearnActEndDate + TimeSpan.FromDays(30);
             Helpers.AddLearningDeliveryRestartFAM(lds[1]);
-            lds[1].PriorLearnFundAdj = 80;
+            lds[1].PriorLearnFundAdj = 50;
             lds[1].PriorLearnFundAdjSpecified = true;
-            lds[1].LearnPlanEndDate = lds[0].LearnPlanEndDate;
+            lds[1].LearnPlanEndDate = lds[0].LearnPlanEndDate + TimeSpan.FromDays(45);
+            lds[1].OrigLearnStartDate = lds[0].LearnStartDate;
+            lds[1].OrigLearnStartDateSpecified = true;
             Helpers.SetLearningDeliveryEndDates(lds[1], lds[1].LearnPlanEndDate, Helpers.SetAchDate.DoNotSetAchDate);
+            _outcomeDate = lds[1].LearnPlanEndDate;
+        }
+
+        private void Mutate19LD2RestartsDestAndProg(MessageLearnerDestinationandProgression learner, bool valid)
+        {
+            learner.DPOutcome[0].OutStartDate = _outcomeDate;
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
@@ -223,7 +232,8 @@ namespace DCT.TestDataGenerator.Functor
         private void MutateGenerationOptionsLD2(GenerationOptions options)
         {
             options.LD.GenerateMultipleLDs = 2;
-            options.LD.OverrideLearnStartDate = DateTime.Parse("2018-AUG-11");
+            options.LD.OverrideLearnStartDate = DateTime.Parse("2017-AUG-11");
+            options.CreateDestinationAndProgression = true;
             _options = options;
         }
 

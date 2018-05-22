@@ -13,11 +13,11 @@ namespace DCT.TestDataGenerator
 {
     public class XmlTriplet
     {
-        public XmlTriplet()
+        public XmlTriplet(int scale)
         {
-            Learners = new List<MessageLearner>(100);
-            Progressions = new List<MessageLearnerDestinationandProgression>(100);
-            FileRuleLearners = new List<FileRuleLearner>(100);
+            Learners = new List<MessageLearner>(10 * scale);
+            Progressions = new List<MessageLearnerDestinationandProgression>(10 * scale);
+            FileRuleLearners = new List<FileRuleLearner>(10 * scale);
         }
 
         public int UKPRN { get; set; }

@@ -18,7 +18,8 @@ namespace DCT.TestDataGenerator.Functor
     {
         None,
         December,
-        January
+        January,
+        July
     }
 
     public interface ILearnerMutator
