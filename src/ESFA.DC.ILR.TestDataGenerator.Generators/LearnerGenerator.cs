@@ -162,7 +162,7 @@ namespace DCT.TestDataGenerator
             };
         }
 
-        internal List<MessageLearner> Generate(string learnerRefNumberStub, LearnerTypeRequired requiresLearner, int currentLearnerIndex, ref long ULNIndex)
+        internal MessageLearner Generate(string learnerRefNumberStub, LearnerTypeRequired requiresLearner, int currentLearnerIndex, ref long ULNIndex)
         {
 //            ULNIndex = currentLearnerIndex;
             long uln = 0;
@@ -181,7 +181,6 @@ namespace DCT.TestDataGenerator
                 ++ULNIndex;
             }
 
-            List<MessageLearner> result = new List<MessageLearner>();
             MessageLearner learner = new MessageLearner()
             {
                 LearnRefNumber = $"{currentLearnerIndex:X}{learnerRefNumberStub.Replace("_", string.Empty)}",
@@ -195,8 +194,7 @@ namespace DCT.TestDataGenerator
 
             PopulateLearnerForRules(learner);
 
-            result.Add(learner);
-            return result;
+            return learner;
         }
 
         private void PopulateLearnerForRules(MessageLearner learner)

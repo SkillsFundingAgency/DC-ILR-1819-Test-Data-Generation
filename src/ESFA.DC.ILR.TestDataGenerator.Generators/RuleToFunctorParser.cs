@@ -103,6 +103,7 @@ namespace DCT.TestDataGenerator
             LearnerGenerator lg = new LearnerGenerator(_cache);
             foreach (var functor in _ruleFunctors[ruleName])
             {
+                int localLearnerIndex = 0;
                 foreach (var funcy in functor.LearnerMutators(_cache))
                 {
                     GenerationOptions options = lg.CreateGenerationOptions(funcy.LearnerType);
@@ -125,29 +126,27 @@ namespace DCT.TestDataGenerator
                     }
 
                     lg.Options = options;
-                    List<MessageLearner> generated = lg.Generate(functor.LearnerReferenceNumberStub(), funcy.LearnerType, currentLearnerIndex, ref ULNIndex);
-                    generated.ForEach(s =>
+                    MessageLearner generated = lg.Generate(functor.LearnerReferenceNumberStub(), funcy.LearnerType, localLearnerIndex++, ref ULNIndex);
+                    triplet.FileRuleLearners.Add(new FileRuleLearner()
                     {
-                        triplet.FileRuleLearners.Add(new FileRuleLearner()
-                        {
-                            ExclusionRecord = funcy.ExclusionRecord,
-                            RuleName = ruleName,
-                            LearnRefNumber = s.LearnRefNumber,
-                            ValidLines = funcy.ValidLines,
-                            InvalidLines = funcy.InvalidLines,
-                            Valid = valid
-                        });
-                        funcy.DoMutateLearner(s, valid);
-                        if (lg.Options.CreateDestinationAndProgression)
-                        {
-                            MessageLearnerDestinationandProgression prog = lg.GenerateProgression(ruleName, s);
-                            funcy.DoMutateProgression?.Invoke(prog, valid);
-                            triplet.Progressions.Add(prog);
-                        }
+                        ExclusionRecord = funcy.ExclusionRecord,
+                        RuleName = ruleName,
+                        LearnRefNumber = generated.LearnRefNumber,
+                        ValidLines = funcy.ValidLines,
+                        InvalidLines = funcy.InvalidLines,
+                        Valid = valid
                     });
-                    triplet.Learners.AddRange(generated);
-                    currentLearnerIndex += generated.Count;
-                    result += generated.Count;
+                    funcy.DoMutateLearner(generated, valid);
+                    if (lg.Options.CreateDestinationAndProgression)
+                    {
+                        MessageLearnerDestinationandProgression prog = lg.GenerateProgression(ruleName, generated);
+                        funcy.DoMutateProgression?.Invoke(prog, valid);
+                        triplet.Progressions.Add(prog);
+                    }
+
+                    triplet.Learners.Add(generated);
+                    currentLearnerIndex += 1;
+                    result += 1;
                 }
             }
 
