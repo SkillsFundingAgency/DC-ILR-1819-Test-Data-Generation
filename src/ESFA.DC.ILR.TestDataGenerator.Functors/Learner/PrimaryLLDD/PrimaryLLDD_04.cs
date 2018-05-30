@@ -48,6 +48,11 @@
                     v.PrimaryLLDDSpecified = false;
                 }
             }
+            else
+            {
+                learner.LLDDandHealthProblem[0].PrimaryLLDD = 1;
+                learner.LLDDandHealthProblem[0].PrimaryLLDDSpecified = true;
+            }
         }
 
         private void MutateLLDDCAT9899(MessageLearner learner, bool valid)

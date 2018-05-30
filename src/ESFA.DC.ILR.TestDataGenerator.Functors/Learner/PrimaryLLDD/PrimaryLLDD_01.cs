@@ -31,7 +31,7 @@
             var result = new List<LearnerTypeMutator>();
             result.Add(new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions });
             result.Add(new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateLLDDCAT9899, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true });
-            result.Add(new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptionsStartDate });
+            result.Add(new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptionsStartDate, ExclusionRecord = true });
             return result;
         }
 
