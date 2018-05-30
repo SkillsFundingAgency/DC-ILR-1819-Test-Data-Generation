@@ -39,15 +39,16 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19ApprenticeshipCoFundedLDPostcodeAreaCost, DoMutateOptions = MutateGenerationOptionsOlderApprenticeship },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19ApprenticeshipCoFundedLDPostcodeAreaCostLDMATA, DoMutateOptions = MutateGenerationOptionsOlderApprenticeship },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate16ApprenticeshipSimpleRestart, DoMutateOptions = MutateGenerationOptionsOlderApprenticeshipLD2 },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate19LD2Restarts, DoMutateOptions = MutateGenerationOptionsLD2, DoMutateProgression = Mutate19LD2RestartsDestAndProg },
 //4)	Restarts.
 //a.  Simple model
 //i.  A-S-O….comp=6 with end date
 //ii. J-F restart, prior learning %
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate19LD2Restarts, DoMutateOptions = MutateGenerationOptionsLD2, DoMutateProgression = Mutate19LD2RestartsDestAndProg },
 //b.  Complex apprenticeship model
 //i.  Break in ZPROG01
 //ii. Two components, first finishes before end of zprog aim (so no achievement payment)
 //iii.    The zprog + second then complete. The achievement payment for the 1st component should then appear when the zprog is achieved
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate16ApprenticeshipComplexRestart, DoMutateOptions = MutateGenerationOptionsOlderApprenticeshipLD4, DoMutateProgression = Mutate19LD2RestartsDestAndProg },
             };
         }
 
@@ -187,7 +188,32 @@ namespace DCT.TestDataGenerator.Functor
             lds[2].PriorLearnFundAdj = 80;
             lds[2].PriorLearnFundAdjSpecified = true;
             lds[2].LearnPlanEndDate = lds[0].LearnPlanEndDate;
-//            Helpers.SetLearningDeliveryEndDates(lds[2], lds[0].LearnPlanEndDate, Helpers.SetAchDate.DoNotSetAchDate);
+            //            Helpers.SetLearningDeliveryEndDates(lds[2], lds[0].LearnPlanEndDate, Helpers.SetAchDate.DoNotSetAchDate);
+        }
+
+        //b.  Complex apprenticeship model
+        //i.  Break in ZPROG01
+        //ii. Two components, first finishes before end of zprog aim (so no achievement payment)
+        //iii.    The zprog + second then complete. The achievement payment for the 1st component should then appear when the zprog is achieved
+        private void Mutate16ApprenticeshipComplexRestart(MessageLearner learner, bool valid)
+        {
+            Mutate19(learner, valid);
+            Helpers.MutateApprenticeshipToOlderWithFundingFlag(learner, LearnDelFAMCode.FFI_Co);
+            //var lds = learner.LearningDelivery.ToList();
+            //lds[0].LearnPlanEndDate = lds[0].LearnStartDate + TimeSpan.FromDays(365);
+            //lds[1].LearnActEndDate = lds[1].LearnStartDate + TimeSpan.FromDays(45);
+            //lds[1].LearnPlanEndDate = lds[0].LearnPlanEndDate;
+            //lds[1].LearnActEndDateSpecified = true;
+
+            //lds[1].CompStatus = (int)CompStatus.BreakInLearning;
+            //lds[1].Outcome = (int)Outcome.NoAchievement;
+            //lds[1].OutcomeSpecified = true;
+
+            //lds[2].LearnStartDate = lds[1].LearnActEndDate + TimeSpan.FromDays(30);
+            //Helpers.AddLearningDeliveryRestartFAM(lds[2]);
+            //lds[2].PriorLearnFundAdj = 80;
+            //lds[2].PriorLearnFundAdjSpecified = true;
+            //lds[2].LearnPlanEndDate = lds[0].LearnPlanEndDate;
         }
 
         private void Mutate19LD2Restarts(MessageLearner learner, bool valid)
@@ -250,6 +276,14 @@ namespace DCT.TestDataGenerator.Functor
             options.LD.OverrideLearnStartDate = DateTime.Parse("2017-APR-01");
             options.LD.IncludeHHS = true;
             options.LD.GenerateMultipleLDs = 2;
+        }
+
+        private void MutateGenerationOptionsOlderApprenticeshipLD4(GenerationOptions options)
+        {
+            _options = options;
+            options.LD.OverrideLearnStartDate = DateTime.Parse("2017-APR-01");
+            options.LD.IncludeHHS = true;
+            options.LD.GenerateMultipleLDs = 4;
         }
     }
 }

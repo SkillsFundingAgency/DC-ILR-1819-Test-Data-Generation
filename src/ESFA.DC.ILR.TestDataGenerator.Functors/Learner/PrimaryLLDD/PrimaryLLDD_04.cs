@@ -40,10 +40,13 @@
             learner.LLDDHealthProb = (int)LLDDHealthProb.LearningDifficultyOrHealthProblem;
             var l = learner.LLDDandHealthProblem.ToList();
             l.RemoveRange(1, 2);
-            learner.LLDDandHealthProblem = l.ToArray(); ;
-            foreach (var v in learner.LLDDandHealthProblem)
+            learner.LLDDandHealthProblem = l.ToArray();
+            if (!valid)
             {
-                v.PrimaryLLDDSpecified = false;
+                foreach (var v in learner.LLDDandHealthProblem)
+                {
+                    v.PrimaryLLDDSpecified = false;
+                }
             }
         }
 

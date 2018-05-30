@@ -68,7 +68,7 @@ namespace DCT.TestDataGenerator
                 var fbd = FilePreparationDateRequired.None;
                 List<string> fpdrRules = new List<string>(filePrepsrequired[fbd].Count);
                 fpdrRules.AddRange(filePrepsrequired[fbd]);
-                CreateModelAndPopulateForRules(fbd, arv.Where(s => fpdrRules.Contains(s.RuleName)), scale, ns, allLearners);
+                CreateModelAndPopulateForRules(FilePreparationDateRequired.January, arv.Where(s => fpdrRules.Contains(s.RuleName)), scale, ns, allLearners);
             }
 
             return allLearners;

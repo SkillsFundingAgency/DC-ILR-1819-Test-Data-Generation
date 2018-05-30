@@ -515,7 +515,8 @@ namespace DCT.TestDataGenerator
                 ld.AimTypeSpecified = true;
                 ld.FundModel = (int)FundModel.CommunityLearning;
                 ld.FundModelSpecified = true;
-                ld.LearnAimRef = "60021238";
+//                ld.LearnAimRef = "60021238";
+                ld.LearnAimRef = "60133533";
                 ld.AimType = (long)AimType.StandAlone;
 
                 ld.AimSeqNumber = i + 1;

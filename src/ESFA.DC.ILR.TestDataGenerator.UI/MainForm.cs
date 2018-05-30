@@ -52,7 +52,7 @@ namespace ILRTestDataGenerator
             string ns = fileNamespace.Text;
             XmlGenerator generator = new XmlGenerator(_rfp, UKPRN);
             var result = generator.CreateAllXml(arv, scale, ns);
-            string folder = @"d:\";
+            string folder = @"d:\ilr\";
             FileWriter.WriteXmlFiles(folder, generator.FileContent(), ns);
             FileWriter.OutputControlFile(folder, result);
         }
@@ -141,6 +141,28 @@ namespace ILRTestDataGenerator
             }
 
             return xdsInput;
+        }
+
+        private void uiGenerateULNs_Click(object sender, EventArgs e)
+        {
+            string folder = @"d:\ilr\";
+            bool parse = int.TryParse(uiMultiplication.Text, out int scale);
+            if (!parse)
+            {
+                scale = 1;
+            }
+            List<string> ulns = new List<string>(scale);
+            for (int index = 0; index != scale; ++index)
+            {
+                try
+                {
+                    string uln = ListOfULNs.ULN(index).ToString();
+                    ulns.Add(uln + ",");
+                }
+                catch { }
+            }
+            string filename = Path.Combine(folder, "ulns.txt");
+            File.WriteAllLines(filename, ulns);
         }
     }
 }

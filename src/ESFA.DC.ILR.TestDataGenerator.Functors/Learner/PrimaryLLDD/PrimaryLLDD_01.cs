@@ -38,9 +38,12 @@
         private void Mutate(MessageLearner learner, bool valid)
         {
             learner.LLDDHealthProb = (int)LLDDHealthProb.LearningDifficultyOrHealthProblem;
-            foreach (var v in learner.LLDDandHealthProblem)
+            if (!valid)
             {
-                v.PrimaryLLDDSpecified = false;
+                foreach (var v in learner.LLDDandHealthProblem)
+                {
+                    v.PrimaryLLDDSpecified = false;
+                }
             }
         }
 

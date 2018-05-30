@@ -44,6 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.fileNamespace = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.uiGenerateULNs = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.uiParameters)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,11 +192,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // uiGenerateULNs
+            // 
+            this.uiGenerateULNs.Location = new System.Drawing.Point(430, 34);
+            this.uiGenerateULNs.Name = "uiGenerateULNs";
+            this.uiGenerateULNs.Size = new System.Drawing.Size(75, 23);
+            this.uiGenerateULNs.TabIndex = 12;
+            this.uiGenerateULNs.Text = "Gen ULNs";
+            this.uiGenerateULNs.UseVisualStyleBackColor = true;
+            this.uiGenerateULNs.Click += new System.EventHandler(this.uiGenerateULNs_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 593);
+            this.Controls.Add(this.uiGenerateULNs);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.fileNamespace);
             this.Controls.Add(this.label4);
@@ -235,6 +247,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox fileNamespace;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button uiGenerateULNs;
     }
 }
 
