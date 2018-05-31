@@ -164,5 +164,21 @@ namespace ILRTestDataGenerator
             string filename = Path.Combine(folder, "ulns.txt");
             File.WriteAllLines(filename, ulns);
         }
+
+        private void uiSetAllActive_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow existingRow in uiParameters.Rows)
+            {
+                existingRow.Cells["Active"].Value = uiSetAllActive.Checked;
+            }
+        }
+
+        private void uiSetAllValid_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow existingRow in uiParameters.Rows)
+            {
+                existingRow.Cells["Valid"].Value = uiSetAllValid.Checked;
+            }
+        }
     }
 }

@@ -37,7 +37,7 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate24NVQLevel3, DoMutateOptions = MutateGenerationOptionsMilitary, ExclusionRecord = true }, // exclusion Military
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate24NVQLevel3, DoMutateOptions = MutateGenerationOptionsSolent, ExclusionRecord = true }, // exclusion Solent
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate24TradeUnionAim, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }, // exclusion Trade Unions
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate24NVQLevel3, DoMutateOptions = MutateGenerationOptionsSpecialistCollege, ExclusionRecord = true } // specialist college
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate24NVQLevel3Restart, DoMutateOptions = MutateGenerationOptionsSpecialistCollege, ExclusionRecord = true } // specialist college
             };
         }
 
@@ -56,6 +56,14 @@ namespace DCT.TestDataGenerator.Functor
         {
             MutateNVQLevel3(learner, valid);
             Mutate24(learner, valid);
+        }
+
+        private void Mutate24NVQLevel3Restart(MessageLearner learner, bool valid)
+        {
+            Mutate24NVQLevel3(learner, valid);
+            Helpers.AddLearningDeliveryRestartFAM(learner);
+            learner.LearningDelivery[0].PriorLearnFundAdj = 10;
+            learner.LearningDelivery[0].PriorLearnFundAdjSpecified = true;
         }
 
         private void Mutate24(MessageLearner learner, bool valid)
