@@ -114,9 +114,12 @@ namespace DCT.TestDataGenerator.Functor
         {
             Helpers.MutateApprenticeshipToOlderWithFundingFlag(learner, LearnDelFAMCode.FFI_Fully);
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
-            foreach (MessageLearnerLearningDelivery ld in learner.LearningDelivery)
+            if (!valid)
             {
-                ld.FundModel = (int)FundModel.YP1619;
+                foreach (MessageLearnerLearningDelivery ld in learner.LearningDelivery)
+                {
+                    ld.FundModel = (int)FundModel.YP1619;
+                }
             }
         }
 
