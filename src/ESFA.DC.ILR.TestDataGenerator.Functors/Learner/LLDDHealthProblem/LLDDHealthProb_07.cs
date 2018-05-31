@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using DCT.ILR.Model;
 
 namespace DCT.TestDataGenerator.Functor
@@ -31,7 +32,7 @@ namespace DCT.TestDataGenerator.Functor
                 //new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptionsMultipleLD },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate25, DoMutateOptions = MutateGenerationOptionsMultipleLD, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate24WithLd3, DoMutateOptions = MutateGenerationOptionsMultipleLD },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate24WithLd3Adult, DoMutateOptions = MutateGenerationOptionsMultipleLD, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate24WithLd3FMAdult, DoMutateOptions = MutateGenerationOptionsMultipleLDFM35, ExclusionRecord = true },
             };
             return result;
         }
@@ -68,13 +69,21 @@ namespace DCT.TestDataGenerator.Functor
             Mutate(learner, valid);
         }
 
-        private void Mutate24WithLd3Adult(MessageLearner learner, bool valid)
+        private void Mutate24WithLd3FMAdult(MessageLearner learner, bool valid)
         {
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact25, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
             learner.LearningDelivery[1].LearnStartDate = learner.LearningDelivery[1].LearnStartDate.AddDays(-30);
             learner.LearningDelivery[1].FundModel = (int)FundModel.Adult;
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Less25, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
             Mutate(learner, valid);
+            Helpers.AddOrChangeLearningDeliverySourceOfFunding(learner.LearningDelivery[1], LearnDelFAMCode.SOF_ESFA_Adult);
+            var ld1Fams = learner.LearningDelivery[1].LearningDeliveryFAM.ToList();
+            ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+            {
+                LearnDelFAMType = LearnDelFAMType.FFI.ToString(),
+                LearnDelFAMCode = ((int)LearnDelFAMCode.FFI_Co).ToString()
+            });
+            learner.LearningDelivery[1].LearningDeliveryFAM = ld1Fams.ToArray();
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
@@ -87,6 +96,14 @@ namespace DCT.TestDataGenerator.Functor
         {
             MutateGenerationOptions(options);
             options.LD.GenerateMultipleLDs = 3;
+        }
+
+        private void MutateGenerationOptionsMultipleLDFM35(GenerationOptions options)
+        {
+            MutateGenerationOptions(options);
+            options.LD.GenerateMultipleLDs = 3;
+            options.EmploymentRequired = true;
+            options.LD.IncludeHHS = true;
         }
     }
 }
