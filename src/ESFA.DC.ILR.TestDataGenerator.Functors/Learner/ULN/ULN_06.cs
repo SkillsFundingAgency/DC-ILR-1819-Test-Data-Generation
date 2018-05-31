@@ -32,7 +32,7 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutatePlanEndDate, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherYP1619, DoMutateLearner = MutatePlanEndDate, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutatePlanEndDate, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutatePlanEndDateFM36, DoMutateOptions = MutateGenerationOptions, ValidLines = 1, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutatePlanEndDateFM36ACT2, DoMutateOptions = MutateGenerationOptions, ValidLines = 1 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutatePlanEndDate, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = MutatePlanEndDate, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateCourseAndPlanEndDate, DoMutateOptions = MutateGenerationOptionsADL },
@@ -55,26 +55,35 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutatePlanEndDate(MessageLearner learner, bool valid)
         {
-            learner.LearningDelivery[0].LearnStartDate = DateTime.Parse(Helpers.ValueOrFunction("[AY|DEC|13]"));
-            if (valid)
+            foreach (var ld in learner.LearningDelivery)
             {
-                learner.LearningDelivery[0].LearnPlanEndDate = learner.LearningDelivery[0].LearnStartDate + TimeSpan.FromDays(4);
-            }
-            else
-            {
-                learner.LearningDelivery[0].LearnPlanEndDate = learner.LearningDelivery[0].LearnStartDate + TimeSpan.FromDays(5);
+                ld.LearnStartDate = DateTime.Parse(Helpers.ValueOrFunction("[AY|DEC|13]"));
+                if (valid)
+                {
+                    ld.LearnPlanEndDate = learner.LearningDelivery[0].LearnStartDate + TimeSpan.FromDays(4);
+                }
+                else
+                {
+                    ld.LearnPlanEndDate = learner.LearningDelivery[0].LearnStartDate + TimeSpan.FromDays(5);
+                }
             }
 
             MutateCommon(learner, valid);
         }
 
-        private void MutatePlanEndDateFM36(MessageLearner learner, bool valid)
+        private void MutatePlanEndDateFM36ACT2(MessageLearner learner, bool valid)
         {
+            long uln = learner.ULN;
             MutatePlanEndDate(learner, valid);
             learner.LearningDelivery[1].LearnStartDate = learner.LearningDelivery[0].LearnStartDate;
             learner.LearningDelivery[0].AppFinRecord[0].AFinDate = learner.LearningDelivery[1].LearnStartDate;
             learner.LearningDelivery[0].LearningDeliveryFAM[0].LearnDelFAMDateFrom = learner.LearningDelivery[1].LearnStartDate;
             learner.LearningDelivery[0].LearnPlanEndDate = learner.LearningDelivery[0].LearnStartDate + TimeSpan.FromDays(365);
+            learner.LearningDelivery[0].LearningDeliveryFAM[0].LearnDelFAMCode = ((int)LearnDelFAMCode.ACT_ContractESFA).ToString();
+            if (valid)
+            {
+                learner.ULN = uln;
+            }
         }
 
         private void MutateActEndDate(MessageLearner learner, bool valid)
