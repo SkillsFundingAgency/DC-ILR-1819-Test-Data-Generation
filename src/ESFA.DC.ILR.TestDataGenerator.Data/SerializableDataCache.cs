@@ -381,6 +381,15 @@ namespace DCT.TestDataGenerator
                         LearnAimRef = "60039309",
                         FundModel = FundModel.Adult
                     }
+                },
+                new LearnAimFundingModelSourceOfFunding()
+                {
+                    SourceOfFunding = LearnDelFAMCode.SOF_ESFA_1619,
+                    AimFunding = new LearnAimFunding()
+                    {
+                        LearnAimRef = "60021238",
+                        FundModel = FundModel.YP1619
+                    }
                 }
             };
         }
