@@ -15,7 +15,7 @@ namespace DCT.TestDataGenerator.Functor
         {
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.CommunityLearning, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.CommunityLearning, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptionsSOF },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateHEFCE, DoMutateOptions = MutateGenerationOptionsHEFCE, ExclusionRecord = true }
             };
@@ -32,6 +32,19 @@ namespace DCT.TestDataGenerator.Functor
 
         public void MutateGenerationOptions(GenerationOptions options)
         {
+            options.EmploymentRequired = true;
+        }
+
+        public void MutateGenerationOptionsSOF(GenerationOptions options)
+        {
+            options.LD.IncludeSOF = true;
+        }
+
+        public void MutateGenerationOptionsHEFCE(GenerationOptions options)
+        {
+            options.LD.IncludeSOF = true;
+            options.LD.IncludeHEFields = true;
+            options.EmploymentRequired = true;
         }
 
         public void MutateHEFCE(MessageLearner learner, bool valid)
@@ -40,12 +53,6 @@ namespace DCT.TestDataGenerator.Functor
             learner.ULN = 9999999999;
             learner.ULNSpecified = true;
             learner.LearningDelivery[0].LearnPlanEndDate = learner.LearningDelivery[0].LearnStartDate + TimeSpan.FromDays(3);
-        }
-
-        public void MutateGenerationOptionsHEFCE(GenerationOptions options)
-        {
-            options.LD.IncludeSOF = true;
-            options.LD.IncludeHEFields = true;
         }
 
         public string RuleName()
