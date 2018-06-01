@@ -30,7 +30,7 @@ namespace DCT.TestDataGenerator.Functor
             var result = new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = Mutate19, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19Standard, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true, ValidLines = 1 },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate19Standard, DoMutateOptions = MutateGenerationOptionsStandards, ExclusionRecord = true, ValidLines = 1 },
             };
             foreach (var v in _excludedLDMs)
             {
@@ -47,7 +47,8 @@ namespace DCT.TestDataGenerator.Functor
 
         public void MutateGenerationOptionsStandards(GenerationOptions options)
         {
-//            options.LD.OverrideLearnStartDate = DateTime.Parse("2016-JUL-31");
+            // has to be before MAY-17 because of FM36 rules
+            options.LD.OverrideLearnStartDate = DateTime.Parse("2016-JUL-31");
  //           options.CreateDestinationAndProgression = true;
             options.LD.IncludeHHS = true;
             _options = options;
@@ -71,7 +72,7 @@ namespace DCT.TestDataGenerator.Functor
         private void Mutate19Standard(MessageLearner learner, bool valid)
         {
             ApprenticeshipProgrammeTypeAim pta = _dataCache.ApprenticeshipAims(ProgType.ApprenticeshipStandard).First();
-            //learner.LearningDelivery[0].LearnStartDate = _options.LD.OverrideLearnStartDate.Value;
+            learner.LearningDelivery[0].LearnStartDate = _options.LD.OverrideLearnStartDate.Value;
             Helpers.MutateApprenticeshipToStandard(learner, FundModel.OtherAdult);
             Mutate19(learner, valid);
             Helpers.SetApprenticeshipAims(learner, pta);
