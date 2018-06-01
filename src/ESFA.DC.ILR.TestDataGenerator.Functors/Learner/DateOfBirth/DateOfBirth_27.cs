@@ -40,7 +40,6 @@ namespace DCT.TestDataGenerator.Functor
         private void MutateGenerationOptions(GenerationOptions options)
         {
             options.EmploymentRequired = true;
-            options.LD.IncludeADL = true;
             options.LD.IncludeLDM = true;
             options.LD.IncludeSOF = true;
             options.LD.OverrideLDM = (int)LearnDelFAMCode.LDM_OLASS;
