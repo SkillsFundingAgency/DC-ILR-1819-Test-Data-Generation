@@ -1,6 +1,7 @@
 ﻿namespace DCT.TestDataGenerator
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using DCT.ILR.Model;
 
@@ -292,6 +293,26 @@
             learner.LearningDelivery[0].AppFinRecord = null;
         }
 
+        public static void AddProviderSpecLearnerMonitoring(MessageLearner learner, ProvSpecLearnMonOccur type, string text)
+        {
+            List<MessageLearnerProviderSpecLearnerMonitoring> ifam = null;
+            if (learner.ProviderSpecLearnerMonitoring == null)
+            {
+                ifam = new List<MessageLearnerProviderSpecLearnerMonitoring>(1);
+            }
+            else
+            {
+                ifam = learner.ProviderSpecLearnerMonitoring.ToList();
+            }
+
+            ifam.Add(new MessageLearnerProviderSpecLearnerMonitoring()
+            {
+                ProvSpecLearnMon = text,
+                ProvSpecLearnMonOccur = type.ToString()
+            });
+            learner.ProviderSpecLearnerMonitoring = ifam.ToArray();
+        }
+
         public static void MoveEmploymentBeforeLearnStart(MessageLearner learner)
         {
             learner.LearnerEmploymentStatus[0].DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate;
@@ -493,17 +514,6 @@
         internal static void AddOrChangeProviderSpecLearnerMonitoring(MessageLearner learner, ProvSpecLearnMonOccur type)
         {
             var ifam = learner.ProviderSpecLearnerMonitoring.Where(s => s.ProvSpecLearnMonOccur != type.ToString()).ToList();
-            ifam.Add(new MessageLearnerProviderSpecLearnerMonitoring()
-            {
-                ProvSpecLearnMon = $"{learner.ULN}",
-                ProvSpecLearnMonOccur = type.ToString()
-            });
-            learner.ProviderSpecLearnerMonitoring = ifam.ToArray();
-        }
-
-        internal static void AddProviderSpecLearnerMonitoring(MessageLearner learner, ProvSpecLearnMonOccur type)
-        {
-            var ifam = learner.ProviderSpecLearnerMonitoring.ToList();
             ifam.Add(new MessageLearnerProviderSpecLearnerMonitoring()
             {
                 ProvSpecLearnMon = $"{learner.ULN}",

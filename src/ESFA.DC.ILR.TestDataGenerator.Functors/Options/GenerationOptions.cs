@@ -47,6 +47,8 @@ namespace DCT.TestDataGenerator
 
         public int? OverrideUKPRN { get; set; }
 
+        public string AddProvSpecLearnMonA { get; set; }
+
         public LearningDeliveryOptions LD { get; set; }
 
         public LearnerFAMOptions FAM { get; set; }

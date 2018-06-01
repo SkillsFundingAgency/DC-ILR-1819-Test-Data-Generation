@@ -49,7 +49,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateNVQLevel3(MessageLearner learner, bool valid)
         {
-            learner.LearningDelivery[0].LearnAimRef = "50104767";
+            learner.LearningDelivery[0].LearnAimRef = _cache.LearnAimWithLevel(FullLevel.Level3, FundModel.Adult).LearnAimRef;
         }
 
         private void Mutate24NVQLevel3(MessageLearner learner, bool valid)
@@ -79,6 +79,7 @@ namespace DCT.TestDataGenerator.Functor
         {
             options.LD.IncludeLDM = true;
             options.LD.OverrideLDM = (int)LearnDelFAMCode.LDM_Military;
+            options.LD.OverrideLearnStartDate = DateTime.Parse("2015-OCT-30");
         }
 
         private void MutateGenerationOptionsSpecialistCollege(GenerationOptions options)
@@ -96,6 +97,8 @@ namespace DCT.TestDataGenerator.Functor
         {
             options.LD.IncludeLDM = true;
             options.LD.OverrideLDM = (int)LearnDelFAMCode.LDM_SolentCity;
+            options.LD.OverrideLearnStartDate = DateTime.Parse("2015-OCT-30");
+            options.AddProvSpecLearnMonA = "LDM 339 will error";
         }
 
         private void MutateGenerationOptionsRestart(GenerationOptions options)

@@ -246,6 +246,11 @@ namespace DCT.TestDataGenerator
                 learner.AccomSpecified = true;
             }
 
+            if (!string.IsNullOrEmpty(Options.AddProvSpecLearnMonA))
+            {
+                Helpers.AddProviderSpecLearnerMonitoring(learner, ProvSpecLearnMonOccur.A, Options.AddProvSpecLearnMonA);
+            }
+
             GenerateLearnerLLDDHealthProblem(learner);
             GenerateLearnerFAMs(learner);
             GenerateLearningDelivery(learner);
@@ -929,6 +934,7 @@ namespace DCT.TestDataGenerator
                     LearnDelFAMType = LearnDelFAMType.RES.ToString(),
                     LearnDelFAMCode = ((int)LearnDelFAMCode.RES).ToString()
                 });
+                ld.PriorLearnFundAdjSpecified = true;
             }
 
             return fams.ToArray();
