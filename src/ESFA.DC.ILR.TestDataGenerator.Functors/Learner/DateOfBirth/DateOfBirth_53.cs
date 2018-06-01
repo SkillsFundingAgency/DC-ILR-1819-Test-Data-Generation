@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DCT.ILR.Model;
 
@@ -49,7 +50,7 @@ namespace DCT.TestDataGenerator.Functor
         private void Mutate19Standard(MessageLearner learner, bool valid)
         {
             ApprenticeshipProgrammeTypeAim pta = _dataCache.ApprenticeshipAims(ProgType.ApprenticeshipStandard).First();
-//            learner.LearningDelivery[0].LearnStartDate = _options.LD.OverrideLearnStartDate.Value;
+            learner.LearningDelivery[0].LearnStartDate = _options.LD.OverrideLearnStartDate.Value;
             Helpers.MutateApprenticeshipToStandard(learner, FundModel.OtherAdult);
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
             Helpers.SetLearningDeliveryEndDates(learner.LearningDelivery[0], learner.LearningDelivery[0].LearnStartDate.AddDays(372), Helpers.SetAchDate.SetAchDate);
@@ -74,6 +75,8 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateGenerationOptionsStandards(GenerationOptions options)
         {
+            // has to be before MAY-17 because of FM36 rules
+            options.LD.OverrideLearnStartDate = DateTime.Parse("2016-JUL-31");
             options.CreateDestinationAndProgression = true;
             options.LD.IncludeHHS = true;
             _options = options;
