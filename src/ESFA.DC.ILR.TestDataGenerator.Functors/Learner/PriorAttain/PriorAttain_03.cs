@@ -43,7 +43,14 @@ namespace DCT.TestDataGenerator.Functor
             _attain.RemoveAt(0);
             if (!valid)
             {
-                learner.PriorAttain += 13;
+                if (learner.PriorAttain < 30)
+                {
+                    learner.PriorAttain += 30;
+                }
+                else
+                {
+                    learner.PriorAttain -= 30;
+                }
             }
         }
 
