@@ -44,10 +44,10 @@ namespace DCT.TestDataGenerator.Functor
             if (!valid)
             {
                 learner.Sex = "I";
-                if (_sex.Count == 0)
-                {
-                    learner.Sex = string.Empty;
-                }
+                //if (_sex.Count == 0)
+                //{
+                //    learner.Sex = string.Empty;
+                //}
             }
         }
 
