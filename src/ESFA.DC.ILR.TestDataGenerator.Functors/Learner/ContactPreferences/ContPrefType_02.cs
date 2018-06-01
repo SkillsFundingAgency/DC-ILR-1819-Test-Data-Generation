@@ -6,6 +6,8 @@ namespace DCT.TestDataGenerator.Functor
 {
     public class ContPrefType_02 : ILearnerMultiMutator
     {
+        private ILearnerCreatorDataCache _cache;
+
         public FilePreparationDateRequired FilePreparationDate()
         {
             return FilePreparationDateRequired.None;
@@ -13,6 +15,7 @@ namespace DCT.TestDataGenerator.Functor
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
         {
+            _cache = cache;
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateRUI12, DoMutateOptions = MutateGenerationOptions },
@@ -69,6 +72,7 @@ namespace DCT.TestDataGenerator.Functor
                 }
             };
             learner.LearningDelivery[0].LearnStartDate = DateTime.Parse("2013-JUL-30");
+            SetLearnAimRef(learner, valid);
             if (!valid)
             {
                 list.Add(new MessageLearnerContactPreference()
@@ -146,6 +150,14 @@ namespace DCT.TestDataGenerator.Functor
         public string LearnerReferenceNumberStub()
         {
             return "ContPr_02";
+        }
+
+        private void SetLearnAimRef(MessageLearner learner, bool valid)
+        {
+            learner.LearningDelivery[0].LearnAimRef = _cache.LearnAimFundingWithValidity(
+                (FundModel)learner.LearningDelivery[0].FundModel,
+                LearnDelFAMCode.SOF_ESFA_1619,
+                learner.LearningDelivery[0].LearnStartDate).LearnAimRef;
         }
     }
 }
