@@ -76,7 +76,7 @@ namespace DCT.TestDataGenerator
         public IEnumerable<string> InvalidPostcode()
         {
             List<string> invalid0 = new List<string> { "XXX", "x", "xx" };
-            List<string> invalid1 = new List<string> { "X1", "333", "X" };
+            List<string> invalid1 = new List<string> { "X1", "X" };
             List<string> invalid2 = new List<string> { "LC", "IL", "LK", "ML", "LO", "VL" };
             List<string> result = new List<string>(50);
 
