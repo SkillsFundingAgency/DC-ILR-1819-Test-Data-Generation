@@ -48,7 +48,7 @@ namespace DCT.TestDataGenerator.Functor
 //i.  Break in ZPROG01
 //ii. Two components, first finishes before end of zprog aim (so no achievement payment)
 //iii.    The zprog + second then complete. The achievement payment for the 1st component should then appear when the zprog is achieved
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate16ApprenticeshipComplexRestart, DoMutateOptions = MutateGenerationOptionsOlderApprenticeshipLD4, DoMutateProgression = Mutate19LD2RestartsDestAndProg },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate16ApprenticeshipComplexRestart, DoMutateOptions = MutateGenerationOptionsOlderApprenticeshipLD3, DoMutateProgression = Mutate16ApprenticeshipComplexRestartsDestAndProg },
             };
         }
 
@@ -199,21 +199,51 @@ namespace DCT.TestDataGenerator.Functor
         {
             Mutate19(learner, valid);
             Helpers.MutateApprenticeshipToOlderWithFundingFlag(learner, LearnDelFAMCode.FFI_Co);
-            //var lds = learner.LearningDelivery.ToList();
-            //lds[0].LearnPlanEndDate = lds[0].LearnStartDate + TimeSpan.FromDays(365);
-            //lds[1].LearnActEndDate = lds[1].LearnStartDate + TimeSpan.FromDays(45);
-            //lds[1].LearnPlanEndDate = lds[0].LearnPlanEndDate;
-            //lds[1].LearnActEndDateSpecified = true;
+            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
 
-            //lds[1].CompStatus = (int)CompStatus.BreakInLearning;
-            //lds[1].Outcome = (int)Outcome.NoAchievement;
-            //lds[1].OutcomeSpecified = true;
+            //the data starts as one zprog and 4 components aims.
+            var lds = learner.LearningDelivery.ToList();
+            // reset date as the muteate will have side effects
+            lds[0].LearnStartDate = _options.LD.OverrideLearnStartDate.Value;
+            lds[0].LearnActEndDate = lds[0].LearnStartDate + TimeSpan.FromDays(180);
+            lds[0].LearnPlanEndDate = lds[0].LearnStartDate + TimeSpan.FromDays(365);
+            lds[0].LearnActEndDateSpecified = true;
 
-            //lds[2].LearnStartDate = lds[1].LearnActEndDate + TimeSpan.FromDays(30);
-            //Helpers.AddLearningDeliveryRestartFAM(lds[2]);
-            //lds[2].PriorLearnFundAdj = 80;
-            //lds[2].PriorLearnFundAdjSpecified = true;
-            //lds[2].LearnPlanEndDate = lds[0].LearnPlanEndDate;
+            lds[0].CompStatus = (int)CompStatus.BreakInLearning;
+            lds[0].Outcome = (int)Outcome.NoAchievement;
+            lds[0].OutcomeSpecified = true;
+
+            lds[1].LearnAimRef = lds[0].LearnAimRef;
+            lds[1].LearnStartDate = lds[0].LearnActEndDate + TimeSpan.FromDays(30);
+            lds[1].AimType = lds[0].AimType;
+            Helpers.AddLearningDeliveryRestartFAM(lds[1]);
+            lds[1].PriorLearnFundAdj = 25;
+            lds[1].PriorLearnFundAdjSpecified = true;
+            lds[1].LearnPlanEndDate = lds[0].LearnPlanEndDate;
+            lds[1].OrigLearnStartDate = lds[0].LearnStartDate;
+            lds[1].OrigLearnStartDateSpecified = true;
+            Helpers.SetLearningDeliveryEndDates(lds[1], lds[1].LearnPlanEndDate, Helpers.SetAchDate.DoNotSetAchDate);
+
+            lds[2].LearnActEndDate = lds[0].LearnActEndDate + TimeSpan.FromDays(-1);
+            lds[2].LearnActEndDateSpecified = true;
+            lds[2].LearnPlanEndDate = lds[2].LearnActEndDate;
+            lds[2].CompStatus = (int)CompStatus.Completed;
+            lds[2].Outcome = (int)Outcome.Achieved;
+            lds[2].OutcomeSpecified = true;
+
+            lds[3].LearnAimRef = _dataCache.ApprenticeshipAims((ProgType)lds[0].ProgType).
+                Where(s => s.PwayCode == lds[0].PwayCode && s.FworkCode == lds[0].FworkCode && s.LearningDelivery.LearnAimRef != lds[2].LearnAimRef)
+                .First()
+                .LearningDelivery.LearnAimRef;
+            lds[3].LearnStartDate = lds[1].LearnStartDate;
+            lds[3].LearnPlanEndDate = lds[1].LearnActEndDate;
+            lds[3].LearnActEndDate = lds[1].LearnPlanEndDate;
+            lds[3].LearnActEndDateSpecified = true;
+            lds[3].CompStatus = (int)CompStatus.Completed;
+            lds[3].Outcome = (int)Outcome.Achieved;
+            lds[3].OutcomeSpecified = true;
+
+            _outcomeDate = lds[3].LearnActEndDate;
         }
 
         private void Mutate19LD2Restarts(MessageLearner learner, bool valid)
@@ -240,6 +270,11 @@ namespace DCT.TestDataGenerator.Functor
         }
 
         private void Mutate19LD2RestartsDestAndProg(MessageLearnerDestinationandProgression learner, bool valid)
+        {
+            learner.DPOutcome[0].OutStartDate = _outcomeDate;
+        }
+
+        private void Mutate16ApprenticeshipComplexRestartsDestAndProg(MessageLearnerDestinationandProgression learner, bool valid)
         {
             learner.DPOutcome[0].OutStartDate = _outcomeDate;
         }
@@ -278,12 +313,13 @@ namespace DCT.TestDataGenerator.Functor
             options.LD.GenerateMultipleLDs = 2;
         }
 
-        private void MutateGenerationOptionsOlderApprenticeshipLD4(GenerationOptions options)
+        private void MutateGenerationOptionsOlderApprenticeshipLD3(GenerationOptions options)
         {
             _options = options;
             options.LD.OverrideLearnStartDate = DateTime.Parse("2017-APR-01");
             options.LD.IncludeHHS = true;
-            options.LD.GenerateMultipleLDs = 4;
+            options.LD.GenerateMultipleLDs = 3;
+            options.CreateDestinationAndProgression = true;
         }
     }
 }
