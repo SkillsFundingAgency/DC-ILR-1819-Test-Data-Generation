@@ -33,7 +33,7 @@ namespace DCT.TestDataGenerator
 
         public Message File { get; set; }
 
-        public IEnumerable<FileRuleLearner> CreateAllXml(List<ActiveRuleValidity> arv, uint scale, string ns)
+        public IEnumerable<FileRuleLearner> CreateAllXml(List<ActiveRuleValidity> arv, int scale, string ns)
         {
             List<FileRuleLearner> allLearners = new List<FileRuleLearner>(1000);
             var filePrepsrequired = _rfp.FilePreparationDateRequiredToRules(arv);
@@ -79,7 +79,7 @@ namespace DCT.TestDataGenerator
             return _fileContent;
         }
 
-        private void CreateModelAndPopulateForRules(FilePreparationDateRequired filePreparationDateRequired,  IEnumerable<ActiveRuleValidity> arv, uint scale, string ns, List<FileRuleLearner> allLearners)
+        private void CreateModelAndPopulateForRules(FilePreparationDateRequired filePreparationDateRequired,  IEnumerable<ActiveRuleValidity> arv, int scale, string ns, List<FileRuleLearner> allLearners)
         {
             ILRModelPopulator model = new ILRModelPopulator(_rfp, DefaultUKPRN);
             foreach (var kvp in model.PopulateXml(filePreparationDateRequired, arv, scale, allLearners, ns))

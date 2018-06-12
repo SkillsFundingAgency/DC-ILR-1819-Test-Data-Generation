@@ -103,7 +103,7 @@ namespace DCT.TestDataGenerator
             LearnerGenerator lg = new LearnerGenerator(_cache);
             foreach (var functor in _ruleFunctors[ruleName])
             {
-                int localLearnerIndex = 0;
+                int localLearnerIndex = currentLearnerIndex;
                 foreach (var funcy in functor.LearnerMutators(_cache))
                 {
                     GenerationOptions options = lg.CreateGenerationOptions(funcy.LearnerType);

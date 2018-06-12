@@ -41,7 +41,7 @@ namespace ILRTestDataGenerator
                 }
             }
 
-            bool parse = uint.TryParse(uiMultiplication.Text, out uint scale);
+            bool parse = int.TryParse(uiMultiplication.Text, out int scale);
             if ( !parse)
             {
                 scale = 1;

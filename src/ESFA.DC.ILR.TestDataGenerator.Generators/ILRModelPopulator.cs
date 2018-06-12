@@ -33,19 +33,20 @@ namespace DCT.TestDataGenerator
 
         public Message File { get; set; }
 
-        public Dictionary<string, string> PopulateXml(FilePreparationDateRequired dateRequired, IEnumerable<ActiveRuleValidity> ruleNames, uint scale, List<FileRuleLearner> allLearners, string ns)
+        public Dictionary<string, string> PopulateXml(FilePreparationDateRequired dateRequired, IEnumerable<ActiveRuleValidity> ruleNames, int scale, List<FileRuleLearner> allLearners, string ns)
         {
             Dictionary<string, string> result = new Dictionary<string, string>(4);
 
             _triplets = new List<XmlTriplet>(100);
             _triplets.Add(new XmlTriplet((int)scale) { UKPRN = DefaultUKPRN });
 
-            int learnerIndex = 0;
+//            int learnerIndex = 0;
             long ULNIndex = 0;
 
             foreach (var arv in ruleNames)
             {
-                for (uint i = 0; i != scale; ++i)
+                int learnerIndex = 0;
+                for (int i = 0; i != scale; ++i)
                 {
                     learnerIndex += GenerateRequiredLearnersAndProgression(arv.RuleName, arv.Valid, learnerIndex, ref ULNIndex);
                 }
