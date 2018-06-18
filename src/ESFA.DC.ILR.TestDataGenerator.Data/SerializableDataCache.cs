@@ -378,6 +378,15 @@ namespace DCT.TestDataGenerator
                     SourceOfFunding = LearnDelFAMCode.SOF_ESFA_Adult,
                     AimFunding = new LearnAimFunding()
                     {
+                        LearnAimRef = "60145109",
+                        FundModel = FundModel.NonFunded
+                    }
+                },
+                new LearnAimFundingModelSourceOfFunding()
+                {
+                    SourceOfFunding = LearnDelFAMCode.SOF_ESFA_Adult,
+                    AimFunding = new LearnAimFunding()
+                    {
                         LearnAimRef = "60039309",
                         FundModel = FundModel.Adult
                     }

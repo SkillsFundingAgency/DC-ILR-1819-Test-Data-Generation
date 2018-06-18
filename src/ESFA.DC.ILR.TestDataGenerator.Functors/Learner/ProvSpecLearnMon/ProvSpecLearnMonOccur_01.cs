@@ -28,7 +28,7 @@ namespace DCT.TestDataGenerator.Functor
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, InvalidLines = 2 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateBA, DoMutateOptions = MutateGenerationOptions, InvalidLines = 2 },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateBB, DoMutateOptions = MutateGenerationOptions, InvalidLines = 2 },
+//                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateBB, DoMutateOptions = MutateGenerationOptions, InvalidLines = 2 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateB, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, InvalidLines = 2 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, InvalidLines = 2 },
@@ -63,6 +63,7 @@ namespace DCT.TestDataGenerator.Functor
             Mutate(learner, valid);
         }
 
+        // this isn't actually a valid learner. removed.
         private void MutateBB(MessageLearner learner, bool valid)
         {
             var ifam = learner.ProviderSpecLearnerMonitoring.Where(s => s.ProvSpecLearnMonOccur == ProvSpecLearnMonOccur.B.ToString()).ToList();

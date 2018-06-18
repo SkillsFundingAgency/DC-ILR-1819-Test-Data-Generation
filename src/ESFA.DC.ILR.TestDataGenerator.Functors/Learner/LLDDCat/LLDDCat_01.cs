@@ -56,8 +56,12 @@ namespace DCT.TestDataGenerator.Functor
 
         private void Mutate(MessageLearner learner, bool valid)
         {
-            learner.LLDDandHealthProblem[0].LLDDCat = (int)_lldd[0];
-            learner.LLDDandHealthProblem[0].LLDDCatSpecified = true;
+            if (learner.LLDDandHealthProblem[2].LLDDCat != (int)_lldd[0])
+            {
+                learner.LLDDandHealthProblem[0].LLDDCat = (int)_lldd[0];
+                learner.LLDDandHealthProblem[0].LLDDCatSpecified = true;
+            }
+
             learner.LLDDHealthProb = (int)LLDDHealthProb.LearningDifficultyOrHealthProblem;
             if (!valid)
             {

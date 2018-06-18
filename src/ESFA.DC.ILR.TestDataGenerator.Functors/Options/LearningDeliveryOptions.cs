@@ -16,6 +16,9 @@ namespace DCT.TestDataGenerator
 
         public bool IncludeContract { get; set; }
 
+        /// <summary>
+        /// Gets or sets The ADL indicator "advanced learner loan indicator" for use with FM99
+        /// </summary>
         public bool IncludeADL { get; set; }
 
         public bool IncludeOutcome { get; set; }
