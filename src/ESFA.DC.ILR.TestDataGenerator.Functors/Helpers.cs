@@ -240,6 +240,43 @@
             ld.LearningDeliveryFAM = ld0Fams.ToArray();
         }
 
+        public static void SafeAddlearningDeliveryFAM(MessageLearnerLearningDelivery ld, LearnDelFAMType type, LearnDelFAMCode code, DateTime? from, DateTime? to)
+        {
+            List<MessageLearnerLearningDeliveryLearningDeliveryFAM> fams = null;
+            if (ld.LearningDeliveryFAM == null)
+            {
+                fams = new List<MessageLearnerLearningDeliveryLearningDeliveryFAM>(1);
+            }
+            else
+            {
+                fams = ld.LearningDeliveryFAM.ToList();
+            }
+
+            if (fams.Count(s => s.LearnDelFAMType == type.ToString() && s.LearnDelFAMCode == ((int)code).ToString()) == 0)
+            {
+                var fam = new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+                {
+                    LearnDelFAMType = type.ToString(),
+                    LearnDelFAMCode = ((int)code).ToString(),
+                };
+                if (from.HasValue)
+                {
+                    fam.LearnDelFAMDateFrom = from.Value;
+                    fam.LearnDelFAMDateFromSpecified = true;
+                }
+
+                if (to.HasValue)
+                {
+                    fam.LearnDelFAMDateTo = to.Value;
+                    fam.LearnDelFAMDateToSpecified = true;
+                }
+
+                fams.Add(fam);
+            }
+
+            ld.LearningDeliveryFAM = fams.ToArray();
+        }
+
         public static void SetLearningDeliveryEndDates(MessageLearnerLearningDelivery ld, DateTime endDate, SetAchDate modifyAch)
         {
             ld.LearnPlanEndDate = endDate;

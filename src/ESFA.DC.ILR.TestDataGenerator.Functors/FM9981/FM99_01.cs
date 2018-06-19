@@ -32,7 +32,7 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate19DisadvantagedPostcodeRate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }, // disadvantaged area learners still pay the whole lot
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate19LD2RestartsPostcodeAreaCost, DoMutateOptions = MutateGenerationOptionsLD2, DoMutateProgression = Mutate19LD2RestartsDestAndProg }, // area uplift but with restarts
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate19LDPostcodeAreaCostALB1, DoMutateOptions = MutateGenerationOptions }, // ALB1 (low cost learner support)
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate19LD2RestartsLDALB2ALB1, DoMutateOptions = MutateGenerationOptionsLD2, DoMutateProgression = Mutate19LD2RestartsDestAndProg }, // ALB2+ALB1
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate19LD2RestartsLDALB2ALB1, DoMutateOptions = MutateGenerationOptionsLD2, DoMutateProgression = null }, //Mutate19LD2RestartsDestAndProg }, // ALB2+ALB1
 //                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate19DisadvantagedPostcodeRateWithAreaCost, DoMutateOptions = MutateGenerationOptions },
 //                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate19FFI, DoMutateOptions = MutateGenerationOptions },
 //                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate19LD3, DoMutateOptions = MutateGenerationOptionsLD3 },
@@ -297,7 +297,8 @@ namespace DCT.TestDataGenerator.Functor
         {
             Mutate19(learner, valid);
             MutateLD2Restart(learner, valid);
-//            add the ALB1 ALB2
+            Helpers.SafeAddlearningDeliveryFAM(learner.LearningDelivery[0], LearnDelFAMType.ALB, LearnDelFAMCode.ALB_Rate_1, learner.LearningDelivery[0].LearnStartDate, learner.LearningDelivery[0].LearnActEndDate);
+            Helpers.SafeAddlearningDeliveryFAM(learner.LearningDelivery[1], LearnDelFAMType.ALB, LearnDelFAMCode.ALB_Rate_2, learner.LearningDelivery[1].LearnStartDate, learner.LearningDelivery[1].LearnPlanEndDate);
         }
 
         private void Mutate19LD2RestartsDestAndProg(MessageLearnerDestinationandProgression learner, bool valid)
