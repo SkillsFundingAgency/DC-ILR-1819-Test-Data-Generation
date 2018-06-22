@@ -43,7 +43,7 @@ namespace ESFA.DC.ILR.TestDataGenerator.Console
             CheckForCommandLine(command, pathKeyword, ref folder);
             string ns = defaultNamespace;
             CheckForCommandLine(command, namespaceKeyword, ref ns);
-            uint scale = 1;
+            int scale = 1;
             CheckForCommandLine(command, scaleKeyword, ref scale);
             CheckForCommandLine(command, supportedKeyword);
             CheckForCommandLine(command, helpKeyword);
@@ -175,7 +175,7 @@ namespace ESFA.DC.ILR.TestDataGenerator.Console
             }
         }
 
-        private static bool CheckForCommandLine(List<string> args, string flag, ref uint value)
+        private static bool CheckForCommandLine(List<string> args, string flag, ref int value)
         {
             string t = string.Empty;
             for (int i = 0; i < args.Count - 1; ++i)
@@ -187,8 +187,8 @@ namespace ESFA.DC.ILR.TestDataGenerator.Console
                 }
             }
 
-            uint ti = 0;
-            bool result = uint.TryParse(t, out ti);
+            int ti = 0;
+            bool result = int.TryParse(t, out ti);
             if (result)
             {
                 value = ti;
