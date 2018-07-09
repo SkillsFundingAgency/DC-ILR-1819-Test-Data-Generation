@@ -28,9 +28,9 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateHEFCE, DoMutateOptions = MutateGenerationOptionsHEFCE, InvalidLines = 2 },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.CommunityLearning, DoMutateLearner = MutateCL, DoMutateOptions = MutateGenerationOptions, InvalidLines = 2 },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateHEFCE, DoMutateOptions = MutateGenerationOptionsADL, ExclusionRecord = true, InvalidLines = 2 }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateHEFCE, DoMutateOptions = MutateGenerationOptionsHEFCE },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.CommunityLearning, DoMutateLearner = MutateCL, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateHEFCE, DoMutateOptions = MutateGenerationOptionsADL, ExclusionRecord = true }
             };
         }
 
