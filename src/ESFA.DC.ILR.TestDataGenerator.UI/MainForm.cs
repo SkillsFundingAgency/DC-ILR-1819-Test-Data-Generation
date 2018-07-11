@@ -151,18 +151,24 @@ namespace ILRTestDataGenerator
             {
                 scale = 1;
             }
-            List<string> ulns = new List<string>(scale);
+            const int maxFileSize = 500000;
+            int generation = 1;
+            List<string> ulns = new List<string>(maxFileSize);
             for (int index = 0; index != scale; ++index)
             {
                 try
                 {
                     string uln = ListOfULNs.ULN(index).ToString();
-                    ulns.Add(uln + ",");
+                    ulns.Add( $"{uln}");
+                    if ((index+1) % maxFileSize == 0)
+                    {
+                        string filename = Path.Combine(folder, $"ulns{generation++}.txt");
+                        File.WriteAllLines(filename, ulns);
+                        ulns.Clear();
+                    }
                 }
                 catch { }
             }
-            string filename = Path.Combine(folder, "ulns.txt");
-            File.WriteAllLines(filename, ulns);
         }
 
         private void uiSetAllActive_CheckedChanged(object sender, EventArgs e)
