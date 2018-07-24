@@ -31,9 +31,12 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateESM, DoMutateOptions = MutateGenerationOptionsProgression, InvalidLines = 2 },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateEmpOutcome, DoMutateOptions = MutateGenerationOptionsProgression, InvalidLines = 2, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateEmpOutcome, DoMutateOptions = MutateGenerationOptionsProgression, InvalidLines = 2 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptionsProgression, InvalidLines = 2 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptionsProgression, InvalidLines = 2 },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateEmp, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateEmpOutcome, DoMutateOptions = MutateGenerationOptions, InvalidLines = 2 },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherYP1619, DoMutateLearner = MutateEmp, DoMutateOptions = MutateGenerationOptions },
             };
         }
 
@@ -77,9 +80,24 @@ namespace DCT.TestDataGenerator.Functor
             }
         }
 
+        private void MutateEmp(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(1);
+            if (!valid)
+            {
+                learner.LearningDelivery[0].EmpOutcomeSpecified = true;
+                learner.LearningDelivery[0].EmpOutcome = 7;
+            }
+        }
+
         private void MutateGenerationOptionsProgression(GenerationOptions options)
         {
             options.LD.GenerateMultipleLDs = 2;
+            options.CreateDestinationAndProgression = true;
+        }
+
+        private void MutateGenerationOptions(GenerationOptions options)
+        {
             options.CreateDestinationAndProgression = true;
         }
     }
