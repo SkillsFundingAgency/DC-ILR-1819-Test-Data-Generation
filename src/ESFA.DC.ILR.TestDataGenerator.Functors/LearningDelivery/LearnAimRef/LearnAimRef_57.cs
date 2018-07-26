@@ -31,99 +31,153 @@ namespace DCT.TestDataGenerator.Functor
         {
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.CommunityLearning, DoMutateLearner = MutateLDM, DoMutateOptions = MutateGenerationOptionsCL, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = MutateLDM, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateOlass, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutatRotl, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateLearnStartDate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.CommunityLearning, DoMutateLearner = MutateESM1619, DoMutateOptions = MutateGenerationOptionsCL, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = MutateESM1619, DoMutateOptions = MutateGenerationOptions, InvalidLines = 2 },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateESM20Plus, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateESM20Plus, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateLDMSteel, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLDMMandation, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
-        private void MutateLDM(MessageLearner learner, bool valid)
+        private void Mutate(MessageLearner learner, bool valid)
         {
-            var ld = learner.LearningDelivery[0];
-            var ldfams = ld.LearningDeliveryFAM.ToList();
-            ld.LearnStartDate = new DateTime(2016, 07, 31);
-
-            ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
-                {
-                    LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
-                    LearnDelFAMCode = "034" // Parsing is removing leading zeros, will be corrected later
-                });
+            foreach (var ld in learner.LearningDelivery)
+            {
+                ld.LearnStartDate = new DateTime(2016, 07, 31).AddDays(-1);
+                var ldfams = ld.LearningDeliveryFAM.ToList();
 
                 ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
                 {
                     LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
                     LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_RoTL).ToString()
                 });
+                ld.LearningDeliveryFAM = ldfams.ToArray();
+            }
 
-            ld.LearningDeliveryFAM = ldfams.ToArray();
-
-            if (!valid)
+            foreach (var les in learner.LearnerEmploymentStatus)
             {
-                    ld.LearnAimRef = "60148743";
+                les.DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate;
+                les.DateEmpStatAppSpecified = true;
             }
         }
 
-        private void MutateOlass(MessageLearner learner, bool valid)
+        private void MutateCL(MessageLearner learner, bool valid)
         {
-            var ld = learner.LearningDelivery[0];
-            var ldfams = ld.LearningDeliveryFAM.ToList();
+            Mutate(learner, valid);
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+        }
+
+        private void MutateESM1619(MessageLearner learner, bool valid)
+        {
+            Mutate(learner, valid);
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+            var lesm = learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring.ToList();
+
+            lesm.Add(new MessageLearnerLearnerEmploymentStatusEmploymentStatusMonitoring()
+            {
+                ESMType = EmploymentStatusMonitoringType.BSI.ToString(),
+                ESMCode = (int)EmploymentStatusMonitoringCode.EmploymentIntensity1619,
+                ESMCodeSpecified = true
+            });
+
+            learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring = lesm.ToArray();
+
+            if (!valid)
+            {
+                foreach (var ld in learner.LearningDelivery)
+                {
+                    ld.LearnAimRef = "50050916";
+                }
+            }
+        }
+
+        private void MutateESM20Plus(MessageLearner learner, bool valid)
+        {
+            var lesm = learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring.ToList();
+
+            lesm.Add(new MessageLearnerLearnerEmploymentStatusEmploymentStatusMonitoring()
+            {
+                ESMType = EmploymentStatusMonitoringType.BSI.ToString(),
+                ESMCode = (int)EmploymentStatusMonitoringCode.EmploymentIntensity20Plus,
+                ESMCodeSpecified = true
+            });
+            learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring = lesm.ToArray();
+
+            if (!valid)
+            {
+                foreach (var ld in learner.LearningDelivery)
+                {
+                    ld.LearnAimRef = "50079013";
+                    var ldFams = ld.LearningDeliveryFAM.Where(s => s.LearnDelFAMType != LearnDelFAMType.LDM.ToString()).ToList();
+                    ld.LearningDeliveryFAM = ldFams.ToArray();
+                }
+            }
+
+            Mutate(learner, valid);
+        }
+
+        private void MutateLDMSteel(MessageLearner learner, bool valid)
+        {
+            Mutate(learner, valid);
+            var lesm = learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring.ToList();
+
+            lesm.Add(new MessageLearnerLearnerEmploymentStatusEmploymentStatusMonitoring()
+            {
+                ESMType = EmploymentStatusMonitoringType.BSI.ToString(),
+                ESMCode = (int)EmploymentStatusMonitoringCode.EmploymentIntensity20Plus,
+                ESMCodeSpecified = true
+            });
+            learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring = lesm.ToArray();
+
+            if (!valid)
+            {
+                var ld = learner.LearningDelivery[0];
+                var ldfams = ld.LearningDeliveryFAM.ToList();
+                ld.LearnAimRef = "50079013";
+
+                var ldFams = ld.LearningDeliveryFAM.Where(s => s.LearnDelFAMType != LearnDelFAMType.LDM.ToString()).ToList();
+                ld.LearningDeliveryFAM = ldFams.ToArray();
 
                 ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
                 {
                     LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
-                    LearnDelFAMCode = "034"
+                    LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_SteelRedundancy).ToString()
                 });
-            ld.LearningDeliveryFAM = ldfams.ToArray();
 
-            if (!valid)
-            {
-                    ld.LearnAimRef = "60148743";
+                ld.LearningDeliveryFAM = ldfams.ToArray();
             }
         }
 
-        private void MutatRotl(MessageLearner learner, bool valid)
+        private void MutateLDMMandation(MessageLearner learner, bool valid)
         {
-            var ld = learner.LearningDelivery[0];
-            var ldfams = ld.LearningDeliveryFAM.ToList();
+            Mutate(learner, valid);
+            var lesm = learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring.ToList();
+
+            lesm.Add(new MessageLearnerLearnerEmploymentStatusEmploymentStatusMonitoring()
+            {
+                ESMType = EmploymentStatusMonitoringType.BSI.ToString(),
+                ESMCode = (int)EmploymentStatusMonitoringCode.EmploymentIntensity20Plus,
+                ESMCodeSpecified = true
+            });
+            learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring = lesm.ToArray();
+
+            if (!valid)
+            {
+                var ld = learner.LearningDelivery[0];
+                var ldfams = ld.LearningDeliveryFAM.ToList();
+                ld.LearnAimRef = "50079013";
+
+                var ldFams = ld.LearningDeliveryFAM.Where(s => s.LearnDelFAMType != LearnDelFAMType.LDM.ToString()).ToList();
+                ld.LearningDeliveryFAM = ldFams.ToArray();
 
                 ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
                 {
                     LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
-                    LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_RoTL).ToString()
+                    LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_MandationtoSkillsTraining).ToString()
                 });
-            ld.LearningDeliveryFAM = ldfams.ToArray();
 
-            if (!valid)
-            {
-                    ld.LearnAimRef = "60148743";
-            }
-        }
-
-        private void MutateLearnStartDate(MessageLearner learner, bool valid)
-        {
-            var ld = learner.LearningDelivery[0];
-            var ldfams = ld.LearningDeliveryFAM.ToList();
-
-            ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
-            {
-                LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
-                LearnDelFAMCode = "034"
-            });
-
-            ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
-            {
-                LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
-                LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_RoTL).ToString()
-            });
-
-            ld.LearningDeliveryFAM = ldfams.ToArray();
-
-            if (!valid)
-            {
-                ld.LearnAimRef = "60148743";
-                ld.LearnStartDate = new DateTime(2015, 08, 01).AddDays(-1);
+                ld.LearningDeliveryFAM = ldfams.ToArray();
             }
         }
 
