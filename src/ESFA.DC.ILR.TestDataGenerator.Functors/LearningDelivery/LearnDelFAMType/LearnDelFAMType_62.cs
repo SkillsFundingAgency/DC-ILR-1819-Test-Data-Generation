@@ -36,7 +36,14 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateProgType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateTraineeType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLDMType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateRoTLType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateRoTLType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateESMTypeOne, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateESMTypeTwo, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateESMTypeThree, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateBasicskills, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateRES, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateESOL, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateSteel, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
@@ -134,33 +141,144 @@ namespace DCT.TestDataGenerator.Functor
             }
         }
 
-        private void MutateLearnStartDate(MessageLearner learner, bool valid)
+        private void MutateESMTypeOne(MessageLearner learner, bool valid)
         {
-            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-20).AddMonths(-3);
             if (!valid)
             {
-                foreach (MessageLearnerLearningDelivery ld in learner.LearningDelivery)
-                {
-                    var ld0Fams = ld.LearningDeliveryFAM.Where(s => s.LearnDelFAMType != LearnDelFAMType.LDM.ToString());
-                    ld.LearningDeliveryFAM = ld0Fams.ToArray();
-                }
+                learner.LearningDelivery[0].LearnStartDate = new DateTime(2017, 12, 01);
+                learner.PriorAttainSpecified = true;
+                learner.PriorAttain = 9;
+                learner.LearningDelivery[0].LearnAimRef = "60326001";
+                var lesm = learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring.ToList();
 
-                learner.LearningDelivery[0].LearnStartDate = new DateTime(2013, 08, 01).AddDays(-1);
+                lesm.Add(new MessageLearnerLearnerEmploymentStatusEmploymentStatusMonitoring()
+                {
+                    ESMType = EmploymentStatusMonitoringType.BSI.ToString(),
+                    ESMCode = (int)EmploymentStatusMonitoringCode.BenefitEmploymentSupport,
+                    ESMCodeSpecified = true
+                });
+                learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring = lesm.ToArray();
             }
         }
 
-        private void MutateCommon(MessageLearner learner, bool valid)
+        private void MutateESMTypeTwo(MessageLearner learner, bool valid)
         {
-            var led = learner.LearningDelivery[0];
-            var ldfams = led.LearningDeliveryFAM.ToList();
-            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
-            ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-20).AddMonths(-3);
+            if (!valid)
             {
-                LearnDelFAMType = LearnDelFAMType.SOF.ToString(),
-                LearnDelFAMCode = ((int)LearnDelFAMCode.SOF_ESFA_Adult).ToString(),
-            });
+                learner.LearningDelivery[0].LearnStartDate = new DateTime(2017, 12, 01);
+                learner.PriorAttainSpecified = true;
+                learner.PriorAttain = 9;
+                learner.LearningDelivery[0].LearnAimRef = "60326001";
+                learner.LearnerEmploymentStatus[0].EmpStatSpecified = true;
+                learner.LearnerEmploymentStatus[0].EmpStat = 11;
+                var lesm = learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring.ToList();
 
-            led.LearningDeliveryFAM = ldfams.ToArray();
+                lesm.Add(new MessageLearnerLearnerEmploymentStatusEmploymentStatusMonitoring()
+                {
+                    ESMType = EmploymentStatusMonitoringType.BSI.ToString(),
+                    ESMCode = (int)EmploymentStatusMonitoringCode.BenefitOther,
+                    ESMCodeSpecified = true
+                });
+                learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring = lesm.ToArray();
+            }
+        }
+
+        private void MutateESMTypeThree(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-20).AddMonths(-3);
+            if (!valid)
+            {
+                learner.LearningDelivery[0].LearnStartDate = new DateTime(2017, 12, 01);
+                learner.PriorAttainSpecified = true;
+                learner.PriorAttain = 9;
+                learner.LearningDelivery[0].LearnAimRef = "60326001";
+                var lesm = learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring.ToList();
+                lesm.RemoveRange(0, 1);
+                learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring = lesm.ToArray();
+                lesm.Add(new MessageLearnerLearnerEmploymentStatusEmploymentStatusMonitoring()
+                {
+                    ESMType = EmploymentStatusMonitoringType.EII.ToString(),
+                    ESMCode = (int)EmploymentStatusMonitoringCode.EmploymentIntensity16Less,
+                    ESMCodeSpecified = true,
+                });
+                learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring = lesm.ToArray();
+                lesm.Add(new MessageLearnerLearnerEmploymentStatusEmploymentStatusMonitoring()
+                {
+                    ESMType = EmploymentStatusMonitoringType.BSI.ToString(),
+                    ESMCode = (int)EmploymentStatusMonitoringCode.BenefitOther,
+                    ESMCodeSpecified = true
+                });
+                learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring = lesm.ToArray();
+            }
+        }
+
+        private void MutateBasicskills(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-20).AddMonths(-3);
+            if (!valid)
+            {
+                learner.LearningDelivery[0].LearnStartDate = new DateTime(2016, 12, 01);
+                var ld1Fams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
+                learner.PriorAttainSpecified = true;
+                learner.PriorAttain = 9;
+                learner.LearningDelivery[0].LearnAimRef = "60315659";
+            }
+        }
+
+        private void MutateRES(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-20).AddMonths(-3);
+            if (!valid)
+            {
+                learner.LearningDelivery[0].LearnStartDate = new DateTime(2016, 12, 01);
+                var led = learner.LearningDelivery[0];
+                var ldfams = led.LearningDeliveryFAM.ToList();
+                ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+                {
+                    LearnDelFAMType = LearnDelFAMType.RES.ToString(),
+                });
+
+                led.LearningDeliveryFAM = ldfams.ToArray();
+                learner.PriorAttainSpecified = true;
+                learner.PriorAttain = 9;
+                learner.LearningDelivery[0].LearnAimRef = "60315659";
+            }
+        }
+
+        private void MutateESOL(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-20).AddMonths(-3);
+            if (!valid)
+            {
+                learner.LearningDelivery[0].LearnStartDate = new DateTime(2017, 12, 01);
+                var ld1Fams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
+                learner.PriorAttainSpecified = true;
+                learner.PriorAttain = 9;
+                learner.LearningDelivery[0].LearnAimRef = "60301053";
+            }
+        }
+
+        private void MutateSteel(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-20).AddMonths(-3);
+            if (!valid)
+            {
+                learner.LearningDelivery[0].LearnStartDate = new DateTime(2017, 12, 01);
+                var led = learner.LearningDelivery[0];
+                var ldfams = led.LearningDeliveryFAM.ToList();
+                ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+                {
+                    LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
+                    LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_SteelRedundancy).ToString(),
+                });
+
+                led.LearningDeliveryFAM = ldfams.ToArray();
+                learner.PriorAttainSpecified = true;
+                learner.PriorAttain = 9;
+                learner.LearningDelivery[0].LearnAimRef = "60315659";
+            }
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
