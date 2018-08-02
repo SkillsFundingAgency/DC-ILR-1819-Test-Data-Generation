@@ -418,7 +418,7 @@
                     learner.DateOfBirth = DateTime.Parse(Helpers.ValueOrFunction("[DBAY|AUG|01]"));
                     break;
                 case BasedOn.DateOfBirthSchoolAY:
-                    learner.DateOfBirth = DateTime.Parse(Helpers.ValueOrFunction("[DB|AUG|31]"));
+                    learner.DateOfBirth = DateTime.Parse(Helpers.ValueOrFunction("[DBAY|AUG|31]"));
                     break;
                 default:
                     throw new NotImplementedException($"MutateDOB base date to compute age {whatTypeOfAge} has not been implementated");
