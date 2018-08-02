@@ -61,7 +61,22 @@
             /// <summary>
             /// Dates in rules are often not based on the year but on the dates of learning delivery
             /// </summary>
-            LearnDelStart
+            LearnDelStart,
+
+            /// <summary>
+            /// Some dates of birth rules are based on the next year when the month is August or greater
+            /// </summary>
+            DateOfBirth,
+
+            /// <summary>
+            /// Some dates of birth rules are based on the exact year when the month is August or greater and an year less when month less than August
+            /// </summary>
+            DateOfBirthAY,
+
+            /// <summary>
+            /// Some date of birth rules are based on the exact year when the month is August or greater and an year less when month less than August
+            /// </summary>
+            DateOfBirthSchoolAY,
         }
 
         public enum MakeOlderOrYoungerWhenInvalid
@@ -101,6 +116,18 @@
 
                         DateTime d = new DateTime(year, month, int.Parse(command[2]));
                         return d.ToString("yyyy-MM-dd");
+                    case "DBAY": // Naming to be changed, make it more meaningful
+                        // "AY|JUN|06"
+                        int month4 = ConvertToMonth(command[1]);
+                        int year4 = DateTime.Now.Year;
+                        var m1 = DateTime.Now.Month;
+                        if (m1 < 8)
+                        {
+                            --year4;
+                        }
+
+                        DateTime d4 = new DateTime(year4, month4, int.Parse(command[2]));
+                        return d4.ToString("yyyy-MM-dd");
                     case "AY+1":
                         // "AY|JUN|06"
                         int month1 = ConvertToMonth(command[1]);
@@ -113,6 +140,18 @@
 
                         DateTime d1 = new DateTime(year1, month1, int.Parse(command[2]));
                         return d1.ToString("yyyy-MM-dd");
+                    case "DB": // Naming to be changed, make it more meaningful
+                        // "AY|JUN|06"
+                        int month3 = ConvertToMonth(command[1]);
+                        int year3 = DateTime.Now.Year;
+                        var m = DateTime.Now.Month;
+                        if (m >= 8)
+                        {
+                            ++year3;
+                        }
+
+                        DateTime d3 = new DateTime(year3, month3, int.Parse(command[2]));
+                        return d3.ToString("yyyy-MM-dd");
                     case "AY-1":
                         // "AY|JUN|06"
                         int month2 = ConvertToMonth(command[1]);
@@ -371,6 +410,15 @@
                     break;
                 case BasedOn.LearnDelStart:
                     learner.DateOfBirth = learner.LearningDelivery.Min(s => s.LearnStartDate);
+                    break;
+                case BasedOn.DateOfBirth:
+                    learner.DateOfBirth = DateTime.Parse(Helpers.ValueOrFunction("[DB|JUL|31]"));
+                    break;
+                case BasedOn.DateOfBirthAY:
+                    learner.DateOfBirth = DateTime.Parse(Helpers.ValueOrFunction("[DBAY|AUG|01]"));
+                    break;
+                case BasedOn.DateOfBirthSchoolAY:
+                    learner.DateOfBirth = DateTime.Parse(Helpers.ValueOrFunction("[DB|AUG|31]"));
                     break;
                 default:
                     throw new NotImplementedException($"MutateDOB base date to compute age {whatTypeOfAge} has not been implementated");
