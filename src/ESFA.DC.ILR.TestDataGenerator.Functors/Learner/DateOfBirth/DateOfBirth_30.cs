@@ -59,7 +59,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateCommon(MessageLearner learner, bool valid, Helpers.AgeRequired age)
         {
-            Helpers.MutateDOB(learner, valid, age, Helpers.BasedOn.SchoolAYStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
+            Helpers.MutateDOB(learner, valid, age, Helpers.BasedOn.DateOfBirthSchoolAY, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
             foreach (var ld in learner.LearningDelivery)
             {
                 Helpers.AddOrChangeLearningDeliverySourceOfFunding(ld, LearnDelFAMCode.SOF_ESFA_1619);
