@@ -34,7 +34,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void Mutate16(MessageLearner learner, bool valid)
         {
-            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact16, Helpers.BasedOn.EndAYYear, Helpers.MakeOlderOrYoungerWhenInvalid.Younger);
+            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact16, Helpers.BasedOn.DateOfBirth, Helpers.MakeOlderOrYoungerWhenInvalid.Younger);
 
             learner.LearningDelivery[0].LearnAimRef = _dataCache.LearnAimFundingWithValidity(FundModel.NonFunded, LearnDelFAMCode.SOF_HEFCE, learner.LearningDelivery[0].LearnStartDate).LearnAimRef;
             learner.LearningDelivery[0].LearningDeliveryFAM[0].LearnDelFAMCode = ((int)LearnDelFAMCode.SOF_HEFCE).ToString();

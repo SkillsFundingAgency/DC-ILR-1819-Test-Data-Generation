@@ -28,13 +28,13 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, ValidLines = 3, InvalidLines = 4 }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions }
             };
         }
 
         private void Mutate(MessageLearner learner, bool valid)
         {
-            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact1Day, Helpers.BasedOn.AYStart, Helpers.MakeOlderOrYoungerWhenInvalid.Younger);
+            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact1Day, Helpers.BasedOn.DateOfBirthAY, Helpers.MakeOlderOrYoungerWhenInvalid.Younger);
         }
 
         private void MutateGenerationOptions(GenerationOptions options)

@@ -35,7 +35,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void Mutate(MessageLearner learner, bool valid)
         {
-            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.SchoolAYStart, Helpers.MakeOlderOrYoungerWhenInvalid.Younger);
+            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.DateOfBirthSchoolAY, Helpers.MakeOlderOrYoungerWhenInvalid.Younger);
         }
 
         private void MutateLearningAim(MessageLearner learner)
