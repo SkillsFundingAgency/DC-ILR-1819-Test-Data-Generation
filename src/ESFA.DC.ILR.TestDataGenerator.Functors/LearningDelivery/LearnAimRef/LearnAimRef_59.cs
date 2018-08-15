@@ -34,8 +34,13 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutatePriorAttain, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLevel3Percent, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLevel3PercentNull, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateAppreticeship, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateOlass, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateRestarts, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateCategoryRef, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutatePriorAttain1, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateAimEffectiveFrom, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateAimEffectiveFrom, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutatePriorAttain, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
@@ -72,6 +77,57 @@ namespace DCT.TestDataGenerator.Functor
             {
                 learner.PriorAttainSpecified = true;
                 learner.PriorAttain = (int)PriorAttain.Level4;
+            }
+        }
+
+        private void MutateAppreticeship(MessageLearner learner, bool valid)
+        {
+            MutatePriorAttain(learner, valid);
+            if (!valid)
+            {
+                learner.LearningDelivery[0].ProgTypeSpecified = true;
+                learner.LearningDelivery[0].ProgType = (int)ProgType.ApprenticeshipStandard;
+            }
+        }
+
+        private void MutateOlass(MessageLearner learner, bool valid)
+        {
+            MutatePriorAttain(learner, valid);
+            if (!valid)
+            {
+                var ldfams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
+
+                ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+                {
+                    LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
+                    LearnDelFAMCode = "034"
+                });
+                learner.LearningDelivery[0].LearningDeliveryFAM = ldfams.ToArray();
+            }
+        }
+
+        private void MutateRestarts(MessageLearner learner, bool valid)
+        {
+            MutatePriorAttain(learner, valid);
+            if (!valid)
+            {
+                var ldfams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
+
+                ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+                {
+                    LearnDelFAMType = LearnDelFAMType.RES.ToString(),
+                    LearnDelFAMCode = ((int)LearnDelFAMCode.RES).ToString()
+                });
+                learner.LearningDelivery[0].LearningDeliveryFAM = ldfams.ToArray();
+            }
+        }
+
+        private void MutateCategoryRef(MessageLearner learner, bool valid)
+        {
+            MutatePriorAttain(learner, valid);
+            if (!valid)
+            {
+                learner.LearningDelivery[0].LearnAimRef = "60077207";
             }
         }
 
