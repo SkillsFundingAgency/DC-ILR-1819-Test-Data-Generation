@@ -26,12 +26,13 @@ namespace DCT.TestDataGenerator.Functor
         {
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateHE, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateNoHE, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateLearnSOFDOB, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
-        public void Mutate(MessageLearner learner, bool valid)
+        public void MutateHE(MessageLearner learner, bool valid)
         {
             var hes = new List<MessageLearnerLearningDeliveryLearningDeliveryHE>(4);
             var Options = new GenerationOptions()
@@ -107,7 +108,7 @@ namespace DCT.TestDataGenerator.Functor
                     GROSSFEE = 1,
                     GROSSFEESpecified = true,
                     DOMICILE = "ZZ",
-                 });
+                });
                 var ld1Fams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
                 ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
                 {
@@ -125,7 +126,7 @@ namespace DCT.TestDataGenerator.Functor
 
         public void MutateLearnSOFDOB(MessageLearner learner, bool valid)
         {
-            Mutate(learner, valid);
+            MutateHE(learner, valid);
             Helpers.RemoveLearningDeliveryFAM(learner, LearnDelFAMType.SOF);
             var ld1Fams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
             ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
@@ -135,6 +136,14 @@ namespace DCT.TestDataGenerator.Functor
             });
             learner.LearningDelivery[0].LearningDeliveryFAM = ld1Fams.ToArray();
             learner.DateOfBirth = new DateTime(1998, 07, 01);
+        }
+
+        public void MutateNoHE(MessageLearner learner, bool valid)
+        {
+            if (!valid)
+            {
+                learner.DateOfBirth = new DateTime(1998, 07, 01);
+            }
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
