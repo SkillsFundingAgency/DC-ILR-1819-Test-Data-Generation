@@ -21,4 +21,8 @@
     <ProjectReference Include="..\ESFA.DC.ILR.TestDataGenerator.Data\ESFA.DC.ILR.TestDataGenerator.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Learner\UKPRN\" />
+  </ItemGroup>
+
 </Project>
