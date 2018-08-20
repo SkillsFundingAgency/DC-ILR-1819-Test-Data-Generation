@@ -26,12 +26,13 @@ namespace DCT.TestDataGenerator.Functor
         {
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateHE, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateNoHE, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateLearnStartDate, DoMutateOptions = MutateGenerationOptionsHE,  ExclusionRecord = true }
             };
         }
 
-        public void Mutate(MessageLearner learner, bool valid)
+        public void MutateHE(MessageLearner learner, bool valid)
         {
             var hes = new List<MessageLearnerLearningDeliveryLearningDeliveryHE>(4);
             var Options = new GenerationOptions()
@@ -128,7 +129,7 @@ namespace DCT.TestDataGenerator.Functor
 
         public void MutateLearnStartDate(MessageLearner learner, bool valid)
         {
-            Mutate(learner, valid);
+            MutateHE(learner, valid);
             if (!valid)
             {
                 var hes = new List<MessageLearnerLearningDeliveryLearningDeliveryHE>(1);
@@ -164,6 +165,14 @@ namespace DCT.TestDataGenerator.Functor
                     ELQSpecified = true
                 });
                 learner.LearningDelivery[0].LearningDeliveryHE = hes.ToArray();
+            }
+        }
+
+        public void MutateNoHE(MessageLearner learner, bool valid)
+        {
+            if (!valid)
+            {
+                learner.DateOfBirth = new DateTime(1998, 07, 01);
             }
         }
 

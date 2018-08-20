@@ -26,12 +26,13 @@ namespace DCT.TestDataGenerator.Functor
         {
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateHE, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateNoHE, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateLearnStartDate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
-        public void Mutate(MessageLearner learner, bool valid)
+        public void MutateHE(MessageLearner learner, bool valid)
         {
             var hes = new List<MessageLearnerLearningDeliveryLearningDeliveryHE>(4);
             var Options = new GenerationOptions()
@@ -119,10 +120,18 @@ namespace DCT.TestDataGenerator.Functor
 
         public void MutateLearnStartDate(MessageLearner learner, bool valid)
         {
-            Mutate(learner, valid);
+            MutateHE(learner, valid);
             if (!valid)
             {
                 learner.LearningDelivery[0].LearnStartDate = DateTime.Parse("2010-AUG-01").AddDays(-1);
+            }
+        }
+
+        public void MutateNoHE(MessageLearner learner, bool valid)
+        {
+            if (!valid)
+            {
+                learner.DateOfBirth = new DateTime(1998, 07, 01);
             }
         }
 
