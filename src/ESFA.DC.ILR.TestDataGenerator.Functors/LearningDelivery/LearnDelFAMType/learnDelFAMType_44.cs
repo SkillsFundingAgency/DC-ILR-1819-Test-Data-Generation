@@ -14,7 +14,7 @@ namespace DCT.TestDataGenerator.Functor
 
         public FilePreparationDateRequired FilePreparationDate()
         {
-            return FilePreparationDateRequired.July;
+            return FilePreparationDateRequired.None;
         }
 
         public string RuleName()
@@ -32,56 +32,77 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateHHSType, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = MutateHHSType, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateHHSType, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLDMType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateAIM3Type, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateAppType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions, InvalidLines = 2 },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLDM, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateComponentAim, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateProgType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
-        private void MutateHHSType(MessageLearner learner, bool valid)
+        private void MutateLearner(MessageLearner learner, bool valid)
         {
-            if (!valid)
+            foreach (var ld in learner.LearningDelivery)
             {
-                Helpers.RemoveLearningDeliveryFAM(learner, LearnDelFAMType.HHS);
+                ld.LearnStartDate = new DateTime(2015, 08, 01);
             }
-        }
 
-        private void MutateLDMType(MessageLearner learner, bool valid)
-        {
             if (!valid)
             {
-                var led = learner.LearningDelivery[0];
-                var ldfams = led.LearningDeliveryFAM.ToList();
-                ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+                foreach (var ld in learner.LearningDelivery)
                 {
-                    LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
-                    LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_OLASS).ToString(),
-                });
-
-                led.LearningDeliveryFAM = ldfams.ToArray();
+                    var ld0Fams = ld.LearningDeliveryFAM.Where(s => s.LearnDelFAMType != LearnDelFAMType.HHS.ToString());
+                    ld.LearningDeliveryFAM = ld0Fams.ToArray();
+                }
             }
         }
 
-        private void MutateAIM3Type(MessageLearner learner, bool valid)
+        private void MutateLDM(MessageLearner learner, bool valid)
         {
+            MutateLearner(learner, valid);
             if (!valid)
             {
-                learner.LearningDelivery[0].AimType = 3;
-                learner.LearningDelivery[0].LearnAimRef = "50079189";
+                foreach (var ld in learner.LearningDelivery)
+                {
+                    var ldfams = ld.LearningDeliveryFAM.ToList();
+
+                    ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+                    {
+                        LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
+                        LearnDelFAMCode = "034"
+                    });
+                    ld.LearningDeliveryFAM = ldfams.ToArray();
+                }
             }
         }
 
-        private void MutateAppType(MessageLearner learner, bool valid)
+        private void MutateComponentAim(MessageLearner learner, bool valid)
         {
+            MutateLearner(learner, valid);
             if (!valid)
             {
-                learner.LearningDelivery[0].AimType = 3;
-                learner.LearningDelivery[0].LearnAimRef = "50079189";
-                learner.LearningDelivery[0].ProgTypeSpecified = true;
-                learner.LearningDelivery[0].ProgType = 25;
+                foreach (var ld in learner.LearningDelivery)
+                {
+                    ld.AimTypeSpecified = true;
+                    ld.AimType = (int)AimType.ComponentAim;
+                    ld.ProgTypeSpecified = true;
+                    ld.ProgType = (int)ProgType.Traineeship;
+                }
+            }
+        }
+
+        private void MutateProgType(MessageLearner learner, bool valid)
+        {
+            MutateLearner(learner, valid);
+            if (!valid)
+            {
+                foreach (var ld in learner.LearningDelivery)
+                {
+                    ld.ProgTypeSpecified = true;
+                    ld.ProgType = (int)ProgType.ApprenticeshipStandard;
+                }
             }
         }
 
