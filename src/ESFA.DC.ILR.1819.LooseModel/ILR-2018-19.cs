@@ -1354,7 +1354,7 @@ namespace DCT.ILR.Model {
         
         private bool tTACCOMFieldSpecified;
         
-        private MessageLearnerLearnerHELearnerHEFinancialSupport[] learnerHEFinancialSupportField;
+        private MessageLearnerLearnerHELearnerHEFinancialSupport learnerHEFinancialSupportField;
         
         /// <remarks/>
         public string UCASPERID {
@@ -1389,7 +1389,7 @@ namespace DCT.ILR.Model {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("LearnerHEFinancialSupport")]
-        public MessageLearnerLearnerHELearnerHEFinancialSupport[] LearnerHEFinancialSupport {
+        public MessageLearnerLearnerHELearnerHEFinancialSupport LearnerHEFinancialSupport {
             get {
                 return this.learnerHEFinancialSupportField;
             }
