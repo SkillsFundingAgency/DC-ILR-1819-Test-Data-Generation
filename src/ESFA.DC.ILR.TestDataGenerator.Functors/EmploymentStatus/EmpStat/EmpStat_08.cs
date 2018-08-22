@@ -47,9 +47,8 @@ namespace DCT.TestDataGenerator.Functor
             if (!valid)
             {
                 var les = learner.LearnerEmploymentStatus[0];
-                les.EmpStatSpecified = false;
                 les.DateEmpStatAppSpecified = true;
-                les.DateEmpStatApp = new DateTime(2016, 12, 01);
+                les.DateEmpStatApp = new DateTime(2017, 12, 01);
             }
         }
 
@@ -64,11 +63,10 @@ namespace DCT.TestDataGenerator.Functor
                     LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
                     LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_OLASS).ToString(),
                 });
-
+                led.LearningDeliveryFAM = ldfams.ToArray();
                 var les = learner.LearnerEmploymentStatus[0];
-                les.EmpStatSpecified = false;
                 les.DateEmpStatAppSpecified = true;
-                les.DateEmpStatApp = new DateTime(2016, 12, 01);
+                les.DateEmpStatApp = new DateTime(2017, 12, 01);
             }
         }
 
@@ -86,9 +84,8 @@ namespace DCT.TestDataGenerator.Functor
 
                 led.LearningDeliveryFAM = ldfams.ToArray();
                 var les = learner.LearnerEmploymentStatus[0];
-                les.EmpStatSpecified = false;
                 les.DateEmpStatAppSpecified = true;
-                les.DateEmpStatApp = new DateTime(2016, 12, 01);
+                les.DateEmpStatApp = new DateTime(2017, 12, 01);
             }
         }
 
@@ -99,9 +96,8 @@ namespace DCT.TestDataGenerator.Functor
                 learner.LearningDelivery[0].ProgType = 24;
                 learner.LearningDelivery[0].ProgTypeSpecified = true;
                 var les = learner.LearnerEmploymentStatus[0];
-                les.EmpStatSpecified = false;
                 les.DateEmpStatAppSpecified = true;
-                les.DateEmpStatApp = new DateTime(2016, 12, 01);
+                les.DateEmpStatApp = new DateTime(2017, 12, 01);
             }
         }
 
