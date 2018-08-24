@@ -6,7 +6,7 @@ using DCT.ILR.Model;
 
 namespace DCT.TestDataGenerator.Functor
 {
-    public class R107
+    public class R112
         : ILearnerMultiMutator
     {
         private ILearnerCreatorDataCache _dataCache;
@@ -19,12 +19,12 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
-            return "R107";
+            return "R112";
         }
 
         public string LearnerReferenceNumberStub()
         {
-            return "R107";
+            return "R112";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
@@ -35,7 +35,6 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, DoMutateProgression = MutateProgression, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateProgType, DoMutateOptions = MutateOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateTrainee, DoMutateOptions = MutateOptions, ExclusionRecord = true }
             };
@@ -49,12 +48,22 @@ namespace DCT.TestDataGenerator.Functor
                 foreach (var ld in learner.LearningDelivery)
                 {
                     ld.LearnActEndDateSpecified = true;
-                    ld.LearnActEndDate = new DateTime(2018, 07, 31);
+                    ld.LearnActEndDate = DateTime.Now.AddMonths(-2);
                     ld.CompStatusSpecified = true;
-                    ld.CompStatus = 3;
-                    ld.OutcomeSpecified = true;
-                    ld.Outcome = 3;
+                    ld.CompStatus = 1;
                 }
+
+                var led = learner.LearningDelivery[0];
+                var ldfams = led.LearningDeliveryFAM.ToList();
+                ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+                {
+                    LearnDelFAMType = LearnDelFAMType.ACT.ToString(),
+                    LearnDelFAMCode = "1",
+                    LearnDelFAMDateFromSpecified = true,
+                    LearnDelFAMDateFrom = DateTime.Now.AddMonths(-3)
+                });
+
+                led.LearningDeliveryFAM = ldfams.ToArray();
             }
         }
 
