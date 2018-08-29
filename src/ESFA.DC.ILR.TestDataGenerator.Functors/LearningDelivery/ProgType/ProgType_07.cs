@@ -32,11 +32,12 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = Mutate16Trainee, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateAimStartDate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
-        private void Mutate16Trainee(MessageLearner learner, bool valid)
+        private void MutateLearner(MessageLearner learner, bool valid)
         {
             var ld = learner.LearningDelivery;
             ld[0].LearnAimRef = "ZPROG001";
@@ -47,7 +48,7 @@ namespace DCT.TestDataGenerator.Functor
             learner.LearnerEmploymentStatus[0].EmploymentStatusMonitoring[0].ESMCode = (int)EmploymentStatusMonitoringCode.EmploymentIntensity16Less;
             foreach (var lds in learner.LearningDelivery)
             {
-                lds.LearnPlanEndDate = ld[0].LearnStartDate.AddMonths(6);
+                lds.LearnPlanEndDate = lds.LearnStartDate.AddMonths(6);
                 lds.ProgTypeSpecified = true;
                 lds.ProgType = (int)ProgType.Traineeship;
                 lds.FworkCodeSpecified = false;
@@ -59,9 +60,19 @@ namespace DCT.TestDataGenerator.Functor
             {
                 foreach (var lde in learner.LearningDelivery)
                 {
-                    lde.LearnPlanEndDate = ld[0].LearnStartDate.AddMonths(6).AddDays(1);
+                    lde.LearnPlanEndDate = lde.LearnStartDate.AddMonths(6).AddDays(1);
                 }
             }
+        }
+
+        private void MutateAimStartDate(MessageLearner learner, bool valid)
+        {
+            if (!valid)
+            {
+                learner.LearningDelivery[0].LearnStartDate = new DateTime(2015, 08, 01).AddDays(-1);
+            }
+
+            MutateLearner(learner, valid);
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
