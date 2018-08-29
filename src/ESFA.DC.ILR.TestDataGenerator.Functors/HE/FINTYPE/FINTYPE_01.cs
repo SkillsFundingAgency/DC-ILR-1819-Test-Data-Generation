@@ -39,21 +39,20 @@ namespace DCT.TestDataGenerator.Functor
         public void Mutate(MessageLearner learner, bool valid, int finType)
         {
             var lhe = new List<MessageLearnerLearnerHE>();
-            MessageLearnerLearnerHELearnerHEFinancialSupport mlhf = new MessageLearnerLearnerHELearnerHEFinancialSupport();
-            mlhf.FINTYPESpecified = true;
-            mlhf.FINTYPE = 1;
+            var lhefs = new List<MessageLearnerLearnerHELearnerHEFinancialSupport>();
             lhe.Add(new MessageLearnerLearnerHE()
             {
-                UCASPERID = "9999911111",
-                LearnerHEFinancialSupport = new MessageLearnerLearnerHELearnerHEFinancialSupport()
-                {
-                    FINTYPESpecified = true,
-                    FINTYPE = finType,
-                    FINAMOUNTSpecified = true,
-                    FINAMOUNT = 99
-                },
+                UCASPERID = "9999911111"
+            });
+            lhefs.Add(new MessageLearnerLearnerHELearnerHEFinancialSupport()
+            {
+                FINTYPESpecified = true,
+                FINTYPE = finType,
+                FINAMOUNTSpecified = true,
+                FINAMOUNT = 99
             });
             learner.LearnerHE = lhe.ToArray();
+            learner.LearnerHE[0].LearnerHEFinancialSupport = lhefs.ToArray();
         }
 
         public void MutateFinType1(MessageLearner learner, bool valid)
