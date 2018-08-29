@@ -6,7 +6,7 @@ using DCT.ILR.Model;
 
 namespace DCT.TestDataGenerator.Functor
 {
-    public class R107
+    public class R108
         : ILearnerMultiMutator
     {
         private ILearnerCreatorDataCache _dataCache;
@@ -19,12 +19,12 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
-            return "R107";
+            return "R108";
         }
 
         public string LearnerReferenceNumberStub()
         {
-            return "R107";
+            return "R108";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
@@ -49,7 +49,7 @@ namespace DCT.TestDataGenerator.Functor
                 foreach (var ld in learner.LearningDelivery)
                 {
                     ld.LearnActEndDateSpecified = true;
-                    ld.LearnActEndDate = new DateTime(2018, 07, 31);
+                    ld.LearnActEndDate = DateTime.Now.AddMonths(-2);
                     ld.CompStatusSpecified = true;
                     ld.CompStatus = 3;
                     ld.OutcomeSpecified = true;
