@@ -31,46 +31,27 @@ namespace DCT.TestDataGenerator.Functor
         {
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateAT1, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateAT3, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateAT13, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateAT4, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateAT5, DoMutateOptions = MutateGenerationOptions }
             };
         }
 
-        private void MutateAT1(MessageLearner learner, bool valid)
+        private void MutateAT13(MessageLearner learner, bool valid)
         {
-            var ld = learner.LearningDelivery[0];
-            ld.AimTypeSpecified = true;
-            ld.AimType = (int)AimType.ProgrammeAim;
-            ld.LearnAimRef = "ZPROG001";
-            ld.ProgTypeSpecified = true;
-            ld.ProgType = (int)ProgType.AdvancedLevelApprenticeship;
-
             if (!valid)
             {
+                foreach (var ld in learner.LearningDelivery)
+                {
                     ld.AimTypeSpecified = true;
                     ld.AimType = 7;
-            }
-        }
-
-        private void MutateAT3(MessageLearner learner, bool valid)
-        {
-            var ld = learner.LearningDelivery[0];
-            learner.DateOfBirth = ld.LearnStartDate.AddYears(-18).AddMonths(-3);
-            ld.AimTypeSpecified = true;
-            ld.AimType = (long)AimType.ComponentAim;
-            ld.ProgTypeSpecified = true;
-            ld.ProgType = (int)ProgType.Traineeship;
-            if (!valid)
-            {
-                    ld.AimTypeSpecified = true;
-                    ld.AimType = 8;
+                }
             }
         }
 
         private void MutateAT4(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-20);
             foreach (var ld in learner.LearningDelivery)
             {
                 ld.AimTypeSpecified = true;
