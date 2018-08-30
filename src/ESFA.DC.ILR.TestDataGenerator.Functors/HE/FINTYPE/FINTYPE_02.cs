@@ -32,43 +32,40 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateFinType1, DoMutateOptions = MutateGenerationOptionsHE },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateFinType2, DoMutateOptions = MutateGenerationOptionsHE },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateFinType3, DoMutateOptions = MutateGenerationOptionsHE },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateFinType4, DoMutateOptions = MutateGenerationOptionsHE }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateFinType4, DoMutateOptions = MutateGenerationOptionsHE },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateFinTypes, DoMutateOptions = MutateGenerationOptionsHE, ExclusionRecord = true }
             };
         }
 
         public void Mutate(MessageLearner learner, bool valid, int finType)
         {
             var lhe = new List<MessageLearnerLearnerHE>();
-                lhe.Add(new MessageLearnerLearnerHE()
+            var lhefs = new List<MessageLearnerLearnerHELearnerHEFinancialSupport>();
+            lhe.Add(new MessageLearnerLearnerHE()
                 {
-                    UCASPERID = "9999911111",
-                    LearnerHEFinancialSupport = new MessageLearnerLearnerHELearnerHEFinancialSupport()
-                    {
-                        FINTYPESpecified = true,
-                        FINTYPE = finType,
-                        FINAMOUNTSpecified = true,
-                        FINAMOUNT = 99
-                    },
+                    UCASPERID = "9999911111"
                 });
-                learner.LearnerHE = lhe.ToArray();
+            lhefs.Add(new MessageLearnerLearnerHELearnerHEFinancialSupport()
+            {
+                FINTYPESpecified = true,
+                FINTYPE = finType,
+                FINAMOUNTSpecified = true,
+                FINAMOUNT = 99
+            });
+            learner.LearnerHE = lhe.ToArray();
 
-            // This rule will not trigger ever as, having two LHE records is field level error and having two FINTYPEs is schema level error
             if (!valid)
             {
-                lhe.Add(new MessageLearnerLearnerHE()
+                lhefs.Add(new MessageLearnerLearnerHELearnerHEFinancialSupport()
                 {
-                    UCASPERID = "9999911111",
-                    LearnerHEFinancialSupport = new MessageLearnerLearnerHELearnerHEFinancialSupport()
-                    {
-                        FINTYPESpecified = true,
-                        FINTYPE = finType,
-                        FINAMOUNTSpecified = true,
-                        FINAMOUNT = 99
-                    },
+                    FINTYPESpecified = true,
+                    FINTYPE = finType,
+                    FINAMOUNTSpecified = true,
+                    FINAMOUNT = 99
                 });
             }
 
-            learner.LearnerHE = lhe.ToArray();
+            learner.LearnerHE[0].LearnerHEFinancialSupport = lhefs.ToArray();
         }
 
         public void MutateFinType1(MessageLearner learner, bool valid)
@@ -89,6 +86,46 @@ namespace DCT.TestDataGenerator.Functor
         public void MutateFinType4(MessageLearner learner, bool valid)
         {
             Mutate(learner, valid, 4);
+        }
+
+        public void MutateFinTypes(MessageLearner learner, bool valid)
+        {
+            var lhefs = new List<MessageLearnerLearnerHELearnerHEFinancialSupport>();
+            Mutate(learner, valid, 1);
+
+            if (!valid)
+            {
+                lhefs.Add(new MessageLearnerLearnerHELearnerHEFinancialSupport()
+                {
+                    FINTYPESpecified = true,
+                    FINTYPE = 1,
+                    FINAMOUNTSpecified = true,
+                    FINAMOUNT = 99
+                });
+                lhefs.Add(new MessageLearnerLearnerHELearnerHEFinancialSupport()
+                {
+                    FINTYPESpecified = true,
+                    FINTYPE = 2,
+                    FINAMOUNTSpecified = true,
+                    FINAMOUNT = 99
+                });
+                lhefs.Add(new MessageLearnerLearnerHELearnerHEFinancialSupport()
+                {
+                    FINTYPESpecified = true,
+                    FINTYPE = 3,
+                    FINAMOUNTSpecified = true,
+                    FINAMOUNT = 99
+                });
+                lhefs.Add(new MessageLearnerLearnerHELearnerHEFinancialSupport()
+                {
+                    FINTYPESpecified = true,
+                    FINTYPE = 4,
+                    FINAMOUNTSpecified = true,
+                    FINAMOUNT = 99
+                });
+            }
+
+            learner.LearnerHE[0].LearnerHEFinancialSupport = lhefs.ToArray();
         }
 
         private void MutateGenerationOptionsHE(GenerationOptions options)
