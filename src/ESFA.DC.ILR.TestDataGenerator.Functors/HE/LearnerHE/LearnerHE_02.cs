@@ -28,7 +28,7 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateLDHE, DoMutateOptions = MutateGenerationOptionsHE },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateLearnerHE, DoMutateOptions = MutateGenerationOptionsHE, ExclusionRecord = false }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateLearnerHE, DoMutateOptions = MutateGenerationOptionsHE, ExclusionRecord = true }
             };
         }
 
