@@ -389,6 +389,23 @@
             learner.ProviderSpecLearnerMonitoring = ifam.ToArray();
         }
 
+        public static void AddAfninRecord(MessageLearner learner, string afinType, int afinCode, int amount)
+        {
+            var appFinRec = learner.LearningDelivery[0].AppFinRecord.ToList();
+            appFinRec.Add(new MessageLearnerLearningDeliveryAppFinRecord()
+            {
+                AFinType = afinType,
+                AFinCodeSpecified = true,
+                AFinCode = afinCode,
+                AFinAmountSpecified = true,
+                AFinAmount = amount,
+                AFinDateSpecified = true,
+                AFinDate = learner.LearningDelivery[0].LearnStartDate
+            });
+
+            learner.LearningDelivery[0].AppFinRecord = appFinRec.ToArray();
+        }
+
         public static void MoveEmploymentBeforeLearnStart(MessageLearner learner)
         {
             learner.LearnerEmploymentStatus[0].DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate;

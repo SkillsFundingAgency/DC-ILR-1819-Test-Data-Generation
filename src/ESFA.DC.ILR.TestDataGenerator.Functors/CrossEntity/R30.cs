@@ -6,7 +6,7 @@ using DCT.ILR.Model;
 
 namespace DCT.TestDataGenerator.Functor
 {
-    public class AFinType_09
+    public class R30
         : ILearnerMultiMutator
     {
         private ILearnerCreatorDataCache _dataCache;
@@ -14,17 +14,17 @@ namespace DCT.TestDataGenerator.Functor
 
         public FilePreparationDateRequired FilePreparationDate()
         {
-            return FilePreparationDateRequired.None;
+            return FilePreparationDateRequired.July;
         }
 
         public string RuleName()
         {
-            return "AFinType_09";
+            return "R30";
         }
 
         public string LearnerReferenceNumberStub()
         {
-            return "AFinType09";
+            return "R30";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
@@ -32,33 +32,30 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateApprenticeship, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
         private void MutateLearner(MessageLearner learner, bool valid)
         {
+            var ld = learner.LearningDelivery[0];
             if (!valid)
             {
-                foreach (var ld in learner.LearningDelivery)
-                {
-                    ld.AppFinRecord = null;
-                }
+                ld.ProgType = (int)ProgType.Traineeship;
+                ld.ProgTypeSpecified = true;
+                ld.AimTypeSpecified = true;
+                ld.AimType = 3;
             }
         }
 
-        private void MutateApprenticeship(MessageLearner learner, bool valid)
+        private void Mutate(MessageLearner learner, bool valid)
         {
-            MutateLearner(learner, valid);
+            var ld = learner.LearningDelivery[0];
             if (!valid)
             {
-                foreach (var ld in learner.LearningDelivery)
-                {
-                    ld.ProgType = (int)ProgType.ApprenticeshipStandard;
-                    ld.ProgTypeSpecified = true;
-                    ld.AimType = 1;
-                }
+                ld.ProgType = (int)ProgType.Traineeship;
+                ld.ProgTypeSpecified = true;
             }
         }
 

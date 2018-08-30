@@ -6,7 +6,7 @@ using DCT.ILR.Model;
 
 namespace DCT.TestDataGenerator.Functor
 {
-    public class AFinType_09
+    public class R116
         : ILearnerMultiMutator
     {
         private ILearnerCreatorDataCache _dataCache;
@@ -19,12 +19,12 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
-            return "AFinType_09";
+            return "R116";
         }
 
         public string LearnerReferenceNumberStub()
         {
-            return "AFinType09";
+            return "R116";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
@@ -33,32 +33,25 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateApprenticeship, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateApprenticeship, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
+        }
+
+        private void MutateApprenticeship(MessageLearner learner, bool valid)
+        {
+            if (!valid)
+            {
+                Helpers.AddAfninRecord(learner, "PMR", 1, 1000);
+                Helpers.AddAfninRecord(learner, "PMR", 3, 500);
+            }
         }
 
         private void MutateLearner(MessageLearner learner, bool valid)
         {
             if (!valid)
             {
-                foreach (var ld in learner.LearningDelivery)
-                {
-                    ld.AppFinRecord = null;
-                }
-            }
-        }
-
-        private void MutateApprenticeship(MessageLearner learner, bool valid)
-        {
-            MutateLearner(learner, valid);
-            if (!valid)
-            {
-                foreach (var ld in learner.LearningDelivery)
-                {
-                    ld.ProgType = (int)ProgType.ApprenticeshipStandard;
-                    ld.ProgTypeSpecified = true;
-                    ld.AimType = 1;
-                }
+                Helpers.AddAfninRecord(learner, "PMR", 1, 1000);
+                Helpers.AddAfninRecord(learner, "PMR", 3, 1500);
             }
         }
 
