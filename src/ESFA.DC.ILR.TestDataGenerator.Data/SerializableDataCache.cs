@@ -22,6 +22,7 @@ namespace DCT.TestDataGenerator
         public Dictionary<LearnAimType, LearnAimFunding> _learnAimWithLearnAimType;
         public Dictionary<LegalOrgType, Organisation> _organisations;
         public List<LearningDelivery> _learningDelivery;
+        public List<ApprenticeshipProgrammeTypeAim> _apprenticeShipAimsList;
 
         public SerializableDataCache()
         {
@@ -35,6 +36,7 @@ namespace DCT.TestDataGenerator
             _learnAimWithLearnAimType = new Dictionary<LearnAimType, LearnAimFunding>();
             _organisations = new Dictionary<LegalOrgType, Organisation>();
             _learningDelivery = new List<LearningDelivery>();
+            _apprenticeShipAimsList = new List<ApprenticeshipProgrammeTypeAim>();
         }
 
         public void CreateFromStaticData()
@@ -48,6 +50,7 @@ namespace DCT.TestDataGenerator
             PopulateLearnAimFundingModelFulls();
             PopulateOrganisations();
             PopulateLearningDelivery();
+            PopulateApprenticeShipAimsList();
         }
 
         public void WriteToFile(string path)
@@ -82,6 +85,7 @@ namespace DCT.TestDataGenerator
             this._llddCatValidity = rhs._llddCatValidity;
             this._organisations = rhs._organisations;
             this._learningDelivery = rhs._learningDelivery;
+            this._apprenticeShipAimsList = rhs._apprenticeShipAimsList;
         }
 
         public void ReadFromStream(Stream stream)
@@ -89,6 +93,53 @@ namespace DCT.TestDataGenerator
             ISerializationService serializationService = new ESFA.DC.Serialization.Json.JsonSerializationService();
             SerializableDataCache rhs = serializationService.Deserialize<SerializableDataCache>(stream);
             AssignFrom(rhs);
+        }
+
+        private void PopulateApprenticeShipAimsList()
+        {
+            _apprenticeShipAimsList = new List<ApprenticeshipProgrammeTypeAim>()
+            {
+                new ApprenticeshipProgrammeTypeAim()
+                {
+                    ProgType = ProgType.AdvancedLevelApprenticeship,
+                    FworkCode = 490,
+                    PwayCode = 1,
+                    LearningDelivery = new LearningDelivery()
+                    {
+                        LearnAimRef = "50086832",
+                    }
+                },
+                new ApprenticeshipProgrammeTypeAim()
+                {
+                    ProgType = ProgType.AdvancedLevelApprenticeship,
+                    FworkCode = 490,
+                    PwayCode = 1,
+                    LearningDelivery = new LearningDelivery()
+                    {
+                        LearnAimRef = "50089079",
+                    }
+                },
+                new ApprenticeshipProgrammeTypeAim()
+                {
+                    ProgType = ProgType.AdvancedLevelApprenticeship,
+                    FworkCode = 490,
+                    PwayCode = 1,
+                    LearningDelivery = new LearningDelivery()
+                    {
+                        LearnAimRef = "50098275",
+                    }
+                },
+                new ApprenticeshipProgrammeTypeAim()
+                {
+                    ProgType = ProgType.AdvancedLevelApprenticeship,
+                    FworkCode = 490,
+                    PwayCode = 1,
+                    LearningDelivery = new LearningDelivery()
+                    {
+                        LearnAimRef = "60134069",
+                    }
+                }
+            };
         }
 
         private void PopulateApprenticeshipAims()

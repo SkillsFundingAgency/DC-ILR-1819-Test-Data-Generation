@@ -31,6 +31,10 @@ namespace DCT.TestDataGenerator
 
         public int? OverrideLDM { get; set; }
 
+        /// <summary>
+        /// Setting this to a number greater than 1 will create several component learning deliveries (or stand alone for non- apprenticeship)
+        /// For apprenticeship learners, the ZPROG001 learning delivery is not counted in this number. That LD is always created as well as at lest one component LD
+        /// </summary>
         public int GenerateMultipleLDs { get; internal set; }
     }
 }

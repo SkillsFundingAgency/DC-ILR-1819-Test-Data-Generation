@@ -14,6 +14,9 @@ namespace DCT.TestDataGenerator
 
         IEnumerable<ApprenticeshipProgrammeTypeAim> ApprenticeshipAims(ProgType type);
 
+        // find the specific learning aim that would match for this prog / fwork / pway. Designed to create more complex data with more variation in the learning delivery
+        ApprenticeshipProgrammeTypeAim ApprenticeshipAims(ProgType type, long FworkCode, long PwayCode, int index);
+
         LearnAimFunding LearnAimFundingWithValidity(FundModel fm, LearnDelFAMCode sofCode, DateTime learnStartDate);
 
         LearnAimFunding LearnAimWithCategory(LearnDelCategory category);
