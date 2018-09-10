@@ -34,7 +34,8 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = MutateESF, DoMutateOptions = MutateOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.CommunityLearning, DoMutateLearner = MutateCommunity, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, DoMutateProgression = MutateProgression, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateProgType, DoMutateOptions = MutateOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateTrainee, DoMutateOptions = MutateOptions, ExclusionRecord = true }
@@ -44,17 +45,71 @@ namespace DCT.TestDataGenerator.Functor
         private void Mutate(MessageLearner learner, bool valid)
         {
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+            MutateValid(learner, valid);
+
             if (!valid)
             {
+                MutateInvalid(learner, valid);
+            }
+        }
+
+        private void MutateESF(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+            MutateValid(learner, valid);
+
+            if (!valid)
+            {
+                MutateInvalid(learner, valid);
+            }
+        }
+
+        private void MutateCommunity(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+            foreach (var lds in learner.LearningDelivery)
+            {
+                lds.CompStatusSpecified = true;
+                lds.CompStatus = (int)CompStatus.Continuing;
+            }
+
+            var ldfams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
+            ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+            {
+                LearnDelFAMType = LearnDelFAMType.SOF.ToString(),
+                LearnDelFAMCode = ((int)LearnDelFAMCode.SOF_ESFA_Adult).ToString(),
+            });
+            learner.LearningDelivery[0].LearningDeliveryFAM = ldfams.ToArray();
+
+            if (!valid)
+            {
+                MutateInvalid(learner, valid);
+            }
+        }
+
+        private void MutateInvalid(MessageLearner learner, bool valid)
+        {
                 foreach (var ld in learner.LearningDelivery)
                 {
                     ld.LearnActEndDateSpecified = true;
-                    ld.LearnActEndDate = new DateTime(2018, 07, 31);
+                    ld.LearnActEndDate = ld.LearnStartDate.AddMonths(6);
                     ld.CompStatusSpecified = true;
-                    ld.CompStatus = 3;
+                    ld.CompStatus = (int)CompStatus.Withdrawn;
                     ld.OutcomeSpecified = true;
-                    ld.Outcome = 3;
+                    ld.Outcome = (int)Outcome.NoAchievement;
                 }
+        }
+
+        private void MutateValid(MessageLearner learner, bool valid)
+        {
+            foreach (var lds in learner.LearningDelivery)
+            {
+                lds.LearnActEndDateSpecified = true;
+                lds.LearnActEndDate = lds.LearnStartDate.AddMonths(8);
+                lds.CompStatusSpecified = true;
+                lds.CompStatus = (int)CompStatus.BreakInLearning;
+                lds.OutcomeSpecified = true;
+                lds.Outcome = (int)Outcome.NoAchievement;
             }
         }
 

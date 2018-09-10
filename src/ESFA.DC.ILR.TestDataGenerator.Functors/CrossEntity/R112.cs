@@ -31,10 +31,10 @@ namespace DCT.TestDataGenerator.Functor
         {
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateCommon, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateCommon, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = MutateCommon, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateProgType, DoMutateOptions = MutateOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateTrainee, DoMutateOptions = MutateOptions, ExclusionRecord = true }
             };
@@ -43,24 +43,125 @@ namespace DCT.TestDataGenerator.Functor
         private void Mutate(MessageLearner learner, bool valid)
         {
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+            MutateValid(learner, valid);
+
+            if (!valid)
+            {
+                MutateInvalid(learner, valid);
+            }
+        }
+
+        private void MutateInvalid(MessageLearner learner, bool valid)
+        {
+            foreach (var ld in learner.LearningDelivery)
+            {
+                ld.LearnStartDateSpecified = true;
+                ld.LearnStartDate = new DateTime(2017, 08, 01);
+                ld.LearnActEndDateSpecified = true;
+                ld.LearnActEndDate = DateTime.Now.AddMonths(-1);
+                ld.CompStatusSpecified = true;
+                ld.CompStatus = (int)CompStatus.Completed;
+            }
+
+            Helpers.RemoveLearningDeliveryFAM(learner, LearnDelFAMType.ACT);
+                       var led = learner.LearningDelivery[0];
+            var ldfams = led.LearningDeliveryFAM.ToList();
+            ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+            {
+                LearnDelFAMType = LearnDelFAMType.ACT.ToString(),
+                LearnDelFAMCode = LearnDelFAMCode.ACT_ContractEmployer.ToString(),
+                LearnDelFAMDateFromSpecified = true,
+                LearnDelFAMDateFrom = DateTime.Now.AddMonths(-4),
+                LearnDelFAMDateToSpecified = true,
+                LearnDelFAMDateTo = DateTime.Now.AddMonths(-2)
+            });
+
+            led.LearningDeliveryFAM = ldfams.ToArray();
+        }
+
+        private void MutateValid(MessageLearner learner, bool valid)
+        {
+            foreach (var ld in learner.LearningDelivery)
+            {
+                ld.LearnStartDateSpecified = true;
+                ld.LearnStartDate = new DateTime(2017, 08, 01);
+                ld.LearnActEndDateSpecified = true;
+                ld.LearnActEndDate = DateTime.Now.AddMonths(-1);
+                ld.CompStatusSpecified = true;
+                ld.CompStatus = (int)CompStatus.Completed;
+                ld.OutcomeSpecified = true;
+                ld.Outcome = (int)Outcome.Achieved;
+            }
+
+            Helpers.RemoveLearningDeliveryFAM(learner, LearnDelFAMType.ACT);
+            var led = learner.LearningDelivery[0];
+            var ldfams = led.LearningDeliveryFAM.ToList();
+            ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+            {
+                LearnDelFAMType = LearnDelFAMType.ACT.ToString(),
+                LearnDelFAMCode = "1",
+                LearnDelFAMDateFromSpecified = true,
+                LearnDelFAMDateFrom = led.LearnStartDate,
+                LearnDelFAMDateToSpecified = true,
+                LearnDelFAMDateTo = DateTime.Now.AddMonths(-1)
+            });
+
+            led.LearningDeliveryFAM = ldfams.ToArray();
+            var appfin = new List<MessageLearnerLearningDeliveryAppFinRecord>();
+            appfin.Add(new MessageLearnerLearningDeliveryAppFinRecord()
+            {
+                AFinAmount = 500,
+                AFinAmountSpecified = true,
+                AFinType = LearnDelAppFinType.TNP.ToString(),
+                AFinCode = (int)LearnDelAppFinCode.TotalTrainingPrice,
+                AFinCodeSpecified = true,
+                AFinDate = led.LearnStartDate,
+                AFinDateSpecified = true
+            });
+
+            led.AppFinRecord = appfin.ToArray();
+        }
+
+        private void MutateCommon(MessageLearner learner, bool valid)
+        {
+            if (valid)
+            {
+                foreach (var ld in learner.LearningDelivery)
+                {
+                    ld.LearnStartDateSpecified = true;
+                    ld.LearnStartDate = new DateTime(2017, 08, 01);
+                    ld.LearnActEndDateSpecified = true;
+                    ld.LearnActEndDate = DateTime.Now.AddMonths(-1);
+                    ld.CompStatusSpecified = true;
+                    ld.CompStatus = (int)CompStatus.Completed;
+                    ld.OutcomeSpecified = true;
+                    ld.Outcome = (int)Outcome.Achieved;
+                }
+            }
+
             if (!valid)
             {
                 foreach (var ld in learner.LearningDelivery)
                 {
+                    ld.LearnStartDateSpecified = true;
+                    ld.LearnStartDate = new DateTime(2017, 08, 01);
                     ld.LearnActEndDateSpecified = true;
-                    ld.LearnActEndDate = DateTime.Now.AddMonths(-2);
+                    ld.LearnActEndDate = DateTime.Now.AddMonths(-1);
                     ld.CompStatusSpecified = true;
-                    ld.CompStatus = 1;
+                    ld.CompStatus = (int)CompStatus.Completed;
                 }
 
+                Helpers.RemoveLearningDeliveryFAM(learner, LearnDelFAMType.ACT);
                 var led = learner.LearningDelivery[0];
                 var ldfams = led.LearningDeliveryFAM.ToList();
                 ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
                 {
                     LearnDelFAMType = LearnDelFAMType.ACT.ToString(),
-                    LearnDelFAMCode = "1",
+                    LearnDelFAMCode = LearnDelFAMCode.ACT_ContractEmployer.ToString(),
                     LearnDelFAMDateFromSpecified = true,
-                    LearnDelFAMDateFrom = DateTime.Now.AddMonths(-3)
+                    LearnDelFAMDateFrom = DateTime.Now.AddMonths(-4),
+                    LearnDelFAMDateToSpecified = true,
+                    LearnDelFAMDateTo = DateTime.Now.AddMonths(-2)
                 });
 
                 led.LearningDeliveryFAM = ldfams.ToArray();
