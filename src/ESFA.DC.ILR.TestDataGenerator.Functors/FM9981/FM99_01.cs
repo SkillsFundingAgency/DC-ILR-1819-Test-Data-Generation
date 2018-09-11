@@ -87,6 +87,7 @@ namespace DCT.TestDataGenerator.Functor
                 LearnDelFAMDateToSpecified = true
             });
             ld.LearningDeliveryFAM = ldfams.ToArray();
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-21);
         }
 
         private void Mutate19DisadvantagedPostcodeRate(MessageLearner learner, bool valid)
@@ -264,6 +265,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void Mutate19LD2RestartsPostcodeAreaCost(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-21);
             Mutate19LDPostcodeAreaCost(learner, valid);
             MutateLD2Restart(learner, valid);
         }
@@ -295,6 +297,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void Mutate19LD2RestartsLDALB2ALB1(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-21);
             Mutate19(learner, valid);
             MutateLD2Restart(learner, valid);
             Helpers.SafeAddlearningDeliveryFAM(learner.LearningDelivery[0], LearnDelFAMType.ALB, LearnDelFAMCode.ALB_Rate_1, learner.LearningDelivery[0].LearnStartDate, learner.LearningDelivery[0].LearnActEndDate);

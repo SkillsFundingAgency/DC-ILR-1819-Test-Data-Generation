@@ -26,117 +26,89 @@ namespace DCT.TestDataGenerator.Functor
         {
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateHE, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateTTACCOM1, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateTTACCOM2, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateTTACCOM4, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateTTACCOM5, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateTTACCOM6, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateTTACCOM7, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateTTACCOM8, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateTTACCOM9, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateNoHE, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
-        public void MutateHE(MessageLearner learner, bool valid)
+        public void MutateTTACCOM(MessageLearner learner, bool valid, int ttaccom)
         {
-            var hes = new List<MessageLearnerLearningDeliveryLearningDeliveryHE>(4);
-
-            var Options = new GenerationOptions()
-            {
-                LD = new LearningDeliveryOptions()
-                {
-                    IncludeHEFields = true
-                }
-            };
-            var what = Options.LD.IncludeHEFields;
+            var lhe = new List<MessageLearnerLearnerHE>();
             if (valid)
             {
-                hes.Add(new MessageLearnerLearningDeliveryLearningDeliveryHE()
+                lhe.Add(new MessageLearnerLearnerHE()
                 {
-                    NUMHUS = "2000812012XTT60021",
-                    QUALENT3 = QualificationOnEntry.X06.ToString(),
-                    UCASAPPID = "AB89",
-                    TYPEYR = (int)TypeOfyear.FEYear,
-                    TYPEYRSpecified = true,
-                    MODESTUD = (int)ModeOfStudy.NotInPopulation,
-                    MODESTUDSpecified = true,
-                    FUNDLEV = (int)FundingLevel.Undergraduate,
-                    FUNDLEVSpecified = true,
-                    FUNDCOMP = (int)FundingCompletion.NotYetCompleted,
-                    FUNDCOMPSpecified = true,
-                    STULOAD = 10.0M,
-                    STULOADSpecified = true,
-                    YEARSTU = 1,
-                    YEARSTUSpecified = true,
-                    MSTUFEE = (int)MajorSourceOfTuitionFees.NoAward,
-                    MSTUFEESpecified = true,
-                    PCFLDCS = 100,
-                    PCFLDCSSpecified = true,
-                    SPECFEE = (int)SpecialFeeIndicator.Other,
-                    SPECFEESpecified = true,
-                    NETFEE = 0,
-                    NETFEESpecified = true,
-                    GROSSFEE = 1,
-                    GROSSFEESpecified = true,
-                    DOMICILE = "ZZ",
-                    ELQ = (int)EquivalentLowerQualification.NotRequired,
-                    ELQSpecified = true
+                    TTACCOMSpecified = true,
+                    TTACCOM = ttaccom
                 });
             }
 
             if (!valid)
             {
-                var lhe = new List<MessageLearnerLearnerHE>(2);
                 lhe.Add(new MessageLearnerLearnerHE()
                 {
                     TTACCOMSpecified = true,
                     TTACCOM = 0
                 });
-
-                hes.Add(new MessageLearnerLearningDeliveryLearningDeliveryHE()
-                {
-                    NUMHUS = "2000812012XTT60021",
-                    QUALENT3 = QualificationOnEntry.X06.ToString(),
-                    UCASAPPID = "AB89",
-                    TYPEYR = (int)TypeOfyear.FEYear,
-                    TYPEYRSpecified = true,
-                    MODESTUD = (int)ModeOfStudy.NotInPopulation,
-                    MODESTUDSpecified = true,
-                    FUNDLEV = (int)FundingLevel.Undergraduate,
-                    FUNDLEVSpecified = true,
-                    FUNDCOMP = (int)FundingCompletion.NotYetCompleted,
-                    FUNDCOMPSpecified = true,
-                    STULOAD = 10.0M,
-                    STULOADSpecified = true,
-                    YEARSTU = 1,
-                    YEARSTUSpecified = true,
-                    MSTUFEE = (int)MajorSourceOfTuitionFees.NoAward,
-                    MSTUFEESpecified = true,
-                    PCFLDCS = 100,
-                    PCFLDCSSpecified = true,
-                    SPECFEE = (int)SpecialFeeIndicator.Other,
-                    SPECFEESpecified = true,
-                    NETFEE = 0,
-                    NETFEESpecified = true,
-                    GROSSFEE = 1,
-                    GROSSFEESpecified = true,
-                    DOMICILE = "ZZ",
-                    ELQ = (int)EquivalentLowerQualification.NotRequired,
-                    ELQSpecified = true
-                });
-                learner.LearnerHE = lhe.ToArray();
             }
 
-            foreach (var lrnr in learner.LearningDelivery)
-            {
-                lrnr.LearningDeliveryHE = hes.ToArray();
-            }
+            learner.LearnerHE = lhe.ToArray();
+        }
+
+        public void MutateTTACCOM1(MessageLearner learner, bool valid)
+        {
+            MutateTTACCOM(learner, valid, 1);
+        }
+
+        public void MutateTTACCOM2(MessageLearner learner, bool valid)
+        {
+            MutateTTACCOM(learner, valid, 2);
+        }
+
+        public void MutateTTACCOM4(MessageLearner learner, bool valid)
+        {
+            MutateTTACCOM(learner, valid, 4);
+        }
+
+        public void MutateTTACCOM5(MessageLearner learner, bool valid)
+        {
+            MutateTTACCOM(learner, valid, 5);
+        }
+
+        public void MutateTTACCOM6(MessageLearner learner, bool valid)
+        {
+            MutateTTACCOM(learner, valid, 6);
+        }
+
+        public void MutateTTACCOM7(MessageLearner learner, bool valid)
+        {
+            MutateTTACCOM(learner, valid, 7);
+        }
+
+        public void MutateTTACCOM8(MessageLearner learner, bool valid)
+        {
+            MutateTTACCOM(learner, valid, 8);
+        }
+
+        public void MutateTTACCOM9(MessageLearner learner, bool valid)
+        {
+            MutateTTACCOM(learner, valid, 9);
         }
 
         public void MutateNoHE(MessageLearner learner, bool valid)
         {
-            if (!valid)
-            {
-                learner.DateOfBirth = new DateTime(1998, 07, 01);
-            }
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
         {
+            options.LD.IncludeHEFields = true;
         }
     }
 }

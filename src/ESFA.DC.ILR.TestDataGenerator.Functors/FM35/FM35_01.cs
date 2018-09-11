@@ -88,6 +88,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateCommon(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-21);
         }
 
         private void Mutate19FFI(MessageLearner learner, bool valid)

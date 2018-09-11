@@ -33,6 +33,7 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateCommon, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateAppfinNull, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateAppFin, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateCommon, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
             };
@@ -84,6 +85,15 @@ namespace DCT.TestDataGenerator.Functor
                 learner.LearningDelivery[0].ProgType = (int)pta.ProgType;
                 learner.LearningDelivery[0].ProgTypeSpecified = true;
                 learner.LearningDelivery[0].AimType = (int)AimType.ProgrammeAim;
+            }
+        }
+
+        private void MutateAppfinNull(MessageLearner learner, bool valid)
+        {
+            MutateAppFin(learner, valid);
+            if (valid)
+            {
+                learner.LearningDelivery[0].AppFinRecord = null;
             }
         }
 
