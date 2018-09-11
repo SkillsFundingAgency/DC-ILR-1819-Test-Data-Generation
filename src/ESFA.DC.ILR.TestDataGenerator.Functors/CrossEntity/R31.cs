@@ -32,43 +32,43 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
             };
+        }
+
+        private void MutateCommon(MessageLearner learner, bool valid)
+        {
+            Helpers.MutateApprenticeshipToOlderWithFundingFlag(learner, LearnDelFAMCode.FFI_Fully);
+            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
+            if (!valid)
+            {
+                learner.LearningDelivery[0].FworkCodeSpecified = true;
+                learner.LearningDelivery[0].FworkCode = 42;
+            }
         }
 
         private void MutateLearner(MessageLearner learner, bool valid)
         {
-            var ld = learner.LearningDelivery[0];
-            if (!valid)
-            {
-                ld.ProgType = (int)ProgType.Traineeship;
-                ld.ProgTypeSpecified = true;
-                ld.AimTypeSpecified = true;
-                ld.AimType = 1;
-                ld.LearnActEndDateSpecified = false;
-                ld.LearnStartDateSpecified = true;
-                ld.LearnStartDate = DateTime.Now.AddMonths(-7);
-            }
+            MutateCommon(learner, valid);
         }
 
         private void Mutate(MessageLearner learner, bool valid)
         {
-            var ld = learner.LearningDelivery[0];
             if (!valid)
             {
-                ld.ProgType = (int)ProgType.Traineeship;
-                ld.ProgTypeSpecified = true;
-                ld.AimTypeSpecified = true;
-                ld.AimType = 1;
-                ld.LearnActEndDateSpecified = true;
-                ld.LearnStartDateSpecified = true;
-                ld.LearnStartDate = DateTime.Now.AddMonths(-7);
+                foreach (MessageLearnerLearningDelivery ld in learner.LearningDelivery)
+                {
+                    ld.LearnActEndDateSpecified = true;
+                    ld.LearnActEndDate = ld.LearnStartDate.AddMonths(6);
+                }
             }
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
         {
+            options.LD.OverrideLearnStartDate = DateTime.Parse("2016-AUG-01");
+            options.LD.IncludeHHS = true;
+            _options = options;
         }
     }
 }
