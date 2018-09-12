@@ -40,12 +40,14 @@ namespace DCT.TestDataGenerator.Functor
         private void MutateProgType(MessageLearner learner, bool valid)
         {
             learner.LearningDelivery[0].AimType = 1;
+            if (valid)
+            {
+                learner.LearnerEmploymentStatus[0].EmpStatSpecified = true;
+                learner.LearnerEmploymentStatus[0].EmpStat = 10;
+            }
+
             if (!valid)
             {
-                var ld1Fams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
-                ApprenticeshipProgrammeTypeAim pta = _dataCache.ApprenticeshipAims(ProgType.ApprenticeshipStandard).First();
-                learner.LearningDelivery[0].ProgType = 23;
-                learner.LearningDelivery[0].ProgTypeSpecified = true;
                 learner.LearnerEmploymentStatus[0].EmpStatSpecified = true;
                 learner.LearnerEmploymentStatus[0].EmpStat = 11;
             }
@@ -66,8 +68,6 @@ namespace DCT.TestDataGenerator.Functor
                 });
 
                 led.LearningDeliveryFAM = ldfams.ToArray();
-                learner.LearningDelivery[0].ProgType = 25;
-                learner.LearningDelivery[0].ProgTypeSpecified = true;
                 learner.LearnerEmploymentStatus[0].EmpStatSpecified = true;
                 learner.LearnerEmploymentStatus[0].EmpStat = 11;
             }

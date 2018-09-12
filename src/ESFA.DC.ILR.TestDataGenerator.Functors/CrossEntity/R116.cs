@@ -39,6 +39,12 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateApprenticeship(MessageLearner learner, bool valid)
         {
+            if (valid)
+            {
+                Helpers.AddAfninRecord(learner, "PMR", 1, 1000);
+                Helpers.AddAfninRecord(learner, "PMR", 3, 500);
+            }
+
             if (!valid)
             {
                 Helpers.AddAfninRecord(learner, "PMR", 1, 1000);
@@ -48,6 +54,12 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateLearner(MessageLearner learner, bool valid)
         {
+            if (valid)
+            {
+                Helpers.AddAfninRecord(learner, "PMR", 1, 1000);
+                Helpers.AddAfninRecord(learner, "PMR", 3, 500);
+            }
+
             if (!valid)
             {
                 Helpers.AddAfninRecord(learner, "PMR", 1, 1000);

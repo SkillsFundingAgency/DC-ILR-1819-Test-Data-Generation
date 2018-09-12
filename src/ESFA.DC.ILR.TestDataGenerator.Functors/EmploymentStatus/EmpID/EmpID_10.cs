@@ -33,13 +33,17 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLES, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateLES, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
         private void MutateLES(MessageLearner learner, bool valid)
         {
-            learner.LearningDelivery[0].LearnStartDate = DateTime.Now.AddMonths(-1);
+            if (valid)
+            {
+                MutateCommon(learner, valid);
+            }
+
             if (!valid)
             {
                 var les = learner.LearnerEmploymentStatus[0];
@@ -49,21 +53,36 @@ namespace DCT.TestDataGenerator.Functor
             }
         }
 
-        private void MutateLDMType(MessageLearner learner, bool valid)
+        private void Mutate(MessageLearner learner, bool valid)
         {
             if (!valid)
             {
-                var led = learner.LearningDelivery[0];
-                var ldfams = led.LearningDeliveryFAM.ToList();
-                ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
-                {
-                    LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
-                    LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_OLASS).ToString(),
-                });
-                led.LearningDeliveryFAM = ldfams.ToArray();
                 var les = learner.LearnerEmploymentStatus[0];
-                les.DateEmpStatAppSpecified = true;
-                les.DateEmpStatApp = new DateTime(2017, 12, 01);
+                les.EmpStatSpecified = true;
+                les.EmpStat = 10;
+                les.EmpIdSpecified = false;
+            }
+        }
+
+        private void MutateCommon(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+            var ld = learner.LearningDelivery[0];
+            if (valid)
+            {
+                var appfin = new List<MessageLearnerLearningDeliveryAppFinRecord>();
+                appfin.Add(new MessageLearnerLearningDeliveryAppFinRecord()
+                {
+                    AFinAmount = 500,
+                    AFinAmountSpecified = true,
+                    AFinType = LearnDelAppFinType.TNP.ToString(),
+                    AFinCode = (int)LearnDelAppFinCode.TotalTrainingPrice,
+                    AFinCodeSpecified = true,
+                    AFinDate = ld.LearnStartDate,
+                    AFinDateSpecified = true
+                });
+
+                ld.AppFinRecord = appfin.ToArray();
             }
         }
 

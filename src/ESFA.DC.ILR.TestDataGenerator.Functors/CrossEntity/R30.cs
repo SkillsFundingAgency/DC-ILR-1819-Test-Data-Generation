@@ -33,13 +33,20 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateProgType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
         private void MutateLearner(MessageLearner learner, bool valid)
         {
             var ld = learner.LearningDelivery[0];
+            if (valid)
+            {
+                ld.AimTypeSpecified = true;
+                ld.AimType = 4;
+            }
+
             if (!valid)
             {
                 ld.ProgType = (int)ProgType.Traineeship;
@@ -56,6 +63,24 @@ namespace DCT.TestDataGenerator.Functor
             {
                 ld.ProgType = (int)ProgType.Traineeship;
                 ld.ProgTypeSpecified = true;
+            }
+        }
+
+        private void MutateProgType(MessageLearner learner, bool valid)
+        {
+            var ld = learner.LearningDelivery[0];
+            if (valid)
+            {
+                ld.AimTypeSpecified = true;
+                ld.AimType = 4;
+            }
+
+            if (!valid)
+            {
+                ld.ProgType = (int)ProgType.ApprenticeshipStandard;
+                ld.ProgTypeSpecified = true;
+                ld.AimTypeSpecified = true;
+                ld.AimType = 3;
             }
         }
 

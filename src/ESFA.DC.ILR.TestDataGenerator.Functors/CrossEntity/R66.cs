@@ -32,7 +32,7 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
@@ -57,7 +57,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateGenerationOptions(GenerationOptions options)
         {
-            options.CreateDestinationAndProgression = true;
+            options.EmploymentRequired = true;
         }
 
         private void MutateOptions(GenerationOptions options)

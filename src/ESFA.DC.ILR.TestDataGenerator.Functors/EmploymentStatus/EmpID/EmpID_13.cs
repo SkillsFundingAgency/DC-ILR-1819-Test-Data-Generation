@@ -33,19 +33,56 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLES, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateLES, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
         private void MutateLES(MessageLearner learner, bool valid)
         {
-            learner.LearningDelivery[0].LearnStartDate = DateTime.Now.AddMonths(-1);
+            if (valid)
+            {
+                MutateCommon(learner, valid);
+            }
+
             if (!valid)
             {
                 learner.LearningDelivery[0].LearnStartDate = DateTime.Now.AddMonths(-2);
                 var les = learner.LearnerEmploymentStatus[0];
                 les.EmpIdSpecified = true;
                 les.EmpId = 999999999;
+            }
+        }
+
+        private void Mutate(MessageLearner learner, bool valid)
+        {
+             if (!valid)
+            {
+                learner.LearningDelivery[0].LearnStartDate = DateTime.Now.AddMonths(-2);
+                var les = learner.LearnerEmploymentStatus[0];
+                les.EmpIdSpecified = true;
+                les.EmpId = 999999999;
+            }
+        }
+
+        private void MutateCommon(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+            var ld = learner.LearningDelivery[0];
+            if (valid)
+            {
+                var appfin = new List<MessageLearnerLearningDeliveryAppFinRecord>();
+                appfin.Add(new MessageLearnerLearningDeliveryAppFinRecord()
+                {
+                    AFinAmount = 500,
+                    AFinAmountSpecified = true,
+                    AFinType = LearnDelAppFinType.TNP.ToString(),
+                    AFinCode = (int)LearnDelAppFinCode.TotalTrainingPrice,
+                    AFinCodeSpecified = true,
+                    AFinDate = ld.LearnStartDate,
+                    AFinDateSpecified = true
+                });
+
+                ld.AppFinRecord = appfin.ToArray();
             }
         }
 
@@ -61,37 +98,6 @@ namespace DCT.TestDataGenerator.Functor
                     LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_OLASS).ToString(),
                 });
                 led.LearningDeliveryFAM = ldfams.ToArray();
-                var les = learner.LearnerEmploymentStatus[0];
-                les.DateEmpStatAppSpecified = true;
-                les.DateEmpStatApp = new DateTime(2017, 12, 01);
-            }
-        }
-
-        private void MutateCommunity(MessageLearner learner, bool valid)
-        {
-            if (!valid)
-            {
-                var led = learner.LearningDelivery[0];
-                var ldfams = led.LearningDeliveryFAM.ToList();
-                ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
-                {
-                    LearnDelFAMType = LearnDelFAMType.SOF.ToString(),
-                    LearnDelFAMCode = ((int)LearnDelFAMCode.SOF_LA).ToString(),
-                });
-
-                led.LearningDeliveryFAM = ldfams.ToArray();
-                var les = learner.LearnerEmploymentStatus[0];
-                les.DateEmpStatAppSpecified = true;
-                les.DateEmpStatApp = new DateTime(2017, 12, 01);
-            }
-        }
-
-        private void MutateTrainee(MessageLearner learner, bool valid)
-        {
-            if (!valid)
-            {
-                learner.LearningDelivery[0].ProgType = 24;
-                learner.LearningDelivery[0].ProgTypeSpecified = true;
                 var les = learner.LearnerEmploymentStatus[0];
                 les.DateEmpStatAppSpecified = true;
                 les.DateEmpStatApp = new DateTime(2017, 12, 01);
