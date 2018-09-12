@@ -61,7 +61,7 @@ namespace DCT.TestDataGenerator.Functor
             {
                 foreach (var lde in learner.LearningDelivery)
                 {
-                    lde.LearnStartDate = DateTime.Now.AddMonths(-8);
+                    lde.LearnStartDate = DateTime.Now.AddMonths(-8).AddDays(-1);
                     lde.LearnPlanEndDate = lde.LearnStartDate.AddMonths(6);
                 }
             }
