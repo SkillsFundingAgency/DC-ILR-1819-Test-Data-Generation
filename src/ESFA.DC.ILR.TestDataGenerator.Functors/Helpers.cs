@@ -164,6 +164,15 @@
 
                         DateTime d2 = new DateTime(year2, month2, int.Parse(command[2]));
                         return d2.ToString("yyyy-MM-dd");
+                    case "FU": // Future Date
+                        // "AY|JUN|06"
+                        int fMonth = DateTime.Now.Month;
+                        int fYear = DateTime.Now.Year;
+                        int fday = DateTime.Now.Day;
+
+                       DateTime fd = new DateTime(fYear, fMonth, fday + 1);
+                       return fd.ToString("yyyy-MM-dd");
+
                     case "GEN":
                     case "OPT":
                     case "VALID4PROP":

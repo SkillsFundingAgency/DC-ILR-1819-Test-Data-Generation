@@ -44,7 +44,8 @@ namespace DCT.TestDataGenerator
             {
                 FilePreparationDateRequired.January,
                 FilePreparationDateRequired.December,
-                FilePreparationDateRequired.July
+                FilePreparationDateRequired.July,
+                FilePreparationDateRequired.Future
             };
 
             foreach (var fbd in filesByDate)
