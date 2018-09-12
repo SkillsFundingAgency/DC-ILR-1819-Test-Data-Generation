@@ -40,6 +40,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void Mutate(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-20);
             if (!valid)
             {
                 var ifamA = learner.ProviderSpecLearnerMonitoring.Where(s => s.ProvSpecLearnMonOccur == ProvSpecLearnMonOccur.A.ToString()).ToList();
@@ -53,13 +54,17 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateBA(MessageLearner learner, bool valid)
         {
-            var ifam = learner.ProviderSpecLearnerMonitoring.Where(s => s.ProvSpecLearnMonOccur != ProvSpecLearnMonOccur.A.ToString()).ToList();
-            ifam.Add(new MessageLearnerProviderSpecLearnerMonitoring()
+            if (valid)
             {
-                ProvSpecLearnMon = $"{learner.ULN}",
-                ProvSpecLearnMonOccur = ProvSpecLearnMonOccur.A.ToString()
-            });
-            learner.ProviderSpecLearnerMonitoring = ifam.ToArray();
+                var ifam = learner.ProviderSpecLearnerMonitoring.Where(s => s.ProvSpecLearnMonOccur != ProvSpecLearnMonOccur.A.ToString()).ToList();
+                ifam.Add(new MessageLearnerProviderSpecLearnerMonitoring()
+                {
+                    ProvSpecLearnMon = $"{learner.ULN}",
+                    ProvSpecLearnMonOccur = ProvSpecLearnMonOccur.A.ToString()
+                });
+                learner.ProviderSpecLearnerMonitoring = ifam.ToArray();
+            }
+
             Mutate(learner, valid);
         }
 
@@ -78,8 +83,12 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateB(MessageLearner learner, bool valid)
         {
-            var ifam = learner.ProviderSpecLearnerMonitoring.Where(s => s.ProvSpecLearnMonOccur == ProvSpecLearnMonOccur.B.ToString()).ToList();
-            learner.ProviderSpecLearnerMonitoring = ifam.ToArray();
+            if (valid)
+            {
+                var ifam = learner.ProviderSpecLearnerMonitoring.Where(s => s.ProvSpecLearnMonOccur == ProvSpecLearnMonOccur.B.ToString()).ToList();
+                learner.ProviderSpecLearnerMonitoring = ifam.ToArray();
+            }
+
             Mutate(learner, valid);
         }
 
