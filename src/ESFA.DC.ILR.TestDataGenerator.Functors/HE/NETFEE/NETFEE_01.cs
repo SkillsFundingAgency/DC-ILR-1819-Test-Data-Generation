@@ -27,7 +27,6 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateHE, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateNoHE, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateLearnStartDate, DoMutateOptions = MutateGenerationOptionsHE,  ExclusionRecord = true }
             };
         }
@@ -132,14 +131,6 @@ namespace DCT.TestDataGenerator.Functor
             {
                 learner.LearningDelivery[0].LearnAimRef = "50111152";
                 learner.LearningDelivery[0].LearnStartDate = DateTime.Parse("2010-OCT-01").AddDays(-1);
-            }
-        }
-
-        public void MutateNoHE(MessageLearner learner, bool valid)
-        {
-            if (!valid)
-            {
-                learner.DateOfBirth = new DateTime(1998, 07, 01);
             }
         }
 

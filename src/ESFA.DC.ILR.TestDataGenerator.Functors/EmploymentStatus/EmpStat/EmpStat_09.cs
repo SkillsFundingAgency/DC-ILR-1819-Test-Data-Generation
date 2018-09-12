@@ -40,6 +40,14 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateLES(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+            if (valid)
+            {
+                var les = learner.LearnerEmploymentStatus[0];
+                les.DateEmpStatAppSpecified = true;
+                les.DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate.AddDays(-2);
+            }
+
             if (!valid)
             {
                 var les = learner.LearnerEmploymentStatus[0];
@@ -62,7 +70,7 @@ namespace DCT.TestDataGenerator.Functor
                 led.LearningDeliveryFAM = ldfams.ToArray();
                 var les = learner.LearnerEmploymentStatus[0];
                 les.DateEmpStatAppSpecified = true;
-                les.DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate.AddDays(-2);
+                les.DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate.AddDays(+2);
             }
         }
 
@@ -91,6 +99,9 @@ namespace DCT.TestDataGenerator.Functor
             {
                 learner.LearningDelivery[0].ProgType = 24;
                 learner.LearningDelivery[0].ProgTypeSpecified = true;
+                learner.LearningDelivery[0].AimTypeSpecified = true;
+                learner.LearningDelivery[0].AimType = 1;
+                learner.LearningDelivery[0].LearnAimRef = "ZPROG001";
                 var les = learner.LearnerEmploymentStatus[0];
                 les.DateEmpStatAppSpecified = true;
                 les.DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate.AddDays(+2);

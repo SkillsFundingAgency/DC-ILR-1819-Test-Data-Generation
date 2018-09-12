@@ -27,7 +27,6 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateHE, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateNoHE, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateLearnStartDate, DoMutateOptions = MutateGenerationOptionsHE,  ExclusionRecord = true }
             };
         }
@@ -42,6 +41,15 @@ namespace DCT.TestDataGenerator.Functor
                     IncludeHEFields = true
                 }
             };
+
+            Helpers.RemoveLearningDeliveryFAM(learner, LearnDelFAMType.SOF);
+            var ld1Fams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
+            ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+            {
+                LearnDelFAMType = LearnDelFAMType.SOF.ToString(),
+                LearnDelFAMCode = ((int)LearnDelFAMCode.SOF_HEFCE).ToString()
+            });
+            learner.LearningDelivery[0].LearningDeliveryFAM = ld1Fams.ToArray();
             var what = Options.LD.IncludeHEFields;
             if (valid)
             {
@@ -68,9 +76,9 @@ namespace DCT.TestDataGenerator.Functor
                     PCFLDCSSpecified = true,
                     SPECFEE = (int)SpecialFeeIndicator.Other,
                     SPECFEESpecified = true,
-                    NETFEE = 0,
+                    NETFEE = 8999,
                     NETFEESpecified = true,
-                    GROSSFEE = 1,
+                    GROSSFEE = 9000,
                     GROSSFEESpecified = true,
                     DOMICILE = "ZZ",
                     ELQ = (int)EquivalentLowerQualification.NotRequired,
@@ -111,14 +119,6 @@ namespace DCT.TestDataGenerator.Functor
                     ELQ = (int)EquivalentLowerQualification.NotRequired,
                     ELQSpecified = true
                 });
-                Helpers.RemoveLearningDeliveryFAM(learner, LearnDelFAMType.SOF);
-                var ld1Fams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
-                ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
-                {
-                    LearnDelFAMType = LearnDelFAMType.SOF.ToString(),
-                    LearnDelFAMCode = ((int)LearnDelFAMCode.SOF_HEFCE).ToString()
-                });
-                learner.LearningDelivery[0].LearningDeliveryFAM = ld1Fams.ToArray();
             }
 
             foreach (var lrnr in learner.LearningDelivery)
