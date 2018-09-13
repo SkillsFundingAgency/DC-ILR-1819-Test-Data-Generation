@@ -27,13 +27,13 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateHE, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateNoHE, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateLearnStartDate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
         public void MutateHE(MessageLearner learner, bool valid)
         {
+            learner.LearningDelivery[0].LearnAimRef = "00302352";
             var hes = new List<MessageLearnerLearningDeliveryLearningDeliveryHE>(4);
             var Options = new GenerationOptions()
             {
@@ -113,7 +113,6 @@ namespace DCT.TestDataGenerator.Functor
                     ELQ = (int)EquivalentLowerQualification.NotRequired,
                     ELQSpecified = true
                 });
-                learner.LearningDelivery[0].LearnAimRef = "00302352";
             }
 
             foreach (var lrnr in learner.LearningDelivery)
