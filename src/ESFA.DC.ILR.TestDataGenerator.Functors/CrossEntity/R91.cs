@@ -43,7 +43,7 @@ namespace DCT.TestDataGenerator.Functor
             {
                 learner.LearningDelivery[0].LearnAimRef = "ZESF0001";
                 learner.LearningDelivery[0].CompStatusSpecified = true;
-                learner.LearningDelivery[0].CompStatus = 3;
+                learner.LearningDelivery[0].CompStatus = (int)CompStatus.Withdrawn;
             }
         }
 
