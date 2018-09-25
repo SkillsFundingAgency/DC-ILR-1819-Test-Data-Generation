@@ -69,7 +69,7 @@ namespace DCT.TestDataGenerator.Functor
             ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
             {
                 LearnDelFAMType = LearnDelFAMType.ACT.ToString(),
-                LearnDelFAMCode = LearnDelFAMCode.ACT_ContractEmployer.ToString(),
+                LearnDelFAMCode = ((int)LearnDelFAMCode.ACT_ContractEmployer).ToString(),
                 LearnDelFAMDateFromSpecified = true,
                 LearnDelFAMDateFrom = DateTime.Now.AddMonths(-4),
                 LearnDelFAMDateToSpecified = true,
@@ -157,7 +157,7 @@ namespace DCT.TestDataGenerator.Functor
                 ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
                 {
                     LearnDelFAMType = LearnDelFAMType.ACT.ToString(),
-                    LearnDelFAMCode = LearnDelFAMCode.ACT_ContractEmployer.ToString(),
+                    LearnDelFAMCode = ((int)LearnDelFAMCode.ACT_ContractEmployer).ToString(),
                     LearnDelFAMDateFromSpecified = true,
                     LearnDelFAMDateFrom = DateTime.Now.AddMonths(-4),
                     LearnDelFAMDateToSpecified = true,

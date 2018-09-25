@@ -421,6 +421,47 @@
             learner.LearnerEmploymentStatus[0].DateEmpStatApp = learner.LearnerEmploymentStatus[0].DateEmpStatApp.AddDays(-40);
         }
 
+        public static void AddLearningDeliveryHE(MessageLearner messagelearner, string qualent3 = "X06")
+        {
+            foreach (var learner in messagelearner.LearningDelivery)
+            {
+                var ldhe = new List<MessageLearnerLearningDeliveryLearningDeliveryHE>();
+
+                    ldhe.Add(new MessageLearnerLearningDeliveryLearningDeliveryHE()
+                    {
+                        NUMHUS = "2000812012XTT60021",
+                        QUALENT3 = qualent3,
+                        UCASAPPID = "AB89",
+                        TYPEYR = (int)TypeOfyear.FEYear,
+                        TYPEYRSpecified = true,
+                        MODESTUD = (int)ModeOfStudy.NotInPopulation,
+                        MODESTUDSpecified = true,
+                        FUNDLEV = (int)FundingLevel.Undergraduate,
+                        FUNDLEVSpecified = true,
+                        FUNDCOMP = (int)FundingCompletion.NotYetCompleted,
+                        FUNDCOMPSpecified = true,
+                        STULOAD = 10.0M,
+                        STULOADSpecified = true,
+                        YEARSTU = 1,
+                        YEARSTUSpecified = true,
+                        MSTUFEE = (int)MajorSourceOfTuitionFees.NoAward,
+                        MSTUFEESpecified = true,
+                        PCFLDCS = 100,
+                        PCFLDCSSpecified = true,
+                        SPECFEE = (int)SpecialFeeIndicator.Other,
+                        SPECFEESpecified = true,
+                        NETFEE = 0,
+                        NETFEESpecified = true,
+                        GROSSFEE = 1,
+                        GROSSFEESpecified = true,
+                        DOMICILE = "ZZ",
+                        ELQ = (int)EquivalentLowerQualification.NotRequired,
+                        ELQSpecified = true
+                    });
+                learner.LearningDeliveryHE = ldhe.ToArray();
+            }
+        }
+
         public static void MutateDOB(MessageLearner learner, bool valid, AgeRequired ar, BasedOn whatTypeOfAge, MakeOlderOrYoungerWhenInvalid direction)
         {
             switch (whatTypeOfAge)
