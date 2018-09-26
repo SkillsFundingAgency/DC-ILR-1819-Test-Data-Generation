@@ -27,14 +27,21 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateHE, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateNoHE, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateLearnSOFDOB, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
         public void MutateHE(MessageLearner learner, bool valid)
         {
+            var ld1Fams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
+            ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+            {
+                LearnDelFAMType = LearnDelFAMType.SOF.ToString(),
+                LearnDelFAMCode = ((int)LearnDelFAMCode.SOF_HEFCE).ToString()
+            });
+            learner.LearningDelivery[0].LearningDeliveryFAM = ld1Fams.ToArray();
             var hes = new List<MessageLearnerLearningDeliveryLearningDeliveryHE>(4);
+
             var Options = new GenerationOptions()
             {
                 LD = new LearningDeliveryOptions()
@@ -109,13 +116,6 @@ namespace DCT.TestDataGenerator.Functor
                     GROSSFEESpecified = true,
                     DOMICILE = "ZZ",
                 });
-                var ld1Fams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
-                ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
-                {
-                    LearnDelFAMType = LearnDelFAMType.SOF.ToString(),
-                    LearnDelFAMCode = ((int)LearnDelFAMCode.SOF_HEFCE).ToString()
-                });
-                learner.LearningDelivery[0].LearningDeliveryFAM = ld1Fams.ToArray();
             }
 
             foreach (var lrnr in learner.LearningDelivery)

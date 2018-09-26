@@ -35,30 +35,36 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateAfinDate, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateAfinDate1, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateAfinDate2, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = MutateAimType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
             };
         }
 
-        private void MutateLearner(MessageLearner learner, bool valid)
+        private void MutateCommon(MessageLearner learner, bool valid)
         {
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
             var ld = learner.LearningDelivery[0];
             if (valid)
             {
-                    var appfin = new List<MessageLearnerLearningDeliveryAppFinRecord>();
-                    appfin.Add(new MessageLearnerLearningDeliveryAppFinRecord()
-                    {
-                        AFinAmount = 500,
-                        AFinAmountSpecified = true,
-                        AFinType = LearnDelAppFinType.TNP.ToString(),
-                        AFinCode = (int)LearnDelAppFinCode.TotalTrainingPrice,
-                        AFinCodeSpecified = true,
-                        AFinDate = ld.LearnStartDate,
-                        AFinDateSpecified = true
-                    });
+                var appfin = new List<MessageLearnerLearningDeliveryAppFinRecord>();
+                appfin.Add(new MessageLearnerLearningDeliveryAppFinRecord()
+                {
+                    AFinAmount = 500,
+                    AFinAmountSpecified = true,
+                    AFinType = LearnDelAppFinType.TNP.ToString(),
+                    AFinCode = (int)LearnDelAppFinCode.TotalTrainingPrice,
+                    AFinCodeSpecified = true,
+                    AFinDate = ld.LearnStartDate,
+                    AFinDateSpecified = true
+                });
 
-                    ld.AppFinRecord = appfin.ToArray();
+                ld.AppFinRecord = appfin.ToArray();
             }
+        }
+
+        private void MutateLearner(MessageLearner learner, bool valid)
+        {
+            MutateCommon(learner, valid);
 
             if (!valid)
             {
@@ -70,34 +76,17 @@ namespace DCT.TestDataGenerator.Functor
                         AFinType = LearnDelAppFinType.PMR.ToString(),
                         AFinCode = (int)LearnDelAppFinCode.TrainingPayment,
                         AFinCodeSpecified = true,
-                        AFinDate = ld.LearnStartDate,
+                        AFinDate = learner.LearningDelivery[0].LearnStartDate,
                         AFinDateSpecified = true
                     });
 
-                    ld.AppFinRecord = appfin.ToArray();
+                    learner.LearningDelivery[0].AppFinRecord = appfin.ToArray();
             }
         }
 
         private void MutateAfinDate(MessageLearner learner, bool valid)
         {
-            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
-            var ld = learner.LearningDelivery[0];
-            if (valid)
-            {
-                var appfin = new List<MessageLearnerLearningDeliveryAppFinRecord>();
-                appfin.Add(new MessageLearnerLearningDeliveryAppFinRecord()
-                {
-                    AFinAmount = 500,
-                    AFinAmountSpecified = true,
-                    AFinType = LearnDelAppFinType.TNP.ToString(),
-                    AFinCode = (int)LearnDelAppFinCode.TotalTrainingPrice,
-                    AFinCodeSpecified = true,
-                    AFinDate = ld.LearnStartDate,
-                    AFinDateSpecified = true
-                });
-
-                ld.AppFinRecord = appfin.ToArray();
-            }
+            MutateCommon(learner, valid);
 
             if (!valid)
             {
@@ -109,34 +98,17 @@ namespace DCT.TestDataGenerator.Functor
                     AFinType = LearnDelAppFinType.TNP.ToString(),
                     AFinCode = (int)LearnDelAppFinCode.TrainingPayment,
                     AFinCodeSpecified = true,
-                    AFinDate = ld.LearnStartDate.AddDays(1),
+                    AFinDate = learner.LearningDelivery[0].LearnStartDate.AddDays(1),
                     AFinDateSpecified = true
                 });
 
-                ld.AppFinRecord = appfin.ToArray();
+                learner.LearningDelivery[0].AppFinRecord = appfin.ToArray();
             }
         }
 
         private void MutateAfinDate1(MessageLearner learner, bool valid)
         {
-            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
-            var ld = learner.LearningDelivery[0];
-            if (valid)
-            {
-                var appfin = new List<MessageLearnerLearningDeliveryAppFinRecord>();
-                appfin.Add(new MessageLearnerLearningDeliveryAppFinRecord()
-                {
-                    AFinAmount = 500,
-                    AFinAmountSpecified = true,
-                    AFinType = LearnDelAppFinType.TNP.ToString(),
-                    AFinCode = (int)LearnDelAppFinCode.TotalTrainingPrice,
-                    AFinCodeSpecified = true,
-                    AFinDate = ld.LearnStartDate,
-                    AFinDateSpecified = true
-                });
-
-                ld.AppFinRecord = appfin.ToArray();
-            }
+            MutateCommon(learner, valid);
 
             if (!valid)
             {
@@ -148,11 +120,33 @@ namespace DCT.TestDataGenerator.Functor
                     AFinType = LearnDelAppFinType.TNP.ToString(),
                     AFinCode = (int)LearnDelAppFinCode.TrainingPayment,
                     AFinCodeSpecified = true,
-                    AFinDate = ld.LearnStartDate.AddDays(-1),
+                    AFinDate = learner.LearningDelivery[0].LearnStartDate.AddDays(-1),
                     AFinDateSpecified = true
                 });
 
-                ld.AppFinRecord = appfin.ToArray();
+                learner.LearningDelivery[0].AppFinRecord = appfin.ToArray();
+            }
+        }
+
+        private void MutateAfinDate2(MessageLearner learner, bool valid)
+        {
+            MutateCommon(learner, valid);
+
+            if (!valid)
+            {
+                var appfin = new List<MessageLearnerLearningDeliveryAppFinRecord>();
+                appfin.Add(new MessageLearnerLearningDeliveryAppFinRecord()
+                {
+                    AFinAmount = 500,
+                    AFinAmountSpecified = true,
+                    AFinType = LearnDelAppFinType.TNP.ToString(),
+                    AFinCode = (int)LearnDelAppFinCode.TrainingPayment,
+                    AFinCodeSpecified = true,
+                    AFinDate = learner.LearningDelivery[0].LearnStartDate,
+                    AFinDateSpecified = true
+                });
+
+                learner.LearningDelivery[0].AppFinRecord = appfin.ToArray();
             }
         }
 

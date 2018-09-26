@@ -139,6 +139,66 @@ namespace DCT.TestDataGenerator.Functor
 
         public void MutateNoHE(MessageLearner learner, bool valid)
         {
+            var hes = new List<MessageLearnerLearningDeliveryLearningDeliveryHE>(4);
+
+            var lhe = new List<MessageLearnerLearnerHE>(2);
+            lhe.Add(new MessageLearnerLearnerHE()
+            {
+                UCASPERID = "1234567899",
+                TTACCOMSpecified = true,
+                TTACCOM = 1
+            });
+
+            var Options = new GenerationOptions()
+            {
+                LD = new LearningDeliveryOptions()
+                {
+                    IncludeHEFields = true
+                }
+            };
+            var what = Options.LD.IncludeHEFields;
+            if (valid)
+            {
+                hes.Add(new MessageLearnerLearningDeliveryLearningDeliveryHE()
+                {
+                    NUMHUS = "2000812012XTT60021",
+                    QUALENT3 = QualificationOnEntry.X06.ToString(),
+                    UCASAPPID = "AB89",
+                    TYPEYR = (int)TypeOfyear.FEYear,
+                    TYPEYRSpecified = true,
+                    MODESTUD = (int)ModeOfStudy.FullTime,
+                    MODESTUDSpecified = true,
+                    FUNDLEV = (int)FundingLevel.Undergraduate,
+                    FUNDLEVSpecified = true,
+                    FUNDCOMP = (int)FundingCompletion.NotYetCompleted,
+                    FUNDCOMPSpecified = true,
+                    STULOAD = 10.0M,
+                    STULOADSpecified = true,
+                    YEARSTU = 1,
+                    YEARSTUSpecified = true,
+                    MSTUFEE = (int)MajorSourceOfTuitionFees.NoAward,
+                    MSTUFEESpecified = true,
+                    PCFLDCS = 100,
+                    PCFLDCSSpecified = true,
+                    SPECFEE = (int)SpecialFeeIndicator.Other,
+                    SPECFEESpecified = true,
+                    NETFEE = 0,
+                    NETFEESpecified = true,
+                    GROSSFEE = 1,
+                    GROSSFEESpecified = true,
+                    DOMICILE = "ZZ",
+                    ELQ = (int)EquivalentLowerQualification.NotRequired,
+                    ELQSpecified = true
+                });
+
+                learner.LearnerHE = lhe.ToArray();
+            }
+
+            foreach (var lrnr in learner.LearningDelivery)
+            {
+                lrnr.LearningDeliveryHE = hes.ToArray();
+            }
+
             if (!valid)
             {
                 learner.DateOfBirth = new DateTime(1998, 07, 01);

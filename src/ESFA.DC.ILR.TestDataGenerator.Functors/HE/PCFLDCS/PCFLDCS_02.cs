@@ -27,7 +27,6 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateHE, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateNoHE, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateLearnStartDate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
@@ -42,6 +41,14 @@ namespace DCT.TestDataGenerator.Functor
                     IncludeHEFields = true
                 }
             };
+            var ld1Fams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
+            ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+            {
+                LearnDelFAMType = LearnDelFAMType.SOF.ToString(),
+                LearnDelFAMCode = ((int)LearnDelFAMCode.SOF_HEFCE).ToString()
+            });
+            learner.LearningDelivery[0].LearningDeliveryFAM = ld1Fams.ToArray();
+            learner.LearningDelivery[0].LearnAimRef = "40005240";
             var what = Options.LD.IncludeHEFields;
             if (valid)
             {
@@ -109,14 +116,6 @@ namespace DCT.TestDataGenerator.Functor
                     ELQ = (int)EquivalentLowerQualification.NotRequired,
                     ELQSpecified = true
                 });
-                var ld1Fams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
-                ld1Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
-                {
-                    LearnDelFAMType = LearnDelFAMType.SOF.ToString(),
-                    LearnDelFAMCode = ((int)LearnDelFAMCode.SOF_HEFCE).ToString()
-                });
-                learner.LearningDelivery[0].LearningDeliveryFAM = ld1Fams.ToArray();
-                learner.LearningDelivery[0].LearnAimRef = "40005240";
             }
 
             foreach (var lrnr in learner.LearningDelivery)

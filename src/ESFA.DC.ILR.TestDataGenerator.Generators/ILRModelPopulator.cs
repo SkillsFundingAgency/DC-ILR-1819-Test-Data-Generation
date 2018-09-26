@@ -143,6 +143,9 @@ namespace DCT.TestDataGenerator
                 case FilePreparationDateRequired.December:
                     result.CollectionDetails.FilePreparationDate = DateTime.Parse(Helpers.ValueOrFunction("[AY|DEC|13]"));
                     break;
+                case FilePreparationDateRequired.Future:
+                    result.CollectionDetails.FilePreparationDate = DateTime.Parse(Helpers.ValueOrFunction("[FU|DEC|18]"));
+                    break;
                 default:
                     break;
             }
