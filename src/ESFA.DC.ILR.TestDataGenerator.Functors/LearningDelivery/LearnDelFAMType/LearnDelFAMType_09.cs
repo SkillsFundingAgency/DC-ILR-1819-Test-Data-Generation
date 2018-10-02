@@ -32,6 +32,7 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateSOF, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, InvalidLines = 2 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.CommunityLearning, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptionsSOF },
@@ -45,15 +46,29 @@ namespace DCT.TestDataGenerator.Functor
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
             if (!valid)
             {
-                    var led = learner.LearningDelivery[0];
-                    var ldfams = led.LearningDeliveryFAM.ToList();
+                foreach (var ld in learner.LearningDelivery)
+                {
+                    var ldfams = ld.LearningDeliveryFAM.Where(fc => fc.LearnDelFAMType != LearnDelFAMType.SOF.ToString());
+                    ld.LearningDeliveryFAM = ldfams.ToArray();
+                }
+            }
+        }
+
+        private void MutateSOF(MessageLearner learner, bool valid)
+        {
+            Mutate(learner, valid);
+            if (!valid)
+            {
+                foreach (var ld in learner.LearningDelivery)
+                {
+                    var ldfams = ld.LearningDeliveryFAM.ToList();
                     ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
                     {
                         LearnDelFAMType = LearnDelFAMType.SOF.ToString(),
                         LearnDelFAMCode = ((int)LearnDelFAMCode.SOF_LA).ToString(),
                     });
-
-                    led.LearningDeliveryFAM = ldfams.ToArray();
+                    ld.LearningDeliveryFAM = ldfams.ToArray();
+                }
             }
         }
 
