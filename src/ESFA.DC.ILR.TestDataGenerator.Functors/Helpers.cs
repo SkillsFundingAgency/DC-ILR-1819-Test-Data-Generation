@@ -288,6 +288,17 @@
             ld.LearningDeliveryFAM = ld0Fams.ToArray();
         }
 
+        public static void AddLearningDeliveryFAM(MessageLearner learner, LearnDelFAMType ft, LearnDelFAMCode fc)
+        {
+            var ld0Fams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
+            ld0Fams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+            {
+                LearnDelFAMType = ft.ToString(),
+                LearnDelFAMCode = ((int)fc).ToString()
+            });
+            learner.LearningDelivery[0].LearningDeliveryFAM = ld0Fams.ToArray();
+        }
+
         public static void SafeAddlearningDeliveryFAM(MessageLearnerLearningDelivery ld, LearnDelFAMType type, LearnDelFAMCode code, DateTime? from, DateTime? to)
         {
             List<MessageLearnerLearningDeliveryLearningDeliveryFAM> fams = null;
