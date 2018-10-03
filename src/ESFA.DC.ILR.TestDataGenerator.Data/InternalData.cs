@@ -307,7 +307,10 @@
         SpecialistDesignatedCollege,
         DummyOrganisationTestingOnly,
         NotExist,
-        PartnerOrganisation
+        PartnerOrganisation,
+        USFC,
+        USDC,
+        UHEO
     }
 
     public enum LearnDelFAMCode
