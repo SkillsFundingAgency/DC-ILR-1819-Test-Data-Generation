@@ -47,14 +47,26 @@ namespace ILRTestDataGenerator
                 scale = 1;
             }
 
-
-            int UKPRN = int.Parse(uiUKPRN.Text);
-            string ns = fileNamespace.Text;
-            XmlGenerator generator = new XmlGenerator(_rfp, UKPRN);
-            var result = generator.CreateAllXml(arv, scale, ns);
-            string folder = @"d:\ilr\";
-            FileWriter.WriteXmlFiles(folder, generator.FileContent(), ns);
-            FileWriter.OutputControlFile(folder, result);
+            string ukprnText = uiUKPRN.Text;
+            string[] ukprns;
+            if(ukprnText.Contains(","))
+            {
+                ukprns = ukprnText.Split(',');
+            }
+            else
+            {
+                ukprns = new string[] { ukprnText };
+            }
+            foreach (var s in ukprns)
+            {
+                int UKPRN = int.Parse(s);
+                string ns = fileNamespace.Text;
+                XmlGenerator generator = new XmlGenerator(_rfp, UKPRN);
+                var result = generator.CreateAllXml(arv, scale, ns);
+                string folder = @"d:\ilr\";
+                FileWriter.WriteXmlFiles(folder, generator.FileContent(), ns);
+                FileWriter.OutputControlFile(folder, result);
+            }
         }
 
 

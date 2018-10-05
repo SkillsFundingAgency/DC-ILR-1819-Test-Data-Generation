@@ -8,7 +8,7 @@ namespace DCT.TestDataGenerator.Functor
         : ILearnerMultiMutator
     {
         private readonly List<string> _nonExistPostcodes = new List<string> { "CV21 1UU", "CV21 1VA", "GY12 1SW" };
-        private readonly List<string> _validPostcodes = new List<string> { "CV21 1RL", "CV1 1DX", "CV1 2AY" };
+        private readonly List<string> _validPostcodes = new List<string> { "CV21 1RL", "CV1 1DX", "W11 1AY " };
 
         public FilePreparationDateRequired FilePreparationDate()
         {

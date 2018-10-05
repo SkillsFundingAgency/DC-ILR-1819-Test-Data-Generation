@@ -65,6 +65,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void Mutate19(MessageLearner learner, bool valid)
         {
+            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
             MutateCommon(learner, valid);
         }
 

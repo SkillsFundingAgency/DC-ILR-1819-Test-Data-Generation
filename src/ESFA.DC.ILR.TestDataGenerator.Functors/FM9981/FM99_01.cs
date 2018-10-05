@@ -63,6 +63,7 @@ namespace DCT.TestDataGenerator.Functor
         private void Mutate19(MessageLearner learner, bool valid)
         {
             learner.LearningDelivery[0].LearnAimRef = _dataCache.LearnAimFundingWithValidity(FundModel.NonFunded, LearnDelFAMCode.SOF_ESFA_Adult, learner.LearningDelivery[0].LearnStartDate).LearnAimRef;
+            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
             MutateCommon(learner, valid);
         }
 
