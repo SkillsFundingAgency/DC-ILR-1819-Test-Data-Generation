@@ -34,6 +34,10 @@ namespace DCT.TestDataGenerator
 
         IEnumerable<string> InvalidPostcode();
 
+        IEnumerable<string> NonExistPostcode();
+
+        IEnumerable<string> ValidPostcode();
+
         IEnumerable<LLDDCatValidity> LLDDCatValidity();
 
         string PostcodeWithAreaCostFactor();
