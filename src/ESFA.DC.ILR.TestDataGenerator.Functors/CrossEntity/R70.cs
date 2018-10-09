@@ -32,48 +32,39 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateWithStd, DoMutateOptions = MutateGenerationOptions }
             };
         }
 
         private void MutateCommon(MessageLearner learner, bool valid)
         {
-             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
-            if (!valid)
+            int aim;
+            learner.LearningDelivery[0].AimType = 3;
+            learner.LearningDelivery[0].ProgType = 25;
+            learner.LearningDelivery[1].ProgType = 25;
+            aim = valid ? 1 : 2;
+            learner.LearningDelivery[1].AimType = aim;
+        }
+
+        private void MutateWithStd(MessageLearner learner, bool valid)
+        {
+            foreach (var ld in learner.LearningDelivery)
             {
-                var ld = learner.LearningDelivery[0];
-                ld.ProgType = (int)ProgType.ApprenticeshipStandard;
-                ld.ProgTypeSpecified = true;
-                ld.AimTypeSpecified = true;
-                ld.AimType = 3;
-                ld.LearnAimRef = "60325999";
+                ld.StdCodeSpecified = true;
+                ld.StdCode = 5;
             }
+
+            MutateCommon(learner, valid);
         }
 
         private void Mutate(MessageLearner learner, bool valid)
-        {
-            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
-            if (!valid)
-            {
-                var ld = learner.LearningDelivery[0];
-                ld.ProgType = (int)ProgType.ApprenticeshipStandard;
-                ld.ProgTypeSpecified = true;
-                ld.AimTypeSpecified = true;
-                ld.AimType = 3;
-            }
-        }
-
-        private void MutateLearner(MessageLearner learner, bool valid)
         {
             MutateCommon(learner, valid);
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
         {
-            options.LD.OverrideLearnStartDate = DateTime.Parse("2017-Sep-01");
-            options.LD.IncludeHHS = true;
-            _options = options;
         }
     }
 }
