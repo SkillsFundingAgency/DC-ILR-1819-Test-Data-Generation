@@ -33,7 +33,7 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
             };
         }
 
@@ -56,11 +56,16 @@ namespace DCT.TestDataGenerator.Functor
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
             if (!valid)
             {
-                var ld = learner.LearningDelivery[0];
-                ld.ProgType = (int)ProgType.ApprenticeshipStandard;
-                ld.ProgTypeSpecified = true;
-                ld.AimTypeSpecified = true;
-                ld.AimType = 3;
+                //var ld = learner.LearningDelivery[1];
+                foreach (var ld in learner.LearningDelivery)
+                {
+                    ld.ProgType = (int)ProgType.ApprenticeshipStandard;
+                    ld.ProgTypeSpecified = true;
+                    ld.AimTypeSpecified = true;
+                    //ld.AimType = 3;
+                    ld.StdCode = 12;
+                    ld.StdCodeSpecified = true;
+                }
             }
         }
 
