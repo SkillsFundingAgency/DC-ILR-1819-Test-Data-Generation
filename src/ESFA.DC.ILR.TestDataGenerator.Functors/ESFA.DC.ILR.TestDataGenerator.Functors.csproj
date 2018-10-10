@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <Folder Include="Learner\UKPRN\" />
-    <Folder Include="LearningDelivery\WorkPlaceEmpID\" />
     <Folder Include="Message\FileLevel\Entity\" />
   </ItemGroup>
 
