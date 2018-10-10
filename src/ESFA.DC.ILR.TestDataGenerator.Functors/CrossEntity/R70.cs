@@ -40,9 +40,9 @@ namespace DCT.TestDataGenerator.Functor
         private void MutateCommon(MessageLearner learner, bool valid)
         {
             int aim;
-            learner.LearningDelivery[0].AimType = 3;
-            learner.LearningDelivery[0].ProgType = 25;
-            learner.LearningDelivery[1].ProgType = 25;
+            learner.LearningDelivery[0].AimType = AimType.ComponentAim;
+            learner.LearningDelivery[0].ProgType = ProgType.ApprenticeshipStandard;
+            learner.LearningDelivery[1].ProgType = ProgType.ApprenticeshipStandard;
             aim = valid ? 1 : 2;
             learner.LearningDelivery[1].AimType = aim;
         }
