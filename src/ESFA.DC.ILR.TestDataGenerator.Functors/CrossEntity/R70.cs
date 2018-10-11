@@ -33,13 +33,13 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
             };
         }
 
         private void MutateCommon(MessageLearner learner, bool valid)
         {
-             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
+            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
             if (!valid)
             {
                 var ld = learner.LearningDelivery[0];
@@ -54,13 +54,45 @@ namespace DCT.TestDataGenerator.Functor
         private void Mutate(MessageLearner learner, bool valid)
         {
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
+            if (valid)
+            {
+                foreach (var ld in learner.LearningDelivery)
+                {
+                    ld.ProgType = (int)ProgType.ApprenticeshipStandard;
+                    ld.ProgTypeSpecified = true;
+                    ld.AimTypeSpecified = true;
+                    ld.StdCode = 12;
+                    ld.StdCodeSpecified = true;
+                    ld.FworkCodeSpecified = false;
+                    ld.PwayCodeSpecified = false;
+                }
+
+                var appfin = new List<MessageLearnerLearningDeliveryAppFinRecord>();
+                appfin.Add(new MessageLearnerLearningDeliveryAppFinRecord()
+                {
+                    AFinAmount = 500,
+                    AFinAmountSpecified = true,
+                    AFinType = LearnDelAppFinType.TNP.ToString(),
+                    AFinCode = (int)LearnDelAppFinCode.TotalAssessmentPrice,
+                    AFinCodeSpecified = true,
+                    AFinDate = learner.LearningDelivery[0].LearnStartDate,
+                    AFinDateSpecified = true
+                });
+
+                learner.LearningDelivery[0].AppFinRecord = appfin.ToArray();
+                learner.LearningDelivery[0].EPAOrgID = "EPA1234";
+            }
+
             if (!valid)
             {
-                var ld = learner.LearningDelivery[0];
-                ld.ProgType = (int)ProgType.ApprenticeshipStandard;
-                ld.ProgTypeSpecified = true;
-                ld.AimTypeSpecified = true;
-                ld.AimType = 3;
+                foreach (var ld in learner.LearningDelivery)
+                {
+                    ld.ProgType = (int)ProgType.ApprenticeshipStandard;
+                    ld.ProgTypeSpecified = true;
+                    ld.AimTypeSpecified = true;
+                    ld.StdCode = 12;
+                    ld.StdCodeSpecified = true;
+                }
             }
         }
 
