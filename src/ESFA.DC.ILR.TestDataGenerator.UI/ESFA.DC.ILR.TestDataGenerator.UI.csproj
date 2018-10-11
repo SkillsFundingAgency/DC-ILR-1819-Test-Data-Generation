@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ILRTestDataGenerator.Program</StartupObject>
+    <StartupObject>ESFA.DC.ILR.TestDataGenerator.UI.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

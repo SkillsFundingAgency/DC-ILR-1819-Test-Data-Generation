@@ -1,20 +1,14 @@
-﻿using DCT.TestDataGenerator.Functor;
-using DCT.TestDataGenerator;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Xsl;
-using System.Xml;
 using System.IO;
+using System.Text;
+using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Xsl;
+using DCT.TestDataGenerator;
+using DCT.TestDataGenerator.Functor;
 
-namespace ILRTestDataGenerator
+namespace ESFA.DC.ILR.TestDataGenerator.UI
 {
     public partial class MainForm : Form
     {
@@ -22,13 +16,36 @@ namespace ILRTestDataGenerator
         ILearnerCreatorDataCache _cache;
         int _functorCount;
         int _totalLearners;
+
         public MainForm()
         {
             InitializeComponent();
+            uiEncoding.DisplayMember = "Text";
+            uiEncoding.ValueMember = "Value";
+            foreach (EncodingInfo encodingInfo in Encoding.GetEncodings())
+            {
+                if (encodingInfo.GetEncoding().GetPreamble().Length > 0)
+                {
+                    uiEncoding.Items.Add(new { Text = encodingInfo.Name + " Non-BOM", Value = encodingInfo.Name });
+                    uiEncoding.Items.Add(new { Text = encodingInfo.Name + " BOM", Value = encodingInfo.Name });
+
+                    continue;
+                }
+
+                uiEncoding.Items.Add(new {Text = encodingInfo.Name, Value = encodingInfo.Name});
+            }
+
+            uiEncoding.SelectedIndex = uiEncoding.Items.Count - 1;
         }
 
         private void uiOuputFile_Click(object sender, EventArgs e)
         {
+            if (!int.TryParse(uiUKPRN.Text, out var UKPRN))
+            {
+                MessageBox.Show("UKRPN is not a number");
+                return;
+            }
+
             List<ActiveRuleValidity> arv = new List<ActiveRuleValidity>();
             foreach (DataGridViewRow row in uiParameters.Rows)
             {
@@ -37,7 +54,7 @@ namespace ILRTestDataGenerator
                 bool active = (bool)row.Cells["Active"].Value;
                 if (active)
                 {
-                    arv.Add(new ActiveRuleValidity() { RuleName = ruleName, Valid = valid });
+                    arv.Add(new ActiveRuleValidity { RuleName = ruleName, Valid = valid });
                 }
             }
 
@@ -47,22 +64,31 @@ namespace ILRTestDataGenerator
                 scale = 1;
             }
 
-
-            int UKPRN = int.Parse(uiUKPRN.Text);
             string ns = fileNamespace.Text;
             XmlGenerator generator = new XmlGenerator(_rfp, UKPRN);
             var result = generator.CreateAllXml(arv, scale, ns);
             string folder = @"d:\ilr\";
-            FileWriter.WriteXmlFiles(folder, generator.FileContent(), ns);
+            FileWriter.WriteXmlFiles(folder, generator.FileContent(), ns, GetEncoding(), IsBom(), uiZipILR.Checked);
             FileWriter.OutputControlFile(folder, result);
         }
 
+        private bool IsBom()
+        {
+            string text = (uiEncoding.SelectedItem as dynamic).Text;
+            return !text.EndsWith("Non-BOM");
+        }
 
+        private Encoding GetEncoding()
+        {
+            return Encoding.GetEncoding((uiEncoding.SelectedItem as dynamic).Value);
+        }
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             SetUpFunctorDataGrid();
             fileNamespace.SelectedIndex = 0;
         }
+
         public void AddFunctor(ILearnerMultiMutator i)
         {
             bool added = false;
@@ -73,7 +99,7 @@ namespace ILRTestDataGenerator
                 {
                     foreach (var funcy in i.LearnerMutators(_cache))
                     {
-                        existingRow.Cells["BaseLearner"].Value += " " + funcy.LearnerType.ToString();
+                        existingRow.Cells["BaseLearner"].Value += " " + funcy.LearnerType;
                         ++_totalLearners;
                     }
                     added = true;
@@ -89,7 +115,7 @@ namespace ILRTestDataGenerator
                 row.Cells["Active"].Value = false;
                 foreach (var funcy in i.LearnerMutators(_cache))
                 {
-                    row.Cells["BaseLearner"].Value += " " + funcy.LearnerType.ToString();
+                    row.Cells["BaseLearner"].Value += " " + funcy.LearnerType;
                     ++_totalLearners;
                 }
             }
@@ -102,13 +128,7 @@ namespace ILRTestDataGenerator
             _functorCount = 0;
             _totalLearners = 0;
             _rfp.CreateFunctors(AddFunctor);
-            uiRuleData.Text = $"Discrete rules {uiParameters.Rows.Count} functors detected: {_functorCount} total learners: {_totalLearners}";
-
-        }
-
-        private void uiUKPRN_TextChanged(object sender, EventArgs e)
-        {
-
+            uiRuleData.Text = $"Discrete rules: {uiParameters.Rows.Count}; Functors detected: {_functorCount}; Total learners: {_totalLearners}";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -129,14 +149,14 @@ namespace ILRTestDataGenerator
             XmlDocument xmlDocument = new XmlDocument();
             xmlDocument.LoadXml(content);
             string xdsInput;
-            using (System.IO.StringWriter stringWriter = new System.IO.StringWriter())
+            using (StringWriter stringWriter = new StringWriter())
             {
-                xsltProcessor.Transform(xmlDocument.CreateNavigator(), (XsltArgumentList)null, (TextWriter)stringWriter);
+                xsltProcessor.Transform(xmlDocument.CreateNavigator(), null, stringWriter);
                 xdsInput = stringWriter.ToString();
                 //Switch to "Dump" XDS
                 if (_xDSLogging)
                 {
-                    System.IO.File.WriteAllText(@"d:\xds_output.xml", xdsInput);
+                    File.WriteAllText(@"d:\xds_output.xml", xdsInput);
                 }
             }
 
@@ -159,15 +179,18 @@ namespace ILRTestDataGenerator
                 try
                 {
                     string uln = ListOfULNs.ULN(index).ToString();
-                    ulns.Add( $"{uln}");
-                    if ((index+1) % maxFileSize == 0)
+                    ulns.Add($"{uln}");
+                    if ((index + 1) % maxFileSize == 0)
                     {
                         string filename = Path.Combine(folder, $"ulns{generation++}.txt");
                         File.WriteAllLines(filename, ulns);
                         ulns.Clear();
                     }
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             string filenameEnd = Path.Combine(folder, $"ulns{generation++}.txt");
             File.WriteAllLines(filenameEnd, ulns);
