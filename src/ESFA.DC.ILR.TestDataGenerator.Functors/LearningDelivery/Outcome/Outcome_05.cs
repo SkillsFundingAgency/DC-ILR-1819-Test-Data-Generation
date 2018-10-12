@@ -38,21 +38,23 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateLearner(MessageLearner learner, bool valid)
         {
-            var lds = learner.LearningDelivery.ToList();
-            lds[0].OutcomeSpecified = true;
-            lds[0].Outcome = (int)Outcome.Achieved;
-            if (!valid)
+            foreach (var ld in learner.LearningDelivery)
             {
-                lds[0].LearnActEndDateSpecified = false;
-            }
-            else
-            {
-                lds[0].LearnActEndDateSpecified = true;
-                lds[0].LearnActEndDate = lds[0].LearnStartDate.AddDays(45);
-                lds[0].LearnAimRef = "60143824";
-                lds[0].OutGrade = "EL1";
-                lds[0].CompStatus = (int)CompStatus.Completed;
-                lds[0].LearnActEndDateSpecified = true;
+                ld.OutcomeSpecified = true;
+                ld.Outcome = (int)Outcome.Achieved;
+                if (!valid)
+                {
+                    ld.LearnActEndDateSpecified = false;
+                }
+                else
+                {
+                    ld.LearnActEndDateSpecified = true;
+                    ld.LearnActEndDate = ld.LearnStartDate.AddDays(45);
+                    ld.LearnAimRef = "60143824";
+                    ld.OutGrade = "EL1";
+                    ld.CompStatus = (int)CompStatus.Completed;
+                    ld.LearnActEndDateSpecified = true;
+                }
             }
         }
 
