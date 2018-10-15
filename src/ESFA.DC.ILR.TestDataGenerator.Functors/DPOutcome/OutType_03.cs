@@ -57,19 +57,12 @@ namespace DCT.TestDataGenerator.Functor
         {
             var dpo = learner.DPOutcome.ToList();
             dpo[0].OutType = ocType.ToString();
-            //DateTime stDate = dpo[0].OutStartDate.AddMonths(1);
-            //if (!valid)
-            //{
-            //    stDate = dpo[0].OutStartDate;
-            //}
-
-            //string outTp;
-            //outTp = ocType.ToString().Equals("EMP") ? "NPE" : "EMP";
             int i = 2;
             string oType = "EDU";
             while (i > 0)
             {
-                if (i == 1) { oType = "EDU  "; }
+                if (valid) { oType = i.Equals(1) ? "GAP" : "NPE"; }
+
                 dpo.Add(new MessageLearnerDestinationandProgressionDPOutcome()
                 {
                     OutType = oType,
