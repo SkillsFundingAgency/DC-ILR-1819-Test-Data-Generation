@@ -6,7 +6,7 @@ using DCT.ILR.Model;
 
 namespace DCT.TestDataGenerator.Functor
 {
-    public class LearnDelFAMType_04
+    public class LearnDelFAMType_18
         : ILearnerMultiMutator
     {
         private ILearnerCreatorDataCache _dataCache;
@@ -19,12 +19,12 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
-            return "LearnDelFAMType_04";
+            return "LearnDelFAMType_18";
         }
 
         public string LearnerReferenceNumberStub()
         {
-            return "LdfamTy04";
+            return "LdfamTy18";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
@@ -41,41 +41,35 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateALB, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateASL, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateFLN, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLDM, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateNSA, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutatePOD, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateHHS, DoMutateOptions = MutateGenerationOptionsHHS },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateACT, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateHEM, DoMutateOptions = MutateGenerationOptionsHE },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateWPP, DoMutateOptions = MutateGenerationOptions }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateWPP, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLDM, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
             };
         }
 
         private void MutateSOF(MessageLearner learner, bool valid)
         {
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19);
-            if (valid)
-            {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.SOF, LearnDelFAMCode.SOF_ESFA_Adult);
-            }
+            Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.SOF, LearnDelFAMCode.SOF_ESFA_Adult);
 
             if (!valid)
             {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.SOF, LearnDelFAMCode.FFI_Co);
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.SOF, LearnDelFAMCode.SOF_ESFA_Adult);
             }
         }
 
         private void MutateASL(MessageLearner learner, bool valid)
         {
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-18).AddMonths(-3);
-            if (valid)
-            {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.ASL, LearnDelFAMCode.ASL_Personal);
-            }
+            Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.ASL, LearnDelFAMCode.ASL_Personal);
 
             if (!valid)
             {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.ASL, LearnDelFAMCode.SOF_ESFA_Adult);
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.ASL, LearnDelFAMCode.ASL_Personal);
             }
         }
 
@@ -86,35 +80,29 @@ namespace DCT.TestDataGenerator.Functor
             if (!valid)
             {
                 Helpers.RemoveLearningDeliveryFAM(learner, LearnDelFAMType.FFI);
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.FFI, LearnDelFAMCode.SOF_ESFA_Adult);
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.FFI, LearnDelFAMCode.FFI_Co);
             }
         }
 
         private void MutateEEF(MessageLearner learner, bool valid)
         {
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
-            if (valid)
-            {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.EEF, LearnDelFAMCode.EEF_Apprenticeship_19);
-            }
+            Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.EEF, LearnDelFAMCode.EEF_Apprenticeship_19);
 
             if (!valid)
             {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.EEF, LearnDelFAMCode.SOF_ESFA_Adult);
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.EEF, LearnDelFAMCode.EEF_Apprenticeship_19);
             }
         }
 
         private void MutateRES(MessageLearner learner, bool valid)
         {
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
-            if (valid)
-            {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.RES, LearnDelFAMCode.RES);
-            }
+            Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.RES, LearnDelFAMCode.RES);
 
             if (!valid)
             {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.RES, LearnDelFAMCode.SOF_ESFA_Adult);
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.RES, LearnDelFAMCode.RES);
             }
         }
 
@@ -123,8 +111,6 @@ namespace DCT.TestDataGenerator.Functor
             var ld = learner.LearningDelivery[0];
             var ldfams = ld.LearningDeliveryFAM.ToList();
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
-            if (valid)
-            {
                 ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
                 {
                     LearnDelFAMType = LearnDelFAMType.LSF.ToString(),
@@ -134,13 +120,13 @@ namespace DCT.TestDataGenerator.Functor
                     LearnDelFAMDateTo = ld.LearnPlanEndDate,
                     LearnDelFAMDateToSpecified = true
                 });
-            }
-            else if (!valid)
+
+            if (!valid)
             {
                 ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
                 {
                     LearnDelFAMType = LearnDelFAMType.LSF.ToString(),
-                    LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_SolentCity).ToString(),
+                    LearnDelFAMCode = ((int)LearnDelFAMCode.LSF).ToString(),
                     LearnDelFAMDateFrom = ld.LearnStartDate,
                     LearnDelFAMDateFromSpecified = true,
                     LearnDelFAMDateTo = ld.LearnPlanEndDate,
@@ -155,14 +141,11 @@ namespace DCT.TestDataGenerator.Functor
         {
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-1);
             learner.LearningDelivery[0].LearnAimRef = _dataCache.LearnAimFundingWithValidity(FundModel.NonFunded, LearnDelFAMCode.SOF_HEFCE, learner.LearningDelivery[0].LearnStartDate).LearnAimRef;
-            if (valid)
-            {
-              Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.ADL, LearnDelFAMCode.ADL);
-            }
+            Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.ADL, LearnDelFAMCode.ADL);
 
             if (!valid)
             {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.ADL, LearnDelFAMCode.LDM_SteelRedundancy);
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.ADL, LearnDelFAMCode.ADL);
             }
         }
 
@@ -172,8 +155,6 @@ namespace DCT.TestDataGenerator.Functor
             var ldfams = ld.LearningDeliveryFAM.ToList();
             ld.LearnAimRef = "6030599X";
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-1);
-            if (valid)
-            {
                 ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
                 {
                     LearnDelFAMType = LearnDelFAMType.ALB.ToString(),
@@ -183,14 +164,13 @@ namespace DCT.TestDataGenerator.Functor
                     LearnDelFAMDateTo = ld.LearnPlanEndDate,
                     LearnDelFAMDateToSpecified = true
                 });
-            }
 
             if (!valid)
             {
                 ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
                 {
                     LearnDelFAMType = LearnDelFAMType.ALB.ToString(),
-                    LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_SteelRedundancy).ToString(),
+                    LearnDelFAMCode = ((int)LearnDelFAMCode.ALB_Rate_1).ToString(),
                     LearnDelFAMDateFrom = ld.LearnStartDate,
                     LearnDelFAMDateFromSpecified = true,
                     LearnDelFAMDateTo = ld.LearnPlanEndDate,
@@ -210,28 +190,22 @@ namespace DCT.TestDataGenerator.Functor
         private void MutateFLN(MessageLearner learner, bool valid)
         {
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
-            if (valid)
-            {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.FLN, LearnDelFAMCode.FLN_FEML);
-            }
+            Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.FLN, LearnDelFAMCode.FLN_FEML);
 
             if (!valid)
             {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.FLN, LearnDelFAMCode.LDM_SteelRedundancy);
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.FLN, LearnDelFAMCode.FLN_FEML);
             }
         }
 
         private void MutateLDM(MessageLearner learner, bool valid)
         {
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
-            if (valid)
-            {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.LDM, LearnDelFAMCode.LDM_SteelRedundancy);
-            }
+            Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.LDM, LearnDelFAMCode.LDM_SteelRedundancy);
 
             if (!valid)
             {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.LDM, LearnDelFAMCode.SOF_Other);
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.LDM, LearnDelFAMCode.LDM_SteelRedundancy);
             }
         }
 
@@ -239,28 +213,22 @@ namespace DCT.TestDataGenerator.Functor
         {
             learner.LearningDelivery[0].LearnStartDate = new DateTime(2016, 07, 31).AddDays(-1);
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
-            if (valid)
-            {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.NSA, LearnDelFAMCode.NSA_Socialcare);
-            }
+            Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.NSA, LearnDelFAMCode.NSA_Socialcare);
 
             if (!valid)
             {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.NSA, LearnDelFAMCode.LDM_Military);
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.NSA, LearnDelFAMCode.NSA_Socialcare);
             }
         }
 
         private void MutatePOD(MessageLearner learner, bool valid)
         {
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
-            if (valid)
-            {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.POD, LearnDelFAMCode.POD_FItyPercent);
-            }
+            Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.POD, LearnDelFAMCode.POD_FItyPercent);
 
             if (!valid)
             {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.POD, LearnDelFAMCode.LDM_Military);
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.POD, LearnDelFAMCode.POD_FItyPercent);
             }
         }
 
@@ -271,7 +239,7 @@ namespace DCT.TestDataGenerator.Functor
             if (!valid)
             {
                 Helpers.RemoveLearningDeliveryFAM(learner, LearnDelFAMType.HHS);
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.HHS, LearnDelFAMCode.SOF_ESFA_Adult);
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.HHS, LearnDelFAMCode.HHS_NoEmploymentWithChildren);
             }
         }
 
@@ -281,36 +249,29 @@ namespace DCT.TestDataGenerator.Functor
             if (!valid)
             {
                 Helpers.RemoveLearningDeliveryFAM(learner, LearnDelFAMType.ACT);
-                Helpers.SafeAddlearningDeliveryFAM(learner.LearningDelivery[0], LearnDelFAMType.ACT, LearnDelFAMCode.HHS_NoneAbove, learner.LearningDelivery[0].LearnStartDate, learner.LearningDelivery[0].LearnPlanEndDate);
+                Helpers.SafeAddlearningDeliveryFAM(learner.LearningDelivery[0], LearnDelFAMType.ACT, LearnDelFAMCode.ACT_ContractEmployer, learner.LearningDelivery[0].LearnStartDate, learner.LearningDelivery[0].LearnPlanEndDate);
             }
         }
 
         private void MutateHEM(MessageLearner learner, bool valid)
         {
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-1);
-
-            if (valid)
-            {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.HEM, LearnDelFAMCode.HEM_Award);
-            }
+            Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.HEM, LearnDelFAMCode.HEM_Award);
 
             if (!valid)
             {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.HEM, LearnDelFAMCode.ASL_WiderFamily);
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.HEM, LearnDelFAMCode.HEM_Award);
             }
         }
 
         private void MutateWPP(MessageLearner learner, bool valid)
         {
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
-            if (valid)
-            {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.WPP, LearnDelFAMCode.WPP_DWP);
-            }
+            Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.WPP, LearnDelFAMCode.WPP_DWP);
 
             if (!valid)
             {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.WPP, LearnDelFAMCode.SOF_LA);
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.WPP, LearnDelFAMCode.WPP_DWP);
             }
         }
 
