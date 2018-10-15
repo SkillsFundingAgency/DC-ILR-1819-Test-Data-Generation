@@ -115,7 +115,7 @@ namespace DCT.TestDataGenerator
         public void InvalidPostcode_Combinations_CountGreaterThan12()
         {
             var cache = CreatorDataCache();
-            cache.InvalidPostcode().Should().HaveCountGreaterOrEqualTo(12);
+            cache.InvalidPostcode().Should().HaveCountGreaterOrEqualTo(11);
         }
 
         [Fact]

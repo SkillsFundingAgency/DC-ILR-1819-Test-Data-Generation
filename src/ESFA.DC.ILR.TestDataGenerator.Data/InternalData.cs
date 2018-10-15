@@ -294,7 +294,7 @@
         POD,
         HEM,
         HHS,
-        ACT
+        ACT,
     }
 
     public enum LearnDelCategory
@@ -358,7 +358,11 @@
         LDM_RoTL = 328,
         LDM_MandationtoSkillsTraining = 318,
         LDM_LowWages = 363,
-        NSA_Socialcare = 14
+        NSA_Socialcare = 14,
+        FLN_FEML = 1,
+        POD_FItyPercent = 5,
+        HEM_Award = 3,
+        WPP_DWP = 1,
 
 
 
