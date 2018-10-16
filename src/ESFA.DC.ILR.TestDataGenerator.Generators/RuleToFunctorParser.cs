@@ -136,12 +136,30 @@ namespace DCT.TestDataGenerator
                         InvalidLines = funcy.InvalidLines,
                         Valid = valid
                     });
+
                     funcy.DoMutateLearner(generated, valid);
-                    if (lg.Options.CreateDestinationAndProgression)
+                    int dpCount = lg.Options.CreateMultipleDestinationAndProgression;
+
+                    if (dpCount > 1)
                     {
-                        MessageLearnerDestinationandProgression prog = lg.GenerateProgression(ruleName, generated);
-                        funcy.DoMutateProgression?.Invoke(prog, valid);
-                        triplet.Progressions.Add(prog);
+                        if (lg.Options.CreateDestinationAndProgression)
+                        {
+                            for (int i = 0; i < dpCount; i++)
+                            {
+                                MessageLearnerDestinationandProgression prog = lg.GenerateProgression(ruleName, generated);
+                                funcy.DoMutateProgression?.Invoke(prog, valid);
+                                triplet.Progressions.Add(prog);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (lg.Options.CreateDestinationAndProgression)
+                        {
+                            MessageLearnerDestinationandProgression prog = lg.GenerateProgression(ruleName, generated);
+                            funcy.DoMutateProgression?.Invoke(prog, valid);
+                            triplet.Progressions.Add(prog);
+                        }
                     }
 
                     triplet.Learners.Add(generated);

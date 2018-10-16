@@ -39,6 +39,8 @@ namespace DCT.TestDataGenerator
 
         public bool CreateDestinationAndProgression { get; set; }
 
+        public int CreateMultipleDestinationAndProgression { get; set; }
+
         public bool AccomodationRequired { get; set; }
 
         public bool LLDDHealthProblemRequired { get; set; }
