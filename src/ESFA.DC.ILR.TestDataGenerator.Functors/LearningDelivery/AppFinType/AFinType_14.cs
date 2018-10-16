@@ -6,7 +6,7 @@ using DCT.ILR.Model;
 
 namespace DCT.TestDataGenerator.Functor
 {
-    public class LearnStartDate_06
+    public class AFinType_14
         : ILearnerMultiMutator
     {
         private ILearnerCreatorDataCache _dataCache;
@@ -14,17 +14,17 @@ namespace DCT.TestDataGenerator.Functor
 
         public FilePreparationDateRequired FilePreparationDate()
         {
-            return FilePreparationDateRequired.July;
+            return FilePreparationDateRequired.None;
         }
 
         public string RuleName()
         {
-            return "LearnStartDate_06";
+            return "AFinType_14";
         }
 
         public string LearnerReferenceNumberStub()
         {
-            return "LstartDt06";
+            return "Afinty14";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
@@ -33,15 +33,14 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateRestart, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateApprenticeshipStandard, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateAimType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
-        private void MutateCommon(MessageLearner learner)
+        private void MutateCommon(MessageLearner learner, int learningdelivery)
         {
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
-            var ld = learner.LearningDelivery[0];
+            var ld = learner.LearningDelivery[learningdelivery];
 
             var appfin = new List<MessageLearnerLearningDeliveryAppFinRecord>();
             appfin.Add(new MessageLearnerLearningDeliveryAppFinRecord()
@@ -55,44 +54,38 @@ namespace DCT.TestDataGenerator.Functor
                 AFinDateSpecified = true
             });
 
+            appfin.Add(new MessageLearnerLearningDeliveryAppFinRecord()
+            {
+                AFinAmount = 500,
+                AFinAmountSpecified = true,
+                AFinType = LearnDelAppFinType.PMR.ToString(),
+                AFinCode = (int)LearnDelAppFinCode.TrainingPayment,
+                AFinCodeSpecified = true,
+                AFinDate = ld.LearnStartDate,
+                AFinDateSpecified = true
+            });
+
             ld.AppFinRecord = appfin.ToArray();
         }
 
         private void MutateLearner(MessageLearner learner, bool valid)
         {
+            MutateCommon(learner, 0);
+
             if (!valid)
             {
-                MutateCommon(learner);
-                foreach (var ld in learner.LearningDelivery)
-                {
-                    ld.PwayCode = 0;
-                }
+                learner.LearningDelivery[0].AppFinRecord = learner.LearningDelivery[0].AppFinRecord
+                    .Where(aft => aft.AFinType != LearnDelAppFinType.TNP.ToString()).ToArray();
             }
         }
 
-        private void MutateRestart(MessageLearner learner, bool valid)
+        private void MutateAimType(MessageLearner learner, bool valid)
         {
             if (!valid)
             {
-                MutateCommon(learner);
-                foreach (var ld in learner.LearningDelivery)
-                {
-                    ld.PwayCode = 0;
-                }
-
-                Helpers.AddLearningDeliveryRestartFAM(learner);
-            }
-        }
-
-        private void MutateApprenticeshipStandard(MessageLearner learner, bool valid)
-        {
-            MutateLearner(learner, valid);
-            if (!valid)
-            {
-                foreach (var ld in learner.LearningDelivery)
-                {
-                    ld.ProgType = (int)ProgType.ApprenticeshipStandard;
-                }
+                MutateCommon(learner, 1);
+                learner.LearningDelivery[1].AppFinRecord = learner.LearningDelivery[1].AppFinRecord
+                    .Where(aft => aft.AFinType != LearnDelAppFinType.TNP.ToString()).ToArray();
             }
         }
 

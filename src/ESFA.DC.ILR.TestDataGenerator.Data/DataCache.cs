@@ -107,6 +107,16 @@ namespace DCT.TestDataGenerator
             return result;
         }
 
+        public IEnumerable<string> NonExistPostcode()
+        {
+            return new List<string> { "CV21 1UU", "CV21 1VA", "GY12 1SW" };
+        }
+
+        public IEnumerable<string> ValidPostcode()
+        {
+            return new List<string> { "CV21 1RL", "CV1 1DX", "CV1 2AY" };
+        }
+
         public IEnumerable<LLDDCatValidity> LLDDCatValidity()
         {
             return _serializable._llddCatValidity;

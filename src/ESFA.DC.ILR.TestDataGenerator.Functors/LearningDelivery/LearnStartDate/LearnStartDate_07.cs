@@ -6,7 +6,7 @@ using DCT.ILR.Model;
 
 namespace DCT.TestDataGenerator.Functor
 {
-    public class LearnStartDate_06
+    public class LearnStartDate_07
         : ILearnerMultiMutator
     {
         private ILearnerCreatorDataCache _dataCache;
@@ -19,12 +19,12 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
-            return "LearnStartDate_06";
+            return "LearnStartDate_07";
         }
 
         public string LearnerReferenceNumberStub()
         {
-            return "LstartDt06";
+            return "LstartDt07";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
@@ -78,9 +78,8 @@ namespace DCT.TestDataGenerator.Functor
                 foreach (var ld in learner.LearningDelivery)
                 {
                     ld.PwayCode = 0;
+                    Helpers.AddLearningDeliveryRestartFAM(ld);
                 }
-
-                Helpers.AddLearningDeliveryRestartFAM(learner);
             }
         }
 
