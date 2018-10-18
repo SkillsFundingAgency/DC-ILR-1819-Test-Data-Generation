@@ -350,6 +350,7 @@
         LDM_NonApprenticeshipSportingExcellence = 353,
         LDM_NonApprenticeshipTheatre = 354,
         LDM_NonApprenticeshipSeaFishing = 355,
+        LDM_OwnEmployeeAprenticeship = 356,
         LDM_GroupTrainingAssociation=129,
         LDM_ApprenticeshipTrainingAgency=130,
         LDM_PrincesTrustTeamProgramme= 331,
