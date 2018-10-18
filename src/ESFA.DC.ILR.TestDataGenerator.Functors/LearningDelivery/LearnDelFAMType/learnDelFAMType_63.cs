@@ -32,37 +32,32 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateACTType, DoMutateOptions = MutateGenerationOptions }
-                //new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateACTType, DoMutateOptions = MutateGenerationOptions }
-                //new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateAIM3Type, DoMutateOptions = MutateGenerationOptions }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateACTType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                //new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateACTTypeExcl, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateACTType, DoMutateOptions = MutateGenerationOptions }
             };
+        }
+
+        private void MutateACTTypeExcl(MessageLearner learner, bool valid)
+        {
+            var ld = learner.LearningDelivery;
+            ld[0].LearnAimRef = "60008842";
+            ld[0].AimType = (long)AimType.ComponentAim;
+            MutateACTType(learner, valid);
         }
 
         private void MutateACTType(MessageLearner learner, bool valid)
         {
             var ld = learner.LearningDelivery;
-            ld[0].AimType = (long)AimType.ProgrammeAim;
-            ld[0].LearningDeliveryFAM[0].LearnDelFAMCode = "1";
-            ld[0].LearningDeliveryFAM[0].LearnDelFAMType = LearnDelFAMType.ACT.ToString();
             if (!valid)
             {
-                ld[0].FundModel = (long)LearnerTypeRequired.YP1619;
-                ld[0].AimType = (long)AimType.CoreAim1619;
+                ld[0].LearningDeliveryFAM[0].LearnDelFAMType = LearnDelFAMType.ACT.ToString();
             }
 
             foreach (MessageLearnerLearningDelivery lds in ld)
             {
                 lds.SWSupAimId = Guid.NewGuid().ToString();
             }
-
-           // RemoveLD(learner, 1);
-        }
-
-        private void RemoveLD(MessageLearner learner, int index)
-        {
-            var ld = learner.LearningDelivery.ToList();
-            ld.Remove(ld[index]);
-            learner.LearningDelivery = ld.ToArray();
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
