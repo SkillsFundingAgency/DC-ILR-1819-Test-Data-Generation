@@ -95,6 +95,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateCommunity(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
             if (valid)
             {
                 var led = learner.LearningDelivery[0];

@@ -35,6 +35,7 @@ namespace DCT.TestDataGenerator.Functor
 
         public void Mutate(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
             if (!valid)
             {
                 learner.AddLine1 = null;
