@@ -49,6 +49,12 @@ namespace DCT.TestDataGenerator.Functor
                 });
                 learner.LearningDelivery[0].LearningDeliveryFAM = ldfams.ToArray();
             }
+
+            var ld = learner.LearningDelivery;
+            foreach (MessageLearnerLearningDelivery lds in ld)
+            {
+                lds.SWSupAimId = Guid.NewGuid().ToString();
+            }
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
