@@ -14,7 +14,7 @@ namespace DCT.TestDataGenerator.Functor
 
         public FilePreparationDateRequired FilePreparationDate()
         {
-            return FilePreparationDateRequired.None;
+            return FilePreparationDateRequired.July;
         }
 
         public string RuleName()
@@ -31,29 +31,33 @@ namespace DCT.TestDataGenerator.Functor
         {
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.CommunityLearning, DoMutateLearner = MutateLearnAimRef, DoMutateOptions = MutateGenerationOptionsSOF },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.CommunityLearning, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptionsSOF, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.CommunityLearning, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptionsSOF },
+                //new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.CommunityLearning, DoMutateLearner = MutateLearnerAimRef, DoMutateOptions = MutateGenerationOptionsSOF, ExclusionRecord = true }
             };
-        }
-
-        private void MutateLearnAimRef(MessageLearner learner, bool valid)
-        {
-            learner.LearningDelivery[0].LearnAimRef = "Z0007834";
-            if (valid)
-            {
-                MutateWorkPlacement(learner);
-            }
         }
 
         private void MutateLearner(MessageLearner learner, bool valid)
         {
-            //if (!valid)
-            //{
-            //    MutateWorkPlacement(learner);
-            //}
+            DateTime edate;
+            var ld = learner.LearningDelivery;
+
+            ld[0].LearnPlanEndDate = new DateTime(2018, 9, 20);
+            ld[0].LearnActEndDate = ld[0].LearnPlanEndDate;
+            ld[0].LearnAimRef = "Z0007834";
+            Helpers.SetLearningDeliveryEndDates(ld[0], ld[0].LearnPlanEndDate, Helpers.SetAchDate.DoNotSetAchDate);
+            ld[0].AimType = (int)AimType.StandAlone;
+            learner.DateOfBirth = ld[0].LearnStartDate.AddYears(-20);
+
+            edate = learner.LearningDelivery[0].LearnStartDate.AddDays(30);
+            if (!valid)
+            {
+                edate = edate.AddDays(-2);
+            }
+
+            MutateWorkPlacement(learner, edate);
         }
 
-        private void MutateWorkPlacement(MessageLearner learner)
+        private void MutateWorkPlacement(MessageLearner learner, DateTime endDate)
         {
             var ldwp = new List<MessageLearnerLearningDeliveryLearningDeliveryWorkPlacement>
                 {
@@ -68,15 +72,15 @@ namespace DCT.TestDataGenerator.Functor
                         WorkPlaceEmpIdSpecified = true,
                         WorkPlaceEmpId = 900271388,
                         WorkPlaceEndDateSpecified = true,
-                        WorkPlaceEndDate = learner.LearningDelivery[0].LearnActEndDate
+                        WorkPlaceEndDate = endDate
                     }
                 };
-                learner.LearningDelivery[0].LearningDeliveryWorkPlacement = ldwp.ToArray();
+            learner.LearningDelivery[0].LearningDeliveryWorkPlacement = ldwp.ToArray();
         }
 
         private void MutateGenerationOptionsSOF(GenerationOptions options)
         {
-           // options.LD.IncludeSOF = true;
+            // options.LD.IncludeSOF = true;
         }
     }
 }

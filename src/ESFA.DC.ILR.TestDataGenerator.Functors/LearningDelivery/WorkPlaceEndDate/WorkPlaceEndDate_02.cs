@@ -14,7 +14,7 @@ namespace DCT.TestDataGenerator.Functor
 
         public FilePreparationDateRequired FilePreparationDate()
         {
-            return FilePreparationDateRequired.None;
+            return FilePreparationDateRequired.July;
         }
 
         public string RuleName()
