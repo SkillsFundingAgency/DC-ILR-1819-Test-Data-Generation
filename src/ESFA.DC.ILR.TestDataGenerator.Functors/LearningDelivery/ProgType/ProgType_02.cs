@@ -32,8 +32,7 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions }
             };
         }
 
@@ -44,17 +43,6 @@ namespace DCT.TestDataGenerator.Functor
             {
                 ld.ProgTypeSpecified = true;
                 ld.ProgType = (int)ProgType.Traineeship;
-            }
-        }
-
-        private void Mutate(MessageLearner learner, bool valid)
-        {
-            if (!valid)
-            {
-                foreach (var ld in learner.LearningDelivery)
-                {
-                    ld.ProgTypeSpecified = false;
-                }
             }
         }
 
