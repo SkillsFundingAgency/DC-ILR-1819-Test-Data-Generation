@@ -32,18 +32,31 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateACTType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
-                //new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateACTTypeExcl, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateACTType, DoMutateOptions = MutateGenerationOptions }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateACTType, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateACTTypeApprent, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateACTTypeExcl, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
+        }
+
+        private void MutateACTTypeApprent(MessageLearner learner, bool valid)
+        {
+            if (!valid)
+            {
+                MutateACTType(learner, valid);
+                var ld = learner.LearningDelivery;
+                ld[0].AimType = (long)AimType.ProgrammeAim;
+            }
         }
 
         private void MutateACTTypeExcl(MessageLearner learner, bool valid)
         {
-            var ld = learner.LearningDelivery;
-            ld[0].LearnAimRef = "60008842";
-            ld[0].AimType = (long)AimType.ComponentAim;
-            MutateACTType(learner, valid);
+            if (!valid)
+            {
+                MutateACTType(learner, valid);
+                var ld = learner.LearningDelivery;
+                ld[0].LearnAimRef = "60008842";
+                ld[0].LearnStartDate = new DateTime(2013, 10, 14);
+            }
         }
 
         private void MutateACTType(MessageLearner learner, bool valid)
@@ -51,7 +64,7 @@ namespace DCT.TestDataGenerator.Functor
             var ld = learner.LearningDelivery;
             if (!valid)
             {
-                ld[0].LearningDeliveryFAM[0].LearnDelFAMType = LearnDelFAMType.ACT.ToString();
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.ACT, LearnDelFAMCode.ACT_ContractEmployer);
             }
 
             foreach (MessageLearnerLearningDelivery lds in ld)
