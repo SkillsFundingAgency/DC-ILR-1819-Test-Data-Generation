@@ -24,7 +24,7 @@ namespace DCT.TestDataGenerator.Functor
 
         public string LearnerReferenceNumberStub()
         {
-            return "AFinType09";
+            return "Afinty09";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)

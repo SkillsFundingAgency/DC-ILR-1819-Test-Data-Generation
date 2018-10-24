@@ -6,7 +6,7 @@ using DCT.ILR.Model;
 
 namespace DCT.TestDataGenerator.Functor
 {
-    public class ProgType_01
+    public class LearnDelFAMType_48
         : ILearnerMultiMutator
     {
         private ILearnerCreatorDataCache _dataCache;
@@ -14,17 +14,17 @@ namespace DCT.TestDataGenerator.Functor
 
         public FilePreparationDateRequired FilePreparationDate()
         {
-            return FilePreparationDateRequired.None;
+            return FilePreparationDateRequired.July;
         }
 
         public string RuleName()
         {
-            return "ProgType_01";
+            return "LearnDelFAMType_48";
         }
 
         public string LearnerReferenceNumberStub()
         {
-            return "PrgTyp01";
+            return "LdfamTy48";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
@@ -32,23 +32,27 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateHHS, DoMutateOptions = MutateGenerationOptions }
             };
         }
 
-        private void MutateLearner(MessageLearner learner, bool valid)
+        private void MutateHHS(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+            if (valid)
+            {
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.HHS, LearnDelFAMCode.HHS_SingleWithChildren);
+            }
+
             if (!valid)
             {
-                foreach (var ld in learner.LearningDelivery)
-                {
-                    ld.ProgTypeSpecified = false;
-                }
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.HHS, LearnDelFAMCode.HHS_NoEmploymentNoChildren);
             }
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
         {
+            options.LD.IncludeHHS = true;
         }
     }
 }

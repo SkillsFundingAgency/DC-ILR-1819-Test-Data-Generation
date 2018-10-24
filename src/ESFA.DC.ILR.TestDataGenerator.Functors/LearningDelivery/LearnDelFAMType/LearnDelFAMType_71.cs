@@ -6,7 +6,7 @@ using DCT.ILR.Model;
 
 namespace DCT.TestDataGenerator.Functor
 {
-    public class ProgType_01
+    public class LearnDelFAMType_71
         : ILearnerMultiMutator
     {
         private ILearnerCreatorDataCache _dataCache;
@@ -14,17 +14,17 @@ namespace DCT.TestDataGenerator.Functor
 
         public FilePreparationDateRequired FilePreparationDate()
         {
-            return FilePreparationDateRequired.None;
+            return FilePreparationDateRequired.July;
         }
 
         public string RuleName()
         {
-            return "ProgType_01";
+            return "LearnDelFAMType_71";
         }
 
         public string LearnerReferenceNumberStub()
         {
-            return "PrgTyp01";
+            return "LdfamTy71";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
@@ -32,18 +32,18 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
             };
         }
 
         private void MutateLearner(MessageLearner learner, bool valid)
         {
-            if (!valid)
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-25);
+            Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.LDM, LearnDelFAMCode.LDM_Pilot);
+            if (valid)
             {
-                foreach (var ld in learner.LearningDelivery)
-                {
-                    ld.ProgTypeSpecified = false;
-                }
+                Helpers.RemoveLearningDeliveryFAM(learner, LearnDelFAMType.ACT);
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.ACT, LearnDelFAMCode.ACT_ContractESFA);
             }
         }
 

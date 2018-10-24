@@ -28,6 +28,15 @@ namespace DCT.TestDataGenerator
             return _serializable._apprenticeShipAims.Values.Where(s => s.ProgType == pt);
         }
 
+        public ApprenticeshipProgrammeTypeAim ApprenticeshipAims(ProgType type, long FworkCode, long PwayCode, int index)
+        {
+            return _serializable._apprenticeShipAimsList.Where(s => s.ProgType == type 
+                && s.FworkCode == FworkCode
+                && s.PwayCode == PwayCode )
+                .ToList()[index];
+        }
+
+
         public string ESFContractNumber()
         {
             return _ESFContractNumber;

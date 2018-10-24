@@ -151,7 +151,7 @@ namespace ILRTestDataGenerator
             {
                 scale = 1;
             }
-            const int maxFileSize = 500000;
+            const int maxFileSize = 5000000;
             int generation = 1;
             List<string> ulns = new List<string>(maxFileSize);
             for (int index = 0; index != scale; ++index)
@@ -169,6 +169,9 @@ namespace ILRTestDataGenerator
                 }
                 catch { }
             }
+            string filenameEnd = Path.Combine(folder, $"ulns{generation++}.txt");
+            File.WriteAllLines(filenameEnd, ulns);
+            ulns.Clear();
         }
 
         private void uiSetAllActive_CheckedChanged(object sender, EventArgs e)
