@@ -523,7 +523,7 @@ namespace DCT.TestDataGenerator
                 LegalOrgType.USDC,
                 new Organisation()
                 {
-                    UKPRN = 10000291 // UKPRN to be changed
+                    UKPRN = 10009886 
                 }
             }
             };
