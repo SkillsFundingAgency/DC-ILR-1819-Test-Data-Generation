@@ -60,7 +60,7 @@ namespace DCT.TestDataGenerator.Functor
             }
         }
 
-    private void MutateNF(MessageLearner learner, bool valid)
+        private void MutateNF(MessageLearner learner, bool valid)
         {
             MutateLearner(learner, valid);
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-18).AddMonths(-3);
@@ -68,7 +68,12 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateCL(MessageLearner learner, bool valid)
         {
-            Helpers.AddLearningDeliveryRestartFAM(learner);
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-20);
+            if (!valid)
+            {
+                learner.LearningDelivery[0].OrigLearnStartDate = learner.LearningDelivery[0].LearnStartDate.AddDays(1);
+                learner.LearningDelivery[0].OrigLearnStartDateSpecified = true;
+            }
         }
 
         private void MutateGenerationOptions(GenerationOptions options)

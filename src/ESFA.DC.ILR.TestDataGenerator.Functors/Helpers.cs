@@ -1,4 +1,6 @@
-﻿namespace DCT.TestDataGenerator
+﻿using System.Text;
+
+namespace DCT.TestDataGenerator
 {
     using System;
     using System.Collections.Generic;
@@ -660,6 +662,22 @@
                 LearnFAMCodeSpecified = true
             });
             learner.LearnerFAM = ifam.ToArray();
+        }
+
+        internal static string GenerateString(int strLength, char[] charsAccepted)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            Random random = new Random();
+
+            for (uint i = 0; i < strLength; i++)
+            {
+                int randomChars = random.Next(0, (charsAccepted.Length - 1));
+
+                sb.Append(charsAccepted[randomChars]);
+            }
+
+            return sb.ToString();
         }
 
         internal static void AddLearnerFAM(MessageLearner learner, LearnerFAMType type, LearnerFAMCode code)

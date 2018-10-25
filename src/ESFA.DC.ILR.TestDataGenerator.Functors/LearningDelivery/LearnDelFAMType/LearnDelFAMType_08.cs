@@ -31,42 +31,38 @@ namespace DCT.TestDataGenerator.Functor
         {
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateLearnerFAMSFA, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateLearnerFAMEFA, DoMutateOptions = MutateGenerationOptions }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateSOFAdult, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateSOF1619, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateSOFOther, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
-        private void MutateLearnerFAMEFA(MessageLearner learner, bool valid)
+        private void MutateCommon(MessageLearner learner, bool valid, LearnDelFAMCode famcode)
         {
-            LearnDelFAMCode Lcode;
-            Lcode = (!valid) ? LearnDelFAMCode.SOF_ESFA_Adult : LearnDelFAMCode.SOF_LA;
-            MutateLearnerCommon(learner, Lcode);
-        }
-
-        private void MutateLearnerFAMSFA(MessageLearner learner, bool valid)
-        {
-            LearnDelFAMCode Lcode;
-            Lcode = (!valid) ? LearnDelFAMCode.SOF_ESFA_1619 : LearnDelFAMCode.SOF_Other;
-            MutateLearnerCommon(learner, Lcode);
-        }
-
-        private void MutateLearnerCommon(MessageLearner learner, LearnDelFAMCode code)
-        {
-            Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.SOF, code);
-            var lds = learner.LearningDelivery;
-            foreach (MessageLearnerLearningDelivery del in lds)
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-18);
+            if (!valid)
             {
-                del.SWSupAimId = Guid.NewGuid().ToString();
+                Helpers.AddOrChangeLearningDeliverySourceOfFunding(learner.LearningDelivery[0], famcode);
             }
+        }
+
+        private void MutateSOFAdult(MessageLearner learner, bool valid)
+        {
+            MutateCommon(learner, valid, LearnDelFAMCode.SOF_ESFA_Adult);
+        }
+
+        private void MutateSOF1619(MessageLearner learner, bool valid)
+        {
+            MutateCommon(learner, valid, LearnDelFAMCode.SOF_ESFA_1619);
+        }
+
+        private void MutateSOFOther(MessageLearner learner, bool valid)
+        {
+            MutateCommon(learner, valid, LearnDelFAMCode.SOF_Other);
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
         {
-        }
-
-        private void MutateGenerationOptionsSOF(GenerationOptions options)
-        {
-            options.LD.IncludeSOF = true;
         }
     }
 }

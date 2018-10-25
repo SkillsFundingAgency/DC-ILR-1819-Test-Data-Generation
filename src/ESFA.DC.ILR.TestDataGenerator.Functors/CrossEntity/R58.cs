@@ -6,7 +6,7 @@ using DCT.ILR.Model;
 
 namespace DCT.TestDataGenerator.Functor
 {
-    public class R89
+    public class R58
         : ILearnerMultiMutator
     {
         private ILearnerCreatorDataCache _dataCache;
@@ -20,12 +20,12 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
-            return "R89";
+            return "R58";
         }
 
         public string LearnerReferenceNumberStub()
         {
-            return "R89";
+            return "R58";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
@@ -33,41 +33,42 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLD2Restart, DoMutateOptions = MutateGenerationOptionsLD2 },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = MutateLD2Restart, DoMutateOptions = MutateOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherYP1619, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions, ExclusionRecord = true }
             };
         }
 
         private void MutateLD2Restart(MessageLearner learner, bool valid)
         {
+            if (valid)
+            {
+                var ld = learner.LearningDelivery.ToList();
+                learner.LearningDelivery = ld.Skip(1).ToArray();
+                learner.LearningDelivery[0].AimSeqNumberSpecified = true;
+                learner.LearningDelivery[0].AimSeqNumber = 1;
+            }
+
             if (!valid)
             {
                 learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
                 var lds = learner.LearningDelivery.ToList();
+                    lds[0].AimType = 5;
                 lds[0].LearnStartDate = new DateTime(2017, 08, 06);
-                //lds[0].LearnActEndDate = new DateTime(2018, 08, 09);
+                lds[0].LearnActEndDate = new DateTime(2018, 08, 08);
                 lds[0].LearnPlanEndDate = new DateTime(2018, 08, 08);
                 lds[0].LearnActEndDateSpecified = true;
-
+                lds[0].OutcomeSpecified = true;
+                lds[0].Outcome = (int)Outcome.Achieved;
+                lds[0].CompStatus = (int)CompStatus.Completed;
+                lds[1].LearnAimRef = "10019777";
+                lds[1].AimType = 5;
                 lds[1].LearnStartDate = new DateTime(2017, 11, 06);
-                lds[1].LearnActEndDate = new DateTime(2018, 08, 09);
+                lds[1].LearnActEndDate = new DateTime(2018, 08, 08);
                 lds[1].LearnPlanEndDate = new DateTime(2018, 08, 08);
                 lds[1].LearnActEndDateSpecified = true;
-
-                var appfin = new List<MessageLearnerLearningDeliveryAppFinRecord>();
-                appfin.Add(new MessageLearnerLearningDeliveryAppFinRecord()
-                {
-                    AFinAmount = 500,
-                    AFinAmountSpecified = true,
-                    AFinType = LearnDelAppFinType.TNP.ToString(),
-                    AFinCode = (int)LearnDelAppFinCode.TrainingPayment,
-                    AFinCodeSpecified = true,
-                    AFinDate = learner.LearningDelivery[0].LearnStartDate,
-                    AFinDateSpecified = true
-                });
-
-                learner.LearningDelivery[0].AppFinRecord = appfin.ToArray();
-                lds[0].LearnActEndDate = new DateTime(2018, 08, 08);
+                lds[1].OutcomeSpecified = true;
+                lds[1].Outcome = (int)Outcome.Achieved;
+                lds[1].CompStatus = (int)CompStatus.Completed;
             }
         }
 
@@ -81,6 +82,14 @@ namespace DCT.TestDataGenerator.Functor
 
         private void Mutate(MessageLearner learner, bool valid)
         {
+            if (valid)
+            {
+                var ld = learner.LearningDelivery.ToList();
+                learner.LearningDelivery = ld.Skip(1).ToArray();
+                learner.LearningDelivery[0].AimSeqNumberSpecified = true;
+                learner.LearningDelivery[0].AimSeqNumber = 1;
+            }
+
             if (!valid)
             {
                 learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
@@ -90,27 +99,20 @@ namespace DCT.TestDataGenerator.Functor
                 lds[0].LearnStartDate = new DateTime(2017, 08, 06);
                 lds[0].LearnPlanEndDate = new DateTime(2018, 08, 08);
                 lds[0].LearnActEndDateSpecified = true;
+                lds[0].OutcomeSpecified = true;
+                lds[0].Outcome = (int)Outcome.Achieved;
+                lds[0].CompStatus = (int)CompStatus.Completed;
 
                 lds[1].LearnAimRef = "10019777"; //"60170530";
                 lds[1].AimType = 3;
                 lds[1].LearnStartDate = new DateTime(2017, 11, 06);
-                lds[1].LearnActEndDate = new DateTime(2018, 08, 09);
+                lds[1].LearnActEndDate = new DateTime(2018, 08, 08);
                 lds[1].LearnPlanEndDate = new DateTime(2018, 08, 08);
                 lds[1].LearnActEndDateSpecified = true;
+                lds[1].OutcomeSpecified = true;
+                lds[1].Outcome = (int)Outcome.Achieved;
+                lds[1].CompStatus = (int)CompStatus.Completed;
 
-                var appfin = new List<MessageLearnerLearningDeliveryAppFinRecord>();
-                appfin.Add(new MessageLearnerLearningDeliveryAppFinRecord()
-                {
-                    AFinAmount = 500,
-                    AFinAmountSpecified = true,
-                    AFinType = LearnDelAppFinType.TNP.ToString(),
-                    AFinCode = (int)LearnDelAppFinCode.TotalAssessmentPrice,
-                    AFinCodeSpecified = true,
-                    AFinDate = learner.LearningDelivery[0].LearnStartDate,
-                    AFinDateSpecified = true
-                });
-
-                learner.LearningDelivery[0].AppFinRecord = appfin.ToArray();
                 lds[0].LearnActEndDate = new DateTime(2018, 08, 08);
             }
         }
@@ -124,6 +126,7 @@ namespace DCT.TestDataGenerator.Functor
         {
             options.LD.GenerateMultipleLDs = 2;
             options.EmploymentRequired = true;
+            options.CreateDestinationAndProgression = true;
         }
     }
 }

@@ -62,6 +62,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void Mutate19(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
             learner.LearningDelivery[0].LearnAimRef = _dataCache.LearnAimFundingWithValidity(FundModel.NonFunded, LearnDelFAMCode.SOF_ESFA_Adult, learner.LearningDelivery[0].LearnStartDate).LearnAimRef;
             MutateCommon(learner, valid);
         }
@@ -74,6 +75,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void Mutate19LDPostcodeAreaCostALB1(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
             Mutate19LDPostcodeAreaCost(learner, valid);
             var ld = learner.LearningDelivery[0];
             var ldfams = ld.LearningDeliveryFAM.ToList();
@@ -92,6 +94,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void Mutate19DisadvantagedPostcodeRate(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
             Mutate19(learner, valid);
             learner.PostcodePrior = _dataCache.PostcodeDisadvantagedArea();
         }

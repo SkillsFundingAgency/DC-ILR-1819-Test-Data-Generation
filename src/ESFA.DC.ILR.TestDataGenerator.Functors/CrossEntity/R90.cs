@@ -6,7 +6,7 @@ using DCT.ILR.Model;
 
 namespace DCT.TestDataGenerator.Functor
 {
-    public class R89
+    public class R90
         : ILearnerMultiMutator
     {
         private ILearnerCreatorDataCache _dataCache;
@@ -20,12 +20,12 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
-            return "R89";
+            return "R90";
         }
 
         public string LearnerReferenceNumberStub()
         {
-            return "R89";
+            return "R90";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
@@ -50,9 +50,9 @@ namespace DCT.TestDataGenerator.Functor
                 lds[0].LearnActEndDateSpecified = true;
 
                 lds[1].LearnStartDate = new DateTime(2017, 11, 06);
-                lds[1].LearnActEndDate = new DateTime(2018, 08, 09);
+                //lds[1].LearnActEndDate = new DateTime(2018, 08, 09);
                 lds[1].LearnPlanEndDate = new DateTime(2018, 08, 08);
-                lds[1].LearnActEndDateSpecified = true;
+                lds[1].LearnActEndDateSpecified = false;
 
                 var appfin = new List<MessageLearnerLearningDeliveryAppFinRecord>();
                 appfin.Add(new MessageLearnerLearningDeliveryAppFinRecord()
@@ -75,7 +75,6 @@ namespace DCT.TestDataGenerator.Functor
         {
             options.CreateDestinationAndProgression = true;
             options.EmploymentRequired = true;
-
             _options = options;
         }
 

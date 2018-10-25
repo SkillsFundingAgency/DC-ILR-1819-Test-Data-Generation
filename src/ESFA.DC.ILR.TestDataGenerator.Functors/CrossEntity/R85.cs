@@ -32,6 +32,7 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, DoMutateProgression = MutateProgression },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, DoMutateProgression = MutateProgressionRef },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions, ExclusionRecord = true }
             };
         }
@@ -62,6 +63,14 @@ namespace DCT.TestDataGenerator.Functor
             if (!valid)
             {
                 learner.ULN = 9900000001;
+            }
+        }
+
+        private void MutateProgressionRef(MessageLearnerDestinationandProgression learner, bool valid)
+        {
+            if (!valid)
+            {
+                learner.LearnRefNumber = "10R85";
             }
         }
     }

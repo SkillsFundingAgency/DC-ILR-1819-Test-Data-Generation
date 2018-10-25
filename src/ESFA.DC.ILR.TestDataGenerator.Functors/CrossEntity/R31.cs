@@ -17,11 +17,6 @@ namespace DCT.TestDataGenerator.Functor
             return FilePreparationDateRequired.July;
         }
 
-        public string RuleName()
-        {
-            return "R31";
-        }
-
         public string LearnerReferenceNumberStub()
         {
             return "R31";
@@ -34,6 +29,11 @@ namespace DCT.TestDataGenerator.Functor
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
             };
+        }
+
+        public string RuleName()
+        {
+            return "R31";
         }
 
         private void MutateCommon(MessageLearner learner, bool valid)

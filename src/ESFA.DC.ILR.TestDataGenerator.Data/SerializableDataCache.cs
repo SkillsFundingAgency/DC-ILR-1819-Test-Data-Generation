@@ -569,6 +569,20 @@ namespace DCT.TestDataGenerator
                     {
                         UKPRN = 10000291
                     }
+                },
+                {
+                    LegalOrgType.USDC,
+                    new Organisation()
+                    {
+                        UKPRN = 10009886
+                    }
+                },
+                {
+                    LegalOrgType.PLBG,
+                    new Organisation()
+                    {
+                        UKPRN = 10001639
+                    }
                 }
             };
         }

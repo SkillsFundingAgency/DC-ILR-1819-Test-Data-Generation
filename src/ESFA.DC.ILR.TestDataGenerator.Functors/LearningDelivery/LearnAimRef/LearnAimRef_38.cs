@@ -29,12 +29,13 @@ namespace DCT.TestDataGenerator.Functor
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
         {
+            _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateNoADL, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateNoADL, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateProgType, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateADL, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateADL, DoMutateOptions = MutateGenerationOptionsADL, ExclusionRecord = true }
             };
         }
 
@@ -68,16 +69,10 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateADL(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
             var ld = learner.LearningDelivery[0];
-            var ldfams = ld.LearningDeliveryFAM.ToList();
 
-            ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
-            {
-                LearnDelFAMType = LearnDelFAMType.ADL.ToString(),
-                LearnDelFAMCode = ((int)LearnDelFAMCode.ADL).ToString()
-            });
-
-            ld.LearningDeliveryFAM = ldfams.ToArray();
+            learner.LearningDelivery[0].LearnAimRef = _dataCache.LearnAimFundingWithValidity(FundModel.NonFunded, LearnDelFAMCode.SOF_HEFCE, learner.LearningDelivery[0].LearnStartDate).LearnAimRef;
 
             if (!valid)
             {
@@ -90,9 +85,10 @@ namespace DCT.TestDataGenerator.Functor
         {
         }
 
-        private void MutateGenerationOptionsCL(GenerationOptions options)
+        private void MutateGenerationOptionsADL(GenerationOptions options)
         {
-            options.LD.IncludeSOF = true;
+            options.EmploymentRequired = true;
+            options.LD.IncludeADL = true;
         }
     }
 }

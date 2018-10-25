@@ -69,6 +69,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateCL(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-20);
             Helpers.AddLearningDeliveryRestartFAM(learner);
             if (!valid)
             {
