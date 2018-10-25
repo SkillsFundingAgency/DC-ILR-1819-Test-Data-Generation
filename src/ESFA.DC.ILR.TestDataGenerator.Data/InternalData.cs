@@ -310,7 +310,8 @@
         PartnerOrganisation,
         USFC,
         USDC,
-        UHEO
+        UHEO,
+        PLBG
     }
 
     public enum LearnDelFAMCode

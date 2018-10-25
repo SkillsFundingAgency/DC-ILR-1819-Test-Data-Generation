@@ -571,12 +571,19 @@ namespace DCT.TestDataGenerator
                     }
                 },
                 {
-                LegalOrgType.USDC,
-                new Organisation()
+                    LegalOrgType.USDC,
+                    new Organisation()
+                    {
+                        UKPRN = 10009886
+                    }
+                },
                 {
-                    UKPRN = 10009886 
+                    LegalOrgType.PLBG,
+                    new Organisation()
+                    {
+                        UKPRN = 10001639
+                    }
                 }
-            }
             };
         }
 
