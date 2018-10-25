@@ -33,13 +33,43 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateDOB, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLSD, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateNoEmp, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateOLASS, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateLearnCom, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLES, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateTrainee, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
+        }
+
+        private void MutateNoEmp(MessageLearner learner, bool valid)
+        {
+            Mutate(learner, valid);
+            if (!valid) { learner.LearnerEmploymentStatus = null; }
+        }
+
+        private void MutateLSD(MessageLearner learner, bool valid)
+        {
+            Mutate(learner, valid);
+
+            if (!valid)
+            {
+                var ld = learner.LearningDelivery;
+                ld[0].LearnStartDate = ld[0].LearnStartDate.AddMonths(2);
+            }
+        }
+
+        private void MutateDOB(MessageLearner learner, bool valid)
+        {
+            Mutate(learner, valid);
+
+            if (!valid)
+            {
+                learner.DateOfBirth = learner.DateOfBirth.AddYears(6);
+            }
         }
 
         private void MutateLES(MessageLearner learner, bool valid)
