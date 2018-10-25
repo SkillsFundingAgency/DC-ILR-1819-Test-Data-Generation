@@ -480,7 +480,8 @@
         NPE,
         OTH,
         SDE,
-        VOL
+        VOL,
+        INV // Invalid type
     }
 
     public enum OutcomeCode
