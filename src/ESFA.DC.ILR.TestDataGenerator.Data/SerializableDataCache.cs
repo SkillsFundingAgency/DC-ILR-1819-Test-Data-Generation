@@ -583,7 +583,14 @@ namespace DCT.TestDataGenerator
                     {
                         UKPRN = 10001639
                     }
+                },
+                {
+                LegalOrgType.AEBC,
+                new Organisation()
+                {
+                    UKPRN = 10036143
                 }
+            }
             };
         }
 
