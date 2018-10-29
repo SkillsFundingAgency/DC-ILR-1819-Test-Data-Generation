@@ -32,10 +32,12 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateConRefNumber, DoMutateOptions = MutatePLBGOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateLDMOlass, DoMutateOptions = MutatePLBGOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateApprenticeship, DoMutateOptions = MutatePLBGOptions, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateLDMAEB, DoMutateOptions = MutatePLBGOptions, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLES, DoMutateOptions = MutateOptionsInvalid },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLDMOlass, DoMutateOptions = MutateOptionsInvalid },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLES, DoMutateOptions = MutateOptionsAEBC, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLDMOlass, DoMutateOptions = MutateOptionsAEBC, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateApprenticeship, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLDMAEB, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true }
             };
         }
 
@@ -47,17 +49,6 @@ namespace DCT.TestDataGenerator.Functor
                 var les = learner.LearnerEmploymentStatus[0];
                 les.EmpStatSpecified = true;
                 les.EmpStat = (int)EmploymentStatus.PaidEmployment;
-                learner.LearningDelivery[0].ConRefNumber = "AEC-2307";
-            }
-        }
-
-        private void MutateConRefNumber(MessageLearner learner, bool valid)
-        {
-            MutateLES(learner, valid);
-
-            if (!valid)
-            {
-                learner.LearningDelivery[0].ConRefNumber = "ALLB-4051";
             }
         }
 
@@ -73,7 +64,10 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateApprenticeship(MessageLearner learner, bool valid)
         {
-            MutateLES(learner, valid);
+            if (!valid)
+            {
+                MutateLES(learner, valid);
+            }
         }
 
         private void MutateLDMAEB(MessageLearner learner, bool valid)
@@ -82,10 +76,16 @@ namespace DCT.TestDataGenerator.Functor
             Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.LDM, LearnDelFAMCode.LDM_ProcuredAdultEducationBudget);
         }
 
-        private void MutatePLBGOptions(GenerationOptions options)
+        private void MutateOptionsAEBC(GenerationOptions options)
         {
             options.EmploymentRequired = true;
             options.OverrideUKPRN = _dataCache.OrganisationWithLegalType(LegalOrgType.AEBC).UKPRN;
+        }
+
+        private void MutateOptionsInvalid(GenerationOptions options)
+        {
+            options.EmploymentRequired = true;
+            options.OverrideUKPRN = _dataCache.OrganisationWithLegalType(LegalOrgType.PLBG).UKPRN;
         }
     }
 }

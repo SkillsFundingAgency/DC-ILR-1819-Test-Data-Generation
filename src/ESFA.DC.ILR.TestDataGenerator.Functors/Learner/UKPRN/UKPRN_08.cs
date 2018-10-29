@@ -32,60 +32,54 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateConRefNumber, DoMutateOptions = MutatePLBGOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateLDMOlass, DoMutateOptions = MutatePLBGOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateApprenticeship, DoMutateOptions = MutatePLBGOptions, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateLDMAEB, DoMutateOptions = MutatePLBGOptions, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateALB, DoMutateOptions = MutateOptionsInvalid },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateLearnActEndDate, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateALB, DoMutateOptions = MutateOptionsALLB, ExclusionRecord = true },
             };
         }
 
-        private void MutateLES(MessageLearner learner, bool valid)
+        private void MutateALB(MessageLearner learner, bool valid)
         {
-            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
-            if (valid)
-            {
-                var les = learner.LearnerEmploymentStatus[0];
-                les.EmpStatSpecified = true;
-                les.EmpStat = (int)EmploymentStatus.PaidEmployment;
-                learner.LearningDelivery[0].ConRefNumber = "AEC-2307";
-            }
+            var ld = learner.LearningDelivery[0];
+            var ldfams = ld.LearningDeliveryFAM.ToList();
+            ld.LearnAimRef = "6030599X";
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-1);
+
+                ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+                {
+                    LearnDelFAMType = LearnDelFAMType.ALB.ToString(),
+                    LearnDelFAMCode = ((int)LearnDelFAMCode.ALB_Rate_1).ToString(),
+                    LearnDelFAMDateFrom = ld.LearnStartDate,
+                    LearnDelFAMDateFromSpecified = true,
+                    LearnDelFAMDateTo = ld.LearnPlanEndDate,
+                    LearnDelFAMDateToSpecified = true
+                });
+                ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
+                {
+                    LearnDelFAMType = LearnDelFAMType.ADL.ToString(),
+                    LearnDelFAMCode = ((int)LearnDelFAMCode.ADL).ToString()
+                });
+
+            ld.LearningDeliveryFAM = ldfams.ToArray();
         }
 
-        private void MutateConRefNumber(MessageLearner learner, bool valid)
+        private void MutateLearnActEndDate(MessageLearner learner, bool valid)
         {
-            MutateLES(learner, valid);
-
-            if (!valid)
-            {
-                learner.LearningDelivery[0].ConRefNumber = "ALLB-4051";
-            }
+            MutateALB(learner, valid);
+            learner.LearningDelivery[0].LearnActEndDateSpecified = true;
+            learner.LearningDelivery[0].LearnActEndDate = new DateTime(2018, 08, 01).AddDays(-1);
         }
 
-        private void MutateLDMOlass(MessageLearner learner, bool valid)
-        {
-            MutateLES(learner, valid);
-
-            if (valid)
-            {
-                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.LDM, LearnDelFAMCode.LDM_OLASS);
-            }
-        }
-
-        private void MutateApprenticeship(MessageLearner learner, bool valid)
-        {
-            MutateLES(learner, valid);
-        }
-
-        private void MutateLDMAEB(MessageLearner learner, bool valid)
-        {
-            MutateLDMOlass(learner, valid);
-            Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.LDM, LearnDelFAMCode.LDM_ProcuredAdultEducationBudget);
-        }
-
-        private void MutatePLBGOptions(GenerationOptions options)
+        private void MutateOptionsALLB(GenerationOptions options)
         {
             options.EmploymentRequired = true;
-            options.OverrideUKPRN = _dataCache.OrganisationWithLegalType(LegalOrgType.AEBC).UKPRN;
+            options.OverrideUKPRN = _dataCache.OrganisationWithLegalType(LegalOrgType.ALLB).UKPRN;
+        }
+
+        private void MutateOptionsInvalid(GenerationOptions options)
+        {
+            options.EmploymentRequired = true;
+            options.OverrideUKPRN = _dataCache.OrganisationWithLegalType(LegalOrgType.PLBG).UKPRN;
         }
     }
 }

@@ -586,10 +586,17 @@ namespace DCT.TestDataGenerator
                 },
                 {
                 LegalOrgType.AEBC,
-                new Organisation()
+                    new Organisation()
+                    {
+                        UKPRN = 10036143
+                    }
+                },
                 {
-                    UKPRN = 10036143
-                }
+                LegalOrgType.ALLB,
+                    new Organisation()
+                    {
+                        UKPRN = 10000421
+                    }
             }
             };
         }
