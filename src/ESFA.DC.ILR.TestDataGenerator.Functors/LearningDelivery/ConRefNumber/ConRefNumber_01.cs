@@ -29,6 +29,7 @@ namespace DCT.TestDataGenerator.Functor
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
         {
+            _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptionsDestProg }
@@ -42,13 +43,15 @@ namespace DCT.TestDataGenerator.Functor
             foreach (MessageLearnerLearningDelivery lds in ld)
             {
                 lds.SWSupAimId = Guid.NewGuid().ToString();
-                lds.ConRefNumber = "ESF-2010";
+                lds.ConRefNumber = "ESF-2228";
                 if (!valid) { lds.ConRefNumber = "ES-111112010"; }
             }
         }
 
         private void MutateGenerationOptionsDestProg(GenerationOptions options)
         {
+            options.EmploymentRequired = true;
+            options.OverrideUKPRN = _dataCache.OrganisationWithLegalType(LegalOrgType.PLBG).UKPRN;
         }
     }
 }
