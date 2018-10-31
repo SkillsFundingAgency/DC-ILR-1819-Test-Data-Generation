@@ -43,10 +43,13 @@ namespace DCT.TestDataGenerator.Functor
             _ethnicity.RemoveAt(0);
             if (!valid)
             {
-                learner.Ethnicity += 25;
-                if (_ethnicity.Count == 0)
+                if (learner.Ethnicity == 98 || learner.Ethnicity == 99)
                 {
-                    learner.EthnicitySpecified = false;
+                    learner.Ethnicity -= 5;
+                }
+                else
+                {
+                    learner.Ethnicity += 25;
                 }
             }
         }
