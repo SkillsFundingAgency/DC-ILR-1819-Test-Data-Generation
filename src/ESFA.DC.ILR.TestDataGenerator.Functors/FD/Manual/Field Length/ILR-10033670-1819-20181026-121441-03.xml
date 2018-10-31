@@ -175,7 +175,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>L52PMUKPRN</LearnRefNumber>
-    <PMUKPRN></PMUKPRN>
+    <PMUKPRN>999999990</PMUKPRN>
     <ULN>9900000403</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
@@ -674,7 +674,7 @@
     <LLDDHealthProb>2</LLDDHealthProb>
     <NINumber>LJ000000A</NINumber>
     <PriorAttain>2</PriorAttain>
-    <Accom></Accom>
+    <Accom>50</Accom>
     <PlanLearnHours>90</PlanLearnHours>
     <PlanEEPHours>1</PlanEEPHours>
     <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
@@ -784,7 +784,7 @@
     <LLDDHealthProb>2</LLDDHealthProb>
     <NINumber>LJ000000A</NINumber>
     <PriorAttain>2</PriorAttain>
-    <PlanLearnHours></PlanLearnHours>
+    <PlanLearnHours>29999</PlanLearnHours>
     <PlanEEPHours>1</PlanEEPHours>
     <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
     <Postcode>ZZ99 9ZZ</Postcode>
@@ -1314,7 +1314,7 @@
     <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
     <Postcode>ZZ99 9ZZ</Postcode>
     <AddLine1>18 Address line road</AddLine1>
-    <TelNo>001234507855555555</TelNo>
+    <TelNo>123450785555555599223366</TelNo>
     <Email>myemail@myemail.com</Email>
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
@@ -1487,7 +1487,7 @@
     <Email>myemail@myemail.com</Email>
     <ContactPreference>
       <ContPrefType>RUI</ContPrefType>
-      <ContPrefCode></ContPrefCode>
+      <ContPrefCode>222</ContPrefCode>
     </ContactPreference>
     <ContactPreference>
       <ContPrefType>RUI</ContPrefType>
@@ -1694,7 +1694,7 @@
       <CompStatus>1</CompStatus>
       <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
       <LearningDeliveryFAM>
-        <LearnDelFAMType>SOFO</LearnDelFAMType>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
         <LearnDelFAMCode>105</LearnDelFAMCode>
       </LearningDeliveryFAM>
       <LearningDeliveryFAM>
@@ -1731,7 +1731,7 @@
       <EmpId>154549452</EmpId>
       <EmploymentStatusMonitoring>
         <ESMType>EII</ESMType>
-        <ESMCode></ESMCode>
+        <ESMCode>132</ESMCode>
       </EmploymentStatusMonitoring>
       <EmploymentStatusMonitoring>
         <ESMType>LOE</ESMType>
@@ -2081,7 +2081,7 @@
       </EmploymentStatusMonitoring>
       <EmploymentStatusMonitoring>
         <ESMType>LOE</ESMType>
-        <ESMCode></ESMCode>
+        <ESMCode>222</ESMCode>
       </EmploymentStatusMonitoring>
     </LearnerEmploymentStatus>
     <LearningDelivery>
@@ -2278,7 +2278,7 @@
     <LearnerHE>
       <UCASPERID>9999911111</UCASPERID>
       <LearnerHEFinancialSupport>
-        <FINTYPE></FINTYPE>
+        <FINTYPE>11</FINTYPE>
         <FINAMOUNT>99</FINAMOUNT>
       </LearnerHEFinancialSupport>
     </LearnerHE>
@@ -2467,7 +2467,7 @@
     </LearnerEmploymentStatus>
     <LearningDelivery>
       <LearnAimRef>60133533</LearnAimRef>
-      <AimType></AimType>
+      <AimType>300</AimType>
       <AimSeqNumber>1</AimSeqNumber>
       <LearnStartDate>2017-10-14</LearnStartDate>
       <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
@@ -2647,7 +2647,7 @@
       <LearnStartDate>2017-10-14</LearnStartDate>
       <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
       <FundModel>36</FundModel>
-      <ProgType></ProgType>
+      <ProgType>554</ProgType>
       <FworkCode>420</FworkCode>
       <PwayCode>1</PwayCode>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
@@ -2875,7 +2875,7 @@
       <LearnStartDate>2017-10-14</LearnStartDate>
       <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
       <FundModel>35</FundModel>
-      <PartnerUKPRN></PartnerUKPRN>
+      <PartnerUKPRN>1000000022</PartnerUKPRN>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
       <SWSupAimId>062217c5-4e3d-4b1e-95dd-89ac4c05b9ea</SWSupAimId>
@@ -3093,7 +3093,7 @@
       <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
       <FundModel>10</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <OtherFundAdj></OtherFundAdj>
+      <OtherFundAdj>1325</OtherFundAdj>
       <CompStatus>1</CompStatus>
       <SWSupAimId>a3a829f8-dc7e-4fd8-87dd-1a7629844097</SWSupAimId>
       <LearningDeliveryFAM>
@@ -3356,7 +3356,7 @@
       <FundModel>35</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <EmpOutcome>1</EmpOutcome>
-      <CompStatus></CompStatus>
+      <CompStatus>322</CompStatus>
       <SWSupAimId>b89905ac-c8ce-4665-9f15-aa4bc54ab903</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
@@ -3415,7 +3415,7 @@
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>3</CompStatus>
       <LearnActEndDate>2018-09-29</LearnActEndDate>
-      <WithdrawReason></WithdrawReason>
+      <WithdrawReason>333</WithdrawReason>
       <Outcome>2</Outcome>
       <SWSupAimId>a655719f-76ed-41ad-8452-4fe059c1b250</SWSupAimId>
       <LearningDeliveryFAM>
@@ -3799,7 +3799,7 @@
       <LearningDeliveryWorkPlacement>
         <WorkPlaceStartDate>2017-08-01</WorkPlaceStartDate>
         <WorkPlaceHours>1000</WorkPlaceHours>
-        <WorkPlaceMode>09</WorkPlaceMode>
+        <WorkPlaceMode>99</WorkPlaceMode>
         <WorkPlaceEmpId>900271388</WorkPlaceEmpId>
       </LearningDeliveryWorkPlacement>
     </LearningDelivery>
@@ -3856,7 +3856,7 @@
         <WorkPlaceStartDate>2017-08-01</WorkPlaceStartDate>
         <WorkPlaceHours>1000</WorkPlaceHours>
         <WorkPlaceMode>1</WorkPlaceMode>
-        <WorkPlaceEmpId></WorkPlaceEmpId>
+        <WorkPlaceEmpId>1999999999</WorkPlaceEmpId>
       </LearningDeliveryWorkPlacement>
     </LearningDelivery>
   </Learner>
@@ -3913,7 +3913,7 @@
         <LearnDelFAMCode>105</LearnDelFAMCode>
       </LearningDeliveryFAM>
       <AppFinRecord>
-        <AFinType>TNP</AFinType>
+        <AFinType>TNPT</AFinType>
         <AFinCode>1</AFinCode>
         <AFinDate>2017-10-14</AFinDate>
         <AFinAmount>1200</AFinAmount>
@@ -4086,7 +4086,7 @@
         <AFinType>TNP</AFinType>
         <AFinCode>2</AFinCode>
         <AFinDate>2017-10-14</AFinDate>
-        <AFinAmount></AFinAmount>
+        <AFinAmount>1999999</AFinAmount>
       </AppFinRecord>
     </LearningDelivery>
     <LearningDelivery>
@@ -4695,7 +4695,7 @@
         <UCASAPPID>AB89</UCASAPPID>
         <TYPEYR>1</TYPEYR>
         <MODESTUD>99</MODESTUD>
-        <FUNDLEV></FUNDLEV>
+        <FUNDLEV>300</FUNDLEV>
         <FUNDCOMP>3</FUNDCOMP>
         <STULOAD>10.0</STULOAD>
         <YEARSTU>1</YEARSTU>
@@ -4831,7 +4831,7 @@
         <MODESTUD>99</MODESTUD>
         <FUNDLEV>10</FUNDLEV>
         <FUNDCOMP>3</FUNDCOMP>
-        <STULOAD>100.0</STULOAD>
+        <STULOAD>36253</STULOAD>
         <YEARSTU>1</YEARSTU>
         <MSTUFEE>1</MSTUFEE>
         <PCFLDCS>100</PCFLDCS>
@@ -4899,7 +4899,7 @@
         <FUNDLEV>10</FUNDLEV>
         <FUNDCOMP>3</FUNDCOMP>
         <STULOAD>10.0</STULOAD>
-        <YEARSTU></YEARSTU>
+        <YEARSTU>100</YEARSTU>
         <MSTUFEE>1</MSTUFEE>
         <PCFLDCS>100</PCFLDCS>
         <SPECFEE>9</SPECFEE>
@@ -5035,7 +5035,7 @@
         <STULOAD>10.0</STULOAD>
         <YEARSTU>1</YEARSTU>
         <MSTUFEE>1</MSTUFEE>
-        <PCFLDCS></PCFLDCS>
+        <PCFLDCS>99.0</PCFLDCS>
         <SPECFEE>9</SPECFEE>
         <NETFEE>0</NETFEE>
         <GROSSFEE>1</GROSSFEE>
@@ -5102,7 +5102,7 @@
         <STULOAD>10.0</STULOAD>
         <YEARSTU>1</YEARSTU>
         <MSTUFEE>1</MSTUFEE>
-        <PCFLDCS></PCFLDCS>
+        <PCFLDCS>14599</PCFLDCS>
         <SPECFEE>91</SPECFEE>
         <NETFEE>0</NETFEE>
         <GROSSFEE>1</GROSSFEE>
@@ -5163,7 +5163,7 @@
         <YEARSTU>1</YEARSTU>
         <MSTUFEE>1</MSTUFEE>
         <PCFLDCS>100</PCFLDCS>
-        <PCSLDCS></PCSLDCS>
+        <PCSLDCS>14599</PCSLDCS>
         <SPECFEE>9</SPECFEE>
         <NETFEE>0</NETFEE>
         <GROSSFEE>1</GROSSFEE>
@@ -5374,7 +5374,7 @@
         <MSTUFEE>1</MSTUFEE>
         <PCFLDCS>100</PCFLDCS>
         <SPECFEE>9</SPECFEE>
-        <NETFEE>0001234</NETFEE>
+        <NETFEE>9999991</NETFEE>
         <GROSSFEE>1</GROSSFEE>
         <DOMICILE>ZZ</DOMICILE>
         <ELQ>9</ELQ>
@@ -5442,7 +5442,7 @@
         <PCFLDCS>100</PCFLDCS>
         <SPECFEE>9</SPECFEE>
         <NETFEE>0</NETFEE>
-        <GROSSFEE></GROSSFEE>
+        <GROSSFEE>9999991</GROSSFEE>
         <DOMICILE>ZZ</DOMICILE>
         <ELQ>9</ELQ>
       </LearningDeliveryHE>
@@ -5578,7 +5578,7 @@
         <NETFEE>0</NETFEE>
         <GROSSFEE>1</GROSSFEE>
         <DOMICILE>ZZ</DOMICILE>
-        <ELQ></ELQ>
+        <ELQ>11</ELQ>
       </LearningDeliveryHE>
     </LearningDelivery>
   </Learner>
@@ -5882,7 +5882,7 @@
   </LearnerDestinationandProgression>
   <LearnerDestinationandProgression>
     <LearnRefNumber>L220DPULN</LearnRefNumber>
-    <ULN></ULN>
+    <ULN>99000000041</ULN>
     <DPOutcome>
       <OutType>VOL</OutType>
       <OutCode>1</OutCode>
