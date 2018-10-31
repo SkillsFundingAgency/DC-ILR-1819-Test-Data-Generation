@@ -12,14 +12,15 @@
       <SoftwareSupplier>Own Software</SoftwareSupplier>
       <Release>0.1</Release>
       <SerialNo>01</SerialNo>
-      <DateTime>2018-10-26T10:19:22.5924555+01:00</DateTime>
+      <DateTime>2018-10-29T15:45:41.8522253+01:00</DateTime>
     </Source>
   </Header>
   <LearningProvider>
     <UKPRN>10033670</UKPRN>
   </LearningProvider>
   <Learner>
-    <ULN>9900000101</ULN>
+    <LearnRefNumber>P1-LrnRef</LearnRefNumber>
+    <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
@@ -57,7 +58,7 @@
       <FundModel>35</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
+      <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
         <LearnDelFAMCode>105</LearnDelFAMCode>
@@ -73,8 +74,59 @@
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>M43ULN</LearnRefNumber>
+    <LearnRefNumber>P2@PreLrnRef</LearnRefNumber>
+    <PrevLearnRefNumber></PrevLearnRefNumber>
+    <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-07-14</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <MathGrade>NONE</MathGrade>
+    <EngGrade>NONE</EngGrade>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>5</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>25</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>9ddf1c6d-c36b-4cd3-b505-71408fd7bec4</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>107</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P3FamilyNam</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>1NotValidSurname</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
     <Ethnicity>31</Ethnicity>
@@ -111,7 +163,7 @@
       <FundModel>35</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
+      <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
         <LearnDelFAMCode>105</LearnDelFAMCode>
@@ -127,11 +179,12 @@
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>M44Ethnicit</LearnRefNumber>
+    <LearnRefNumber>P4GivenName</LearnRefNumber>
     <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
+    <GivenNames>Invalid   GivenName</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
     <Sex>M</Sex>
     <LLDDHealthProb>2</LLDDHealthProb>
     <NINumber>LJ000000A</NINumber>
@@ -165,7 +218,7 @@
       <FundModel>35</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
+      <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
         <LearnDelFAMCode>105</LearnDelFAMCode>
@@ -181,12 +234,13 @@
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>M45Sex</LearnRefNumber>
+    <LearnRefNumber>P5Sex</LearnRefNumber>
     <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
     <Ethnicity>31</Ethnicity>
+    <Sex>1</Sex>
     <LLDDHealthProb>2</LLDDHealthProb>
     <NINumber>LJ000000A</NINumber>
     <PriorAttain>2</PriorAttain>
@@ -219,7 +273,7 @@
       <FundModel>35</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
+      <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
         <LearnDelFAMCode>105</LearnDelFAMCode>
@@ -235,14 +289,15 @@
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>M46LLDDHeal</LearnRefNumber>
+    <LearnRefNumber>P6NINumber</LearnRefNumber>
     <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
     <Ethnicity>31</Ethnicity>
     <Sex>M</Sex>
-    <NINumber>LJ000000A</NINumber>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>A123456YZ</NINumber>
     <PriorAttain>2</PriorAttain>
     <PlanLearnHours>90</PlanLearnHours>
     <PlanEEPHours>1</PlanEEPHours>
@@ -273,7 +328,7 @@
       <FundModel>35</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
+      <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
         <LearnDelFAMCode>105</LearnDelFAMCode>
@@ -289,7 +344,107 @@
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>M47PostCPrio</LearnRefNumber>
+    <LearnRefNumber>P7MathGrade</LearnRefNumber>
+    <PrevLearnRefNumber>1OldRef</PrevLearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-07-14</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <MathGrade>1PA</MathGrade>
+    <EngGrade>NONE</EngGrade>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>5</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>25</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>9ddf1c6d-c36b-4cd3-b505-71408fd7bec4</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>107</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P8EngGrade</LearnRefNumber>
+    <PrevLearnRefNumber>2OldRef</PrevLearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-07-14</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <MathGrade>NONE</MathGrade>
+    <EngGrade>@DS</EngGrade>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>5</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>25</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>9ddf1c6d-c36b-4cd3-b505-71408fd7bec4</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>107</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P9PriPostCd</LearnRefNumber>
     <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
@@ -301,6 +456,7 @@
     <PriorAttain>2</PriorAttain>
     <PlanLearnHours>90</PlanLearnHours>
     <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>11AA BB22</PostcodePrior>
     <Postcode>ZZ99 9ZZ</Postcode>
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
@@ -327,7 +483,7 @@
       <FundModel>35</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
+      <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
         <LearnDelFAMCode>105</LearnDelFAMCode>
@@ -343,7 +499,7 @@
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>M48PostCode</LearnRefNumber>
+    <LearnRefNumber>P10Postcode</LearnRefNumber>
     <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
@@ -356,6 +512,7 @@
     <PlanLearnHours>90</PlanLearnHours>
     <PlanEEPHours>1</PlanEEPHours>
     <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>NN4 *RR</Postcode>
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
     <Email>myemail@myemail.com</Email>
@@ -381,7 +538,7 @@
       <FundModel>35</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
+      <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
         <LearnDelFAMCode>105</LearnDelFAMCode>
@@ -397,11 +554,326 @@
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>M81ConPrefT</LearnRefNumber>
+    <LearnRefNumber>P11AddLine1</LearnRefNumber>
     <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>2000-10-30</DateOfBirth>
+    <DateOfBirth>1998-10-31</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>Flat #10</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>4</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>35</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>FFI</LearnDelFAMType>
+        <LearnDelFAMCode>2</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P12AddLine2</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-07-14</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <MathGrade>NONE</MathGrade>
+    <EngGrade>NONE</EngGrade>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <AddLine2>Address Line "2" </AddLine2>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>5</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>25</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>1a5e5039-b77a-485e-b3e9-6a88c14dd0d3</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>107</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P13AddLine3</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-07-14</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <MathGrade>NONE</MathGrade>
+    <EngGrade>NONE</EngGrade>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <AddLine3>Address Line $3</AddLine3>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>5</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>25</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>af8e90e3-3f3e-403b-9b28-5c3ab4b6a558</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>107</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P14AddLine4</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-07-14</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <MathGrade>NONE</MathGrade>
+    <EngGrade>NONE</EngGrade>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <AddLine4>[Address Line 4]</AddLine4>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>5</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>25</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>e73a3f33-9186-4ffc-ac22-3f8427007072</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>107</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P15TelNo</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-10-31</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>01602-999666</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>4</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>35</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>FFI</LearnDelFAMType>
+        <LearnDelFAMCode>2</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P16Email</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-10-31</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>mary.jane@.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>4</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>35</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>FFI</LearnDelFAMType>
+        <LearnDelFAMCode>2</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P17ContPrfTy</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>2000-11-02</DateOfBirth>
     <Ethnicity>31</Ethnicity>
     <Sex>M</Sex>
     <LLDDHealthProb>2</LLDDHealthProb>
@@ -417,6 +889,7 @@
     <TelNo>07855555555</TelNo>
     <Email>myemail@myemail.com</Email>
     <ContactPreference>
+      <ContPrefType>RU1</ContPrefType>
       <ContPrefCode>1</ContPrefCode>
     </ContactPreference>
     <ContactPreference>
@@ -445,7 +918,7 @@
       <FundModel>25</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>d6dd6514-3596-4e74-941b-9025ffdb606c</SWSupAimId>
+      <SWSupAimId>b03a53a4-e274-4e5c-ab99-407d6deb037e</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
         <LearnDelFAMCode>107</LearnDelFAMCode>
@@ -453,11 +926,579 @@
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>M82ConPrefC</LearnRefNumber>
+    <LearnRefNumber>P18LrnFAMTyp</LearnRefNumber>
     <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>2000-10-30</DateOfBirth>
+    <DateOfBirth>1998-10-31</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>4</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>35</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>50F</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>FFI</LearnDelFAMType>
+        <LearnDelFAMCode>2</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P19ProSpOcc</LearnRefNumber>
+    <ULN>9900000403</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1997-10-14</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <ProviderSpecLearnerMonitoring>
+      <ProvSpecLearnMonOccur>1</ProvSpecLearnMonOccur>
+      <ProvSpecLearnMon>9900000403</ProvSpecLearnMon>
+    </ProviderSpecLearnerMonitoring>
+    <ProviderSpecLearnerMonitoring>
+      <ProvSpecLearnMonOccur>B</ProvSpecLearnMonOccur>
+      <ProvSpecLearnMon>9900000403</ProvSpecLearnMon>
+    </ProviderSpecLearnerMonitoring>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>4</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>35</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>3e88a251-6884-43f1-9a2c-9af125945985</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>FFI</LearnDelFAMType>
+        <LearnDelFAMCode>2</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P20ProSpMon</LearnRefNumber>
+    <ULN>9900000403</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1997-10-14</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <ProviderSpecLearnerMonitoring>
+      <ProvSpecLearnMonOccur>A</ProvSpecLearnMonOccur>
+      <ProvSpecLearnMon></ProvSpecLearnMon>
+    </ProviderSpecLearnerMonitoring>
+    <ProviderSpecLearnerMonitoring>
+      <ProvSpecLearnMonOccur>B</ProvSpecLearnMonOccur>
+      <ProvSpecLearnMon>9900-0099</ProvSpecLearnMon>
+    </ProviderSpecLearnerMonitoring>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>4</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>35</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>3e88a251-6884-43f1-9a2c-9af125945985</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>FFI</LearnDelFAMType>
+        <LearnDelFAMCode>2</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P21ESMType</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-10-31</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>E11</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>4</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>35</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>FFI</LearnDelFAMType>
+        <LearnDelFAMCode>2</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P22UCASPERID</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-11-03</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearnerHE>
+      <UCASPERID>999991II11</UCASPERID>
+      <LearnerHEFinancialSupport>
+        <FINTYPE>1</FINTYPE>
+        <FINAMOUNT>99</FINAMOUNT>
+      </LearnerHEFinancialSupport>
+    </LearnerHE>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>4</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>99</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>2b7d4c47-1490-4db4-a73a-3a9677a52b8f</SWSupAimId>
+      <LearningDeliveryHE>
+        <NUMHUS>2000812012XTT60021</NUMHUS>
+        <QUALENT3>X06</QUALENT3>
+        <UCASAPPID>AB89</UCASAPPID>
+        <TYPEYR>1</TYPEYR>
+        <MODESTUD>99</MODESTUD>
+        <FUNDLEV>10</FUNDLEV>
+        <FUNDCOMP>3</FUNDCOMP>
+        <STULOAD>10.0</STULOAD>
+        <YEARSTU>1</YEARSTU>
+        <MSTUFEE>1</MSTUFEE>
+        <PCFLDCS>100</PCFLDCS>
+        <SPECFEE>9</SPECFEE>
+        <NETFEE>0</NETFEE>
+        <GROSSFEE>1</GROSSFEE>
+        <DOMICILE>ZZ</DOMICILE>
+        <ELQ>9</ELQ>
+      </LearningDeliveryHE>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P23LearnAim</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-10-31</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>@6013-3530</LearnAimRef>
+
+      <AimType>4</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>35</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>FFI</LearnDelFAMType>
+        <LearnDelFAMCode>2</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P24DelLocPo</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-10-31</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>4</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>35</FundModel>
+      <DelLocPostCode>ZZ@! 1AA</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>FFI</LearnDelFAMType>
+        <LearnDelFAMCode>2</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P25ConRefNum</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-11-03</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>ZESF0001</LearnAimRef>
+      <AimType>4</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>70</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <ConRefNumber>ESF-AB99999</ConRefNumber>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>6eda36a5-6d6c-4048-8d5c-b15a459a91d9</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>4</AimType>
+      <AimSeqNumber>2</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>70</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <ConRefNumber>ESF-2228</ConRefNumber>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>53b8e7a6-caee-410e-b214-215df208a7b1</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P26EPAOrgID</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-07-14</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>ZPROG001</LearnAimRef>
+      <AimType>1</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>36</FundModel>
+      <ProgType>25</ProgType>
+      <StdCode>26</StdCode>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <EPAOrgID>EPA123A</EPAOrgID>
+      <CompStatus>1</CompStatus>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>ACT</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+        <LearnDelFAMDateFrom>2017-10-14</LearnDelFAMDateFrom>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <AppFinRecord>
+        <AFinType>TNP</AFinType>
+        <AFinCode>1</AFinCode>
+        <AFinDate>2017-10-14</AFinDate>
+        <AFinAmount>1200</AFinAmount>
+      </AppFinRecord>
+      <AppFinRecord>
+        <AFinType>TNP</AFinType>
+        <AFinCode>2</AFinCode>
+        <AFinDate>2017-10-14</AFinDate>
+        <AFinAmount>500</AFinAmount>
+      </AppFinRecord>
+    </LearningDelivery>
+    <LearningDelivery>
+      <LearnAimRef>50104767</LearnAimRef>
+      <AimType>3</AimType>
+      <AimSeqNumber>2</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>36</FundModel>
+      <ProgType>25</ProgType>
+      <StdCode>26</StdCode>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P27OutGrade</LearnRefNumber>
+    <ULN>9900000209</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>2000-11-02</DateOfBirth>
     <Ethnicity>31</Ethnicity>
     <Sex>M</Sex>
     <LLDDHealthProb>2</LLDDHealthProb>
@@ -472,13 +1513,469 @@
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
     <Email>myemail@myemail.com</Email>
-    <ContactPreference>
-      <ContPrefType>RUI</ContPrefType>
-    </ContactPreference>
-    <ContactPreference>
-      <ContPrefType>RUI</ContPrefType>
-      <ContPrefCode>2</ContPrefCode>
-    </ContactPreference>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60143824</LearnAimRef>
+      <AimType>5</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>25</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>2</CompStatus>
+      <LearnActEndDate>2017-11-28</LearnActEndDate>
+      <Outcome>1</Outcome>
+      <OutGrade>@123</OutGrade>
+      <SWSupAimId>8d3fb5ed-cad8-4932-9f33-f04797c7e274</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>107</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P28SWSupAim</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-10-31</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>4</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>35</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>8d3fb5ed-cad8_4932_9f33-f04797c7e274</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>FFI</LearnDelFAMType>
+        <LearnDelFAMCode>2</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P29LrnDFAMTy</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-10-31</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>4</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>35</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>@12</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>FFI</LearnDelFAMType>
+        <LearnDelFAMCode>2</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P30LrnDFAMCd</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-10-31</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>4</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>35</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>A</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>FFI</LearnDelFAMType>
+        <LearnDelFAMCode>2</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P31AFinType</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-07-14</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>ZPROG001</LearnAimRef>
+      <AimType>1</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>36</FundModel>
+      <ProgType>25</ProgType>
+      <StdCode>26</StdCode>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <EPAOrgID>EPA1234</EPAOrgID>
+      <CompStatus>1</CompStatus>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>ACTA</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+        <LearnDelFAMDateFrom>2017-10-14</LearnDelFAMDateFrom>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <AppFinRecord>
+        <AFinType>T@P</AFinType>
+        <AFinCode>1</AFinCode>
+        <AFinDate>2017-10-14</AFinDate>
+        <AFinAmount>1200</AFinAmount>
+      </AppFinRecord>
+      <AppFinRecord>
+        <AFinType>TNP</AFinType>
+        <AFinCode>2</AFinCode>
+        <AFinDate>2017-10-14</AFinDate>
+        <AFinAmount>500</AFinAmount>
+      </AppFinRecord>
+    </LearningDelivery>
+    <LearningDelivery>
+      <LearnAimRef>50104767</LearnAimRef>
+      <AimType>3</AimType>
+      <AimSeqNumber>2</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>36</FundModel>
+      <ProgType>25</ProgType>
+      <StdCode>26</StdCode>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>  
+  <Learner>
+    <LearnRefNumber>P32ProSpDelO</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-07-14</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>ZPROG001</LearnAimRef>
+      <AimType>1</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>36</FundModel>
+      <ProgType>25</ProgType>
+      <StdCode>26</StdCode>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <EPAOrgID>EPA1234</EPAOrgID>
+      <CompStatus>1</CompStatus>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>ACT</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+        <LearnDelFAMDateFrom>2017-10-14</LearnDelFAMDateFrom>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <AppFinRecord>
+        <AFinType>TNP</AFinType>
+        <AFinCode>1</AFinCode>
+        <AFinDate>2017-10-14</AFinDate>
+        <AFinAmount>1200</AFinAmount>
+      </AppFinRecord>
+      <AppFinRecord>
+        <AFinType>TNP</AFinType>
+        <AFinCode>2</AFinCode>
+        <AFinDate>2017-10-14</AFinDate>
+        <AFinAmount>500</AFinAmount>
+      </AppFinRecord>
+    </LearningDelivery>
+    <LearningDelivery>
+      <LearnAimRef>50104767</LearnAimRef>
+      <AimType>3</AimType>
+      <AimSeqNumber>2</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>36</FundModel>
+      <ProgType>25</ProgType>
+      <StdCode>26</StdCode>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P33ProSpDelM</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-07-14</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>ZPROG001</LearnAimRef>
+      <AimType>1</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>36</FundModel>
+      <ProgType>25</ProgType>
+      <StdCode>26</StdCode>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <EPAOrgID>EPA1234</EPAOrgID>
+      <CompStatus>1</CompStatus>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>ACT</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+        <LearnDelFAMDateFrom>2017-10-14</LearnDelFAMDateFrom>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <AppFinRecord>
+        <AFinType>TNP</AFinType>
+        <AFinCode>1</AFinCode>
+        <AFinDate>2017-10-14</AFinDate>
+        <AFinAmount>1200</AFinAmount>
+      </AppFinRecord>
+      <AppFinRecord>
+        <AFinType>TNP</AFinType>
+        <AFinCode>2</AFinCode>
+        <AFinDate>2017-10-14</AFinDate>
+        <AFinAmount>20</AFinAmount>
+      </AppFinRecord>
+    </LearningDelivery>
+    <LearningDelivery>
+      <LearnAimRef>50104767</LearnAimRef>
+      <AimType>3</AimType>
+      <AimSeqNumber>2</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>36</FundModel>
+      <ProgType>25</ProgType>
+      <StdCode>26</StdCode>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>P34NUMHUS</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>2000-11-02</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <MathGrade>NONE</MathGrade>
+    <EngGrade>NONE</EngGrade>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
       <DateEmpStatApp>2017-06-10</DateEmpStatApp>
@@ -501,22 +1998,40 @@
       <FundModel>25</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>d6dd6514-3596-4e74-941b-9025ffdb606c</SWSupAimId>
+      <SWSupAimId>f5b7c725-2c0c-49a8-be66-f4e48997c9fe</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
         <LearnDelFAMCode>107</LearnDelFAMCode>
       </LearningDeliveryFAM>
+      <LearningDeliveryHE>
+        <NUMHUS>2000812012-@TT60021</NUMHUS>
+        <QUALENT3>X06</QUALENT3>
+        <UCASAPPID>AB89</UCASAPPID>
+        <TYPEYR>1</TYPEYR>
+        <MODESTUD>99</MODESTUD>
+        <FUNDLEV>10</FUNDLEV>
+        <FUNDCOMP>3</FUNDCOMP>
+        <STULOAD>10.0</STULOAD>
+        <YEARSTU>1</YEARSTU>
+        <MSTUFEE>1</MSTUFEE>
+        <PCFLDCS>100</PCFLDCS>
+        <SPECFEE>9</SPECFEE>
+        <NETFEE>0</NETFEE>
+        <GROSSFEE>1</GROSSFEE>
+        <DOMICILE>ZZ</DOMICILE>
+        <ELQ>9</ELQ>
+      </LearningDeliveryHE>
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>M86LLDDCat</LearnRefNumber>
+    <LearnRefNumber>P35SSN</LearnRefNumber>
     <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>2000-10-30</DateOfBirth>
+    <DateOfBirth>2000-11-02</DateOfBirth>
     <Ethnicity>31</Ethnicity>
     <Sex>M</Sex>
-    <LLDDHealthProb>1</LLDDHealthProb>
+    <LLDDHealthProb>2</LLDDHealthProb>
     <NINumber>LJ000000A</NINumber>
     <PriorAttain>2</PriorAttain>
     <PlanLearnHours>90</PlanLearnHours>
@@ -528,15 +2043,6 @@
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
     <Email>myemail@myemail.com</Email>
-    <LLDDandHealthProblem>
-    </LLDDandHealthProblem>
-    <LLDDandHealthProblem>
-      <LLDDCat>15</LLDDCat>
-      <PrimaryLLDD>1</PrimaryLLDD>
-    </LLDDandHealthProblem>
-    <LLDDandHealthProblem>
-      <LLDDCat>5</LLDDCat>
-    </LLDDandHealthProblem>
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
       <DateEmpStatApp>2017-06-10</DateEmpStatApp>
@@ -559,507 +2065,11 @@
       <FundModel>25</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>41a46a48-258a-4b34-b675-9640b20e792f</SWSupAimId>
+      <SWSupAimId>f5b7c725-2c0c-49a8-be66-f4e48997c9fe</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
         <LearnDelFAMCode>107</LearnDelFAMCode>
       </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M90LrnFAMTyp</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M91LrnFAMCod</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M95ProvSpOcc</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1997-10-14</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMon>9900000004</ProvSpecLearnMon>
-    </ProviderSpecLearnerMonitoring>
-    <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>B</ProvSpecLearnMonOccur>
-      <ProvSpecLearnMon>9900000004</ProvSpecLearnMon>
-    </ProviderSpecLearnerMonitoring>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>fb82e05b-5950-4871-a03b-9d43608ac286</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M96ProvSpLr</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1997-10-14</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>A</ProvSpecLearnMonOccur>
-    </ProviderSpecLearnerMonitoring>
-    <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>B</ProvSpecLearnMonOccur>
-      <ProvSpecLearnMon>9900000004</ProvSpecLearnMon>
-    </ProviderSpecLearnerMonitoring>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>fb82e05b-5950-4871-a03b-9d43608ac286</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M100EmpStat</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M101DateEmp</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M104ESMType</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M105ESMCode</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M113FINTYPE</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearnerHE>
-      <UCASPERID>9999911111</UCASPERID>
-      <LearnerHEFinancialSupport>
-        <FINAMOUNT>99</FINAMOUNT>
-      </LearnerHEFinancialSupport>
-    </LearnerHE>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>99</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>d7c78e6f-9457-40a8-ba02-4e8d26897484</SWSupAimId>
       <LearningDeliveryHE>
         <NUMHUS>2000812012XTT60021</NUMHUS>
         <QUALENT3>X06</QUALENT3>
@@ -1081,1705 +2091,11 @@
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>M114FINAMT</LearnRefNumber>
+    <LearnRefNumber>P36QUALENT3</LearnRefNumber>
     <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearnerHE>
-      <UCASPERID>9999911111</UCASPERID>
-      <LearnerHEFinancialSupport>
-        <FINTYPE>1</FINTYPE>
-      </LearnerHEFinancialSupport>
-    </LearnerHE>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>99</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>d7c78e6f-9457-40a8-ba02-4e8d26897484</SWSupAimId>
-      <LearningDeliveryHE>
-        <NUMHUS>2000812012XTT60021</NUMHUS>
-        <QUALENT3>X06</QUALENT3>
-        <UCASAPPID>AB89</UCASAPPID>
-        <TYPEYR>1</TYPEYR>
-        <MODESTUD>99</MODESTUD>
-        <FUNDLEV>10</FUNDLEV>
-        <FUNDCOMP>3</FUNDCOMP>
-        <STULOAD>10.0</STULOAD>
-        <YEARSTU>1</YEARSTU>
-        <MSTUFEE>1</MSTUFEE>
-        <PCFLDCS>100</PCFLDCS>
-        <SPECFEE>9</SPECFEE>
-        <NETFEE>0</NETFEE>
-        <GROSSFEE>1</GROSSFEE>
-        <DOMICILE>ZZ</DOMICILE>
-        <ELQ>9</ELQ>
-      </LearningDeliveryHE>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M119LrnAimR</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M120AimType</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M121AimSeqN</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M122LrnStDt</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M123LrnPlEd</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M124FundMod</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M125DelLocP</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>35</FundModel>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M126CompSta</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M154LrnDFMT</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M155LrnDFMC</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>6203a004-ad3e-495e-97db-6f6cb6deddf8</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>FFI</LearnDelFAMType>
-        <LearnDelFAMCode>2</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>HHS</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M158WorkStDt</LearnRefNumber>
-    <ULN>9900001302</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>Z0007834</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>10</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>90dce722-e791-4574-9151-35f993acd79d</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>ASL</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryWorkPlacement>
-        <WorkPlaceEndDate>2017-11-14</WorkPlaceEndDate>
-        <WorkPlaceHours>1000</WorkPlaceHours>
-        <WorkPlaceMode>1</WorkPlaceMode>
-        <WorkPlaceEmpId>900271388</WorkPlaceEmpId>
-      </LearningDeliveryWorkPlacement>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M159WorkHrs</LearnRefNumber>
-    <ULN>9900001302</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>Z0007834</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>10</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>90dce722-e791-4574-9151-35f993acd79d</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>ASL</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryWorkPlacement>
-        <WorkPlaceStartDate>2017-11-13</WorkPlaceStartDate>
-        <WorkPlaceEndDate>2017-11-14</WorkPlaceEndDate>
-        <WorkPlaceMode>1</WorkPlaceMode>
-        <WorkPlaceEmpId>900271388</WorkPlaceEmpId>
-      </LearningDeliveryWorkPlacement>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M160WorkMod</LearnRefNumber>
-    <ULN>9900001302</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>Z0007834</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>10</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>90dce722-e791-4574-9151-35f993acd79d</SWSupAimId>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>ASL</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <LearningDeliveryWorkPlacement>
-        <WorkPlaceStartDate>2017-11-13</WorkPlaceStartDate>
-        <WorkPlaceEndDate>2017-11-14</WorkPlaceEndDate>
-        <WorkPlaceHours>1000</WorkPlaceHours>
-        <WorkPlaceEmpId>900271388</WorkPlaceEmpId>
-      </LearningDeliveryWorkPlacement>
-    </LearningDelivery>
-    <Learner>
-      <LearnRefNumber>0AimTy01</LearnRefNumber>
-      <ULN>9900001302</ULN>
-      <FamilyName>Sméth</FamilyName>
-      <GivenNames>Mary Jane</GivenNames>
-      <DateOfBirth>2000-10-30</DateOfBirth>
-      <Ethnicity>31</Ethnicity>
-      <Sex>M</Sex>
-      <LLDDHealthProb>2</LLDDHealthProb>
-      <NINumber>LJ000000A</NINumber>
-      <PriorAttain>2</PriorAttain>
-      <PlanLearnHours>90</PlanLearnHours>
-      <PlanEEPHours>1</PlanEEPHours>
-      <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-      <Postcode>ZZ99 9ZZ</Postcode>
-      <AddLine1>18 Address line road</AddLine1>
-      <TelNo>07855555555</TelNo>
-      <Email>myemail@myemail.com</Email>
-      <LearnerEmploymentStatus>
-        <EmpStat>10</EmpStat>
-        <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-        <EmpId>154549452</EmpId>
-        <EmploymentStatusMonitoring>
-          <ESMType>EII</ESMType>
-          <ESMCode>4</ESMCode>
-        </EmploymentStatusMonitoring>
-        <EmploymentStatusMonitoring>
-          <ESMType>LOE</ESMType>
-          <ESMCode>4</ESMCode>
-        </EmploymentStatusMonitoring>
-      </LearnerEmploymentStatus>
-      <LearningDelivery>
-        <LearnAimRef>ZPROG001</LearnAimRef>
-        <AimType>1</AimType>
-        <AimSeqNumber>1</AimSeqNumber>
-        <LearnStartDate>2017-10-14</LearnStartDate>
-        <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-        <FundModel>36</FundModel>
-        <ProgType>2</ProgType>
-        <FworkCode>420</FworkCode>
-        <PwayCode>1</PwayCode>
-        <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-        <CompStatus>1</CompStatus>
-        <LearningDeliveryFAM>
-          <LearnDelFAMType>ACT</LearnDelFAMType>
-          <LearnDelFAMCode>1</LearnDelFAMCode>
-          <LearnDelFAMDateFrom>2017-10-14</LearnDelFAMDateFrom>
-        </LearningDeliveryFAM>
-        <LearningDeliveryFAM>
-          <LearnDelFAMType>SOF</LearnDelFAMType>
-          <LearnDelFAMCode>105</LearnDelFAMCode>
-        </LearningDeliveryFAM>
-        <AppFinRecord>
-          <AFinType>TNP</AFinType>
-          <AFinCode>1</AFinCode>
-          <AFinDate>2017-10-14</AFinDate>
-          <AFinAmount>1200</AFinAmount>
-        </AppFinRecord>
-      </LearningDelivery>
-      <LearningDelivery>
-        <LearnAimRef>50104767</LearnAimRef>
-        <AimType>3</AimType>
-        <AimSeqNumber>2</AimSeqNumber>
-        <LearnStartDate>2017-10-14</LearnStartDate>
-        <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-        <FundModel>36</FundModel>
-        <ProgType>2</ProgType>
-        <FworkCode>420</FworkCode>
-        <PwayCode>1</PwayCode>
-        <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-        <CompStatus>1</CompStatus>
-        <LearningDeliveryFAM>
-          <LearnDelFAMType>SOF</LearnDelFAMType>
-          <LearnDelFAMCode>105</LearnDelFAMCode>
-        </LearningDeliveryFAM>
-      </LearningDelivery>
-    </Learner>
-    <Learner>
-      <LearnRefNumber>0AimTy01</LearnRefNumber>
-      <ULN>9900001302</ULN>
-      <FamilyName>Sméth</FamilyName>
-      <GivenNames>Mary Jane</GivenNames>
-      <DateOfBirth>2000-10-30</DateOfBirth>
-      <Ethnicity>31</Ethnicity>
-      <Sex>M</Sex>
-      <LLDDHealthProb>2</LLDDHealthProb>
-      <NINumber>LJ000000A</NINumber>
-      <PriorAttain>2</PriorAttain>
-      <PlanLearnHours>90</PlanLearnHours>
-      <PlanEEPHours>1</PlanEEPHours>
-      <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-      <Postcode>ZZ99 9ZZ</Postcode>
-      <AddLine1>18 Address line road</AddLine1>
-      <TelNo>07855555555</TelNo>
-      <Email>myemail@myemail.com</Email>
-      <LearnerEmploymentStatus>
-        <EmpStat>10</EmpStat>
-        <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-        <EmpId>154549452</EmpId>
-        <EmploymentStatusMonitoring>
-          <ESMType>EII</ESMType>
-          <ESMCode>4</ESMCode>
-        </EmploymentStatusMonitoring>
-        <EmploymentStatusMonitoring>
-          <ESMType>LOE</ESMType>
-          <ESMCode>4</ESMCode>
-        </EmploymentStatusMonitoring>
-      </LearnerEmploymentStatus>
-      <LearningDelivery>
-        <LearnAimRef>ZPROG001</LearnAimRef>
-        <AimType>1</AimType>
-        <AimSeqNumber>1</AimSeqNumber>
-        <LearnStartDate>2017-10-14</LearnStartDate>
-        <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-        <FundModel>36</FundModel>
-        <ProgType>2</ProgType>
-        <FworkCode>420</FworkCode>
-        <PwayCode>1</PwayCode>
-        <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-        <CompStatus>1</CompStatus>
-        <LearningDeliveryFAM>
-          <LearnDelFAMType>ACT</LearnDelFAMType>
-          <LearnDelFAMCode>1</LearnDelFAMCode>
-          <LearnDelFAMDateFrom>2017-10-14</LearnDelFAMDateFrom>
-        </LearningDeliveryFAM>
-        <LearningDeliveryFAM>
-          <LearnDelFAMType>SOF</LearnDelFAMType>
-          <LearnDelFAMCode>105</LearnDelFAMCode>
-        </LearningDeliveryFAM>
-        <AppFinRecord>
-          <AFinType>TNP</AFinType>
-          <AFinCode>1</AFinCode>
-          <AFinDate>2017-10-14</AFinDate>
-          <AFinAmount>1200</AFinAmount>
-        </AppFinRecord>
-      </LearningDelivery>
-      <LearningDelivery>
-        <LearnAimRef>50104767</LearnAimRef>
-        <AimType>3</AimType>
-        <AimSeqNumber>2</AimSeqNumber>
-        <LearnStartDate>2017-10-14</LearnStartDate>
-        <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-        <FundModel>36</FundModel>
-        <ProgType>2</ProgType>
-        <FworkCode>420</FworkCode>
-        <PwayCode>1</PwayCode>
-        <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-        <CompStatus>1</CompStatus>
-        <LearningDeliveryFAM>
-          <LearnDelFAMType>SOF</LearnDelFAMType>
-          <LearnDelFAMCode>105</LearnDelFAMCode>
-        </LearningDeliveryFAM>
-      </LearningDelivery>
-    </Learner>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M165AFinTyp</LearnRefNumber>
-    <ULN>9900001302</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>2000-10-30</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>ZPROG001</LearnAimRef>
-      <AimType>1</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>36</FundModel>
-      <ProgType>2</ProgType>
-      <FworkCode>420</FworkCode>
-      <PwayCode>1</PwayCode>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>ACT</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-        <LearnDelFAMDateFrom>2017-10-14</LearnDelFAMDateFrom>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <AppFinRecord>
-        <AFinCode>1</AFinCode>
-        <AFinDate>2017-10-14</AFinDate>
-        <AFinAmount>1200</AFinAmount>
-      </AppFinRecord>
-    </LearningDelivery>
-    <LearningDelivery>
-      <LearnAimRef>50104767</LearnAimRef>
-      <AimType>3</AimType>
-      <AimSeqNumber>2</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>36</FundModel>
-      <ProgType>2</ProgType>
-      <FworkCode>420</FworkCode>
-      <PwayCode>1</PwayCode>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M166AFinCod</LearnRefNumber>
-    <ULN>9900001302</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>2000-10-30</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>ZPROG001</LearnAimRef>
-      <AimType>1</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>36</FundModel>
-      <ProgType>2</ProgType>
-      <FworkCode>420</FworkCode>
-      <PwayCode>1</PwayCode>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>ACT</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-        <LearnDelFAMDateFrom>2017-10-14</LearnDelFAMDateFrom>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <AppFinRecord>
-        <AFinType>TNP</AFinType>
-        <AFinDate>2017-10-14</AFinDate>
-        <AFinAmount>1200</AFinAmount>
-      </AppFinRecord>
-    </LearningDelivery>
-    <LearningDelivery>
-      <LearnAimRef>50104767</LearnAimRef>
-      <AimType>3</AimType>
-      <AimSeqNumber>2</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>36</FundModel>
-      <ProgType>2</ProgType>
-      <FworkCode>420</FworkCode>
-      <PwayCode>1</PwayCode>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M167AFinDat</LearnRefNumber>
-    <ULN>9900001302</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>2000-10-30</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>ZPROG001</LearnAimRef>
-      <AimType>1</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>36</FundModel>
-      <ProgType>2</ProgType>
-      <FworkCode>420</FworkCode>
-      <PwayCode>1</PwayCode>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>ACT</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-        <LearnDelFAMDateFrom>2017-10-14</LearnDelFAMDateFrom>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <AppFinRecord>
-        <AFinType>TNP</AFinType>
-        <AFinCode>1</AFinCode>
-        <AFinAmount>1200</AFinAmount>
-      </AppFinRecord>
-    </LearningDelivery>
-    <LearningDelivery>
-      <LearnAimRef>50104767</LearnAimRef>
-      <AimType>3</AimType>
-      <AimSeqNumber>2</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>36</FundModel>
-      <ProgType>2</ProgType>
-      <FworkCode>420</FworkCode>
-      <PwayCode>1</PwayCode>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M168AFinAmt</LearnRefNumber>
-    <ULN>9900001302</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>2000-10-30</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>LJ000000A</NINumber>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearningDelivery>
-      <LearnAimRef>ZPROG001</LearnAimRef>
-      <AimType>1</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>36</FundModel>
-      <ProgType>2</ProgType>
-      <FworkCode>420</FworkCode>
-      <PwayCode>1</PwayCode>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>ACT</LearnDelFAMType>
-        <LearnDelFAMCode>1</LearnDelFAMCode>
-        <LearnDelFAMDateFrom>2017-10-14</LearnDelFAMDateFrom>
-      </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-      <AppFinRecord>
-        <AFinType>TNP</AFinType>
-        <AFinCode>1</AFinCode>
-        <AFinDate>2017-10-14</AFinDate>
-      </AppFinRecord>
-    </LearningDelivery>
-    <LearningDelivery>
-      <LearnAimRef>50104767</LearnAimRef>
-      <AimType>3</AimType>
-      <AimSeqNumber>2</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>36</FundModel>
-      <ProgType>2</ProgType>
-      <FworkCode>420</FworkCode>
-      <PwayCode>1</PwayCode>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>105</LearnDelFAMCode>
-      </LearningDeliveryFAM>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M178TYPEYR</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearnerHE>
-      <UCASPERID>9999911111</UCASPERID>
-      <LearnerHEFinancialSupport>
-        <FINTYPE>1</FINTYPE>
-        <FINAMOUNT>99</FINAMOUNT>
-      </LearnerHEFinancialSupport>
-    </LearnerHE>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>99</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>a41cedf0-28fa-43b2-a20c-7416b9fbb025</SWSupAimId>
-      <LearningDeliveryHE>
-        <NUMHUS>2000812012XTT60021</NUMHUS>
-        <QUALENT3>X06</QUALENT3>
-        <UCASAPPID>AB89</UCASAPPID>
-        <MODESTUD>99</MODESTUD>
-        <FUNDLEV>10</FUNDLEV>
-        <FUNDCOMP>3</FUNDCOMP>
-        <STULOAD>10.0</STULOAD>
-        <YEARSTU>1</YEARSTU>
-        <MSTUFEE>1</MSTUFEE>
-        <PCFLDCS>100</PCFLDCS>
-        <SPECFEE>9</SPECFEE>
-        <NETFEE>0</NETFEE>
-        <GROSSFEE>1</GROSSFEE>
-        <DOMICILE>ZZ</DOMICILE>
-        <ELQ>9</ELQ>
-      </LearningDeliveryHE>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M179MODESTU</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearnerHE>
-      <UCASPERID>9999911111</UCASPERID>
-      <LearnerHEFinancialSupport>
-        <FINTYPE>1</FINTYPE>
-        <FINAMOUNT>99</FINAMOUNT>
-      </LearnerHEFinancialSupport>
-    </LearnerHE>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>99</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>a41cedf0-28fa-43b2-a20c-7416b9fbb025</SWSupAimId>
-      <LearningDeliveryHE>
-        <NUMHUS>2000812012XTT60021</NUMHUS>
-        <QUALENT3>X06</QUALENT3>
-        <UCASAPPID>AB89</UCASAPPID>
-        <TYPEYR>1</TYPEYR>
-        <FUNDLEV>10</FUNDLEV>
-        <FUNDCOMP>3</FUNDCOMP>
-        <STULOAD>10.0</STULOAD>
-        <YEARSTU>1</YEARSTU>
-        <MSTUFEE>1</MSTUFEE>
-        <PCFLDCS>100</PCFLDCS>
-        <SPECFEE>9</SPECFEE>
-        <NETFEE>0</NETFEE>
-        <GROSSFEE>1</GROSSFEE>
-        <DOMICILE>ZZ</DOMICILE>
-        <ELQ>9</ELQ>
-      </LearningDeliveryHE>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M180FUNDLEV</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearnerHE>
-      <UCASPERID>9999911111</UCASPERID>
-      <LearnerHEFinancialSupport>
-        <FINTYPE>1</FINTYPE>
-        <FINAMOUNT>99</FINAMOUNT>
-      </LearnerHEFinancialSupport>
-    </LearnerHE>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>99</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>a41cedf0-28fa-43b2-a20c-7416b9fbb025</SWSupAimId>
-      <LearningDeliveryHE>
-        <NUMHUS>2000812012XTT60021</NUMHUS>
-        <QUALENT3>X06</QUALENT3>
-        <UCASAPPID>AB89</UCASAPPID>
-        <TYPEYR>1</TYPEYR>
-        <MODESTUD>99</MODESTUD>
-        <FUNDCOMP>3</FUNDCOMP>
-        <STULOAD>10.0</STULOAD>
-        <YEARSTU>1</YEARSTU>
-        <MSTUFEE>1</MSTUFEE>
-        <PCFLDCS>100</PCFLDCS>
-        <SPECFEE>9</SPECFEE>
-        <NETFEE>0</NETFEE>
-        <GROSSFEE>1</GROSSFEE>
-        <DOMICILE>ZZ</DOMICILE>
-        <ELQ>9</ELQ>
-      </LearningDeliveryHE>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M181FUNDCOM</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearnerHE>
-      <UCASPERID>9999911111</UCASPERID>
-      <LearnerHEFinancialSupport>
-        <FINTYPE>1</FINTYPE>
-        <FINAMOUNT>99</FINAMOUNT>
-      </LearnerHEFinancialSupport>
-    </LearnerHE>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>99</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>a41cedf0-28fa-43b2-a20c-7416b9fbb025</SWSupAimId>
-      <LearningDeliveryHE>
-        <NUMHUS>2000812012XTT60021</NUMHUS>
-        <QUALENT3>X06</QUALENT3>
-        <UCASAPPID>AB89</UCASAPPID>
-        <TYPEYR>1</TYPEYR>
-        <MODESTUD>99</MODESTUD>
-        <FUNDLEV>10</FUNDLEV>
-        <STULOAD>10.0</STULOAD>
-        <YEARSTU>1</YEARSTU>
-        <MSTUFEE>1</MSTUFEE>
-        <PCFLDCS>100</PCFLDCS>
-        <SPECFEE>9</SPECFEE>
-        <NETFEE>0</NETFEE>
-        <GROSSFEE>1</GROSSFEE>
-        <DOMICILE>ZZ</DOMICILE>
-        <ELQ>9</ELQ>
-      </LearningDeliveryHE>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M182YEARSTU</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearnerHE>
-      <UCASPERID>9999911111</UCASPERID>
-      <LearnerHEFinancialSupport>
-        <FINTYPE>1</FINTYPE>
-        <FINAMOUNT>99</FINAMOUNT>
-      </LearnerHEFinancialSupport>
-    </LearnerHE>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>99</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>a41cedf0-28fa-43b2-a20c-7416b9fbb025</SWSupAimId>
-      <LearningDeliveryHE>
-        <NUMHUS>2000812012XTT60021</NUMHUS>
-        <QUALENT3>X06</QUALENT3>
-        <UCASAPPID>AB89</UCASAPPID>
-        <TYPEYR>1</TYPEYR>
-        <MODESTUD>99</MODESTUD>
-        <FUNDLEV>10</FUNDLEV>
-        <FUNDCOMP>3</FUNDCOMP>
-        <STULOAD>10.0</STULOAD>
-        <MSTUFEE>1</MSTUFEE>
-        <PCFLDCS>100</PCFLDCS>
-        <SPECFEE>9</SPECFEE>
-        <NETFEE>0</NETFEE>
-        <GROSSFEE>1</GROSSFEE>
-        <DOMICILE>ZZ</DOMICILE>
-        <ELQ>9</ELQ>
-      </LearningDeliveryHE>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M183MSTUFEE</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearnerHE>
-      <UCASPERID>9999911111</UCASPERID>
-      <LearnerHEFinancialSupport>
-        <FINTYPE>1</FINTYPE>
-        <FINAMOUNT>99</FINAMOUNT>
-      </LearnerHEFinancialSupport>
-    </LearnerHE>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>99</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>a41cedf0-28fa-43b2-a20c-7416b9fbb025</SWSupAimId>
-      <LearningDeliveryHE>
-        <NUMHUS>2000812012XTT60021</NUMHUS>
-        <QUALENT3>X06</QUALENT3>
-        <UCASAPPID>AB89</UCASAPPID>
-        <TYPEYR>1</TYPEYR>
-        <MODESTUD>99</MODESTUD>
-        <FUNDLEV>10</FUNDLEV>
-        <FUNDCOMP>3</FUNDCOMP>
-        <STULOAD>10.0</STULOAD>
-        <YEARSTU>1</YEARSTU>
-        <PCFLDCS>100</PCFLDCS>
-        <SPECFEE>9</SPECFEE>
-        <NETFEE>0</NETFEE>
-        <GROSSFEE>1</GROSSFEE>
-        <DOMICILE>ZZ</DOMICILE>
-        <ELQ>9</ELQ>
-      </LearningDeliveryHE>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M184SPECFEE</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1998-10-31</DateOfBirth>
-    <Ethnicity>31</Ethnicity>
-    <Sex>M</Sex>
-    <LLDDHealthProb>2</LLDDHealthProb>
-    <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>ZZ99 9ZZ</Postcode>
-    <AddLine1>18 Address line road</AddLine1>
-    <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
-    <LearnerEmploymentStatus>
-      <EmpStat>10</EmpStat>
-      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
-      <EmpId>154549452</EmpId>
-      <EmploymentStatusMonitoring>
-        <ESMType>EII</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-      <EmploymentStatusMonitoring>
-        <ESMType>LOE</ESMType>
-        <ESMCode>4</ESMCode>
-      </EmploymentStatusMonitoring>
-    </LearnerEmploymentStatus>
-    <LearnerHE>
-      <UCASPERID>9999911111</UCASPERID>
-      <LearnerHEFinancialSupport>
-        <FINTYPE>1</FINTYPE>
-        <FINAMOUNT>99</FINAMOUNT>
-      </LearnerHEFinancialSupport>
-    </LearnerHE>
-    <LearningDelivery>
-      <LearnAimRef>60133533</LearnAimRef>
-      <AimType>4</AimType>
-      <AimSeqNumber>1</AimSeqNumber>
-      <LearnStartDate>2017-10-14</LearnStartDate>
-      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>99</FundModel>
-      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <CompStatus>1</CompStatus>
-      <SWSupAimId>a41cedf0-28fa-43b2-a20c-7416b9fbb025</SWSupAimId>
-      <LearningDeliveryHE>
-        <NUMHUS>2000812012XTT60021</NUMHUS>
-        <QUALENT3>X06</QUALENT3>
-        <UCASAPPID>AB89</UCASAPPID>
-        <TYPEYR>1</TYPEYR>
-        <MODESTUD>99</MODESTUD>
-        <FUNDLEV>10</FUNDLEV>
-        <FUNDCOMP>3</FUNDCOMP>
-        <STULOAD>10.0</STULOAD>
-        <MSTUFEE>1</MSTUFEE>
-        <YEARSTU>1</YEARSTU>
-        <PCFLDCS>100</PCFLDCS>
-        <NETFEE>0</NETFEE>
-        <GROSSFEE>1</GROSSFEE>
-        <DOMICILE>ZZ</DOMICILE>
-        <ELQ>9</ELQ>
-      </LearningDeliveryHE>
-    </LearningDelivery>
-  </Learner>
-  <Learner>
-    <LearnRefNumber>M217DPLrnRf</LearnRefNumber>
-    <ULN>9900001701</ULN>
-    <FamilyName>Sméth</FamilyName>
-    <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1997-10-14</DateOfBirth>
+    <DateOfBirth>2000-11-02</DateOfBirth>
     <Ethnicity>31</Ethnicity>
     <Sex>M</Sex>
     <LLDDHealthProb>2</LLDDHealthProb>
@@ -2794,14 +2110,6 @@
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
     <Email>myemail@myemail.com</Email>
-    <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>A</ProvSpecLearnMonOccur>
-      <ProvSpecLearnMon>9900001701</ProvSpecLearnMon>
-    </ProviderSpecLearnerMonitoring>
-    <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>B</ProvSpecLearnMonOccur>
-      <ProvSpecLearnMon>9900001701</ProvSpecLearnMon>
-    </ProviderSpecLearnerMonitoring>
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
       <DateEmpStatApp>2017-06-10</DateEmpStatApp>
@@ -2821,26 +2129,40 @@
       <AimSeqNumber>1</AimSeqNumber>
       <LearnStartDate>2017-10-14</LearnStartDate>
       <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>82</FundModel>
+      <FundModel>25</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>c69643d3-ac38-4d72-81f1-02b050485ebf</SWSupAimId>
+      <SWSupAimId>f5b7c725-2c0c-49a8-be66-f4e48997c9fe</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
         <LearnDelFAMCode>107</LearnDelFAMCode>
       </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>LDM</LearnDelFAMType>
-        <LearnDelFAMCode>347</LearnDelFAMCode>
-      </LearningDeliveryFAM>
+      <LearningDeliveryHE>
+        <NUMHUS>2000812012XTT60021</NUMHUS>
+        <QUALENT3>1AB</QUALENT3>
+        <UCASAPPID>AB89</UCASAPPID>
+        <TYPEYR>1</TYPEYR>
+        <MODESTUD>99</MODESTUD>
+        <FUNDLEV>10</FUNDLEV>
+        <FUNDCOMP>3</FUNDCOMP>
+        <STULOAD>10.0</STULOAD>
+        <YEARSTU>1</YEARSTU>
+        <MSTUFEE>1</MSTUFEE>
+        <PCFLDCS>100</PCFLDCS>
+        <SPECFEE>9</SPECFEE>
+        <NETFEE>0</NETFEE>
+        <GROSSFEE>1</GROSSFEE>
+        <DOMICILE>ZZ</DOMICILE>
+        <ELQ>9</ELQ>
+      </LearningDeliveryHE>
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>M218DP_ULN</LearnRefNumber>
-    <ULN>9900001701</ULN>
+    <LearnRefNumber>P37UCASAPPID</LearnRefNumber>
+    <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1997-10-14</DateOfBirth>
+    <DateOfBirth>2000-11-02</DateOfBirth>
     <Ethnicity>31</Ethnicity>
     <Sex>M</Sex>
     <LLDDHealthProb>2</LLDDHealthProb>
@@ -2855,14 +2177,6 @@
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
     <Email>myemail@myemail.com</Email>
-    <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>A</ProvSpecLearnMonOccur>
-      <ProvSpecLearnMon>9900001701</ProvSpecLearnMon>
-    </ProviderSpecLearnerMonitoring>
-    <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>B</ProvSpecLearnMonOccur>
-      <ProvSpecLearnMon>9900001701</ProvSpecLearnMon>
-    </ProviderSpecLearnerMonitoring>
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
       <DateEmpStatApp>2017-06-10</DateEmpStatApp>
@@ -2882,26 +2196,40 @@
       <AimSeqNumber>1</AimSeqNumber>
       <LearnStartDate>2017-10-14</LearnStartDate>
       <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>82</FundModel>
+      <FundModel>25</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>c69643d3-ac38-4d72-81f1-02b050485ebf</SWSupAimId>
+      <SWSupAimId>f5b7c725-2c0c-49a8-be66-f4e48997c9fe</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
         <LearnDelFAMCode>107</LearnDelFAMCode>
       </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>LDM</LearnDelFAMType>
-        <LearnDelFAMCode>347</LearnDelFAMCode>
-      </LearningDeliveryFAM>
+      <LearningDeliveryHE>
+        <NUMHUS>2000812012XTT60021</NUMHUS>
+        <QUALENT3>X06</QUALENT3>
+        <UCASAPPID>89AB</UCASAPPID>
+        <TYPEYR>1</TYPEYR>
+        <MODESTUD>99</MODESTUD>
+        <FUNDLEV>10</FUNDLEV>
+        <FUNDCOMP>3</FUNDCOMP>
+        <STULOAD>10.0</STULOAD>
+        <YEARSTU>1</YEARSTU>
+        <MSTUFEE>1</MSTUFEE>
+        <PCFLDCS>100</PCFLDCS>
+        <SPECFEE>9</SPECFEE>
+        <NETFEE>0</NETFEE>
+        <GROSSFEE>1</GROSSFEE>
+        <DOMICILE>ZZ</DOMICILE>
+        <ELQ>9</ELQ>
+      </LearningDeliveryHE>
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>M222DPOType</LearnRefNumber>
-    <ULN>9900001701</ULN>
+    <LearnRefNumber>P38DOMICILE</LearnRefNumber>
+    <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1997-10-14</DateOfBirth>
+    <DateOfBirth>2000-11-02</DateOfBirth>
     <Ethnicity>31</Ethnicity>
     <Sex>M</Sex>
     <LLDDHealthProb>2</LLDDHealthProb>
@@ -2916,14 +2244,6 @@
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
     <Email>myemail@myemail.com</Email>
-    <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>A</ProvSpecLearnMonOccur>
-      <ProvSpecLearnMon>9900001701</ProvSpecLearnMon>
-    </ProviderSpecLearnerMonitoring>
-    <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>B</ProvSpecLearnMonOccur>
-      <ProvSpecLearnMon>9900001701</ProvSpecLearnMon>
-    </ProviderSpecLearnerMonitoring>
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
       <DateEmpStatApp>2017-06-10</DateEmpStatApp>
@@ -2943,26 +2263,88 @@
       <AimSeqNumber>1</AimSeqNumber>
       <LearnStartDate>2017-10-14</LearnStartDate>
       <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>82</FundModel>
+      <FundModel>25</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>c69643d3-ac38-4d72-81f1-02b050485ebf</SWSupAimId>
+      <SWSupAimId>f5b7c725-2c0c-49a8-be66-f4e48997c9fe</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
         <LearnDelFAMCode>107</LearnDelFAMCode>
       </LearningDeliveryFAM>
-      <LearningDeliveryFAM>
-        <LearnDelFAMType>LDM</LearnDelFAMType>
-        <LearnDelFAMCode>347</LearnDelFAMCode>
-      </LearningDeliveryFAM>
+      <LearningDeliveryHE>
+        <NUMHUS>2000812012XTT60021</NUMHUS>
+        <QUALENT3>X06</QUALENT3>
+        <UCASAPPID>AB89</UCASAPPID>
+        <TYPEYR>1</TYPEYR>
+        <MODESTUD>99</MODESTUD>
+        <FUNDLEV>10</FUNDLEV>
+        <FUNDCOMP>3</FUNDCOMP>
+        <STULOAD>10.0</STULOAD>
+        <YEARSTU>1</YEARSTU>
+        <MSTUFEE>1</MSTUFEE>
+        <PCFLDCS>100</PCFLDCS>
+        <SPECFEE>9</SPECFEE>
+        <NETFEE>0</NETFEE>
+        <GROSSFEE>1</GROSSFEE>
+        <DOMICILE>1A</DOMICILE>
+        <ELQ>9</ELQ>
+      </LearningDeliveryHE>
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>M223DPOCode</LearnRefNumber>
-    <ULN>9900001701</ULN>
+    <LearnRefNumber>P39HEPostCod</LearnRefNumber>
+    <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1997-10-14</DateOfBirth>
+    <DateOfBirth>1998-11-03</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>2</LLDDHealthProb>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LearningDelivery>
+      <LearnAimRef>60133533</LearnAimRef>
+      <AimType>4</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>99</FundModel>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <SWSupAimId>d8085b29-1df8-40f3-bb28-701be0576b0e</SWSupAimId>
+      <LearningDeliveryHE>
+        <NUMHUS>2000812012XTT60021</NUMHUS>
+        <QUALENT3>X06</QUALENT3>
+        <UCASAPPID>AB89</UCASAPPID>
+        <TYPEYR>1</TYPEYR>
+        <MODESTUD>99</MODESTUD>
+        <FUNDLEV>10</FUNDLEV>
+        <FUNDCOMP>3</FUNDCOMP>
+        <STULOAD>10.0</STULOAD>
+        <YEARSTU>1</YEARSTU>
+        <MSTUFEE>1</MSTUFEE>
+        <PCFLDCS>100</PCFLDCS>
+        <SPECFEE>9</SPECFEE>
+        <NETFEE>9000</NETFEE>
+        <GROSSFEE>30000</GROSSFEE>
+        <DOMICILE>ZZ</DOMICILE>
+        <ELQ>9</ELQ>
+        <HEPostCode>CV21 123</HEPostCode>
+      </LearningDeliveryHE>
+    </LearningDelivery>
+  </Learner>        
+  <Learner>
+    <LearnRefNumber>P40DPLrnRef</LearnRefNumber>
+    <ULN>9900000004</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>1998-11-03</DateOfBirth>
     <Ethnicity>31</Ethnicity>
     <Sex>M</Sex>
     <LLDDHealthProb>2</LLDDHealthProb>
@@ -2970,21 +2352,11 @@
     <PriorAttain>2</PriorAttain>
     <PlanLearnHours>90</PlanLearnHours>
     <PlanEEPHours>1</PlanEEPHours>
-    <MathGrade>NONE</MathGrade>
-    <EngGrade>NONE</EngGrade>
     <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
     <Postcode>ZZ99 9ZZ</Postcode>
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
     <Email>myemail@myemail.com</Email>
-    <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>A</ProvSpecLearnMonOccur>
-      <ProvSpecLearnMon>9900001701</ProvSpecLearnMon>
-    </ProviderSpecLearnerMonitoring>
-    <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>B</ProvSpecLearnMonOccur>
-      <ProvSpecLearnMon>9900001701</ProvSpecLearnMon>
-    </ProviderSpecLearnerMonitoring>
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
       <DateEmpStatApp>2017-06-10</DateEmpStatApp>
@@ -3000,30 +2372,34 @@
     </LearnerEmploymentStatus>
     <LearningDelivery>
       <LearnAimRef>60133533</LearnAimRef>
-      <AimType>5</AimType>
+      <AimType>4</AimType>
       <AimSeqNumber>1</AimSeqNumber>
       <LearnStartDate>2017-10-14</LearnStartDate>
       <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>82</FundModel>
+      <FundModel>35</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>c69643d3-ac38-4d72-81f1-02b050485ebf</SWSupAimId>
+      <SWSupAimId>a672eab1-4c9a-486d-83b2-5eeca5aa2221</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>107</LearnDelFAMCode>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
       </LearningDeliveryFAM>
       <LearningDeliveryFAM>
-        <LearnDelFAMType>LDM</LearnDelFAMType>
-        <LearnDelFAMCode>347</LearnDelFAMCode>
+        <LearnDelFAMType>FFI</LearnDelFAMType>
+        <LearnDelFAMCode>2</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
       </LearningDeliveryFAM>
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>M224DPOStDt</LearnRefNumber>
-    <ULN>9900001701</ULN>
+    <LearnRefNumber>P41DPOutType</LearnRefNumber>
+    <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1997-10-14</DateOfBirth>
+    <DateOfBirth>1998-11-03</DateOfBirth>
     <Ethnicity>31</Ethnicity>
     <Sex>M</Sex>
     <LLDDHealthProb>2</LLDDHealthProb>
@@ -3031,21 +2407,11 @@
     <PriorAttain>2</PriorAttain>
     <PlanLearnHours>90</PlanLearnHours>
     <PlanEEPHours>1</PlanEEPHours>
-    <MathGrade>NONE</MathGrade>
-    <EngGrade>NONE</EngGrade>
     <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
     <Postcode>ZZ99 9ZZ</Postcode>
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
     <Email>myemail@myemail.com</Email>
-    <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>A</ProvSpecLearnMonOccur>
-      <ProvSpecLearnMon>9900001701</ProvSpecLearnMon>
-    </ProviderSpecLearnerMonitoring>
-    <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>B</ProvSpecLearnMonOccur>
-      <ProvSpecLearnMon>9900001701</ProvSpecLearnMon>
-    </ProviderSpecLearnerMonitoring>
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
       <DateEmpStatApp>2017-06-10</DateEmpStatApp>
@@ -3061,30 +2427,34 @@
     </LearnerEmploymentStatus>
     <LearningDelivery>
       <LearnAimRef>60133533</LearnAimRef>
-      <AimType>5</AimType>
+      <AimType>4</AimType>
       <AimSeqNumber>1</AimSeqNumber>
       <LearnStartDate>2017-10-14</LearnStartDate>
       <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>82</FundModel>
+      <FundModel>35</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>c69643d3-ac38-4d72-81f1-02b050485ebf</SWSupAimId>
+      <SWSupAimId>a672eab1-4c9a-486d-83b2-5eeca5aa2221</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>107</LearnDelFAMCode>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
       </LearningDeliveryFAM>
       <LearningDeliveryFAM>
-        <LearnDelFAMType>LDM</LearnDelFAMType>
-        <LearnDelFAMCode>347</LearnDelFAMCode>
+        <LearnDelFAMType>FFI</LearnDelFAMType>
+        <LearnDelFAMCode>2</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
       </LearningDeliveryFAM>
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>M225DPOCoDt</LearnRefNumber>
-    <ULN>9900001701</ULN>
+    <LearnRefNumber>227L_DP_OutC</LearnRefNumber>
+    <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
-    <DateOfBirth>1997-10-14</DateOfBirth>
+    <DateOfBirth>1998-11-03</DateOfBirth>
     <Ethnicity>31</Ethnicity>
     <Sex>M</Sex>
     <LLDDHealthProb>2</LLDDHealthProb>
@@ -3092,21 +2462,11 @@
     <PriorAttain>2</PriorAttain>
     <PlanLearnHours>90</PlanLearnHours>
     <PlanEEPHours>1</PlanEEPHours>
-    <MathGrade>NONE</MathGrade>
-    <EngGrade>NONE</EngGrade>
     <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
     <Postcode>ZZ99 9ZZ</Postcode>
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
     <Email>myemail@myemail.com</Email>
-    <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>A</ProvSpecLearnMonOccur>
-      <ProvSpecLearnMon>9900001701</ProvSpecLearnMon>
-    </ProviderSpecLearnerMonitoring>
-    <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>B</ProvSpecLearnMonOccur>
-      <ProvSpecLearnMon>9900001701</ProvSpecLearnMon>
-    </ProviderSpecLearnerMonitoring>
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
       <DateEmpStatApp>2017-06-10</DateEmpStatApp>
@@ -3122,76 +2482,46 @@
     </LearnerEmploymentStatus>
     <LearningDelivery>
       <LearnAimRef>60133533</LearnAimRef>
-      <AimType>5</AimType>
+      <AimType>4</AimType>
       <AimSeqNumber>1</AimSeqNumber>
       <LearnStartDate>2017-10-14</LearnStartDate>
       <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
-      <FundModel>82</FundModel>
+      <FundModel>35</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>c69643d3-ac38-4d72-81f1-02b050485ebf</SWSupAimId>
+      <SWSupAimId>a672eab1-4c9a-486d-83b2-5eeca5aa2221</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>107</LearnDelFAMCode>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
       </LearningDeliveryFAM>
       <LearningDeliveryFAM>
-        <LearnDelFAMType>LDM</LearnDelFAMType>
-        <LearnDelFAMCode>347</LearnDelFAMCode>
+        <LearnDelFAMType>FFI</LearnDelFAMType>
+        <LearnDelFAMCode>2</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>HHS</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
       </LearningDeliveryFAM>
     </LearningDelivery>
   </Learner>
   <LearnerDestinationandProgression>
+    <LearnRefNumber>P40_DPLrnRf</LearnRefNumber>
     <ULN>9900000004</ULN>
     <DPOutcome>
-      <OutType>EMP</OutType>
+      <OutType>VOL</OutType>
       <OutCode>1</OutCode>
-      <OutStartDate>2017-12-13</OutStartDate>
+      <OutStartDate>2017-10-14</OutStartDate>
       <OutCollDate>2017-10-14</OutCollDate>
     </DPOutcome>
   </LearnerDestinationandProgression>
   <LearnerDestinationandProgression>
-    <LearnRefNumber>M218DP_ULN</LearnRefNumber>
-    <DPOutcome>
-      <OutType>EMP</OutType>
-      <OutCode>1</OutCode>
-      <OutStartDate>2017-12-13</OutStartDate>
-      <OutCollDate>2017-10-14</OutCollDate>
-    </DPOutcome>
-  </LearnerDestinationandProgression>
-  <LearnerDestinationandProgression>
-    <LearnRefNumber>M222DPOType</LearnRefNumber>
+    <LearnRefNumber>P41DPOutType</LearnRefNumber>
     <ULN>9900000004</ULN>
     <DPOutcome>
+      <OutType>V0L</OutType>
       <OutCode>1</OutCode>
-      <OutStartDate>2017-12-13</OutStartDate>
+      <OutStartDate>2017-10-14</OutStartDate>
       <OutCollDate>2017-10-14</OutCollDate>
-    </DPOutcome>
-  </LearnerDestinationandProgression>
-  <LearnerDestinationandProgression>
-    <LearnRefNumber>M223DPOCode</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <DPOutcome>
-      <OutType>EMP</OutType>
-      <OutStartDate>2017-12-13</OutStartDate>
-      <OutCollDate>2017-10-14</OutCollDate>
-    </DPOutcome>
-  </LearnerDestinationandProgression>
-  <LearnerDestinationandProgression>
-    <LearnRefNumber>M224DPOStDt</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <DPOutcome>
-      <OutType>EMP</OutType>
-      <OutCode>1</OutCode>
-      <OutCollDate>2017-10-14</OutCollDate>
-    </DPOutcome>
-  </LearnerDestinationandProgression>
-  <LearnerDestinationandProgression>
-    <LearnRefNumber>M225DPOCoDt</LearnRefNumber>
-    <ULN>9900000004</ULN>
-    <DPOutcome>
-      <OutType>EMP</OutType>
-      <OutCode>1</OutCode>
-      <OutStartDate>2017-12-13</OutStartDate>
     </DPOutcome>
   </LearnerDestinationandProgression>
 </Message>

@@ -1314,7 +1314,7 @@
     <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
     <Postcode>ZZ99 9ZZ</Postcode>
     <AddLine1>18 Address line road</AddLine1>
-    <TelNo>0012345-07855555555</TelNo>
+    <TelNo>001234507855555555</TelNo>
     <Email>myemail@myemail.com</Email>
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
@@ -5626,7 +5626,7 @@
         <GROSSFEE>30000</GROSSFEE>
         <DOMICILE>ZZ</DOMICILE>
         <ELQ>9</ELQ>
-        <HEPostCode>CV21 1RL</HEPostCode>
+        <HEPostCode></HEPostCode>
       </LearningDeliveryHE>
     </LearningDelivery>
   </Learner>        
@@ -5871,7 +5871,7 @@
     </DPOutcome>
   </LearnerDestinationandProgression>
   <LearnerDestinationandProgression>
-    <LearnRefNumber>L219DPLref</LearnRefNumber>
+    <LearnRefNumber>L219DPLearningRefNumber</LearnRefNumber>
     <ULN>9900000004</ULN>
     <DPOutcome>
       <OutType>VOL</OutType>
