@@ -609,7 +609,7 @@
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>v</LearnRefNumber>
+    <LearnRefNumber>L60PriorAtt</LearnRefNumber>
     <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
@@ -1670,6 +1670,10 @@
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
     <Email>myemail@myemail.com</Email>
+    <LearnerFAM>
+      <LearnFAMType>LSRA</LearnFAMType>
+      <LearnFAMCode>36</LearnFAMCode>
+    </LearnerFAM>    
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
       <DateEmpStatApp>2017-06-10</DateEmpStatApp>
@@ -1725,13 +1729,17 @@
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
     <Email>myemail@myemail.com</Email>
+    <LearnerFAM>
+      <LearnFAMType>LSR</LearnFAMType>
+      <LearnFAMCode>3663</LearnFAMCode>
+    </LearnerFAM>
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
       <DateEmpStatApp>2017-06-10</DateEmpStatApp>
       <EmpId>154549452</EmpId>
       <EmploymentStatusMonitoring>
         <ESMType>EII</ESMType>
-        <ESMCode>132</ESMCode>
+        <ESMCode>5</ESMCode>
       </EmploymentStatusMonitoring>
       <EmploymentStatusMonitoring>
         <ESMType>LOE</ESMType>
@@ -1785,7 +1793,7 @@
       <ProvSpecLearnMon>9900000403</ProvSpecLearnMon>
     </ProviderSpecLearnerMonitoring>
     <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>B</ProvSpecLearnMonOccur>
+      <ProvSpecLearnMonOccur>BDDSD</ProvSpecLearnMonOccur>
       <ProvSpecLearnMon>9900000403</ProvSpecLearnMon>
     </ProviderSpecLearnerMonitoring>
     <LearnerEmploymentStatus>
@@ -1845,11 +1853,11 @@
     <Email>myemail@myemail.com</Email>
     <ProviderSpecLearnerMonitoring>
       <ProvSpecLearnMonOccur>A</ProvSpecLearnMonOccur>
-      <ProvSpecLearnMon></ProvSpecLearnMon>
+      <ProvSpecLearnMon>9900000402</ProvSpecLearnMon>
     </ProviderSpecLearnerMonitoring>
     <ProviderSpecLearnerMonitoring>
       <ProvSpecLearnMonOccur>B</ProvSpecLearnMonOccur>
-      <ProvSpecLearnMon>9900000403</ProvSpecLearnMon>
+      <ProvSpecLearnMon>9900000403_String_Longer_than_20</ProvSpecLearnMon>
     </ProviderSpecLearnerMonitoring>
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
@@ -2737,6 +2745,93 @@
       <ProgType>2</ProgType>
       <FworkCode>4299</FworkCode>
       <PwayCode>1</PwayCode>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>ACT</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+        <LearnDelFAMDateFrom>2017-10-14</LearnDelFAMDateFrom>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <AppFinRecord>
+        <AFinType>TNP</AFinType>
+        <AFinCode>1</AFinCode>
+        <AFinDate>2017-10-14</AFinDate>
+        <AFinAmount>1200</AFinAmount>
+      </AppFinRecord>
+    </LearningDelivery>
+    <LearningDelivery>
+      <LearnAimRef>50104767</LearnAimRef>
+      <AimType>3</AimType>
+      <AimSeqNumber>2</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>36</FundModel>
+      <ProgType>2</ProgType>
+      <FworkCode>420</FworkCode>
+      <PwayCode>1</PwayCode>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>L133ProgTyp</LearnRefNumber>
+    <ULN>9900000705</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>2000-11-02</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>1</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LLDDandHealthProblem>
+      <LLDDCat>4</LLDDCat>
+    </LLDDandHealthProblem>
+    <LLDDandHealthProblem>
+      <LLDDCat>15</LLDDCat>
+      <PrimaryLLDD>1</PrimaryLLDD>
+    </LLDDandHealthProblem>
+    <LLDDandHealthProblem>
+      <LLDDCat>5</LLDDCat>
+    </LLDDandHealthProblem>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>ZPROG001</LearnAimRef>
+      <AimType>1</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>36</FundModel>
+      <ProgType>2</ProgType>
+      <FworkCode>420</FworkCode>
+      <PwayCode>1111</PwayCode>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
       <LearningDeliveryFAM>
@@ -3904,7 +3999,7 @@
       <EPAOrgID>EPA1234</EPAOrgID>
       <CompStatus>1</CompStatus>
       <LearningDeliveryFAM>
-        <LearnDelFAMType>ACTA</LearnDelFAMType>
+        <LearnDelFAMType>ACT</LearnDelFAMType>
         <LearnDelFAMCode>1</LearnDelFAMCode>
         <LearnDelFAMDateFrom>2017-10-14</LearnDelFAMDateFrom>
       </LearningDeliveryFAM>
@@ -3959,7 +4054,7 @@
     <Postcode>ZZ99 9ZZ</Postcode>
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
-    <Email>myemail@myemail.com</Email>
+    <Email>myemail@myemail.com</Email> 
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
       <DateEmpStatApp>2017-06-10</DateEmpStatApp>
@@ -4107,6 +4202,188 @@
     </LearningDelivery>
   </Learner>
   <Learner>
+    <LearnRefNumber>L175ProSDOcc</LearnRefNumber>
+    <ULN>9900000705</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>2000-11-02</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>1</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LLDDandHealthProblem>
+      <LLDDCat>4</LLDDCat>
+    </LLDDandHealthProblem>
+    <LLDDandHealthProblem>
+      <LLDDCat>15</LLDDCat>
+      <PrimaryLLDD>1</PrimaryLLDD>
+    </LLDDandHealthProblem>
+    <LLDDandHealthProblem>
+      <LLDDCat>5</LLDDCat>
+    </LLDDandHealthProblem>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>ZPROG001</LearnAimRef>
+      <AimType>1</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>36</FundModel>
+      <ProgType>2</ProgType>
+      <FworkCode>420</FworkCode>
+      <PwayCode>1</PwayCode>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>ACT</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+        <LearnDelFAMDateFrom>2017-10-14</LearnDelFAMDateFrom>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <AppFinRecord>
+        <AFinType>TNP</AFinType>
+        <AFinCode>1</AFinCode>
+        <AFinDate>2017-10-14</AFinDate>
+        <AFinAmount>1200</AFinAmount>
+      </AppFinRecord>
+      <ProviderSpecDeliveryMonitoring>
+        <ProvSpecDelMonOccur>AB</ProvSpecDelMonOccur>
+        <ProvSpecDelMon>9900000403</ProvSpecDelMon>
+      </ProviderSpecDeliveryMonitoring>
+    </LearningDelivery>
+    <LearningDelivery>
+      <LearnAimRef>50104767</LearnAimRef>
+      <AimType>3</AimType>
+      <AimSeqNumber>2</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>36</FundModel>
+      <ProgType>2</ProgType>
+      <FworkCode>420</FworkCode>
+      <PwayCode>1</PwayCode>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
+    <LearnRefNumber>L176ProSDMon</LearnRefNumber>
+    <ULN>9900000705</ULN>
+    <FamilyName>Sméth</FamilyName>
+    <GivenNames>Mary Jane</GivenNames>
+    <DateOfBirth>2000-11-02</DateOfBirth>
+    <Ethnicity>31</Ethnicity>
+    <Sex>M</Sex>
+    <LLDDHealthProb>1</LLDDHealthProb>
+    <NINumber>LJ000000A</NINumber>
+    <PriorAttain>2</PriorAttain>
+    <PlanLearnHours>90</PlanLearnHours>
+    <PlanEEPHours>1</PlanEEPHours>
+    <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
+    <Postcode>ZZ99 9ZZ</Postcode>
+    <AddLine1>18 Address line road</AddLine1>
+    <TelNo>07855555555</TelNo>
+    <Email>myemail@myemail.com</Email>
+    <LLDDandHealthProblem>
+      <LLDDCat>4</LLDDCat>
+    </LLDDandHealthProblem>
+    <LLDDandHealthProblem>
+      <LLDDCat>15</LLDDCat>
+      <PrimaryLLDD>1</PrimaryLLDD>
+    </LLDDandHealthProblem>
+    <LLDDandHealthProblem>
+      <LLDDCat>5</LLDDCat>
+    </LLDDandHealthProblem>
+    <LearnerEmploymentStatus>
+      <EmpStat>10</EmpStat>
+      <DateEmpStatApp>2017-06-10</DateEmpStatApp>
+      <EmpId>154549452</EmpId>
+      <EmploymentStatusMonitoring>
+        <ESMType>EII</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+      <EmploymentStatusMonitoring>
+        <ESMType>LOE</ESMType>
+        <ESMCode>4</ESMCode>
+      </EmploymentStatusMonitoring>
+    </LearnerEmploymentStatus>
+    <LearningDelivery>
+      <LearnAimRef>ZPROG001</LearnAimRef>
+      <AimType>1</AimType>
+      <AimSeqNumber>1</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>36</FundModel>
+      <ProgType>2</ProgType>
+      <FworkCode>420</FworkCode>
+      <PwayCode>1</PwayCode>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>ACT</LearnDelFAMType>
+        <LearnDelFAMCode>1</LearnDelFAMCode>
+        <LearnDelFAMDateFrom>2017-10-14</LearnDelFAMDateFrom>
+      </LearningDeliveryFAM>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+      <AppFinRecord>
+        <AFinType>TNP</AFinType>
+        <AFinCode>1</AFinCode>
+        <AFinDate>2017-10-14</AFinDate>
+        <AFinAmount>1200</AFinAmount>
+      </AppFinRecord>
+      <ProviderSpecDeliveryMonitoring>
+        <ProvSpecDelMonOccur>A</ProvSpecDelMonOccur>
+        <ProvSpecDelMon>9900000403_Characters_more_than_20</ProvSpecDelMon>
+      </ProviderSpecDeliveryMonitoring>    
+    </LearningDelivery>
+    <LearningDelivery>
+      <LearnAimRef>50104767</LearnAimRef>
+      <AimType>3</AimType>
+      <AimSeqNumber>2</AimSeqNumber>
+      <LearnStartDate>2017-10-14</LearnStartDate>
+      <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
+      <FundModel>36</FundModel>
+      <ProgType>2</ProgType>
+      <FworkCode>420</FworkCode>
+      <PwayCode>1</PwayCode>
+      <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
+      <CompStatus>1</CompStatus>
+      <LearningDeliveryFAM>
+        <LearnDelFAMType>SOF</LearnDelFAMType>
+        <LearnDelFAMCode>105</LearnDelFAMCode>
+      </LearningDeliveryFAM>
+    </LearningDelivery>
+  </Learner>
+  <Learner>
     <LearnRefNumber>L185NUMHUS</LearnRefNumber>
     <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
@@ -4222,6 +4499,7 @@
       </LearningDeliveryFAM>
       <LearningDeliveryHE>
         <NUMHUS>2000812012XTT60021</NUMHUS>
+        <SSN>WADM4689135211A</SSN>
         <QUALENT3>X06</QUALENT3>
         <UCASAPPID>AB89</UCASAPPID>
         <TYPEYR>1</TYPEYR>
@@ -4357,6 +4635,7 @@
       <LearningDeliveryHE>
         <NUMHUS>2000812012XTT60021</NUMHUS>
         <QUALENT3>X06</QUALENT3>
+        <SOC2000>11199</SOC2000>
         <UCASAPPID>AB89</UCASAPPID>
         <TYPEYR>1</TYPEYR>
         <MODESTUD>99</MODESTUD>
@@ -4424,6 +4703,7 @@
       <LearningDeliveryHE>
         <NUMHUS>2000812012XTT60021</NUMHUS>
         <QUALENT3>X06</QUALENT3>
+        <SEC>11</SEC>
         <UCASAPPID>AB89</UCASAPPID>
         <TYPEYR>1</TYPEYR>
         <MODESTUD>99</MODESTUD>
@@ -5034,7 +5314,7 @@
         <FUNDCOMP>3</FUNDCOMP>
         <STULOAD>10.0</STULOAD>
         <YEARSTU>1</YEARSTU>
-        <MSTUFEE>1</MSTUFEE>
+        <PCOLAB>10009</PCOLAB>
         <PCFLDCS>99.0</PCFLDCS>
         <SPECFEE>9</SPECFEE>
         <NETFEE>0</NETFEE>
