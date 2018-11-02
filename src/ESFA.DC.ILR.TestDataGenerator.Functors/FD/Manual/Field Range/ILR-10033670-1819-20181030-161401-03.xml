@@ -20,7 +20,8 @@
   </LearningProvider>
   <Learner>
     <LearnRefNumber>R75PrevUKPRN</LearnRefNumber>
-    <PrevLearnRefNumber>9999999</PrevLearnRefNumber>
+    <PrevLearnRefNumber>99999999</PrevLearnRefNumber>
+    <PrevUKPRN>9999999</PrevUKPRN>
     <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
@@ -70,7 +71,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>R76PMUKPRN</LearnRefNumber>
-    <PMUKPRN>100000000</PMUKPRN>
+    <PMUKPRN>9999999</PMUKPRN>
     <ULN>9900000403</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
@@ -120,7 +121,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>R77ULN</LearnRefNumber>
-    <ULN>999999999</ULN>
+    <ULN>999999999 </ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
@@ -184,7 +185,7 @@
     <LLDDHealthProb>2</LLDDHealthProb>
     <NINumber>LJ000000A</NINumber>
     <PriorAttain>2</PriorAttain>
-    <ALSCost>1000000</ALSCost>
+    <ALSCost>-9999</ALSCost>
     <PlanLearnHours>90</PlanLearnHours>
     <PlanEEPHours>1</PlanEEPHours>
     <MathGrade>NONE</MathGrade>
@@ -238,7 +239,7 @@
     <LLDDHealthProb>2</LLDDHealthProb>
     <NINumber>LJ000000A</NINumber>
     <PriorAttain>2</PriorAttain>
-    <PlanLearnHours>10000</PlanLearnHours>
+    <PlanLearnHours>-99</PlanLearnHours>
     <PlanEEPHours>1</PlanEEPHours>
     <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
     <Postcode>ZZ99 9ZZ</Postcode>
@@ -294,7 +295,7 @@
     <NINumber>LJ000000A</NINumber>
     <PriorAttain>2</PriorAttain>
     <PlanLearnHours>90</PlanLearnHours>
-    <PlanEEPHours>10000</PlanEEPHours>
+    <PlanEEPHours>-99</PlanEEPHours>
     <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
     <Postcode>ZZ99 9ZZ</Postcode>
     <AddLine1>18 Address line road</AddLine1>
@@ -438,7 +439,7 @@
       <UCASPERID>9999911111</UCASPERID>
       <LearnerHEFinancialSupport>
         <FINTYPE>1</FINTYPE>
-        <FINAMOUNT>1000000</FINAMOUNT>
+        <FINAMOUNT>-999</FINAMOUNT>
       </LearnerHEFinancialSupport>
     </LearnerHE>
     <LearningDelivery>
@@ -852,13 +853,13 @@
         <AFinType>TNP</AFinType>
         <AFinCode>1</AFinCode>
         <AFinDate>2017-10-14</AFinDate>
-        <AFinAmount>1000001</AFinAmount>
+        <AFinAmount>10000</AFinAmount>
       </AppFinRecord>
       <AppFinRecord>
         <AFinType>TNP</AFinType>
         <AFinCode>2</AFinCode>
         <AFinDate>2017-10-14</AFinDate>
-        <AFinAmount></AFinAmount>
+        <AFinAmount>-20</AFinAmount>
       </AppFinRecord>
     </LearningDelivery>
     <LearningDelivery>
@@ -1070,7 +1071,8 @@
         <STULOAD>10.0</STULOAD>
         <YEARSTU>1</YEARSTU>
         <MSTUFEE>1</MSTUFEE>
-        <PCFLDCS></PCFLDCS>
+        <PCOLAB>101.0</PCOLAB>
+        <PCFLDCS>1</PCFLDCS>
         <SPECFEE>9</SPECFEE>
         <NETFEE>0</NETFEE>
         <GROSSFEE>1</GROSSFEE>
@@ -1478,7 +1480,7 @@
     </LearningDelivery>
   </Learner>
   <LearnerDestinationandProgression>
-    <LearnRefNumber>M218DPULN</LearnRefNumber>
+    <LearnRefNumber>R221DPULN</LearnRefNumber>
     <ULN>999999999</ULN>
     <DPOutcome>
       <OutType>EMP</OutType>

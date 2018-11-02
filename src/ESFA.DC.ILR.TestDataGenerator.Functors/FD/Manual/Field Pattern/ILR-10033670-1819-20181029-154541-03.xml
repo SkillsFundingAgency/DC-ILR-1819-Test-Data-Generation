@@ -20,7 +20,7 @@
   </LearningProvider>
   <Learner>
     <LearnRefNumber>P1-LrnRef</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000001</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
@@ -74,9 +74,9 @@
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>P2@PreLrnRef</LearnRefNumber>
-    <PrevLearnRefNumber></PrevLearnRefNumber>
-    <ULN>9900000004</ULN>
+    <LearnRefNumber>P2PreLrnRef</LearnRefNumber>
+    <PrevLearnRefNumber>P2@PreLrnRef</PrevLearnRefNumber>
+    <ULN>9900000002</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-07-14</DateOfBirth>
@@ -125,7 +125,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P3FamilyNam</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000003</ULN>
     <FamilyName>1NotValidSurname</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
@@ -182,7 +182,7 @@
     <LearnRefNumber>P4GivenName</LearnRefNumber>
     <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
-    <GivenNames>Invalid   GivenName</GivenNames>
+    <GivenNames>Invalid[]GivenName</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
     <Ethnicity>31</Ethnicity>
     <Sex>M</Sex>
@@ -235,12 +235,12 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P5Sex</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000005</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
     <Ethnicity>31</Ethnicity>
-    <Sex>1</Sex>
+    <Sex>@</Sex>
     <LLDDHealthProb>2</LLDDHealthProb>
     <NINumber>LJ000000A</NINumber>
     <PriorAttain>2</PriorAttain>
@@ -290,14 +290,14 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P6NINumber</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000006</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
     <Ethnicity>31</Ethnicity>
     <Sex>M</Sex>
     <LLDDHealthProb>2</LLDDHealthProb>
-    <NINumber>A123456YZ</NINumber>
+    <NINumber>AA12345YZ</NINumber>
     <PriorAttain>2</PriorAttain>
     <PlanLearnHours>90</PlanLearnHours>
     <PlanEEPHours>1</PlanEEPHours>
@@ -346,7 +346,7 @@
   <Learner>
     <LearnRefNumber>P7MathGrade</LearnRefNumber>
     <PrevLearnRefNumber>1OldRef</PrevLearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000007</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-07-14</DateOfBirth>
@@ -357,7 +357,7 @@
     <PriorAttain>2</PriorAttain>
     <PlanLearnHours>90</PlanLearnHours>
     <PlanEEPHours>1</PlanEEPHours>
-    <MathGrade>1PA</MathGrade>
+    <MathGrade>PA@</MathGrade>
     <EngGrade>NONE</EngGrade>
     <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
     <Postcode>ZZ99 9ZZ</Postcode>
@@ -396,7 +396,7 @@
   <Learner>
     <LearnRefNumber>P8EngGrade</LearnRefNumber>
     <PrevLearnRefNumber>2OldRef</PrevLearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000008</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-07-14</DateOfBirth>
@@ -408,7 +408,7 @@
     <PlanLearnHours>90</PlanLearnHours>
     <PlanEEPHours>1</PlanEEPHours>
     <MathGrade>NONE</MathGrade>
-    <EngGrade>@DS</EngGrade>
+    <EngGrade>DS1</EngGrade>
     <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
     <Postcode>ZZ99 9ZZ</Postcode>
     <AddLine1>18 Address line road</AddLine1>
@@ -445,7 +445,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P9PriPostCd</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000009</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
@@ -456,7 +456,7 @@
     <PriorAttain>2</PriorAttain>
     <PlanLearnHours>90</PlanLearnHours>
     <PlanEEPHours>1</PlanEEPHours>
-    <PostcodePrior>11AA BB22</PostcodePrior>
+    <PostcodePrior>11AA B22</PostcodePrior>
     <Postcode>ZZ99 9ZZ</Postcode>
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
@@ -500,7 +500,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P10Postcode</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000014</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
@@ -512,7 +512,7 @@
     <PlanLearnHours>90</PlanLearnHours>
     <PlanEEPHours>1</PlanEEPHours>
     <PostcodePrior>ZZ99 9ZZ</PostcodePrior>
-    <Postcode>NN4 *RR</Postcode>
+    <Postcode>NN RR</Postcode>
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
     <Email>myemail@myemail.com</Email>
@@ -555,7 +555,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P11AddLine1</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000024</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
@@ -610,7 +610,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P12AddLine2</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000034</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-07-14</DateOfBirth>
@@ -660,7 +660,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P13AddLine3</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000044</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-07-14</DateOfBirth>
@@ -710,7 +710,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P14AddLine4</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000054</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-07-14</DateOfBirth>
@@ -760,7 +760,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P15TelNo</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000064</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
@@ -815,7 +815,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P16Email</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000074</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
@@ -830,7 +830,7 @@
     <Postcode>ZZ99 9ZZ</Postcode>
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
-    <Email>mary.jane@.com</Email>
+    <Email>mary.jane.com</Email>
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
       <DateEmpStatApp>2017-06-10</DateEmpStatApp>
@@ -870,7 +870,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P17ContPrfTy</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000084</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>2000-11-02</DateOfBirth>
@@ -889,12 +889,8 @@
     <TelNo>07855555555</TelNo>
     <Email>myemail@myemail.com</Email>
     <ContactPreference>
-      <ContPrefType>RU1</ContPrefType>
+      <ContPrefType>RU</ContPrefType>
       <ContPrefCode>1</ContPrefCode>
-    </ContactPreference>
-    <ContactPreference>
-      <ContPrefType>RUI</ContPrefType>
-      <ContPrefCode>2</ContPrefCode>
     </ContactPreference>
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
@@ -927,7 +923,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P18LrnFAMTyp</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000094</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
@@ -943,6 +939,10 @@
     <AddLine1>18 Address line road</AddLine1>
     <TelNo>07855555555</TelNo>
     <Email>myemail@myemail.com</Email>
+    <LearnerFAM>
+      <LearnFAMType>H@S</LearnFAMType>
+      <LearnFAMCode>1</LearnFAMCode>
+    </LearnerFAM>
     <LearnerEmploymentStatus>
       <EmpStat>10</EmpStat>
       <DateEmpStatApp>2017-06-10</DateEmpStatApp>
@@ -999,7 +999,7 @@
     <TelNo>07855555555</TelNo>
     <Email>myemail@myemail.com</Email>
     <ProviderSpecLearnerMonitoring>
-      <ProvSpecLearnMonOccur>1</ProvSpecLearnMonOccur>
+      <ProvSpecLearnMonOccur>C</ProvSpecLearnMonOccur>
       <ProvSpecLearnMon>9900000403</ProvSpecLearnMon>
     </ProviderSpecLearnerMonitoring>
     <ProviderSpecLearnerMonitoring>
@@ -1108,7 +1108,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P21ESMType</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000104</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
@@ -1129,7 +1129,7 @@
       <DateEmpStatApp>2017-06-10</DateEmpStatApp>
       <EmpId>154549452</EmpId>
       <EmploymentStatusMonitoring>
-        <ESMType>E11</ESMType>
+        <ESMType>ESI</ESMType>
         <ESMCode>4</ESMCode>
       </EmploymentStatusMonitoring>
       <EmploymentStatusMonitoring>
@@ -1163,7 +1163,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P22UCASPERID</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000204</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-11-03</DateOfBirth>
@@ -1230,7 +1230,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P23LearnAim</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000304</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
@@ -1260,8 +1260,7 @@
       </EmploymentStatusMonitoring>
     </LearnerEmploymentStatus>
     <LearningDelivery>
-      <LearnAimRef>@6013-3530</LearnAimRef>
-
+      <LearnAimRef>6013-30</LearnAimRef>
       <AimType>4</AimType>
       <AimSeqNumber>1</AimSeqNumber>
       <LearnStartDate>2017-10-14</LearnStartDate>
@@ -1286,7 +1285,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P24DelLocPo</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000404</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
@@ -1322,7 +1321,7 @@
       <LearnStartDate>2017-10-14</LearnStartDate>
       <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
       <FundModel>35</FundModel>
-      <DelLocPostCode>ZZ@! 1AA</DelLocPostCode>
+      <DelLocPostCode>ZZ!1AA</DelLocPostCode>
       <CompStatus>1</CompStatus>
       <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
       <LearningDeliveryFAM>
@@ -1341,7 +1340,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P25ConRefNum</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000504</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-11-03</DateOfBirth>
@@ -1378,7 +1377,7 @@
       <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
       <FundModel>70</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
-      <ConRefNumber>ESF-AB99999</ConRefNumber>
+      <ConRefNumber>ESFA999999</ConRefNumber>
       <CompStatus>1</CompStatus>
       <SWSupAimId>6eda36a5-6d6c-4048-8d5c-b15a459a91d9</SWSupAimId>
       <LearningDeliveryFAM>
@@ -1413,7 +1412,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P26EPAOrgID</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000604</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-07-14</DateOfBirth>
@@ -1537,7 +1536,7 @@
       <CompStatus>2</CompStatus>
       <LearnActEndDate>2017-11-28</LearnActEndDate>
       <Outcome>1</Outcome>
-      <OutGrade>@123</OutGrade>
+      <OutGrade>PA12</OutGrade>
       <SWSupAimId>8d3fb5ed-cad8-4932-9f33-f04797c7e274</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
@@ -1547,7 +1546,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P28SWSupAim</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000704</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
@@ -1585,7 +1584,7 @@
       <FundModel>35</FundModel>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
-      <SWSupAimId>8d3fb5ed-cad8_4932_9f33-f04797c7e274</SWSupAimId>
+      <SWSupAimId>8d3fb5ed-cad84932_-f04797c7e274</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
         <LearnDelFAMCode>105</LearnDelFAMCode>
@@ -1602,7 +1601,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P29LrnDFAMTy</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000804</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
@@ -1642,7 +1641,7 @@
       <CompStatus>1</CompStatus>
       <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
       <LearningDeliveryFAM>
-        <LearnDelFAMType>@12</LearnDelFAMType>
+        <LearnDelFAMType>PPP</LearnDelFAMType>
         <LearnDelFAMCode>105</LearnDelFAMCode>
       </LearningDeliveryFAM>
       <LearningDeliveryFAM>
@@ -1657,7 +1656,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P30LrnDFAMCd</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000904</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-10-31</DateOfBirth>
@@ -1698,7 +1697,7 @@
       <SWSupAimId>72ab5f28-48b5-4d71-be2b-a9a6962c16f3</SWSupAimId>
       <LearningDeliveryFAM>
         <LearnDelFAMType>SOF</LearnDelFAMType>
-        <LearnDelFAMCode>A</LearnDelFAMCode>
+        <LearnDelFAMCode>@</LearnDelFAMCode>
       </LearningDeliveryFAM>
       <LearningDeliveryFAM>
         <LearnDelFAMType>FFI</LearnDelFAMType>
@@ -1712,7 +1711,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P31AFinType</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900001004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-07-14</DateOfBirth>
@@ -1754,7 +1753,7 @@
       <EPAOrgID>EPA1234</EPAOrgID>
       <CompStatus>1</CompStatus>
       <LearningDeliveryFAM>
-        <LearnDelFAMType>ACTA</LearnDelFAMType>
+        <LearnDelFAMType>ACT</LearnDelFAMType>
         <LearnDelFAMCode>1</LearnDelFAMCode>
         <LearnDelFAMDateFrom>2017-10-14</LearnDelFAMDateFrom>
       </LearningDeliveryFAM>
@@ -1794,7 +1793,7 @@
   </Learner>  
   <Learner>
     <LearnRefNumber>P32ProSpDelO</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900002004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-07-14</DateOfBirth>
@@ -1856,6 +1855,10 @@
         <AFinDate>2017-10-14</AFinDate>
         <AFinAmount>500</AFinAmount>
       </AppFinRecord>
+      <ProviderSpecDeliveryMonitoring>
+        <ProvSpecDelMonOccur>E</ProvSpecDelMonOccur>
+        <ProvSpecDelMon>9900000403</ProvSpecDelMon>
+      </ProviderSpecDeliveryMonitoring>
     </LearningDelivery>
     <LearningDelivery>
       <LearnAimRef>50104767</LearnAimRef>
@@ -1876,7 +1879,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P33ProSpDelM</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900003004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-07-14</DateOfBirth>
@@ -1938,6 +1941,10 @@
         <AFinDate>2017-10-14</AFinDate>
         <AFinAmount>20</AFinAmount>
       </AppFinRecord>
+      <ProviderSpecDeliveryMonitoring>
+        <ProvSpecDelMonOccur>A</ProvSpecDelMonOccur>
+        <ProvSpecDelMon>9900ab0403</ProvSpecDelMon>
+      </ProviderSpecDeliveryMonitoring>
     </LearningDelivery>
     <LearningDelivery>
       <LearnAimRef>50104767</LearnAimRef>
@@ -1958,7 +1965,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P34NUMHUS</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900004004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>2000-11-02</DateOfBirth>
@@ -2004,7 +2011,7 @@
         <LearnDelFAMCode>107</LearnDelFAMCode>
       </LearningDeliveryFAM>
       <LearningDeliveryHE>
-        <NUMHUS>2000812012-@TT60021</NUMHUS>
+        <NUMHUS>X-@T1</NUMHUS>
         <QUALENT3>X06</QUALENT3>
         <UCASAPPID>AB89</UCASAPPID>
         <TYPEYR>1</TYPEYR>
@@ -2025,7 +2032,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P35SSN</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900005004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>2000-11-02</DateOfBirth>
@@ -2072,6 +2079,7 @@
       </LearningDeliveryFAM>
       <LearningDeliveryHE>
         <NUMHUS>2000812012XTT60021</NUMHUS>
+        <SSN>WADM46-/11A</SSN>
         <QUALENT3>X06</QUALENT3>
         <UCASAPPID>AB89</UCASAPPID>
         <TYPEYR>1</TYPEYR>
@@ -2092,7 +2100,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P36QUALENT3</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900006004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>2000-11-02</DateOfBirth>
@@ -2139,7 +2147,7 @@
       </LearningDeliveryFAM>
       <LearningDeliveryHE>
         <NUMHUS>2000812012XTT60021</NUMHUS>
-        <QUALENT3>1AB</QUALENT3>
+        <QUALENT3>A%B</QUALENT3>
         <UCASAPPID>AB89</UCASAPPID>
         <TYPEYR>1</TYPEYR>
         <MODESTUD>99</MODESTUD>
@@ -2159,7 +2167,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P37UCASAPPID</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900007004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>2000-11-02</DateOfBirth>
@@ -2226,7 +2234,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P38DOMICILE</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900008004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>2000-11-02</DateOfBirth>
@@ -2286,14 +2294,14 @@
         <SPECFEE>9</SPECFEE>
         <NETFEE>0</NETFEE>
         <GROSSFEE>1</GROSSFEE>
-        <DOMICILE>1A</DOMICILE>
+        <DOMICILE>99</DOMICILE>
         <ELQ>9</ELQ>
       </LearningDeliveryHE>
     </LearningDelivery>
   </Learner>
   <Learner>
     <LearnRefNumber>P39HEPostCod</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900009004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-11-03</DateOfBirth>
@@ -2335,13 +2343,13 @@
         <GROSSFEE>30000</GROSSFEE>
         <DOMICILE>ZZ</DOMICILE>
         <ELQ>9</ELQ>
-        <HEPostCode>CV21 123</HEPostCode>
+        <HEPostCode>CV21 F23</HEPostCode>
       </LearningDeliveryHE>
     </LearningDelivery>
   </Learner>        
   <Learner>
     <LearnRefNumber>P40DPLrnRef</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000114</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-11-03</DateOfBirth>
@@ -2396,7 +2404,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>P41DPOutType</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000124</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-11-03</DateOfBirth>
@@ -2451,7 +2459,7 @@
   </Learner>
   <Learner>
     <LearnRefNumber>227L_DP_OutC</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000134</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
     <DateOfBirth>1998-11-03</DateOfBirth>
@@ -2506,7 +2514,7 @@
   </Learner>
   <LearnerDestinationandProgression>
     <LearnRefNumber>P40_DPLrnRf</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>99000000144</ULN>
     <DPOutcome>
       <OutType>VOL</OutType>
       <OutCode>1</OutCode>
@@ -2516,7 +2524,7 @@
   </LearnerDestinationandProgression>
   <LearnerDestinationandProgression>
     <LearnRefNumber>P41DPOutType</LearnRefNumber>
-    <ULN>9900000004</ULN>
+    <ULN>9900000154</ULN>
     <DPOutcome>
       <OutType>V0L</OutType>
       <OutCode>1</OutCode>
