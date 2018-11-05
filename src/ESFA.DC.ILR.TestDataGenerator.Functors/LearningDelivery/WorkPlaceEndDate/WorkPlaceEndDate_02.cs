@@ -37,6 +37,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateLearner(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
             learner.LearningDelivery[0].LearnAimRef = "Z0007834";
             if (valid)
             {
