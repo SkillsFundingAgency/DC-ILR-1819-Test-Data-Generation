@@ -174,6 +174,5 @@ namespace DCT.TestDataGenerator.Functor
         {
             options.OverrideUKPRN = _dataCache.OrganisationWithLegalType(LegalOrgType.USDC).UKPRN;
         }
-
     }
 }
