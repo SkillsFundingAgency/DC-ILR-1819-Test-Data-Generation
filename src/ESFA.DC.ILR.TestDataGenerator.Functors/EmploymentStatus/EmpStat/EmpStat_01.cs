@@ -89,7 +89,7 @@ namespace DCT.TestDataGenerator.Functor
             Mutate(learner, valid);
             if (!valid)
             {
-                learner.LearningDelivery[0].ProgType = 24;
+                learner.LearningDelivery[0].ProgType = (int)ProgType.Traineeship;
                 learner.LearningDelivery[0].ProgTypeSpecified = true;
             }
         }
