@@ -14,7 +14,7 @@ namespace DCT.TestDataGenerator.Functor
 
         public FilePreparationDateRequired FilePreparationDate()
         {
-            return FilePreparationDateRequired.None;
+            return FilePreparationDateRequired.July;
         }
 
         public string RuleName()
@@ -55,11 +55,11 @@ namespace DCT.TestDataGenerator.Functor
             }
 
             foreach (var les in learner.LearnerEmploymentStatus)
-                {
-                    les.DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate.AddDays(-1);
-                    les.DateEmpStatAppSpecified = true;
-                    les.EmpStatSpecified = true;
-                    les.EmpStat = 98;
+            {
+                les.DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate.AddDays(-1);
+                les.DateEmpStatAppSpecified = true;
+                les.EmpStatSpecified = true;
+                les.EmpStat = 98;
             }
         }
 
@@ -174,5 +174,6 @@ namespace DCT.TestDataGenerator.Functor
         {
             options.OverrideUKPRN = _dataCache.OrganisationWithLegalType(LegalOrgType.USDC).UKPRN;
         }
+
     }
 }
