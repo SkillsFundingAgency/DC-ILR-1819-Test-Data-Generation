@@ -6,7 +6,7 @@ using DCT.ILR.Model;
 
 namespace DCT.TestDataGenerator.Functor
 {
-    public class LearnAimRef_78
+    public class LearnAimRef_84
         : ILearnerMultiMutator
     {
         private ILearnerCreatorDataCache _dataCache;
@@ -19,12 +19,12 @@ namespace DCT.TestDataGenerator.Functor
 
         public string RuleName()
         {
-            return "LearnAimRef_78";
+            return "LearnAimRef_84";
         }
 
         public string LearnerReferenceNumberStub()
         {
-            return "LAimR78";
+            return "LAimR84";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
@@ -40,7 +40,6 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateSteelInd, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateRestarts, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateCategoryRef, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateCategoryRef, DoMutateOptions = MutateGenerationOptionsSPecialistCollege, ExclusionRecord = true }
             };
         }
 
@@ -48,18 +47,18 @@ namespace DCT.TestDataGenerator.Functor
         {
             foreach (var ld in learner.LearningDelivery)
             {
-                ld.LearnStartDate = new DateTime(2016, 07, 31).AddDays(1);
+                ld.LearnStartDate = new DateTime(2017, 07, 31).AddDays(1);
                 var ldfams = ld.LearningDeliveryFAM.ToList();
                 learner.DateOfBirth = ld.LearnStartDate.AddYears(-23);
                 ld.LearnAimRef = "10034055";
             }
 
             foreach (var les in learner.LearnerEmploymentStatus)
-                {
-                    les.DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate.AddDays(-1);
-                    les.DateEmpStatAppSpecified = true;
-                    les.EmpStatSpecified = true;
-                    les.EmpStat = 98;
+            {
+                les.DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate.AddDays(-1);
+                les.DateEmpStatAppSpecified = true;
+                les.EmpStatSpecified = true;
+                les.EmpStat = 98;
             }
         }
 
@@ -82,7 +81,7 @@ namespace DCT.TestDataGenerator.Functor
             {
                 foreach (var ld in learner.LearningDelivery)
                 {
-                    ld.LearnStartDate = new DateTime(2017, 08, 01).AddDays(1);
+                    ld.LearnStartDate = new DateTime(2017, 07, 31).AddDays(-1);
                 }
             }
         }
@@ -168,11 +167,6 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateGenerationOptions(GenerationOptions options)
         {
-        }
-
-        private void MutateGenerationOptionsSPecialistCollege(GenerationOptions options)
-        {
-            options.OverrideUKPRN = _dataCache.OrganisationWithLegalType(LegalOrgType.USDC).UKPRN;
         }
     }
 }
