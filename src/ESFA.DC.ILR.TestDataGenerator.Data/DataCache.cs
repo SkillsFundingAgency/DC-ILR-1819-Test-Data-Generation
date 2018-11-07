@@ -8,7 +8,7 @@ namespace DCT.TestDataGenerator
     public class DataCache : ILearnerCreatorDataCache
     {
         const int _MaximumLearnRefLength = 12;
-        const string _ESFContractNumber = "ESF-1234567";
+        const string _ESFContractNumber = "ESF-2228";
 
         SerializableDataCache _serializable;
 

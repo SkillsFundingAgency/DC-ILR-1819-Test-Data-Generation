@@ -411,9 +411,15 @@ namespace DCT.TestDataGenerator
             learner.ProviderSpecLearnerMonitoring = ifam.ToArray();
         }
 
-        public static void AddAfninRecord(MessageLearner learner, string afinType, int afinCode, int amount)
+        public static void AddAfninRecord(MessageLearner learner, string afinType, int afinCode, int amount, int count = 1, string afinType2 = "PMR", int afinCode2 = 1, int amount2 = 1)
         {
-            var appFinRec = learner.LearningDelivery[0].AppFinRecord.ToList();
+            List<MessageLearnerLearningDeliveryAppFinRecord> appFinRec = new List<MessageLearnerLearningDeliveryAppFinRecord>();
+
+            if (learner.LearningDelivery[0].AppFinRecord?.Length > 0)
+            {
+                appFinRec = learner.LearningDelivery[0].AppFinRecord.ToList();
+            }
+
             appFinRec.Add(new MessageLearnerLearningDeliveryAppFinRecord()
             {
                 AFinType = afinType,
@@ -424,6 +430,20 @@ namespace DCT.TestDataGenerator
                 AFinDateSpecified = true,
                 AFinDate = learner.LearningDelivery[0].LearnStartDate
             });
+
+            if (count > 1)
+            {
+                appFinRec.Add(new MessageLearnerLearningDeliveryAppFinRecord()
+                {
+                    AFinType = afinType2,
+                    AFinCodeSpecified = true,
+                    AFinCode = afinCode2,
+                    AFinAmountSpecified = true,
+                    AFinAmount = amount2,
+                    AFinDateSpecified = true,
+                    AFinDate = learner.LearningDelivery[0].LearnStartDate
+                });
+            }
 
             learner.LearningDelivery[0].AppFinRecord = appFinRec.ToArray();
         }

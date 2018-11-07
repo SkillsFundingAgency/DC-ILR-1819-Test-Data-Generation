@@ -35,6 +35,7 @@ namespace DCT.TestDataGenerator.Functor
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.YP1619, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = MutateESF, DoMutateOptions = MutateOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateExp, DoMutateOptions = MutateOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.CommunityLearning, DoMutateLearner = MutateCommunity, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, DoMutateProgression = MutateProgression, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateProgType, DoMutateOptions = MutateOptions, ExclusionRecord = true },
@@ -50,6 +51,17 @@ namespace DCT.TestDataGenerator.Functor
             if (!valid)
             {
                 MutateInvalid(learner, valid);
+            }
+        }
+
+        private void MutateExp(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+            MutateValid(learner, valid);
+
+            if (!valid)
+            {
+                MutateInvalidExp(learner, valid);
             }
         }
 
@@ -110,6 +122,19 @@ namespace DCT.TestDataGenerator.Functor
                 lds.CompStatus = (int)CompStatus.BreakInLearning;
                 lds.OutcomeSpecified = true;
                 lds.Outcome = (int)Outcome.NoAchievement;
+            }
+        }
+
+        private void MutateInvalidExp(MessageLearner learner, bool valid)
+        {
+            foreach (var ld in learner.LearningDelivery)
+            {
+                ld.LearnActEndDateSpecified = true;
+                ld.LearnActEndDate = DateTime.Now;
+                ld.CompStatusSpecified = true;
+                ld.CompStatus = (int)CompStatus.Withdrawn;
+                ld.OutcomeSpecified = true;
+                ld.Outcome = (int)Outcome.NoAchievement;
             }
         }
 

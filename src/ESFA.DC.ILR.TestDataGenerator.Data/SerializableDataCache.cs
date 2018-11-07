@@ -10,7 +10,7 @@ namespace DCT.TestDataGenerator
     public class SerializableDataCache
     {
         const int _MaximumLearnRefLength = 12;
-        const string _ESFContractNumber = "ESF-1234567";
+        const string _ESFContractNumber = "ESF-2228";
 
         public Dictionary<ProgType, ApprenticeshipProgrammeTypeAim> _apprenticeShipAims;
         public List<string> _gcseGrades;
@@ -583,7 +583,21 @@ namespace DCT.TestDataGenerator
                     {
                         UKPRN = 10001639
                     }
-                }
+                },
+                {
+                LegalOrgType.AEBC,
+                    new Organisation()
+                    {
+                        UKPRN = 10036143
+                    }
+                },
+                {
+                LegalOrgType.ALLB,
+                    new Organisation()
+                    {
+                        UKPRN = 10000421
+                    }
+            }
             };
         }
 

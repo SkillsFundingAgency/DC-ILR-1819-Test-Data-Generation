@@ -311,7 +311,9 @@
         USFC,
         USDC,
         UHEO,
-        PLBG
+        PLBG,
+        AEBC,
+        ALLB
     }
 
     public enum LearnDelFAMCode
