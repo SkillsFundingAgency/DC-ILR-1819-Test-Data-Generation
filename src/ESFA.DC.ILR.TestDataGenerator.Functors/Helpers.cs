@@ -413,7 +413,13 @@ namespace DCT.TestDataGenerator
 
         public static void AddAfninRecord(MessageLearner learner, string afinType, int afinCode, int amount, int count = 1, string afinType2 = "PMR", int afinCode2 = 1, int amount2 = 1)
         {
-            var appFinRec = learner.LearningDelivery[0].AppFinRecord.ToList();
+            List<MessageLearnerLearningDeliveryAppFinRecord> appFinRec = new List<MessageLearnerLearningDeliveryAppFinRecord>();
+
+            if (learner.LearningDelivery[0].AppFinRecord?.Length > 0)
+            {
+                appFinRec = learner.LearningDelivery[0].AppFinRecord.ToList();
+            }
+
             appFinRec.Add(new MessageLearnerLearningDeliveryAppFinRecord()
             {
                 AFinType = afinType,
