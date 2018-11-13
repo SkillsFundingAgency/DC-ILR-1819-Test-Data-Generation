@@ -647,6 +647,7 @@ namespace DCT.TestDataGenerator
                 ld.DelLocPostCode = "ZZ99 9ZZ";
                 ld.CompStatus = (long)CompStatus.Continuing;
                 ld.CompStatusSpecified = true;
+                ld.SWSupAimId = Guid.NewGuid().ToString();
 
                 ld.FworkCode = 420;
                 ld.FworkCodeSpecified = true;
@@ -686,6 +687,7 @@ namespace DCT.TestDataGenerator
             ld.LearnPlanEndDateSpecified = true;
             ld.DelLocPostCode = "ZZ99 9ZZ";
             ld.CompStatus = (long)CompStatus.Continuing;
+            ld.SWSupAimId = Guid.NewGuid().ToString();
             ld.CompStatusSpecified = true;
             if (Options.LD.IncludeContract)
             {
@@ -721,6 +723,7 @@ namespace DCT.TestDataGenerator
             ld.DelLocPostCode = "ZZ99 9ZZ";
             ld.CompStatus = (long)CompStatus.Continuing;
             ld.CompStatusSpecified = true;
+            ld.SWSupAimId = Guid.NewGuid().ToString();
 
             ld.FworkCode = 420;
             ld.FworkCodeSpecified = true;

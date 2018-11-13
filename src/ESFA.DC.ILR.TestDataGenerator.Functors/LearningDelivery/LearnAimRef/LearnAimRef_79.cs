@@ -6,7 +6,7 @@ using DCT.ILR.Model;
 
 namespace DCT.TestDataGenerator.Functor
 {
-    public class LearnAimRef_78
+    public class LearnAimRef_79
         : ILearnerMultiMutator
     {
         private ILearnerCreatorDataCache _dataCache;
@@ -14,17 +14,17 @@ namespace DCT.TestDataGenerator.Functor
 
         public FilePreparationDateRequired FilePreparationDate()
         {
-            return FilePreparationDateRequired.July;
+            return FilePreparationDateRequired.None;
         }
 
         public string RuleName()
         {
-            return "LearnAimRef_78";
+            return "LearnAimRef_79";
         }
 
         public string LearnerReferenceNumberStub()
         {
-            return "LAimR78";
+            return "LAimR79";
         }
 
         public IEnumerable<LearnerTypeMutator> LearnerMutators(ILearnerCreatorDataCache cache)
@@ -32,15 +32,13 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateCategoryRef, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateNVQ2, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLearnStartDate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateNVQ2, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateDD07, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLDM, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateSteelInd, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateRestarts, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateCategoryRef, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateCategoryRef, DoMutateOptions = MutateGenerationOptionsSPecialistCollege, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.OtherAdult, DoMutateLearner = MutateNVQ2, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
             };
         }
 
@@ -55,22 +53,22 @@ namespace DCT.TestDataGenerator.Functor
             }
 
             foreach (var les in learner.LearnerEmploymentStatus)
-            {
-                les.DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate.AddDays(-1);
-                les.DateEmpStatAppSpecified = true;
-                les.EmpStatSpecified = true;
-                les.EmpStat = 98;
+                {
+                    les.DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate.AddDays(-1);
+                    les.DateEmpStatAppSpecified = true;
+                    les.EmpStatSpecified = true;
+                    les.EmpStat = 98;
             }
         }
 
-        private void MutateCategoryRef(MessageLearner learner, bool valid)
+        private void MutateNVQ2(MessageLearner learner, bool valid)
         {
             MutateLearner(learner, valid);
             if (!valid)
             {
                 foreach (var ld in learner.LearningDelivery)
                 {
-                    ld.LearnAimRef = "60186367";
+                    ld.LearnAimRef = "60126887";
                 }
             }
         }
@@ -82,26 +80,14 @@ namespace DCT.TestDataGenerator.Functor
             {
                 foreach (var ld in learner.LearningDelivery)
                 {
-                    ld.LearnStartDate = new DateTime(2017, 08, 01).AddDays(1);
-                }
-            }
-        }
-
-        private void MutateNVQ2(MessageLearner learner, bool valid)
-        {
-            MutateLearner(learner, valid);
-            if (!valid)
-            {
-                foreach (var ld in learner.LearningDelivery)
-                {
-                    ld.LearnAimRef = "50079190";
+                    ld.LearnStartDate = new DateTime(2016, 07, 31).AddDays(-1);
                 }
             }
         }
 
         private void MutateDD07(MessageLearner learner, bool valid)
         {
-            MutateCategoryRef(learner, valid);
+            MutateNVQ2(learner, valid);
             if (!valid)
             {
                 foreach (var ld in learner.LearningDelivery)
@@ -114,7 +100,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateLDM(MessageLearner learner, bool valid)
         {
-            MutateCategoryRef(learner, valid);
+            MutateNVQ2(learner, valid);
             if (!valid)
             {
                 foreach (var ld in learner.LearningDelivery)
@@ -132,7 +118,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateRestarts(MessageLearner learner, bool valid)
         {
-            MutateCategoryRef(learner, valid);
+            MutateNVQ2(learner, valid);
             if (!valid)
             {
                 foreach (var ld in learner.LearningDelivery)
@@ -150,7 +136,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateSteelInd(MessageLearner learner, bool valid)
         {
-            MutateCategoryRef(learner, valid);
+            MutateNVQ2(learner, valid);
             if (!valid)
             {
                 foreach (var ld in learner.LearningDelivery)
@@ -168,11 +154,6 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateGenerationOptions(GenerationOptions options)
         {
-        }
-
-        private void MutateGenerationOptionsSPecialistCollege(GenerationOptions options)
-        {
-            options.OverrideUKPRN = _dataCache.OrganisationWithLegalType(LegalOrgType.USDC).UKPRN;
         }
     }
 }
