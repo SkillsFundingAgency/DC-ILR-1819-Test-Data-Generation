@@ -44,8 +44,11 @@ namespace DCT.TestDataGenerator.Functor
             var result = new List<LearnerTypeMutator>();
             foreach (var v in _attain)
             {
-                result.Add(new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, DoMutateProgression = MutateProgression });
+                result.Add(new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, DoMutateProgression = MutateProgression, InvalidLines = 2 });
             }
+
+            result.Add(new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateProgType, DoMutateOptions = MutateGenerationOptions, DoMutateProgression = MutateProgression, ExclusionRecord = true });
+            result.Add(new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearnStartDate, DoMutateOptions = MutateGenerationOptions, DoMutateProgression = MutateProgression, ExclusionRecord = true });
 
             return result;
         }
@@ -66,6 +69,54 @@ namespace DCT.TestDataGenerator.Functor
             }
 
             _attain.RemoveAt(0);
+        }
+
+        private void MutateProgType(MessageLearner learner, bool valid)
+        {
+            _attain = new List<PriorAttainWithAppProgTypeAim>()
+            {
+                new PriorAttainWithAppProgTypeAim() { Attain = PriorAttain.OldLevel4, PTA = _cache.ApprenticeshipAims(ProgType.Traineeship).First() },
+                new PriorAttainWithAppProgTypeAim() { Attain = PriorAttain.OldLevel5, PTA = _cache.ApprenticeshipAims(ProgType.Traineeship).First() },
+                new PriorAttainWithAppProgTypeAim() { Attain = PriorAttain.Level4, PTA = _cache.ApprenticeshipAims(ProgType.Traineeship).First() },
+                new PriorAttainWithAppProgTypeAim() { Attain = PriorAttain.Level5, PTA = _cache.ApprenticeshipAims(ProgType.Traineeship).First() },
+                new PriorAttainWithAppProgTypeAim() { Attain = PriorAttain.Level6, PTA = _cache.ApprenticeshipAims(ProgType.Traineeship).First() },
+                new PriorAttainWithAppProgTypeAim() { Attain = PriorAttain.Level7, PTA = _cache.ApprenticeshipAims(ProgType.Traineeship).First() },
+                new PriorAttainWithAppProgTypeAim() { Attain = PriorAttain.OtherNotKnown, PTA = _cache.ApprenticeshipAims(ProgType.Traineeship).First() },
+                new PriorAttainWithAppProgTypeAim() { Attain = PriorAttain.NotKnown, PTA = _cache.ApprenticeshipAims(ProgType.Traineeship).First() },
+            };
+            Mutate(learner, valid);
+
+            if (!valid)
+            {
+                foreach (var ld in learner.LearningDelivery)
+                {
+                    ld.ProgType = (int)ProgType.IntermediateLevelApprenticeship;
+                }
+            }
+        }
+
+        private void MutateLearnStartDate(MessageLearner learner, bool valid)
+        {
+            _attain = new List<PriorAttainWithAppProgTypeAim>()
+            {
+                new PriorAttainWithAppProgTypeAim() { Attain = PriorAttain.OldLevel4, PTA = _cache.ApprenticeshipAims(ProgType.Traineeship).First() },
+                new PriorAttainWithAppProgTypeAim() { Attain = PriorAttain.OldLevel5, PTA = _cache.ApprenticeshipAims(ProgType.Traineeship).First() },
+                new PriorAttainWithAppProgTypeAim() { Attain = PriorAttain.Level4, PTA = _cache.ApprenticeshipAims(ProgType.Traineeship).First() },
+                new PriorAttainWithAppProgTypeAim() { Attain = PriorAttain.Level5, PTA = _cache.ApprenticeshipAims(ProgType.Traineeship).First() },
+                new PriorAttainWithAppProgTypeAim() { Attain = PriorAttain.Level6, PTA = _cache.ApprenticeshipAims(ProgType.Traineeship).First() },
+                new PriorAttainWithAppProgTypeAim() { Attain = PriorAttain.Level7, PTA = _cache.ApprenticeshipAims(ProgType.Traineeship).First() },
+                new PriorAttainWithAppProgTypeAim() { Attain = PriorAttain.OtherNotKnown, PTA = _cache.ApprenticeshipAims(ProgType.Traineeship).First() },
+                new PriorAttainWithAppProgTypeAim() { Attain = PriorAttain.NotKnown, PTA = _cache.ApprenticeshipAims(ProgType.Traineeship).First() },
+            };
+            Mutate(learner, valid);
+
+            if (!valid)
+            {
+                foreach (var ld in learner.LearningDelivery)
+                {
+                    ld.LearnStartDate = new DateTime(2016, 07, 31).AddDays(-1);
+                }
+            }
         }
 
         private static void SetApprenticeshipAims(MessageLearner learner, ApprenticeshipProgrammeTypeAim pta)
