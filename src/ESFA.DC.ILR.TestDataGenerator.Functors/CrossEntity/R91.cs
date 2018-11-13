@@ -31,7 +31,7 @@ namespace DCT.TestDataGenerator.Functor
         {
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.ESF, DoMutateLearner = Mutate, DoMutateOptions = MutatePLBGOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions, ExclusionRecord = true }
             };
         }
@@ -52,8 +52,15 @@ namespace DCT.TestDataGenerator.Functor
             options.CreateDestinationAndProgression = true;
         }
 
+        private void MutatePLBGOptions(GenerationOptions options)
+        {
+            options.EmploymentRequired = true;
+            options.OverrideUKPRN = _dataCache.OrganisationWithLegalType(LegalOrgType.PLBG).UKPRN;
+        }
+
         private void MutateOptions(GenerationOptions options)
         {
+            options.EmploymentRequired = true;
         }
     }
 }
