@@ -32,61 +32,108 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateTApprenticeship, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateTraineeship, DoMutateOptions = MutateGenerationOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateEmpStatus, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateTApprenticeship, DoMutateOptions = MutateGenerationOptionsEmpStatus },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateTraineeship, DoMutateOptions = MutateGenerationOptionsEmpStatus },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateEmpstatusNull, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateProgType, DoMutateOptions = MutateGenerationOptionsEmpStatus, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateStartDate, DoMutateOptions = MutateGenerationOptionsEmpStatus, ExclusionRecord = true },
             };
-        }
-
-        private void MutateTraineeship(MessageLearner learner, bool valid)
-        {
-            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
-            learner.LearningDelivery[0].LearnStartDate = new DateTime(2014, 07, 30);
-            Helpers.MutateApprenticeToTrainee(learner, _dataCache);
-            Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.HHS, LearnDelFAMCode.HHS_SingleWithChildren);
-            MutateEmpStatus(learner, valid);
-        }
-
-        private void MutateTApprenticeship(MessageLearner learner, bool valid)
-        {
-            MutateEmpStatus(learner, valid);
         }
 
         private void MutateEmpStatus(MessageLearner learner, bool valid)
         {
             var empstat = learner.LearnerEmploymentStatus.ToList();
+            foreach (var les in empstat)
+            {
+                les.DateEmpStatAppSpecified = true;
+                if (valid)
+                {
+                    les.DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate.AddDays(-2);
+                }
+
+                if (!valid)
+                {
+                    les.DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate.AddDays(+2);
+                }
+            }
+        }
+
+        private void MutateTraineeship(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+
+            //ProgType_13
             if (!valid)
             {
-                empstat.Add(new MessageLearnerLearnerEmploymentStatus()
-                {
-                    EmpStat = (int)EmploymentStatus.NoKnown,
-                    EmpStatSpecified = true,
-                    DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate.AddDays(-2),
-                    DateEmpStatAppSpecified = true,
-                    EmpId = 154549452,
-                    EmpIdSpecified = true,
-                    EmploymentStatusMonitoring = new MessageLearnerLearnerEmploymentStatusEmploymentStatusMonitoring[]
-                    {
-                        new MessageLearnerLearnerEmploymentStatusEmploymentStatusMonitoring()
-                        {
-                            ESMType = EmploymentStatusMonitoringType.EII.ToString(),
-                            ESMCode = (int)EmploymentStatusMonitoringCode.EmploymentIntensity16Less,
-                            ESMCodeSpecified = true
-                        },
-                        new MessageLearnerLearnerEmploymentStatusEmploymentStatusMonitoring()
-                        {
-                            ESMType = EmploymentStatusMonitoringType.LOE.ToString(),
-                            ESMCode = (int)EmploymentStatusMonitoringCode.Employed12Plus,
-                            ESMCodeSpecified = true
-                        }
-                    }
-                });
-                learner.LearnerEmploymentStatus = empstat.Where(es => es.EmpStat != 10).ToArray();
+                learner.LearningDelivery[0].LearnStartDate = new DateTime(2014, 07, 30);
+                Helpers.MutateApprenticeToTrainee(learner, _dataCache);
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.HHS, LearnDelFAMCode.HHS_SingleWithChildren);
+                MutateEmpStatus(learner, valid);
             }
+        }
+
+        private void MutateTApprenticeship(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+
+            // FundModel_05 and FundModel_08
+            if (!valid)
+            {
+                learner.LearningDelivery[0].LearnStartDate = new DateTime(2014, 07, 30);
+                MutateEmpStatus(learner, valid);
+            }
+        }
+
+        private void MutateProgType(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+            if (!valid)
+            {
+                foreach (var ld in learner.LearningDelivery)
+                {
+                    ld.AimType = (int)AimType.ProgrammeAim;
+                }
+
+                MutateEmpStatus(learner, valid);
+            }
+        }
+
+        private void MutateEmpstatusNull(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+            var empstat = learner.LearnerEmploymentStatus.ToList();
+            if (!valid)
+            {
+                learner.LearningDelivery[0].LearnStartDate = new DateTime(2014, 07, 30);
+                _options.EmploymentRequired = false;
+                foreach (var les in learner.LearnerEmploymentStatus)
+                {
+                    learner.LearnerEmploymentStatus =
+                        empstat.Where(dt => dt.DateEmpStatApp == new DateTime(2015, 06, 10)).ToArray();
+                }
+            }
+        }
+
+        private void MutateStartDate(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+            if (!valid)
+            {
+                var led = learner.LearningDelivery[0];
+                led.LearnStartDate = new DateTime(2014, 08, 01);
+            }
+
+            MutateEmpStatus(learner, valid);
+        }
+
+        private void MutateGenerationOptionsEmpStatus(GenerationOptions options)
+        {
+            options.EmploymentRequired = true;
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
         {
+            _options = options;
         }
     }
 }

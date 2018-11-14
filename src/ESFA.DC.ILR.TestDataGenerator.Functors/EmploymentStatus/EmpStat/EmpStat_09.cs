@@ -34,6 +34,7 @@ namespace DCT.TestDataGenerator.Functor
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLES, DoMutateOptions = MutateGenerationOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateTrainee, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateEmpstatusNull, DoMutateOptions = MutateOptions },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateProgType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateStartDate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
             };
@@ -61,10 +62,27 @@ namespace DCT.TestDataGenerator.Functor
         {
             if (!valid)
             {
-                var led = learner.LearningDelivery[0];
-                var les = learner.LearnerEmploymentStatus[0];
-                les.DateEmpStatAppSpecified = true;
-                les.DateEmpStatApp = learner.LearningDelivery[0].LearnStartDate.AddDays(+2);
+                foreach (var ld in learner.LearningDelivery)
+                {
+                    ld.AimType = (int)AimType.ProgrammeAim;
+                }
+
+                MutateLES(learner, valid);
+            }
+        }
+
+        private void MutateEmpstatusNull(MessageLearner learner, bool valid)
+        {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+            var empstat = learner.LearnerEmploymentStatus.ToList();
+            if (!valid)
+            {
+                _options.EmploymentRequired = false;
+                foreach (var les in learner.LearnerEmploymentStatus)
+                {
+                    learner.LearnerEmploymentStatus =
+                        empstat.Where(dt => dt.DateEmpStatApp == new DateTime(2015, 06, 10)).ToArray();
+                }
             }
         }
 
@@ -80,6 +98,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateTrainee(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
             if (!valid)
             {
                 learner.LearningDelivery[0].ProgType = 24;
@@ -96,6 +115,11 @@ namespace DCT.TestDataGenerator.Functor
         private void MutateGenerationOptions(GenerationOptions options)
         {
             options.EmploymentRequired = true;
+        }
+
+        private void MutateOptions(GenerationOptions options)
+        {
+            _options = options;
         }
     }
 }
