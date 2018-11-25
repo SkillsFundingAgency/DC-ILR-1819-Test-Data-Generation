@@ -34,16 +34,19 @@ namespace DCT.TestDataGenerator.Functor
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLES, DoMutateOptions = MutateOptionsInvalid },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLDMOlass, DoMutateOptions = MutateOptionsInvalid },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLES, DoMutateOptions = MutateOptionsAEBC, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLDMOlass, DoMutateOptions = MutateOptionsAEBC, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLDMAEB, DoMutateOptions = MutateOptionsInvalid },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateActEndDate, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateApprenticeship, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLDMAEB, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateDD07, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLES, DoMutateOptions = MutateOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLDMOlass, DoMutateOptions = MutateOptions, ExclusionRecord = true },
             };
         }
 
         private void MutateLES(MessageLearner learner, bool valid)
         {
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+
             if (valid)
             {
                 var les = learner.LearnerEmploymentStatus[0];
@@ -72,18 +75,41 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateLDMAEB(MessageLearner learner, bool valid)
         {
-            MutateLDMOlass(learner, valid);
             Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.LDM, LearnDelFAMCode.LDM_ProcuredAdultEducationBudget);
         }
 
-        private void MutateOptionsAEBC(GenerationOptions options)
+        private void MutateDD07(MessageLearner learner, bool valid)
+        {
+            if (!valid)
+            {
+                learner.LearningDelivery[0].ProgType = (int)ProgType.IntermediateLevelApprenticeship;
+                learner.LearningDelivery[0].ProgTypeSpecified = true;
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.LDM, LearnDelFAMCode.LDM_ProcuredAdultEducationBudget);
+            }
+        }
+
+        private void MutateActEndDate(MessageLearner learner, bool valid)
+        {
+            MutateLES(learner, valid);
+            if (!valid)
+            {
+                _options.CreateDestinationAndProgression = true;
+                learner.LearningDelivery[0].LearnStartDate = new DateTime(2017, 06, 01);
+                learner.LearningDelivery[0].LearnActEndDate = learner.LearningDelivery[0].LearnStartDate.AddMonths(3);
+                learner.LearningDelivery[0].LearnPlanEndDate = learner.LearningDelivery[0].LearnStartDate.AddMonths(3);
+                learner.LearningDelivery[0].LearnActEndDateSpecified = true;
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.LDM, LearnDelFAMCode.LDM_ProcuredAdultEducationBudget);
+            }
+        }
+
+        private void MutateOptions(GenerationOptions options)
         {
             options.EmploymentRequired = true;
-            options.OverrideUKPRN = _dataCache.OrganisationWithLegalType(LegalOrgType.AEBC).UKPRN;
         }
 
         private void MutateOptionsInvalid(GenerationOptions options)
         {
+            _options = options;
             options.EmploymentRequired = true;
             options.OverrideUKPRN = _dataCache.OrganisationWithLegalType(LegalOrgType.PLBG).UKPRN;
         }

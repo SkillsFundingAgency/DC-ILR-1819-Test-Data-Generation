@@ -32,7 +32,8 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutatePriorAttain, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateCommon, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutatePriorAttain, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateProgType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateDD21, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateDD28, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
@@ -63,13 +64,23 @@ namespace DCT.TestDataGenerator.Functor
             }
         }
 
-        private void MutatePriorAttain(MessageLearner learner, bool valid)
+        private void MutateCommon(MessageLearner learner, bool valid)
         {
             MutateLearner(learner, valid);
             if (!valid)
             {
                 learner.PriorAttainSpecified = true;
                 learner.PriorAttain = (int)PriorAttain.EntryLevel;
+            }
+        }
+
+        private void MutatePriorAttain(MessageLearner learner, bool valid)
+        {
+            MutateLearner(learner, valid);
+            if (!valid)
+            {
+                learner.PriorAttainSpecified = true;
+                learner.PriorAttain = (int)PriorAttain.Level2;
             }
         }
 

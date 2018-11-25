@@ -33,13 +33,12 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateApprenticeshipStandard, DoMutateOptions = MutateOptionsInvalid, InvalidLines = 2 },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateApprenticeshipStandard, DoMutateOptions = MutateOptions, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateApprenticeshipStandard, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateOlass, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateNonApprenticeshipSportingExcellence, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateNonApprenticeshipTheatre, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearnActEndDate, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateNonFundedApprenticeshipStandard, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateApprenticeshipStandard, DoMutateOptions = MutateOptions, ExclusionRecord = true }
             };
         }
 
@@ -76,7 +75,7 @@ namespace DCT.TestDataGenerator.Functor
                 ldFams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
                 {
                     LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
-                    LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_OLASS).ToString()
+                    LearnDelFAMCode = "034"
                 });
                 ld.LearningDeliveryFAM = ldFams.ToArray();
             }
@@ -115,14 +114,16 @@ namespace DCT.TestDataGenerator.Functor
         private void MutateLearnActEndDate(MessageLearner learner, bool valid)
         {
             MutateApprenticeshipStandard(learner, valid);
-            learner.LearningDelivery[0].LearnActEndDateSpecified = true;
-            learner.LearningDelivery[0].LearnActEndDate = new DateTime(2018, 08, 01).AddDays(-1);
+            foreach (var ld in learner.LearningDelivery)
+            {
+                ld.LearnActEndDateSpecified = true;
+                ld.LearnActEndDate = new DateTime(2018, 08, 01).AddDays(-1);
+            }
         }
 
         private void MutateOptions(GenerationOptions options)
         {
             options.EmploymentRequired = true;
-            options.OverrideUKPRN = _dataCache.OrganisationWithLegalType(LegalOrgType.AEBC).UKPRN;
         }
 
         private void MutateOptionsInvalid(GenerationOptions options)

@@ -38,6 +38,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateLearner(MessageLearner learner, bool valid)
         {
+            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-20).AddMonths(-3);
             if (valid)
             {
                 learner.LearningDelivery[0].SWSupAimId = Guid.NewGuid().ToString();

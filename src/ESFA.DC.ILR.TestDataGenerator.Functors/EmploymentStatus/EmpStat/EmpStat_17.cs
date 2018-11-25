@@ -121,7 +121,7 @@ namespace DCT.TestDataGenerator.Functor
             {
                 foreach (var ld in learner.LearningDelivery)
                 {
-                    ld.LearnStartDate = DateTime.Parse("2016-SEP-01").AddDays(-1);
+                    ld.LearnStartDate = DateTime.Parse("2016-AUG-01").AddDays(-1);
                     ld.LearnPlanEndDate = ld.LearnStartDate.AddDays(45);
                 }
             }

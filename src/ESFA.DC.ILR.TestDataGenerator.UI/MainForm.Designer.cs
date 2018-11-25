@@ -63,7 +63,7 @@
             this.uiUKPRN.Name = "uiUKPRN";
             this.uiUKPRN.Size = new System.Drawing.Size(100, 20);
             this.uiUKPRN.TabIndex = 2;
-            this.uiUKPRN.Text = "10033670";
+            this.uiUKPRN.Text = "10036143";
             this.uiUKPRN.TextChanged += new System.EventHandler(this.uiUKPRN_TextChanged);
             // 
             // uiOuputFile

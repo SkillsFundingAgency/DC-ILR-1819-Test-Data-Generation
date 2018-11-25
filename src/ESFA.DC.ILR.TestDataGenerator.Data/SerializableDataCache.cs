@@ -10,7 +10,7 @@ namespace DCT.TestDataGenerator
     public class SerializableDataCache
     {
         const int _MaximumLearnRefLength = 12;
-        const string _ESFContractNumber = "ESF-2228";
+        const string _ESFContractNumber = "ESF-2236";
 
         public Dictionary<ProgType, ApprenticeshipProgrammeTypeAim> _apprenticeShipAims;
         public List<string> _gcseGrades;
