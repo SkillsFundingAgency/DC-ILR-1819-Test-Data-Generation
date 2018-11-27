@@ -19,7 +19,7 @@
     <UKPRN>10033670</UKPRN>
   </LearningProvider>
   <Learner>
-    <LearnRefNumber>49LLearnRefMoreThan12Chars</LearnRefNumber>
+    <LearnRefNumber>L49LearnRefMoreThan12Chars</LearnRefNumber>
     <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
@@ -2782,7 +2782,7 @@
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>L133ProgTyp</LearnRefNumber>
+    <LearnRefNumber>L133PwayCod</LearnRefNumber>
     <ULN>9900000705</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
@@ -2829,9 +2829,9 @@
       <LearnStartDate>2017-10-14</LearnStartDate>
       <LearnPlanEndDate>2019-07-31</LearnPlanEndDate>
       <FundModel>36</FundModel>
-      <ProgType>2</ProgType>
+      <ProgType>211111</ProgType>
       <FworkCode>420</FworkCode>
-      <PwayCode>1111</PwayCode>
+      <PwayCode>1</PwayCode>
       <DelLocPostCode>ZZ99 9ZZ</DelLocPostCode>
       <CompStatus>1</CompStatus>
       <LearningDeliveryFAM>
@@ -3468,7 +3468,7 @@
     </LearningDelivery>
   </Learner>
   <Learner>
-    <LearnRefNumber>L144Withdraw</LearnRefNumber>
+    <LearnRefNumber>L144Withdra</LearnRefNumber>
     <ULN>9900000004</ULN>
     <FamilyName>Sméth</FamilyName>
     <GivenNames>Mary Jane</GivenNames>
@@ -5383,7 +5383,7 @@
         <YEARSTU>1</YEARSTU>
         <MSTUFEE>1</MSTUFEE>
         <PCFLDCS>14599</PCFLDCS>
-        <SPECFEE>91</SPECFEE>
+        <SPECFEE>9</SPECFEE>
         <NETFEE>0</NETFEE>
         <GROSSFEE>1</GROSSFEE>
         <DOMICILE>ZZ</DOMICILE>
@@ -5586,7 +5586,7 @@
         <YEARSTU>1</YEARSTU>
         <MSTUFEE>1</MSTUFEE>
         <PCFLDCS>100</PCFLDCS>
-        <SPECFEE>09</SPECFEE>
+        <SPECFEE>90</SPECFEE>
         <NETFEE>0</NETFEE>
         <GROSSFEE>1</GROSSFEE>
         <DOMICILE>ZZ</DOMICILE>
