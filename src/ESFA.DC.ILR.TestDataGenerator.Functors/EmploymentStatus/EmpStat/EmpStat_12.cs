@@ -32,42 +32,48 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateProgType, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearner, DoMutateOptions = MutateGenerationOptions },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateProgType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLDMType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
-        private void MutateProgType(MessageLearner learner, bool valid)
+        private void MutateLearner(MessageLearner learner, bool valid)
         {
-            learner.LearningDelivery[0].AimType = 1;
+            learner.LearnerEmploymentStatus[0].EmpStatSpecified = true;
+            if (valid)
+            {
+                learner.LearnerEmploymentStatus[0].EmpStat = 10;
+            }
+
             if (!valid)
             {
-                var ld1Fams = learner.LearningDelivery[0].LearningDeliveryFAM.ToList();
-                ApprenticeshipProgrammeTypeAim pta = _dataCache.ApprenticeshipAims(ProgType.ApprenticeshipStandard).First();
-                learner.LearningDelivery[0].ProgType = 23;
-                learner.LearningDelivery[0].ProgTypeSpecified = true;
-                learner.LearnerEmploymentStatus[0].EmpStatSpecified = true;
                 learner.LearnerEmploymentStatus[0].EmpStat = 11;
+            }
+        }
+
+        private void MutateProgType(MessageLearner learner, bool valid)
+        {
+            MutateLearner(learner, valid);
+            if (!valid)
+            {
+                learner.LearningDelivery[0].ProgTypeSpecified = false;
             }
         }
 
         private void MutateLDMType(MessageLearner learner, bool valid)
         {
-            learner.LearningDelivery[0].AimType = 1;
-
             if (!valid)
             {
-                var led = learner.LearningDelivery[0];
-                var ldfams = led.LearningDeliveryFAM.ToList();
+                var ld = learner.LearningDelivery[0];
+                var ldfams = ld.LearningDeliveryFAM.ToList();
                 ldfams.Add(new MessageLearnerLearningDeliveryLearningDeliveryFAM()
                 {
                     LearnDelFAMType = LearnDelFAMType.LDM.ToString(),
                     LearnDelFAMCode = ((int)LearnDelFAMCode.LDM_NonApprenticeshipSeaFishing).ToString(),
                 });
 
-                led.LearningDeliveryFAM = ldfams.ToArray();
-                learner.LearningDelivery[0].ProgType = 25;
-                learner.LearningDelivery[0].ProgTypeSpecified = true;
+                ld.LearningDeliveryFAM = ldfams.ToArray();
                 learner.LearnerEmploymentStatus[0].EmpStatSpecified = true;
                 learner.LearnerEmploymentStatus[0].EmpStat = 11;
             }

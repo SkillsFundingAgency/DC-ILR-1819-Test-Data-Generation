@@ -521,7 +521,6 @@ namespace DCT.TestDataGenerator
 //                ld.LearnAimRef = "60021238";
                 ld.LearnAimRef = "60133533";
                 ld.AimType = (long)AimType.StandAlone;
-
                 ld.AimSeqNumber = i + 1;
                 ld.AimSeqNumberSpecified = true;
                 ld.LearnStartDate = DateTime.Parse(DCT.TestDataGenerator.Helpers.ValueOrFunction("[AY|OCT|14]"));
@@ -537,6 +536,7 @@ namespace DCT.TestDataGenerator
                 ld.DelLocPostCode = "ZZ99 9ZZ";
                 ld.CompStatus = (long)CompStatus.Continuing;
                 ld.CompStatusSpecified = true;
+                ld.SWSupAimId = Guid.NewGuid().ToString();
 
                 if (Options.LD.IncludeContract)
                 {
