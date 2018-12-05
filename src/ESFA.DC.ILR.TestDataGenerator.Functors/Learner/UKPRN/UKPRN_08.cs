@@ -33,8 +33,9 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateALB, DoMutateOptions = MutateOptionsInvalid },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateLearnActEndDate, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateALB, DoMutateOptions = MutateOptionsALLB, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateALB, DoMutateOptions = MutateOptionsALLB },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateALB, DoMutateOptions = MutateOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = MutateLearnActEndDate, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true }
             };
         }
 
@@ -74,6 +75,11 @@ namespace DCT.TestDataGenerator.Functor
         {
             options.EmploymentRequired = true;
             options.OverrideUKPRN = _dataCache.OrganisationWithLegalType(LegalOrgType.ALLB).UKPRN;
+        }
+
+        private void MutateOptions(GenerationOptions options)
+        {
+            options.EmploymentRequired = true;
         }
 
         private void MutateOptionsInvalid(GenerationOptions options)
