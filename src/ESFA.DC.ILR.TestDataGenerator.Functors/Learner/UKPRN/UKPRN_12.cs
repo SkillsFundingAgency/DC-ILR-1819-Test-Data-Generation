@@ -32,8 +32,8 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateOptionsInvalid, InvalidLines = 2 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = Mutate, DoMutateOptions = MutateOptionsInvalid, InvalidLines = 2 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLearnStartDate, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Adult, DoMutateLearner = MutateLearnActEndDate, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
             };
@@ -56,6 +56,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateLearnStartDate(MessageLearner learner, bool valid)
         {
+            Mutate(learner, valid);
             foreach (var ld in learner.LearningDelivery)
             {
                 ld.LearnStartDate = new DateTime(2017, 11, 01).AddDays(-1);
@@ -64,6 +65,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateLearnActEndDate(MessageLearner learner, bool valid)
         {
+            Mutate(learner, valid);
             learner.LearningDelivery[0].LearnStartDate = new DateTime(2017, 11, 01).AddDays(1);
             learner.LearningDelivery[0].LearnActEndDateSpecified = true;
             learner.LearningDelivery[0].LearnActEndDate = new DateTime(2018, 08, 01).AddDays(-1);

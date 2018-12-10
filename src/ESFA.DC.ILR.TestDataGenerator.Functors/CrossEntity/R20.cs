@@ -32,8 +32,9 @@ namespace DCT.TestDataGenerator.Functor
             return new List<LearnerTypeMutator>()
             {
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateProgType, DoMutateOptions = MutateOptions, ExclusionRecord = true },
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.NonFunded, DoMutateLearner = Mutate, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateApprenticeshipStandard, DoMutateOptions = MutateOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateProgType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateAimType, DoMutateOptions = MutateGenerationOptions, ExclusionRecord = true }
             };
         }
 
@@ -52,20 +53,36 @@ namespace DCT.TestDataGenerator.Functor
             }
         }
 
-        private void MutateProgType(MessageLearner learner, bool valid)
+        private void MutateApprenticeshipStandard(MessageLearner learner, bool valid)
         {
-            learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
+            Mutate(learner, valid);
             if (!valid)
             {
-                learner.LearningDelivery[0].LearnAimRef = "60005105";
-                learner.LearningDelivery[0].AimTypeSpecified = true;
-                learner.LearningDelivery[0].AimType = 3;
                 learner.LearningDelivery[0].ProgTypeSpecified = true;
                 learner.LearningDelivery[0].ProgType = (int)ProgType.ApprenticeshipStandard;
-                learner.LearningDelivery[0].FworkCodeSpecified = true;
-                learner.LearningDelivery[0].FworkCode = 403;
-                learner.LearningDelivery[0].LearnActEndDateSpecified = true;
-                learner.LearningDelivery[0].LearnActEndDate = new DateTime(2017, 11, 30);
+            }
+        }
+
+        private void MutateProgType(MessageLearner learner, bool valid)
+        {
+            Mutate(learner, valid);
+            if (!valid)
+            {
+                learner.LearningDelivery[0].ProgTypeSpecified = false;
+            }
+        }
+
+        private void MutateAimType(MessageLearner learner, bool valid)
+        {
+            Mutate(learner, valid);
+            if (!valid)
+            {
+                learner.LearningDelivery[1].LearnAimRef = "60005105";
+                learner.LearningDelivery[1].AimTypeSpecified = true;
+                learner.LearningDelivery[1].AimType = 3;
+                learner.LearningDelivery[1].FworkCodeSpecified = true;
+                learner.LearningDelivery[1].FworkCode = 403;
+                learner.LearningDelivery[1].LearnStartDate = new DateTime(2017, 11, 30).AddDays(1);
             }
         }
 

@@ -32,10 +32,11 @@ namespace DCT.TestDataGenerator.Functor
             _dataCache = cache;
             return new List<LearnerTypeMutator>()
             {
-                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate, DoMutateOptions = MutateOptionsInvalid, InvalidLines = 2 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate, DoMutateOptions = MutateOptions, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = Mutate, DoMutateOptions = MutateOptionsInvalid, InvalidLines = 2 },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearnStartDate, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
                 new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateLearnActEndDate, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
+                new LearnerTypeMutator() { LearnerType = LearnerTypeRequired.Apprenticeships, DoMutateLearner = MutateFam, DoMutateOptions = MutateOptionsInvalid, ExclusionRecord = true },
             };
         }
 
@@ -56,6 +57,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateLearnStartDate(MessageLearner learner, bool valid)
         {
+            Mutate(learner, valid);
             foreach (var ld in learner.LearningDelivery)
             {
                 ld.LearnStartDate = new DateTime(2017, 05, 01).AddDays(-1);
@@ -64,8 +66,23 @@ namespace DCT.TestDataGenerator.Functor
 
         private void MutateLearnActEndDate(MessageLearner learner, bool valid)
         {
-            learner.LearningDelivery[0].LearnActEndDateSpecified = true;
-            learner.LearningDelivery[0].LearnActEndDate = new DateTime(2018, 08, 01).AddDays(-1);
+            Mutate(learner, valid);
+            foreach (var ld in learner.LearningDelivery)
+            {
+                ld.LearnActEndDateSpecified = true;
+                ld.LearnActEndDate = DateTime.Now.AddYears(-1).AddDays(-2);
+            }
+        }
+
+        private void MutateFam(MessageLearner learner, bool valid)
+        {
+            Mutate(learner, valid);
+            foreach (var ld in learner.LearningDelivery)
+            {
+                var ldFams = ld.LearningDeliveryFAM.ToList();
+                ld.LearningDeliveryFAM =
+                    ldFams.Where(l => l.LearnDelFAMType != LearnDelFAMType.ACT.ToString()).ToArray();
+            }
         }
 
         private void MutateOptions(GenerationOptions options)

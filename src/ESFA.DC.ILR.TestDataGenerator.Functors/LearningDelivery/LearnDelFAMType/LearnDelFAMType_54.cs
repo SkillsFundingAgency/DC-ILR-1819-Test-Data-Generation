@@ -39,10 +39,10 @@ namespace DCT.TestDataGenerator.Functor
         private void MutateEEF(MessageLearner learner, bool valid)
         {
             learner.DateOfBirth = learner.LearningDelivery[0].LearnStartDate.AddYears(-19).AddMonths(-3);
-            Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.EEF, LearnDelFAMCode.EEF_Apprenticeship_19);
 
-            if (valid)
+            if (!valid)
             {
+                Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.EEF, LearnDelFAMCode.EEF_Apprenticeship_19);
                 Helpers.RemoveLearningDeliveryFAM(learner, LearnDelFAMType.FFI);
                 Helpers.AddLearningDeliveryFAM(learner, LearnDelFAMType.FFI, LearnDelFAMCode.FFI_Fully);
             }

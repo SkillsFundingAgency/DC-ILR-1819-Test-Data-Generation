@@ -38,6 +38,7 @@ namespace DCT.TestDataGenerator.Functor
 
         private void Mutate(MessageLearner learner, bool valid)
         {
+            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact19, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
             learner.LLDDHealthProb = (int)LLDDHealthProb.LearningDifficultyOrHealthProblem;
             learner.PlanLearnHours = 9;
             if (learner.LearningDelivery[0].FundModel == (int)FundModel.NonFunded)
@@ -53,16 +54,16 @@ namespace DCT.TestDataGenerator.Functor
 
         private void Mutate25(MessageLearner learner, bool valid)
         {
-            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact25, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
             Mutate(learner, valid);
+            Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact25, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
         }
 
         private void Mutate24WithLd3(MessageLearner learner, bool valid)
         {
+            Mutate(learner, valid);
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Exact25, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
             learner.LearningDelivery[1].LearnStartDate = learner.LearningDelivery[1].LearnStartDate.AddDays(-30);
             Helpers.MutateDOB(learner, valid, Helpers.AgeRequired.Less25, Helpers.BasedOn.LearnDelStart, Helpers.MakeOlderOrYoungerWhenInvalid.NoChange);
-            Mutate(learner, valid);
         }
 
         private void MutateGenerationOptions(GenerationOptions options)
