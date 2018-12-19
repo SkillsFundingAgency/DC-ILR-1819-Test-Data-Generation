@@ -110,7 +110,7 @@ namespace ESFA.DC.ILR._1819.Anonymiser.UI
                     {
                         if( ld.LearnStartDate < Aug13 )
                         {
-                            Debugger.Break();
+                            AddToLDCount("StartedBeforeAug13", ldCount);
                         }
                         AddToLDCount(ld.FundModel.ToString(), ldCount);
                         if( ld.FundModel == 35 && ld.LearnAimRef == "ZPROG001")
